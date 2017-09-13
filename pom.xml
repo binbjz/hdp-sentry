@@ -49,6 +49,7 @@
                     </testExcludes>
                 </configuration>
             </plugin>
+            <!-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -84,12 +85,13 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>**/UtilTool</mainClass>
+                            <mainClass>**/UtilToolInit</mainClass>
                             <addClasspath>false</addClasspath>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
+           <-->
         </plugins>
     </build>
 
