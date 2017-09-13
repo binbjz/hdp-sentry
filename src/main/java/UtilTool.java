@@ -1,3 +1,5 @@
+import com.sun.tools.internal.jxc.apt.Const;
+
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -7,20 +9,32 @@ import java.util.regex.*;
 public class UtilTool {
     public static void main(String[] args) {
         // execute command
-        String cmds = "ifconfig bond0 && ps aux | head";
-        String[] callCmd = {"/bin/bash", "-c", cmds};
-        System.out.println("exit code:\n" + execCommand(callCmd).get(0));
-        System.out.println();
-        System.out.println("command result:\n" + execCommand(callCmd).get(1));
-        System.out.println();
-
+//        String cmds = "ifconfig bond0 && ps aux | head";
+//        String[] callCmd = {"/bin/bash", "-c", cmds};
+//        System.out.println("exit code:\n" + execCommand(callCmd).get(0));
+//        System.out.println();
+//        System.out.println("command result:\n" + execCommand(callCmd).get(1));
+//        System.out.println();
+//
         // execute script
-        String scripts = "/opt/meituan/qa_test/sentry_shell.sh";
 //        String[] callScript = {"/bin/bash", scripts};
+        String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
         String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
         System.out.println("exit code:\n" + execCommand(callScript).get(0));
         System.out.println();
         System.out.println("command result:\n" + execCommand(callScript).get(1));
+
+
+        //System.out.println("======>>");
+        //String scripts2 = "/Users/zhaobin/Downloads/test.sh";
+        //String[] callScript2 = {"/bin/bash", "-c", "source" + " " + scripts2};
+        //System.out.println(ConstantSentry.workspacePath);
+        //String input = execCommand(callScript2).get(1).toString();
+        //System.out.println(ConstantSentry.resourcePath);
+        //String filePath2 = ConstantSentry.resourcePath + File.separator + "results.txt";
+        //writeAllBytes(filePath2, input);
+        //System.out.println("======>>");
+        //System.out.println(readFileByLine(filePath2));
     }
 
     /**
@@ -141,4 +155,3 @@ public class UtilTool {
         return str;
     }
 }
-
