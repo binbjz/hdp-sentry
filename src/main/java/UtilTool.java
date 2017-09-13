@@ -1,33 +1,27 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.regex.*;
 
 
 public class UtilTool {
     public static void main(String[] args) {
-//        String[] cmd = {"/bin/bash", "-c", "ifconfig en0 | grep -w inet"};
-        String[] cmd = {"/bin/bash", "-c", "ifconfig en0"};
-        System.out.println("exit code:\n" + execCommand(cmd).get(0));
+        // execute command
+        String cmds = "ifconfig bond0 && ps aux | head";
+        String[] callCmd = {"/bin/bash", "-c", cmds};
+        System.out.println("exit code:\n" + execCommand(callCmd).get(0));
         System.out.println();
-        System.out.println("command result:\n" + execCommand(cmd).get(1));
+        System.out.println("command result:\n" + execCommand(callCmd).get(1));
+        System.out.println();
 
-        System.out.println("======>>");
-        String sourcesPath = Paths.get(".").toAbsolutePath().normalize().toString() + File.separator + "resources";
-        String filePath = sourcesPath + File.separator + "ifconfig_en0.txt";
-        System.out.println(readAllBytes(filePath));
-
-        System.out.println("======>>");
-        String filePath2 = sourcesPath + File.separator + "ifconfig_en0_new.txt";
-        System.out.println(filePath2);
-        writeAllBytes(filePath2, execCommand(cmd).get(1).toString());
+        // execute script
+        String scripts = "/opt/meituan/qa_test/sentry_shell.sh";
+//        String[] callScript = {"/bin/bash", scripts};
+        String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
+        System.out.println("exit code:\n" + execCommand(callScript).get(0));
+        System.out.println();
+        System.out.println("command result:\n" + execCommand(callScript).get(1));
     }
-
 
     /**
      * This method demonstrates exeCommand().
@@ -55,6 +49,10 @@ public class UtilTool {
         try {
             if (reader != null) {
                 while ((line = reader.readLine()) != null) {
+                    line = filterResults(line);
+                    if (line == null || line.length() == 0) {
+                        continue;
+                    }
                     stringBuilder.append(line).append("\n");
                 }
             }
@@ -76,7 +74,6 @@ public class UtilTool {
         return map;
     }
 
-
     /**
      * This method demonstrates readAllBytes().
      * It will return file results with string type.
@@ -93,7 +90,6 @@ public class UtilTool {
         return content;
     }
 
-
     /**
      * This method demonstrates writeAllBytes().
      * It will write string type object into file.
@@ -106,4 +102,43 @@ public class UtilTool {
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method demonstrates readFileByLine().
+     * It will read file by line.
+     */
+    public static String readFileByLine(String filename) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                stringBuilder.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.substring(0, stringBuilder.length() - 1);
+    }
+
+    /**
+     * This method will filter strings that contain time
+     * example: "17/09/13 14:39:55 INFO xxxxxx" will be replaced with an empty string
+     */
+    public static String filterResults(String str) {
+        String REGEX = "(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}:\\d{2}";
+        String REGEX2 = "Just a placeholder";
+        String REPLACE = "";
+        // String REGEX2 = "([a-zA-Z]+(:?)\\s+(!?))+";
+        //String REPLACE = "<******>";
+        String prefixes = REGEX + "|" + REGEX2;
+        String REGEXS = "(" + prefixes + ")";
+        Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(str);
+        if (m.find()) {
+            str = REPLACE;
+        }
+        return str;
+    }
 }
+

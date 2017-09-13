@@ -46,9 +46,9 @@ public class TestServerAll {
 */
 
         String[] cmd = {"/opt/meituan/versions/mthive-1.2.1-package.sentry2/bin/hive", "-e 'use default;'"};
-        System.out.println("exit code:\n" + UtilTool.execCommand(cmd).get(0));
+        //System.out.println("exit code:\n" + UtilTool.execCommand(cmd).get(0));
         System.out.println();
-        System.out.println("command result:\n" + UtilTool.execCommand(cmd).get(1));
+        //System.out.println("command result:\n" + UtilTool.execCommand(cmd).get(1));
 
     }
 
