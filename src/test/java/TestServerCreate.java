@@ -1630,6 +1630,7 @@ DROP DATABASE test_db;
     bin/hadoop command [genericOptions] [commandOptions]
     */
 
+/*
 hdfs dfs -appendToFile
     hdfs dfs -cat
     hdfs dfs -checksum
@@ -1670,6 +1671,7 @@ hdfs dfs -appendToFile
     hdfs dfs -touchz <path> ...]
     hdfs dfs -truncate [-w] <length> <path> ...]
     hdfs dfs -usage [cmd ...]]
+    */
 
 /*
 ./hdfs dfs
