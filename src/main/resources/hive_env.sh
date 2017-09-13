@@ -18,4 +18,4 @@ source /etc/profile
 
 #keytab authentication
 source /opt/meituan/hadoop/bin/hadoop_user_login.sh $USERNAME
-${HIVE_HOME}/bin/hive
+#${HIVE_HOME}/bin/hive
