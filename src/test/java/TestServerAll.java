@@ -136,8 +136,8 @@ SHOW DATABASES LIKE 'test_db';
 
 /*
 CREATE DATABASE test_db WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+DESCRIBE DATABASE EXTENDED test_db;
 ALTER DATABASE test_db SET DBPROPERTIES ('edited-by' = 'hadoop-new-qa');
-DESCRIBE DATABASE test_db;
 DESCRIBE DATABASE EXTENDED test_db;
 DROP DATABASE test_db;
 */
@@ -219,7 +219,7 @@ USE test_db;
 CREATE TABLE test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
 CREATE VIEW test_view AS SELECT col1, col2, col3, col4, col5, col6, col7, col8, col9 FROM test_tbl;
 ALTER VIEW test_view SET TBLPROPERTIES ('created_at' = '20170905');
-DESCRIBE test_view;
+DESCRIBE EXTENDED test_view;
 SHOW CREATE TABLE test_view;
 DROP VIEW test_view;
 DROP TABLE test_tbl;
@@ -297,7 +297,7 @@ DROP DATABASE test_db CASCADE;
      * CREATE TABLE IF NOT EXISTS test_db.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
      * PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
      *
-     * ALTER TABLE test_db.log_messages ADD PARTITION(year = 2012, month = 1, day = 2) LOCATION 'viewfs://hadoop-meituan/user/hive/warehouse/test_db.db/log_messages/2012/01/02';
+     * ALTER TABLE test_db.log_messages ADD PARTITION(year = 2012, month = 1, day = 2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/log_messages/2012/01/02';
      * ALTER TABLE log_messages PARTITION (year = 2011, month = 1, day = 1) SET FILEFORMAT SEQUENCEFILE;
      * SHOW CREATE TABLE test_db.log_messages;
      * SHOW PARTITIONS test_db.log_messages;
@@ -306,7 +306,7 @@ DROP DATABASE test_db CASCADE;
      *
      *
      * CREATE EXTERNAL TABLE IF NOT EXISTS test_db.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
-     * ALTER TABLE test_db.log_messages_external ADD PARTITION(year = 2012, month = 1, day = 2) LOCATION 'viewfs://hadoop-meituan/user/hive/warehouse/test_db.db/log_messages_external/2012/01/02';
+     * ALTER TABLE test_db.log_messages_external ADD PARTITION(year = 2012, month = 1, day = 2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/log_messages_external/2012/01/02';
      * DESCRIBE EXTENDED test_db.log_messages_external;
      * DESCRIBE test_db.log_messages_external;
      *
@@ -362,7 +362,7 @@ DROP DATABASE test_db CASCADE;
      * ALTER TABLE employees PARTITION(country='CHN',STATE='BJ') RENAME TO PARTITION(country='CHINA',STATE='BEIJING');
      */
 
-
+    //FAILED ALTER TABLE PARTITION
     @Test
     /**
      *
@@ -397,9 +397,9 @@ DROP DATABASE test_db CASCADE;
      * DESC FORMATTED test_db.log_messages partition (year = 2011, month = 1, day =2);
      * DESC FORMATTED test_db.log_messages partition (year = 2011, month = 2, day =1);
      * --使用hadoop fs -rmr 命令删除分区的HDFS副本：
-     * dfs rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=1;
-     * dfs rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=2;
-     * dfs rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=2/day=1;
+     * dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=1;
+     * dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=2;
+     * dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=2/day=1;
      */
     public void testAlterDescribeTableWithDFS(){
         Assert.assertEquals("hello", "hello");
@@ -412,7 +412,7 @@ CREATE DATABASE test_db;
 CREATE TABLE IF NOT EXISTS test_db.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 -- 命令行结合SQL执行
-ALTER TABLE ..SET LOCATION
+-- ALTER TABLE ..SET LOCATION
 ALTER TABLE test_db.log_messages ADD PARTITION (year = 2011, month = 1, day = 1);
 ALTER TABLE test_db.log_messages ADD PARTITION (year = 2011, month = 1, day = 2);
 ALTER TABLE test_db.log_messages ADD PARTITION (year = 2011, month = 2, day = 1);
@@ -429,8 +429,8 @@ dfs -mkdir /user/hive/warehouse/test_db.db/log_messages_new/year=2011/month=2/da
 --hadoop distcp 命令：
 --hadoop distcp /user/hive/warehouse/test_db.db/log_messages/year=2011/month=2/day=1 /user/hive/warehouse/test_db.db/log_messages_new/year=2011/month=2/day=1;
 --更改TABLE以将分区指向新位置：
-ALTER TABLE test_db.log_messages PARTITION (year = 2011, month = 1, day = 1) SET LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/log_messages_new/year=2011/month=1/day=1';
-ALTER TABLE test_db.log_messages PARTITION (year = 2011, month = 1, day = 2) SET LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/log_messages_new/year=2011/month=1/day=2';
+ALTER TABLE test_db.log_messages PARTITION (year = 2011, month = 2, day = 1) SET LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/log_messages_new/year=2011/month=2/day=1';
+
 --获取table的真实hdfs路径
 DESC FORMATTED test_db.log_messages;
 --获取partition的真实hdfs路径
@@ -438,9 +438,11 @@ DESC FORMATTED test_db.log_messages partition (year = 2011, month = 1, day =1);
 DESC FORMATTED test_db.log_messages partition (year = 2011, month = 1, day =2);
 DESC FORMATTED test_db.log_messages partition (year = 2011, month = 2, day =1);
 --使用hadoop fs -rmr 命令删除分区的HDFS副本：
-dfs rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=1;
-dfs rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=2;
-dfs rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=2/day=1;
+dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=1;
+dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=2;
+dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=2/day=1;
+DROP TABLE test_db.log_messages;
+DROP DATABASE test_db;
 */
 
     //PASS
@@ -450,19 +452,20 @@ dfs rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=2/day=1;
      *  ALTER TABLE .. DROP PARTITION
      *  ALTER TABLE .. DROP PARTITION
      *
-     * CREATE DATABASE test_db;
+     *  CREATE DATABASE test_db;
      *  CREATE TABLE test_db.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
-     *  ALTER TABLE supply ADD PARTITION (day = 20110102);
-     *  ALTER TABLE supply ADD PARTITION (day = 20110103)
-     *  ALTER TABLE supply ADD PARTITION (day = 20110104);
-     *  SHOW PARTITIONS supply;
+     *  ALTER TABLE test_db.supply ADD PARTITION (day = 20110102);
+     *  ALTER TABLE test_db.supply ADD PARTITION (day = 20110103);
+     *  ALTER TABLE test_db.supply ADD PARTITION (day = 20110104);
+     *  SHOW PARTITIONS test_db.supply;
      *  SET hive.cli.print.header=true;
-     *  SELECT id, part, quantity FROM supply WHERE day >= 20110102 AND day < 20110103 AND quantity < 4 ;
-     *  ALTER TABLE supply DROP PARTITION (day = 20110102);
-     *  ALTER TABLE supply DROP PARTITION (day = 20110103)
-     *  ALTER TABLE supply DROP PARTITION (day = 20110104);
-     *  SHOW PARTITIONS supply;
-     *  DROP TABLE supply；
+     *  SELECT id, part, quantity FROM test_db.supply WHERE day >= 20110102 AND day < 20110103 AND quantity < 4 ;
+     *  ALTER TABLE test_db.supply DROP PARTITION (day = 20110102);
+     *  ALTER TABLE test_db.supply DROP PARTITION (day = 20110103);
+     *  ALTER TABLE test_db.supply DROP PARTITION (day = 20110104);
+     *  SHOW PARTITIONS test_db.supply;
+     *  DROP TABLE test_db.supply;
+     *  DROP DATABASE test_db;
      */
     public void testAddDropShowPartition(){
         Assert.assertEquals("hello", "hello");
@@ -475,17 +478,18 @@ ALTER TABLE .. DROP PARTITION
 
 CREATE DATABASE test_db;
 CREATE TABLE test_db.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
-ALTER TABLE supply ADD PARTITION (day = 20110102);
-ALTER TABLE supply ADD PARTITION (day = 20110103)
-ALTER TABLE supply ADD PARTITION (day = 20110104);
-SHOW PARTITIONS supply;
+ALTER TABLE test_db.supply ADD PARTITION (day = 20110102);
+ALTER TABLE test_db.supply ADD PARTITION (day = 20110103);
+ALTER TABLE test_db.supply ADD PARTITION (day = 20110104);
+SHOW PARTITIONS test_db.supply;
 SET hive.cli.print.header=true;
-SELECT id, part, quantity FROM supply WHERE day >= 20110102 AND day < 20110103 AND quantity < 4 ;
-ALTER TABLE supply DROP PARTITION (day = 20110102);
-ALTER TABLE supply DROP PARTITION (day = 20110103)
-ALTER TABLE supply DROP PARTITION (day = 20110104);
-SHOW PARTITIONS supply;
-DROP TABLE supply；
+SELECT id, part, quantity FROM test_db.supply WHERE day >= 20110102 AND day < 20110103 AND quantity < 4 ;
+ALTER TABLE test_db.supply DROP PARTITION (day = 20110102);
+ALTER TABLE test_db.supply DROP PARTITION (day = 20110103);
+ALTER TABLE test_db.supply DROP PARTITION (day = 20110104);
+SHOW PARTITIONS test_db.supply;
+DROP TABLE test_db.supply;
+DROP DATABASE test_db;
 */
 
     /**
@@ -550,23 +554,27 @@ DROP TABLE supply；
      * SELECT col1, col2, col3, col4, col5, col6, col7, col8, col9 FROM test_view;
      */
 
-
+    //PASS 偶尔失败 需要把用户加入各个节点的ADDUSER
     @Test
     /**
      * export FILEPATH=/opt/meituan/qa_test/testfile
-     * dfs -cat $FILEPATH/afile.txt;
-     * twelve 12
-     * twelve 1
-     * eleven 11
-     * eleven 10
+     * cat $FILEPATH/afile.txt;
+     * twelve&12
+     * twelve&1
+     * eleven&11
+     * eleven&10
      *
-     * CREATE TABLE collecttest (str STRING, countVal INT)
-     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '09' LINES TERMINATED BY '10';
-     * LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE collecttest;
+     * CREATE DATABASE test_db;
+     * CREATE TABLE test_db.collecttest (str STRING, countVal INT)
+     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+     * LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE test_db.collecttest;
      *
-     * SELECT str, concat_ws( ',' , collect(cast(countVal AS STRING))) FROM collecttest GROUP BY str;
+     * SELECT str, concat_ws( ',' , collect(cast(countVal AS STRING))) FROM test_db.collecttest GROUP BY str;
      * eleven 11,10
      * twelve 12,1
+     *
+     * DROP TABLE test_db.collecttest
+     * DROP DATABASE test_db;
      */
     public void testLoadDataLocal(){
         Assert.assertEquals("hello", "hello");
@@ -576,17 +584,23 @@ DROP TABLE supply；
 
 /*
 export FILEPATH=/opt/meituan/qa_test/testfile
-dfs -cat $FILEPATH/afile.txt;
-twelve 12
-twelve 1
-eleven 11
-eleven 10
+cat $FILEPATH/afile.txt;
+twelve&12
+twelve&1
+eleven&11
+eleven&10
 
-CREATE TABLE collecttest (str STRING, countVal INT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '09' LINES TERMINATED BY '10';
-LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE collecttest;
+CREATE DATABASE test_db;
+CREATE TABLE test_db.collecttest (str STRING, countVal INT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE test_db.collecttest;
 
-SELECT str, concat_ws( ',' , collect(cast(countVal AS STRING))) FROM collecttest GROUP BY str;
+SELECT str, concat_ws( ',' , collect_set(cast(countVal AS STRING))) as val FROM test_db.collecttest GROUP BY str;
+
+SELECT str, count(*) as val FROM test_db.collecttest GROUP BY str;
+SELECT count(*) FROM test_db.collecttest;
+
+DROP DATABASE test_db CASCADE;
 */
 
 /*
@@ -601,11 +615,12 @@ Failed with exception Unable to move source file:/opt/meituan/qa_test/testfile/a
 
 
 
-    //FAILED ? MAPREDUCE not work ???
+    //PASS
+    @Test
     /**
      * test CREATE TABLE .. AS SELECT
      *
-     * DROP DATABASE test_db;
+     * CREATE DATABASE test_db;
      * CREATE TABLE test_db.session_test (
      *   st_user_id STRING
      *  ,st_pageview_id STRING
@@ -643,13 +658,15 @@ Failed with exception Unable to move source file:/opt/meituan/qa_test/testfile/a
     }
 
     /*
-DROP DATABASE test_db;
+CREATE DATABASE test_db;
 CREATE TABLE test_db.session_test (
    st_user_id STRING
   ,st_pageview_id STRING
   ,st_page_url STRING
   ,st_referrer_url STRING
   ,st_timestamp DOUBLE);
+
+INSERT INTO test_db.session_test VALUES ('100', '101', '102', 'HTTP://WWW.MEITUAN.COM', 10000);
 
 CREATE TABLE test_db.sessionization_step_one_origins AS
 SELECT c.c_user_id as ssoo_user_id
@@ -671,29 +688,43 @@ FROM (SELECT a.a_user_id as c_user_id
               ,a.a_pageview_id
               ,a.a_timestamp) c;
 
+SET hive.cli.print.header=true;
+SELECT * FROM test_db.sessionization_step_one_origins;
+
 DESCRIBE test_db.sessionization_step_one_origins;
 
-DROP DATABASE test_db;
+DROP DATABASE test_db CASCADE;
 */
 
 
+    //PASS
     @Test
     /**
      * test CREATE TABLE LIKE
      *      SET
      *      INSERT OVERWRITE TABLE
      *
-     * CREATE TABLE partition_table001 (name STRING, ip STRING)
+     * CREATE DATABASE test_db;
+     * CREATE TABLE test_db.partition_table001 (name STRING, ip STRING)
      * PARTITIONED BY (dt STRING, ht STRING)
      * ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
      *
+     * INSERT INTO test_db.partition_table001 PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3');
+     *
      * SET hive.exec.dynamic.partition=true;
      * SET hive.exec.dynamic.partition.mode=nonstrict;
+     * SET hive.cli.print.header=true;
      *
-     * CREATE TABLE IF NOT EXISTS partition_table002 LIKE partition_table001;
-     * INSERT OVERWRITE TABLE partition_table002 PARTITION (dt='20150617', ht='00') SELECT name, ip FROM partition_table001 WHERE dt='20150617' and ht='00';
-     * INSERT OVERWRITE TABLE partition_table002 PARTITION (dt, ht) SELECT * FROM partition_table001 WHERE dt='20150617';
-     * INSERT OVERWRITE TABLE partition_table002 PARTITION (dt, ht='00') SELECT name, ip, '20150617' dt FROM partition_table001 WHERE dt='20150617' and ht='00';
+     * CREATE TABLE IF NOT EXISTS test_db.partition_table002 LIKE test_db.partition_table001;
+     * INSERT OVERWRITE TABLE test_db.partition_table002 PARTITION (dt='20150617', ht='00') SELECT name, ip FROM test_db.partition_table001 WHERE dt='20150617' and ht='00' AND name='meituan';
+     * SELECT * FROM test_db.partition_table002;
+     * INSERT OVERWRITE TABLE test_db.partition_table002 PARTITION (dt, ht) SELECT * FROM test_db.partition_table001 WHERE dt='20150617' AND name='baidu';
+     * SELECT * FROM test_db.partition_table002;
+     * INSERT OVERWRITE TABLE test_db.partition_table002 PARTITION (dt='20150617', ht) SELECT name, ip, ht FROM test_db.partition_table001 WHERE dt='20150617' and ht='00' AND name='alibaba';
+     * SELECT * FROM test_db.partition_table002;
+     * DROP TABLE test_db.partition_table001;
+     * DROP TABLE test_db.partition_table002;
+     * DROP DATABASE test_db;
      */
     public void testCreateTableLike(){
         Assert.assertEquals("hello", "hello");
@@ -704,17 +735,27 @@ DROP DATABASE test_db;
  *      SET
  *      INSERT OVERWRITE TABLE
  *
-CREATE TABLE partition_table001 (name STRING, ip STRING)
+CREATE DATABASE test_db;
+CREATE TABLE test_db.partition_table001 (name STRING, ip STRING)
 PARTITIONED BY (dt STRING, ht STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
+INSERT INTO test_db.partition_table001 PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3');
+
 SET hive.exec.dynamic.partition=true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
+SET hive.cli.print.header=true;
 
-CREATE TABLE IF NOT EXISTS partition_table002 LIKE partition_table001;
-INSERT OVERWRITE TABLE partition_table002 PARTITION (dt='20150617', ht='00') SELECT name, ip FROM partition_table001 WHERE dt='20150617' and ht='00';
-INSERT OVERWRITE TABLE partition_table002 PARTITION (dt, ht) SELECT * FROM partition_table001 WHERE dt='20150617';
-INSERT OVERWRITE TABLE partition_table002 PARTITION (dt, ht='00') SELECT name, ip, '20150617' dt FROM partition_table001 WHERE dt='20150617' and ht='00';
+CREATE TABLE IF NOT EXISTS test_db.partition_table002 LIKE test_db.partition_table001;
+INSERT OVERWRITE TABLE test_db.partition_table002 PARTITION (dt='20150617', ht='00') SELECT name, ip FROM test_db.partition_table001 WHERE dt='20150617' and ht='00' AND name='meituan';
+SELECT * FROM test_db.partition_table002;
+INSERT OVERWRITE TABLE test_db.partition_table002 PARTITION (dt, ht) SELECT * FROM test_db.partition_table001 WHERE dt='20150617' AND name='baidu';
+SELECT * FROM test_db.partition_table002;
+INSERT OVERWRITE TABLE test_db.partition_table002 PARTITION (dt='20150617', ht) SELECT name, ip, ht FROM test_db.partition_table001 WHERE dt='20150617' and ht='00' AND name='alibaba';
+SELECT * FROM test_db.partition_table002;
+DROP TABLE test_db.partition_table001;
+DROP TABLE test_db.partition_table002;
+DROP DATABASE test_db;
 */
 
     //PASS
@@ -730,7 +771,7 @@ INSERT OVERWRITE TABLE partition_table002 PARTITION (dt, ht='00') SELECT name, i
      * CREATE TEMPORARY FUNCTION qa_lower AS 'com.example.hive.udf.LowerCase';
      * CREATE TABLE teacher (name STRING);
      * INSERT INTO teacher VALUES ('TEACHER QA');
-     * SELECT qa_lower(name) FROM teacher;
+     * SELECT qa_lower(name) as name FROM teacher;
      * DROP TABLE teacher;
      * DELETE JAR /opt/meituan/qa_test/testfile/hive_qa_udf.jar;
      * DROP DATABASE test_db;
@@ -748,15 +789,15 @@ LIST JARS;
 CREATE TEMPORARY FUNCTION qa_lower AS 'com.example.hive.udf.LowerCase';
 CREATE TABLE teacher (name STRING);
 INSERT INTO teacher VALUES ('TEACHER QA');
-SELECT qa_lower(name) FROM teacher;
+SELECT qa_lower(name) as name FROM teacher;
 DROP TABLE teacher;
 DELETE JAR /opt/meituan/qa_test/testfile/hive_qa_udf.jar;
+LIST JARS;
 DROP DATABASE test_db;
 */
 
 
-    //FAILED
-    //LOAD DATA FAILED?
+    //PASS
     @Test
     /**
      * test ADD FILE
@@ -784,6 +825,7 @@ DROP DATABASE test_db;
     }
 
 /*
+cat /opt/meituan/qa_test/testfile/test_who.sh
 #!/bin/bash
 echo "hello, $*"
 
@@ -801,23 +843,6 @@ LIST FILE;
 DROP TABLE test_db.whoyouare;
 DROP DATABASE test_db;
 */
-
-    /*
-              > CREATE DATABASE test_db;
-    OK
-    Time taken: 0.387 seconds
-    hive (default)> CREATE TABLE test_db.whoyouare(who string);
-    OK
-    Time taken: 1.186 seconds
-    hive (default)> LOAD DATA LOCAL INPATH '/opt/meituan/qa_test/testfile/who.txt' OVERWRITE INTO TABLE test_db.whoyouare;
-    Loading data to table test_db.whoyouare
-    Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/whoyouare' to trash at: hdfs://hadoop-meituan-test/user/server_all/.Trash/Current
-    Failed with exception Unable to move source file:/opt/meituan/qa_test/testfile/who.txt to destination viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/whoyouare/who.txt
-    FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
-    hive (default)> select * from test_db.whoyouare;
-    OK
-    Time taken: 1.688 seconds
-    */
 
     //PASS
     @Test
@@ -894,69 +919,91 @@ DROP TABLE test_db.test_serde;
 DROP DATABASE test_db;
 */
 
-
+    //PASS
     @Test
     /**
      * INSERT OVERWRITE TABLE
+     * INSERT OVERWRITE DIRECTORY
      *
      * cat california-employees.csv
      * name|salary|subordinates|deductions|address
-     * John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,1|Michigan Ave.|Chicago|IL|60600
-     * Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,100|Ontario St.|Chicago|IL|60601
-     * Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,200|Chicago Ave.|Oak Park|IL|60700
-     * Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,300|Obscure Dr.|Obscuria|IL|60100
+     * John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Michigan Ave.|Chicago|IL|60600
+     * Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Ontario St.|Chicago|IL|60601
+     * Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Ave.|Oak Park|IL|60700
+     * Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
      *
      * CREATE DATABASE test_db;
      * CREATE TABLE test_db.staged_employees (
-     *   name STRING
-     *  ,salary FLOAT
-     *  ,subordinates ARRAY<STRING>
-     *  ,deductions MAP<STRING, FLOAT>
-     *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+     *  name STRING
+     * ,salary FLOAT
+     * ,subordinates ARRAY<STRING>
+     * ,deductions MAP<STRING, FLOAT>
+     * ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
      * ) PARTITIONED BY (country STRING, state STRING)
-     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-     * COLLECTIONS ITEMS TERMINATED BY '|'
+     * ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+     * COLLECTION ITEMS TERMINATED BY '|'
      * MAP KEYS TERMINATED BY '='
      * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
      *
      * CREATE TABLE test_db.employees (
-     *   name STRING
-     *  ,salary FLOAT
-     *  ,subordinates ARRAY<STRING>
-     *  ,deductions MAP<STRING, FLOAT>
-     *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+     *  name STRING
+     * ,salary FLOAT
+     * ,subordinates ARRAY<STRING>
+     * ,deductions MAP<STRING, FLOAT>
+     * ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
      * ) PARTITIONED BY (country STRING, state STRING)
      * ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-     * COLLECTIONS ITEMS TERMINATED BY '|'
+     * COLLECTION ITEMS TERMINATED BY '|'
      * MAP KEYS TERMINATED BY '='
      * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
      *
-     * EXPORT FILEPATH=/opt/meituan/qa_test/testfile
-     * ECHO $FILEPATH
+     * export FILEPATH=/opt/meituan/qa_test/testfile
+     * echo $FILEPATH
      * LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
      * INTO TABLE test_db.staged_employees
      * PARTITION (country = 'US', state = 'CA');
      *
-     * INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'OR')
-     * SELECT * FROM test_db.staged_employees se WHERE se.country = 'US' AND se.state = 'OR';
+     * INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'CA')
+     * SELECT name, salary, subordinates, deductions, address FROM test_db.staged_employees se WHERE se.country = 'US' AND se.state = 'CA';
+     *
+     * TRUNCATE TABLE test_db.employees;
      *
      * FROM test_db.staged_employees se
      * INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'OR')
-     * SELECT * WHERE se.country = 'US' AND se.state = 'OR'
+     * SELECT name, salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'OR'
      * INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'CA')
-     * SELECT * WHERE se.country = 'US' AND se.state = 'CA'
+     * SELECT name, salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'CA'
      * INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'IL')
-     * SELECT * WHERE se.country = 'US' AND se.state = 'IL';
+     * SELECT name, salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'IL';
+     * SET hive.cli.print.header=true;
+     * SELECT * FROM test_db.employees;
      *
+     * SET hive.exec.dynamic.partition=true;
      * INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state)
-     * SELECT se.* FROM test_db.staged_employees se WHERE se.country = 'US';
+     * SELECT se.name, se.salary, se.subordinates, se.deductions, se.address, se.state FROM test_db.staged_employees se WHERE se.country = 'US';
+     * SET hive.cli.print.header=true;
+     * SELECT * FROM test_db.employees;
+     *
+     * INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees/data'
+     * SELECT * FROM test_db.staged_employees se WHERE se.country = 'US' and se.state = 'CA';
+     *
+     * FROM (
+     * SELECT emp.name, emp.salary FROM test_db.staged_employees emp WHERE emp.salary < 6000
+     * UNION ALL
+     * SELECT emp.name, emp.salary FROM test_db.staged_employees emp WHERE emp.salary > 7000
+     * ) unioninput
+     * INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*
+     * dfs -cat /tmp/union.out/* ;
+     * dfs -rm -r /tmp/union.out ;
+     *
+     * ANALYZE TABLE test_db.staged_employees COMPUTE STATISTICS FOR columns name, salary;
      *
      * DROP TABLE test_db.staged_employees;
      * DROP TABLE test_db.employees;
      *
      * DROP DATABASE test_db;
      */
-    public void testInsertOverwriteTable(){
+    public void testInsertOverwriteTableDir(){
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -964,10 +1011,10 @@ DROP DATABASE test_db;
 /*
 cat california-employees.csv
 name|salary|subordinates|deductions|address
-John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,1|Michigan Ave.|Chicago|IL|60600
-Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,100|Ontario St.|Chicago|IL|60601
-Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,200|Chicago Ave.|Oak Park|IL|60700
-Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,300|Obscure Dr.|Obscuria|IL|60100
+John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Michigan Ave.|Chicago|IL|60600
+Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Ontario St.|Chicago|IL|60601
+Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Ave.|Oak Park|IL|60700
+Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
 
 CREATE DATABASE test_db;
 CREATE TABLE test_db.staged_employees (
@@ -977,8 +1024,8 @@ CREATE TABLE test_db.staged_employees (
   ,deductions MAP<STRING, FLOAT>
   ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-COLLECTIONS ITEMS TERMINATED BY '|'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
@@ -990,29 +1037,50 @@ CREATE TABLE test_db.employees (
   ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-COLLECTIONS ITEMS TERMINATED BY '|'
+COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-EXPORT FILEPATH=/opt/meituan/qa_test/testfile
-ECHO $FILEPATH
+export FILEPATH=/opt/meituan/qa_test/testfile
+echo $FILEPATH
 LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE test_db.staged_employees
 PARTITION (country = 'US', state = 'CA');
 
-INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'OR')
-SELECT * FROM test_db.staged_employees se WHERE se.country = 'US' AND se.state = 'OR';
+INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'CA')
+SELECT name, salary, subordinates, deductions, address FROM test_db.staged_employees se WHERE se.country = 'US' AND se.state = 'CA';
+
+TRUNCATE TABLE test_db.employees;
 
 FROM test_db.staged_employees se
 INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'OR')
-SELECT * WHERE se.country = 'US' AND se.state = 'OR'
+SELECT name, salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'OR'
 INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'CA')
-SELECT * WHERE se.country = 'US' AND se.state = 'CA'
+SELECT name, salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'CA'
 INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state = 'IL')
-SELECT * WHERE se.country = 'US' AND se.state = 'IL';
+SELECT name, salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'IL';
+SET hive.cli.print.header=true;
+SELECT * FROM test_db.employees;
 
+SET hive.exec.dynamic.partition=true;
 INSERT OVERWRITE TABLE test_db.employees PARTITION (country = 'US', state)
-SELECT se.* FROM test_db.staged_employees se WHERE se.country = 'US';
+SELECT se.name, se.salary, se.subordinates, se.deductions, se.address, se.state FROM test_db.staged_employees se WHERE se.country = 'US';
+SET hive.cli.print.header=true;
+SELECT * FROM test_db.employees;
+
+INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
+SELECT * FROM test_db.staged_employees se WHERE se.country = 'US' and se.state = 'CA';
+
+FROM (
+      SELECT emp.name, emp.salary FROM test_db.staged_employees emp WHERE emp.salary < 6000
+      UNION ALL
+      SELECT emp.name, emp.salary FROM test_db.staged_employees emp WHERE emp.salary > 7000
+) unioninput
+INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*
+dfs -cat /tmp/union.out/* ;
+dfs -rm -r /tmp/union.out ;
+
+ANALYZE TABLE test_db.staged_employees COMPUTE STATISTICS FOR columns name, salary;
 
 DROP TABLE test_db.staged_employees;
 DROP TABLE test_db.employees;
@@ -1021,86 +1089,7 @@ DROP DATABASE test_db;
 */
 
 
-    @Test
-    /**
-     * test Analyze TABLE
-     *      INSERT OVERWRITE TABLE
-     *      INSERT OVERWRITE DIRECTORY
-     *
-     * cat california-employees.csv
-     * name|salary|subordinates|deductions|address
-     * John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,1|Michigan Ave.|Chicago|IL|60600
-     * Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,100|Ontario St.|Chicago|IL|60601
-     * Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,200|Chicago Ave.|Oak Park|IL|60700
-     * Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,300|Obscure Dr.|Obscuria|IL|60100
-     *
-     * CREATE DATABASE test_db;
-     *
-     * CREATE TABLE test_db.employees (
-     *   name STRING
-     *  ,salary FLOAT
-     *  ,subordinates ARRAY<STRING>
-     *  ,deductions MAP<STRING, FLOAT>
-     *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-     * ) PARTITIONED BY (country STRING, state STRING)
-     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-     * COLLECTIONS ITEMS TERMINATED BY '|'
-     * MAP KEYS TERMINATED BY '='
-     * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-     *
-     * EXPORT FILEPATH=/opt/meituan/qa_test/testfile
-     * ECHO $FILEPATH
-     * LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
-     * INTO TABLE test_db.employees
-     * PARTITION (country = 'US', state = 'CA');
-     *
-     *
-     * INSERT OVERWRITE DIRECTORY
-     * FROM test_db.employees se
-     * INSERT OVERWRITE DIRECTORY '/tmp/or_employees'
-     * SELECT * WHERE se.country = 'US' and se.state = 'OR'
-     * INSERT OVERWRITE DIRECTORY '/tmp/ca_employees'
-     * SELECT * WHERE se.country = 'US' and se.state = 'CA'
-     * INSERT OVERWRITE DIRECTORY '/tmp/il_employees'
-     * SELECT * WHERE se.country = 'US' and se.state = 'IL';
-     *
-     * FROM (
-     *        SELECT emp.name, emp.salary FROM test_db.employees emp WHERE emp.salary < 6000
-     *        UNION ALL
-     *        SELECT emp.name, emp.salary FROM test_db.employees emp WHERE emp.salary > 7000
-     * ) unioninput
-     * INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*
-     *
-     * ANALYZE TABLE test_db.employees COMPUTE STATISTICS FOR columns name, salary;
-     */
-    public void testInsertOverwriteDir(){
-        Assert.assertEquals("hello", "hello");
-        System.out.println("~~~~~~~~~~~");
-    }
-
-
-    /* test Analyze TABLE
-     *      INSERT OVERWRITE DIRECTORY
-INSERT OVERWRITE DIRECTORY
-FROM staged_employees se
-INSERT OVERWRITE DIRECTORY '/tmp/or_employees'
-SELECT * WHERE se.country = 'US' and se.state = 'OR'
-INSERT OVERWRITE DIRECTORY '/tmp/ca_employees'
-SELECT * WHERE se.country = 'US' and se.state = 'CA'
-INSERT OVERWRITE DIRECTORY '/tmp/il_employees'
-SELECT * WHERE se.country = 'US' and se.state = 'IL';
-
-FROM (
-      SELECT emp.name, emp.salary FROM employees emp WHERE emp.salary < 6000
-      UNION ALL
-      SELECT emp.name, emp.salary FROM employees emp WHERE emp.salary > 7000
-) unioninput
-INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*
-
-ANALYZE TABLE employees COMPUTE STATISTICS FOR columns name, salary;
-*/
-
-
+    //PASS
     @Test
     /**
      * test IMPORT TABLE
@@ -1138,8 +1127,8 @@ ANALYZE TABLE employees COMPUTE STATISTICS FOR columns name, salary;
      *  ,deductions MAP<STRING, FLOAT>
      *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
      * ) PARTITIONED BY (country STRING, state STRING)
-     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-     * COLLECTIONS ITEMS TERMINATED BY '|'
+     * ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+     * COLLECTION ITEMS TERMINATED BY '|'
      * MAP KEYS TERMINATED BY '='
      * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
      *
@@ -1179,6 +1168,7 @@ ANALYZE TABLE employees COMPUTE STATISTICS FOR columns name, salary;
         System.out.println("~~~~~~~~~~~");
     }
 
+
 /*
 CREATE DATABASE test_db;
 
@@ -1189,8 +1179,8 @@ CREATE TABLE test_db.employees (
  ,deductions MAP<STRING, FLOAT>
  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-COLLECTIONS ITEMS TERMINATED BY '|'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
@@ -1201,26 +1191,27 @@ CREATE TABLE test_db.staged_employees (
  ,deductions MAP<STRING, FLOAT>
  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-COLLECTIONS ITEMS TERMINATED BY '|'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-EXPORT FILEPATH=/opt/meituan/qa_test/testfile
-ECHO $FILEPATH
+export FILEPATH=/opt/meituan/qa_test/testfile
+echo $FILEPATH
 
-ALTER TABLE test_db.employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 
 LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE test_db.staged_employees
 PARTITION (country = 'US', state = 'CA');
 
+
 -- 导出分区并且导入到分区表分区
-EXPORT TABLE test_db.staged_employees PARTITIONS (country = 'US', state = 'CA') TO '/tmp/employee';
--- '/user/hive/warehouse/test_db.db/export/employee'
+EXPORT TABLE test_db.staged_employees PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
+dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
 
 IMPORT TABLE test_db.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+SHOW PARTITIONS test_db.employees;
 
 ALTER TABLE test_db.employees TOUCH;
 
@@ -1367,7 +1358,7 @@ dfs -mkdir /user/hive/warehouse/test_db.db/test_msck/month=201604;
 MSCK REPAIR TABLE test_db.test_msck;
 #再次查看，发现已经成功更新元信息
 SHOW PARTITIONS test_db.test_msck;
-dfs -ls /user/hive/warehouse/test_db.db/test_msck/month=201603;
+dfs -ls /user/hive/warehouse/test_db.db/test_msck;
 DROP DATABASE test_db CASCADE;
 */
 
@@ -1562,10 +1553,11 @@ DROP DATABASE test_db;
 
 
     /**
+     *
      ./hdfs dfs
      Usage: hadoop fs [generic options]
      [-appendToFile <localsrc> ... <dst>]
-     [-cat [-ignoreCrc] <src> ...]
+
      [-checksum <src> ...]
      [-chgrp [-R] GROUP PATH...]
      [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
@@ -1586,7 +1578,7 @@ DROP DATABASE test_db;
      [-getmerge [-nl] <src> <localdst>]
      [-help [cmd ...]]
      [-ls [-d] [-h] [-R] [<path> ...]]
-     [-mkdir [-p] <path> ...]
+
      [-moveFromLocal <localsrc> ... <dst>]
      [-moveToLocal <src> <localdst>]
      [-mv <src> ... <dst>]
@@ -1604,23 +1596,10 @@ DROP DATABASE test_db;
      [-touchz <path> ...]
      [-truncate [-w] <length> <path> ...]
      [-usage [cmd ...]]
-
-     Generic options supported are
-     -conf <configuration file>     specify an application configuration file
-     -D <property=value>            use value for given property
-     -fs <local|namenode:port>      specify a namenode
-     -jt <local|resourcemanager:port>    specify a ResourceManager
-     -files <comma separated list of files>    specify comma separated files to be copied to the map reduce cluster
-     -libjars <comma separated list of jars>    specify comma separated jar files to include in the classpath.
-     -archives <comma separated list of archives>    specify comma separated archives to be unarchived on the compute machines.
-
-     The general command line syntax is
-     bin/hadoop command [genericOptions] [commandOptions]
      */
 
 /*
 hdfs dfs -appendToFile
-    hdfs dfs -cat
     hdfs dfs -checksum
     hdfs dfs -chgrp -R
     hdfs dfs -chmod -R
@@ -1633,22 +1612,19 @@ hdfs dfs -appendToFile
     hdfs dfs -deleteSnapshot <snapshotDir> <snapshotName>]
     hdfs dfs -df [-h] [<path> ...]]
     hdfs dfs -du [-s] [-h] <path> ...]
-    hdfs dfs -expunge]
+    hdfs dfs -expunge
     hdfs dfs -find <path> ... <expression> ...]
     hdfs dfs -get [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
     hdfs dfs -getfacl [-R] <path>]
     hdfs dfs -getfattr [-R] {-n name | -d} [-e en] <path>]
     hdfs dfs -getmerge [-nl] <src> <localdst>]
-    hdfs dfs -help [cmd ...]]
-    hdfs dfs -ls [-d] [-h] [-R] [<path> ...]]
-    hdfs dfs -mkdir [-p] <path> ...]
+    dfs -touchz a/b/file;
+    dfs -help touchz;
     hdfs dfs -moveFromLocal <localsrc> ... <dst>]
     hdfs dfs -moveToLocal <src> <localdst>]
     hdfs dfs -mv <src> ... <dst>]
     hdfs dfs -put [-f] [-p] [-l] <localsrc> ... <dst>]
     hdfs dfs -renameSnapshot <snapshotDir> <oldName> <newName>]
-    hdfs dfs -rm [-f] [-r|-R] [-skipTrash] <src> ...]
-    hdfs dfs -rmdir [--ignore-fail-on-non-empty] <dir> ...]
     hdfs dfs -setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
     hdfs dfs -setfattr {-n name [-v value] | -x name} <path>]
     hdfs dfs -setrep [-R] [-w] <rep> <path> ...]
@@ -1656,128 +1632,14 @@ hdfs dfs -appendToFile
     hdfs dfs -tail [-f] <file>]
     hdfs dfs -test -[defsz] <path>]
     hdfs dfs -text [-ignoreCrc] <src> ...]
-    hdfs dfs -touchz <path> ...]
+
     hdfs dfs -truncate [-w] <length> <path> ...]
     hdfs dfs -usage [cmd ...]]
     */
-
-/*
-./hdfs dfs
-    Usage: hadoop fs [generic options]
-            [-appendToFile <localsrc> ... <dst>]
-            [-cat [-ignoreCrc] <src> ...]
-            [-checksum <src> ...]
-            [-chgrp [-R] GROUP PATH...]
-            [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
-            [-chown [-R] [OWNER][:[GROUP]] PATH...]
-            [-copyFromLocal [-f] [-p] [-l] <localsrc> ... <dst>]
-            [-copyToLocal [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
-            [-count [-q] [-h] [-v] [-t [<storage type>]] [-u] <path> ...]
-            [-cp [-f] [-p | -p[topax]] <src> ... <dst>]
-            [-createSnapshot <snapshotDir> [<snapshotName>]]
-            [-deleteSnapshot <snapshotDir> <snapshotName>]
-            [-df [-h] [<path> ...]]
-            [-du [-s] [-h] <path> ...]
-            [-expunge]
-            [-find <path> ... <expression> ...]
-            [-get [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
-            [-getfacl [-R] <path>]
-            [-getfattr [-R] {-n name | -d} [-e en] <path>]
-            [-getmerge [-nl] <src> <localdst>]
-            [-help [cmd ...]]
-            [-ls [-d] [-h] [-R] [<path> ...]]
-            [-mkdir [-p] <path> ...]
-            [-moveFromLocal <localsrc> ... <dst>]
-            [-moveToLocal <src> <localdst>]
-            [-mv <src> ... <dst>]
-            [-put [-f] [-p] [-l] <localsrc> ... <dst>]
-            [-renameSnapshot <snapshotDir> <oldName> <newName>]
-            [-rm [-f] [-r|-R] [-skipTrash] <src> ...]
-            [-rmdir [--ignore-fail-on-non-empty] <dir> ...]
-            [-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
-            [-setfattr {-n name [-v value] | -x name} <path>]
-            [-setrep [-R] [-w] <rep> <path> ...]
-            [-stat [format] <path> ...]
-            [-tail [-f] <file>]
-            [-test -[defsz] <path>]
-            [-text [-ignoreCrc] <src> ...]
-            [-touchz <path> ...]
-            [-truncate [-w] <length> <path> ...]
-            [-usage [cmd ...]]
-
-    Generic options supported are
--conf <configuration file>     specify an application configuration file
--D <property=value>            use value for given property
--fs <local|namenode:port>      specify a namenode
--jt <local|resourcemanager:port>    specify a ResourceManager
--files <comma separated list of files>    specify comma separated files to be copied to the map reduce cluster
--libjars <comma separated list of jars>    specify comma separated jar files to include in the classpath.
-            -archives <comma separated list of archives>    specify comma separated archives to be unarchived on the compute machines.
-
-    The general command line syntax is
-    bin/hadoop command [genericOptions] [commandOptions]
-            */
-
     @Test
     /**
      * test DFS
-     *
-     * cat california-employees.csv
-     * name|salary|subordinates|deductions|address
-     * John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,1|Michigan Ave.|Chicago|IL|60600
-     * Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,100|Ontario St.|Chicago|IL|60601
-     * Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,200|Chicago Ave.|Oak Park|IL|60700
-     * Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,300|Obscure Dr.|Obscuria|IL|60100
-     *
-     * CREATE DATABASE test_db;
-     *
-     * CREATE TABLE test_db.employees (
-     *   name STRING
-     *  ,salary FLOAT
-     *  ,subordinates ARRAY<STRING>
-     *  ,deductions MAP<STRING, FLOAT>
-     *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-     * ) PARTITIONED BY (country STRING, state STRING)
-     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-     * COLLECTIONS ITEMS TERMINATED BY '|'
-     * MAP KEYS TERMINATED BY '='
-     * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-     *
-     * CREATE TABLE test_db.staged_employees (
-     *   name STRING
-     *  ,salary FLOAT
-     *  ,subordinates ARRAY<STRING>
-     *  ,deductions MAP<STRING, FLOAT>
-     *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-     * ) PARTITIONED BY (country STRING, state STRING)
-     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-     * COLLECTIONS ITEMS TERMINATED BY '|'
-     * MAP KEYS TERMINATED BY '='
-     * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-     *
-     * EXPORT FILEPATH=/opt/meituan/qa_test/testfile
-     * ECHO $FILEPATH
-     *
-     * ALTER TABLE test_db.employees ADD PARTITION (country = 'US', state = 'CA');
-     * ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'CA');
-     *
-     * LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
-     * INTO TABLE test_db.staged_employees
-     * PARTITION (country = 'US', state = 'CA');
-     *
-     * -- 导出分区并且导入到分区表分区
-     * dfs -mkdir /user/hive/warehouse/test_db.db/export
-     * dfs -mkdir /user/hive/warehouse/test_db.db/export/staged_employees
-     * --- ????
-     * EXPORT TABLE test_db.staged_employees PARTITIONS (country = 'US', state = 'CA') TO '/user/hive/warehouse/test_db.db/export/staged_employees';
 
-     * IMPORT TABLE test_db.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
-     *
-     *
-     * ALTER TABLE test_db.staged_employees TOUCH PARTITION (country = 'US', state = 'CA') ;
-     * ALTER TABLE test_db.employees TOUCH PARTITION (country = 'US', state = 'CA') ;
-     * ALTER TABLE test_db.employees ADD PARTITION (country = 'CHN', state = 'BJ') ;
-     * ALTER TABLE test_db.employees TOUCH PARTITION (country = 'CHN', state = 'BJ') ;
      *
      *
      * DROP DATABASE test_db CASCADE;
