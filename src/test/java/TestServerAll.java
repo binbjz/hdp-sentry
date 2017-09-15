@@ -1,4 +1,5 @@
 import org.junit.*;
+
 //import static org.junit.Asstert.*;
 
 
@@ -52,9 +53,9 @@ public class TestServerAll {
                 /opt/meituan/hive-1.2/bin/hive
 */
         String[] cmd = {"/opt/meituan/hive-1.2/bin/hive", "-e 'use default;'"};
-        System.out.println("exit code:\n" + HiveUtilTool.execHiveCommand(cmd).get(0));
+        System.out.println("exit code:\n" + UtilTool.execCommand(cmd).get(0));
         System.out.println();
-        System.out.println("command result:\n" + HiveUtilTool.execHiveCommand(cmd).get(1));
+        System.out.println("command result:\n" + UtilTool.execCommand(cmd).get(1));
 
     }
 
@@ -70,7 +71,7 @@ public class TestServerAll {
      * DROP DATABASE test_db;
      * SHOW DATABASES LIKE 'test_db';
      */
-    public void testCreateDropDB(){
+    public void testCreateDropDB() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -101,7 +102,7 @@ SHOW DATABASES LIKE 'test_db';
      * DROP DATABASE test_db CASCADE;
      * SHOW DATABASES LIKE 'test_db';
      */
-    public void testCreateDropDBCascade(){
+    public void testCreateDropDBCascade() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -119,17 +120,18 @@ SHOW DATABASES LIKE 'test_db';
 */
 
     //Pass
+
     /**
      * test ALTER DATABASE
-     *      DESCRIBE DATABASE
-     *
+     * DESCRIBE DATABASE
+     * <p>
      * CREATE DATABASE test_db WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
      * ALTER DATABASE test_db SET DBPROPERTIES ('edited-by' = 'hadoop-new-qa');
      * DESCRIBE DATABASE test_db;
      * DESCRIBE DATABASE EXTENDED test_db;
      * DROP DATABASE test_db;
      */
-    public void testAlterPropertiesDescribeDB(){
+    public void testAlterPropertiesDescribeDB() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -159,7 +161,7 @@ DROP DATABASE test_db;
      * DROP TABLE test_tbl;
      * DROP DATABASE test_db;
      */
-    public void testCreateDropTable(){
+    public void testCreateDropTable() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -207,7 +209,7 @@ DROP DATABASE test_db;
      * DROP TABLE test_tbl;
      * DROP DATABASE test_db;
      */
-    public void testCreateAlterDescribeShowDropView(){
+    public void testCreateAlterDescribeShowDropView() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -258,7 +260,7 @@ DROP DATABASE test_db;
      * DESCRIBE EXTENDED test_tbl_new;
      * DROP DATABASE test_db CASCADE;
      */
-    public void testAlterDescribeTable01(){
+    public void testAlterDescribeTable01() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -319,7 +321,7 @@ DROP DATABASE test_db CASCADE;
      *
      * DROP DATABASE test_db CASCADE;
      */
-    public void testAlterDescribeTable02 (){
+    public void testAlterDescribeTable02() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -401,7 +403,7 @@ DROP DATABASE test_db CASCADE;
      * dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=1/day=2;
      * dfs -rm -r /user/hive/warehouse/test_db.db/log_messages/year=2011/month=2/day=1;
      */
-    public void testAlterDescribeTableWithDFS(){
+    public void testAlterDescribeTableWithDFS() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -467,7 +469,7 @@ DROP DATABASE test_db;
      *  DROP TABLE test_db.supply;
      *  DROP DATABASE test_db;
      */
-    public void testAddDropShowPartition(){
+    public void testAddDropShowPartition() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -493,62 +495,63 @@ DROP DATABASE test_db;
 */
 
     /**
-     -- 1022 SHOW GRANT ROLE
-     单独测试
+     * -- 1022 SHOW GRANT ROLE
+     * 单独测试
      */
-    public void testAlterDescribeTable6(){
+    public void testAlterDescribeTable6() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
     }
 
     //FAILED
+
     /**
-     单独测试
-     test LOAD DATA
-
-     CREATE TABLE serde_regex （
-
-     LOAD DATA LOCAL INPATH “../data/files/apache.access.log” INTO TABLE serde_regex ;
-     LOAD DATA LOCAL INPATH “../data/files/apache.access.2.log” INTO TABLE serde_regex ;
-     SET hive.cli.print.header=true;
-     SELECT * FROM serde_regex ORDER BY time ;
-
-     export TMP=/tmp
-     $TMP/kv_data.txt  that looks like:
-     k1=v1,k2=v2
-     k4=v4,k5=v5,k6=v6
-     k7=v7,k7=v7,k3=v7
-     Create this Perl script and save it as $TMP/split_kv.pl :
-     #!/usr/bin/perl
-     while (<STDIN>) {
-     my $line = $_;
-     chomp($line);
-     my @kvs = split(/,/, $line);
-     foreach my $p (@kvs) {
-     my @kv = split(/=/, $p);
-     print $kv[0] . "\t" . $kv[1] . "\n";
-     }
-     }
-     CREATE TABLE kv_data ( line STRING );
-     LOAD DATA LOCAL INPATH '${env:TMP}/kv_data.txt' INTO TABLE kv_data;
-     SET hive.cli.print.header=true;
-     SELECT TRANSFORM (line) USING 'perl split_kv.pl' AS (key, value) FROM kv_data;
-     k1 v1
-     k2 v2
-     k4 v4
-     k5 v5
-     k6 v6
-     k7 v7
-     k7 v7
-     k3 v7
-
-     export FILEPATH=/opt/meituan/qa_test/testfile
-
-     CREATE TABLE sum (number INT);
-     LOAD DATA LOCAL INPATH '$ {env：FILEPATH} /data_to_sum.txt'INTO TABLE sum ;
-
-     *
+     * 单独测试
+     * test LOAD DATA
+     * <p>
+     * CREATE TABLE serde_regex （
+     * <p>
+     * LOAD DATA LOCAL INPATH “../data/files/apache.access.log” INTO TABLE serde_regex ;
+     * LOAD DATA LOCAL INPATH “../data/files/apache.access.2.log” INTO TABLE serde_regex ;
+     * SET hive.cli.print.header=true;
+     * SELECT * FROM serde_regex ORDER BY time ;
+     * <p>
+     * export TMP=/tmp
+     * $TMP/kv_data.txt  that looks like:
+     * k1=v1,k2=v2
+     * k4=v4,k5=v5,k6=v6
+     * k7=v7,k7=v7,k3=v7
+     * Create this Perl script and save it as $TMP/split_kv.pl :
+     * #!/usr/bin/perl
+     * while (<STDIN>) {
+     * my $line = $_;
+     * chomp($line);
+     * my @kvs = split(/,/, $line);
+     * foreach my $p (@kvs) {
+     * my @kv = split(/=/, $p);
+     * print $kv[0] . "\t" . $kv[1] . "\n";
+     * }
+     * }
+     * CREATE TABLE kv_data ( line STRING );
+     * LOAD DATA LOCAL INPATH '${env:TMP}/kv_data.txt' INTO TABLE kv_data;
+     * SET hive.cli.print.header=true;
+     * SELECT TRANSFORM (line) USING 'perl split_kv.pl' AS (key, value) FROM kv_data;
+     * k1 v1
+     * k2 v2
+     * k4 v4
+     * k5 v5
+     * k6 v6
+     * k7 v7
+     * k7 v7
+     * k3 v7
+     * <p>
+     * export FILEPATH=/opt/meituan/qa_test/testfile
+     * <p>
+     * CREATE TABLE sum (number INT);
+     * LOAD DATA LOCAL INPATH '$ {env：FILEPATH} /data_to_sum.txt'INTO TABLE sum ;
+     * <p>
+     * <p>
      * SELECT * FROM test_tbl;
      * SELECT col1, col2, col3, col4, col5, col6, col7, col8, col9 FROM test_tbl;
      * SELECT col1, col2, col3, col4, col5, col6, col7, col8, col9 FROM test_view;
@@ -576,7 +579,7 @@ DROP DATABASE test_db;
      * DROP TABLE test_db.collecttest
      * DROP DATABASE test_db;
      */
-    public void testLoadDataLocal(){
+    public void testLoadDataLocal() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -612,7 +615,6 @@ hive (test_Db)> LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE co
 Loading data to table test_Db.collecttest
 Failed with exception Unable to move source file:/opt/meituan/qa_test/testfile/afile.txt to destination viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/collecttest/afile.txt
 */
-
 
 
     //PASS
@@ -652,7 +654,7 @@ Failed with exception Unable to move source file:/opt/meituan/qa_test/testfile/a
      *
      * DROP DATABASE test_db;
      */
-    public void testCreateTableAsSelect(){
+    public void testCreateTableAsSelect() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -726,7 +728,7 @@ DROP DATABASE test_db CASCADE;
      * DROP TABLE test_db.partition_table002;
      * DROP DATABASE test_db;
      */
-    public void testCreateTableLike(){
+    public void testCreateTableLike() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -776,7 +778,7 @@ DROP DATABASE test_db;
      * DELETE JAR /opt/meituan/qa_test/testfile/hive_qa_udf.jar;
      * DROP DATABASE test_db;
      */
-    public void testAddJarCreateTmpFunction(){
+    public void testAddJarCreateTmpFunction() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -819,7 +821,7 @@ DROP DATABASE test_db;
      * DROP TABLE test_db.whoyouare;
      * DROP DATABASE test_db;
      */
-    public void testAddFile(){
+    public void testAddFile() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -861,7 +863,7 @@ DROP DATABASE test_db;
      *
      * DROP DATABASE test_db;
      */
-    public void testAlterSerDeTable(){
+    public void testAlterSerDeTable() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -899,7 +901,7 @@ DROP DATABASE test_db;
      * DROP TABLE test_db.test_serde;
      * DROP DATABASE test_db;
      */
-    public void testAlterSerDePartition(){
+    public void testAlterSerDePartition() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1003,7 +1005,7 @@ DROP DATABASE test_db;
      *
      * DROP DATABASE test_db;
      */
-    public void testInsertOverwriteTableDir(){
+    public void testInsertOverwriteTableDir() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1163,7 +1165,7 @@ DROP DATABASE test_db;
      *
      * DROP DATABASE test_db CASCADE;
      */
-    public void testImportExportAlterTableClusteredBySortedBy(){
+    public void testImportExportAlterTableClusteredBySortedBy() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1249,7 +1251,7 @@ DROP DATABASE test_db CASCADE;
      *
      * DROP DATABASE test_db;
      */
-    public void testAlterTableEnableDisable(){
+    public void testAlterTableEnableDisable() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1299,7 +1301,7 @@ DROP DATABASE test_db;
      *
      * DROP DATABASE test_db;
      */
-    public void testAlterPartitionEnableDisable(){
+    public void testAlterPartitionEnableDisable() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1342,7 +1344,7 @@ DROP DATABASE test_db;
      * dfs -ls /user/hive/warehouse/test_db.db/test_msck/month=201603;
      * DROP DATABASE test_db CASCADE;
      */
-    public void testMSCKRepairTable(){
+    public void testMSCKRepairTable() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1363,34 +1365,35 @@ DROP DATABASE test_db CASCADE;
 */
 
     //PASS
+
     /**
      * test SHOW TBLPROPERTIES
-     *      SHOW COLUMNS
-     *
+     * SHOW COLUMNS
+     * <p>
      * CREATE DATABASE test_db;
-     *
+     * <p>
      * USE test_DB;
      * CREATE TABLE IF NOT EXISTS employees_props (
-     *   name  STRING COMMENT 'Employee name'
-     *  ,salary  FLOAT  COMMENT'Employee salary'
-     *  ,subordinates ARRAY<STRING> COMMENT 'Names of subordinates'
-     *  ,deductions  MAP<STRING, FLOAT> COMMENT  'Keys are deductions names, values are percentages'
-     *  ,address  STRUCT<street:STRING,city:STRING, state:STRING, zip:INT> COMMENT 'Home address')
+     * name  STRING COMMENT 'Employee name'
+     * ,salary  FLOAT  COMMENT'Employee salary'
+     * ,subordinates ARRAY<STRING> COMMENT 'Names of subordinates'
+     * ,deductions  MAP<STRING, FLOAT> COMMENT  'Keys are deductions names, values are percentages'
+     * ,address  STRUCT<street:STRING,city:STRING, state:STRING, zip:INT> COMMENT 'Home address')
      * COMMENT 'Description of the table'
      * PARTITIONED BY (country STRING, state STRING)
      * LOCATION '/user/hive/warehouse/test_db.db/employees_props'
      * TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');
-     *
+     * <p>
      * SHOW TBLPROPERTIES employees_props;
-     *
+     * <p>
      * SHOW COLUMNS IN test_db.employees_props;
      * SHOW COLUMNS FROM test_db.employees_props;
-     *
+     * <p>
      * DROP TABLE employees_props;
-     *
+     * <p>
      * DROP DATABASE test_db;
      */
-    public void testShowColumnsAndTblProperties(){
+    public void testShowColumnsAndTblProperties() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1452,7 +1455,7 @@ DROP DATABASE test_db;
      *
      * DROP DATABASE test_db;
      */
-    public void testCreateShowDropIndex(){
+    public void testCreateShowDropIndex() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1518,7 +1521,7 @@ DROP DATABASE test_db;
      *
      * DROP DATABASE test_db;
      */
-    public void testCreateShowDropBitmapIndex(){
+    public void testCreateShowDropBitmapIndex() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1551,51 +1554,49 @@ DROP DATABASE test_db;
 */
 
 
-
     /**
-     *
-     ./hdfs dfs
-     Usage: hadoop fs [generic options]
-     [-appendToFile <localsrc> ... <dst>]
-
-     [-checksum <src> ...]
-     [-chgrp [-R] GROUP PATH...]
-     [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
-     [-chown [-R] [OWNER][:[GROUP]] PATH...]
-     [-copyFromLocal [-f] [-p] [-l] <localsrc> ... <dst>]
-     [-copyToLocal [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
-     [-count [-q] [-h] [-v] [-t [<storage type>]] [-u] <path> ...]
-     [-cp [-f] [-p | -p[topax]] <src> ... <dst>]
-     [-createSnapshot <snapshotDir> [<snapshotName>]]
-     [-deleteSnapshot <snapshotDir> <snapshotName>]
-     [-df [-h] [<path> ...]]
-     [-du [-s] [-h] <path> ...]
-     [-expunge]
-     [-find <path> ... <expression> ...]
-     [-get [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
-     [-getfacl [-R] <path>]
-     [-getfattr [-R] {-n name | -d} [-e en] <path>]
-     [-getmerge [-nl] <src> <localdst>]
-     [-help [cmd ...]]
-     [-ls [-d] [-h] [-R] [<path> ...]]
-
-     [-moveFromLocal <localsrc> ... <dst>]
-     [-moveToLocal <src> <localdst>]
-     [-mv <src> ... <dst>]
-     [-put [-f] [-p] [-l] <localsrc> ... <dst>]
-     [-renameSnapshot <snapshotDir> <oldName> <newName>]
-     [-rm [-f] [-r|-R] [-skipTrash] <src> ...]
-     [-rmdir [--ignore-fail-on-non-empty] <dir> ...]
-     [-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
-     [-setfattr {-n name [-v value] | -x name} <path>]
-     [-setrep [-R] [-w] <rep> <path> ...]
-     [-stat [format] <path> ...]
-     [-tail [-f] <file>]
-     [-test -[defsz] <path>]
-     [-text [-ignoreCrc] <src> ...]
-     [-touchz <path> ...]
-     [-truncate [-w] <length> <path> ...]
-     [-usage [cmd ...]]
+     * ./hdfs dfs
+     * Usage: hadoop fs [generic options]
+     * [-appendToFile <localsrc> ... <dst>]
+     * <p>
+     * [-checksum <src> ...]
+     * [-chgrp [-R] GROUP PATH...]
+     * [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+     * [-chown [-R] [OWNER][:[GROUP]] PATH...]
+     * [-copyFromLocal [-f] [-p] [-l] <localsrc> ... <dst>]
+     * [-copyToLocal [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
+     * [-count [-q] [-h] [-v] [-t [<storage type>]] [-u] <path> ...]
+     * [-cp [-f] [-p | -p[topax]] <src> ... <dst>]
+     * [-createSnapshot <snapshotDir> [<snapshotName>]]
+     * [-deleteSnapshot <snapshotDir> <snapshotName>]
+     * [-df [-h] [<path> ...]]
+     * [-du [-s] [-h] <path> ...]
+     * [-expunge]
+     * [-find <path> ... <expression> ...]
+     * [-get [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
+     * [-getfacl [-R] <path>]
+     * [-getfattr [-R] {-n name | -d} [-e en] <path>]
+     * [-getmerge [-nl] <src> <localdst>]
+     * [-help [cmd ...]]
+     * [-ls [-d] [-h] [-R] [<path> ...]]
+     * <p>
+     * [-moveFromLocal <localsrc> ... <dst>]
+     * [-moveToLocal <src> <localdst>]
+     * [-mv <src> ... <dst>]
+     * [-put [-f] [-p] [-l] <localsrc> ... <dst>]
+     * [-renameSnapshot <snapshotDir> <oldName> <newName>]
+     * [-rm [-f] [-r|-R] [-skipTrash] <src> ...]
+     * [-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+     * [-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+     * [-setfattr {-n name [-v value] | -x name} <path>]
+     * [-setrep [-R] [-w] <rep> <path> ...]
+     * [-stat [format] <path> ...]
+     * [-tail [-f] <file>]
+     * [-test -[defsz] <path>]
+     * [-text [-ignoreCrc] <src> ...]
+     * [-touchz <path> ...]
+     * [-truncate [-w] <length> <path> ...]
+     * [-usage [cmd ...]]
      */
 
 /*
@@ -1644,12 +1645,10 @@ hdfs dfs -appendToFile
      *
      * DROP DATABASE test_db CASCADE;
      */
-    public void testDfs(){
+    public void testDfs() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
-
-
 
 
     @After

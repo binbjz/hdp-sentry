@@ -9,20 +9,20 @@ import java.util.regex.*;
 public class UtilTool {
     public static void main(String[] args) {
         // execute command
-//        String cmds = "ifconfig bond0 && ps aux | head";
-//        String[] callCmd = {"/bin/bash", "-c", cmds};
-//        System.out.println("exit code:\n" + execCommand(callCmd).get(0));
-//        System.out.println();
-//        System.out.println("command result:\n" + execCommand(callCmd).get(1));
-//        System.out.println();
+        String cmds = "ifconfig eth0 | grep inet   ";
+        String[] callCmd = {"/bin/bash", "-c", cmds};
+        System.out.println("exit code:\n" + execCommand(callCmd).get(0));
+        System.out.println();
+        System.out.println("command result:\n" + execCommand(callCmd).get(1));
+        System.out.println();
 //
         // execute script
 //        String[] callScript = {"/bin/bash", scripts};
-        String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
-        String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
-        System.out.println("exit code:\n" + execCommand(callScript).get(0));
-        System.out.println();
-        System.out.println("command result:\n" + execCommand(callScript).get(1));
+//        String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
+//        String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
+//        System.out.println("exit code:\n" + execCommand(callScript).get(0));
+//        System.out.println();
+//        System.out.println("command result:\n" + execCommand(callScript).get(1));
 
 
         //System.out.println("======>>");
@@ -84,7 +84,11 @@ public class UtilTool {
         if (process != null) {
             map.put(0, String.valueOf(process.exitValue()));
         }
-        map.put(1, stringBuilder.substring(0, stringBuilder.length() - 1));
+        try {
+            map.put(1, stringBuilder.substring(0, stringBuilder.length() - 1));
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("You didn't enter a valid input!");
+        }
         return map;
     }
 
