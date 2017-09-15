@@ -6,7 +6,7 @@ BAD_PARAMS=65
 NOMATCH=126
 ROLE_NAME=hadoop-qa
 ROLE_GROUP=hadoop-qa
-DB_NAME=test_bin
+DB_NAME=test_db
 
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
