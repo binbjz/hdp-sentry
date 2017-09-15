@@ -7,29 +7,29 @@ import org.junit.Test;
 
 public class TestTableAll {
 
-        /**
-         *  Add role, group and privilege
-         *
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r server_all
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r server_all -g server_all_group
-         * /opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename server_all --privilege 'server=server1->action=all'
-         */
+    /**
+     * Add role, group and privilege
+     *
+     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r table_all
+     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r table_all -g table_all
+     * /opt/meituan/sentry/bin/sentryShell --grant_privilege_role --role table_alter --privilege server=server1->db=test_db->table=*->action=all --conf /opt/meituan/sentry/conf/sentry-site.xml
+     */
 
-        /**
-         * Remove role, group and privilege
-         *
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r server_all -p server=server1->action=all
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r server_all -g server_all_group
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --drop_role -r server_all
-         */
+    /**
+     * Remove role, group and privilege
+     *
+     * /opt/meituan/sentry/bin/sentryShell --revoke_privilege_role -r table_all -p server=server1->db=test_db->table=*->action=all -conf /opt/meituan/sentry/conf/sentry-site.xml
+     * /opt/meituan/sentry/bin/sentryShell --delete_role_group -r table_all -g table_all -conf /opt/meituan/sentry/conf/sentry-site.xml
+     * /opt/meituan/sentry/bin/sentryShell --drop_role -r table_all -conf /opt/meituan/sentry/conf/sentry-site.xml
+     */
 
-        /**
-         * Check role, group and privilege
-         * <p>
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g server_all_group
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r server_all
-         */
+    /**
+     * Check role, group and privilege
+     *
+     * /opt/meituan/sentry/bin/sentryShell --list_role -conf /opt/meituan/sentry/conf/sentry-site.xml
+     * /opt/meituan/sentry/bin/sentryShell --list_role -g table_all -conf /opt/meituan/sentry/conf/sentry-site.xml
+     * /opt/meituan/sentry/bin/sentryShell --list_privilege -r table_all -conf /opt/meituan/sentry/conf/sentry-site.xml
+     */
 
         @Before
         public void setUp() {

@@ -10,15 +10,15 @@ public class TestServerAll {
      *  Add role, group and privilege
      *
      * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r server_all
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r server_all -g server_all_group
+     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r server_all -g server_all
      * /opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename server_all --privilege 'server=server1->action=all'
      */
 
     /**
      * Remove role, group and privilege
      *
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r server_all -p server=server1->action=all
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r server_all -g server_all_group
+     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r server_all -p 'server=server1->action=all'
+     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r server_all -g server_all
      * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --drop_role -r server_all
      */
 
@@ -26,7 +26,7 @@ public class TestServerAll {
      * Check role, group and privilege
      * <p>
      * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g server_all_group
+     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g server_all
      * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r server_all
      */
 
@@ -500,11 +500,8 @@ DROP DATABASE test_db;
      * -- 1022 SHOW GRANT ROLE
      * 单独测试
      */
-<<<<<<< HEAD
+
     public void testShowGrantRole(){
-=======
-    public void testAlterDescribeTable6() {
->>>>>>> 58bb00600dee0020d93ae06693ebb5eee7cc7c03
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -613,20 +610,6 @@ SELECT count(*) FROM test_db.collecttest;
 DROP DATABASE test_db CASCADE;
 */
 
-<<<<<<< HEAD
-=======
-/*
-hive (test_Db)> CREATE TABLE collecttest (str STRING, countVal INT)
-              > ROW FORMAT DELIMITED FIELDS TERMINATED BY '09' LINES TERMINATED BY '10';
-OK
-Time taken: 1.518 seconds
-hive (test_Db)> LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE collecttest;
-Loading data to table test_Db.collecttest
-Failed with exception Unable to move source file:/opt/meituan/qa_test/testfile/afile.txt to destination viewfs://hadoop-meituan-test/user/hive/warehouse/test_db.db/collecttest/afile.txt
-*/
-
-
->>>>>>> 58bb00600dee0020d93ae06693ebb5eee7cc7c03
     //PASS
     @Test
     /**
@@ -738,11 +721,7 @@ DROP DATABASE test_db CASCADE;
      * DROP TABLE test_db.partition_table002;
      * DROP DATABASE test_db;
      */
-<<<<<<< HEAD
     public void testInsertOverwriteTablePartition(){
-=======
-    public void testCreateTableLike() {
->>>>>>> 58bb00600dee0020d93ae06693ebb5eee7cc7c03
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -1793,7 +1772,6 @@ Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,On
 Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Ave.|Oak Park|IL|60700
 Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
 
-<<<<<<< HEAD
 SET FILEPATH=/opt/meituan/qa_test/testfile;
 !cp ${hiveconf:FILEPATH}/california-employees.csv ${hiveconf:FILEPATH}/california-employees.csv_new;
 dfs -moveFromLocal ${hiveconf:FILEPATH}/california-employees.csv_new  /tmp;
@@ -1802,8 +1780,7 @@ dfs -copyToLocal /tmp/california-employees.csv_new /tmp;
 dfs -rm /tmp/california-employees.csv_new;
 !rm /tmp/california-employees.csv_new;
 */
-=======
->>>>>>> 58bb00600dee0020d93ae06693ebb5eee7cc7c03
+
 
     @After
     public void cleanUp() {

@@ -10,16 +10,16 @@ public class TestServerAlter {
         /**
          *  Add role, group and privilege
          *
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r server_all
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r server_all -g server_all_group
-         * /opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename server_all --privilege 'server=server1->action=all'
+         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r server_alter
+         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r server_alter -g server_alter
+         * /opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename server_alter --privilege 'server=server1->action=alter'
          */
 
         /**
          * Remove role, group and privilege
          *
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r server_all -p server=server1->action=all
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r server_all -g server_all_group
+         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r server_alter -p 'server=server1->action=alter'
+         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r server_alter -g server_alter
          * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --drop_role -r server_all
          */
 
@@ -27,8 +27,8 @@ public class TestServerAlter {
          * Check role, group and privilege
          * <p>
          * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g server_all_group
-         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r server_all
+         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g server_alter
+         * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r server_alter
          */
 
         @Before
@@ -55,9 +55,9 @@ public class TestServerAlter {
                 /opt/meituan/hive-1.2/bin/hive
 */
             String[] cmd = {"/opt/meituan/hive-1.2/bin/hive", "-e 'use default;'"};
-            System.out.println("exit code:\n" + HiveUtilTool.execHiveCommand(cmd).get(0));
+            System.out.println("exit code:\n" + UtilTool.execHiveCommand(cmd).get(0));
             System.out.println();
-            System.out.println("command result:\n" + HiveUtilTool.execHiveCommand(cmd).get(1));
+            System.out.println("command result:\n" + UtilTool.execHiveCommand(cmd).get(1));
 
         }
 
