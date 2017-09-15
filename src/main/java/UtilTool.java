@@ -7,13 +7,14 @@ import java.util.regex.*;
 public class UtilTool {
     public static void main(String[] args) {
         // execute command
-        String cmds = "ifconfig eth0 | grep inet   ";
+        String cmds = "ifconfig";
         String[] callCmd = {"/bin/bash", "-c", cmds};
         System.out.println("exit code:\n" + execCommand(callCmd).get(0));
         System.out.println();
         System.out.println("command result:\n" + execCommand(callCmd).get(1));
-        System.out.println();
-//
+        System.out.println(ConstantSentry.hiveExec + ConstantSentry.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + ConstantSentry.hiveSqlSrc + File.separator + "testCreateDropDB.sql");
+        System.out.println(ConstantSentry.jSrc + File.separator + ConstantSentry.sentry_sh);
+
         // execute script
 //        String[] callScript = {"/bin/bash", scripts};
 //        String scripts = "/opt/meituan/qa_test/sentry_role.sh check";

@@ -1,7 +1,6 @@
-import com.sun.org.apache.bcel.internal.generic.Select;
 import org.junit.*;
 
-//import static org.junit.Asstert.*;
+import java.io.File;
 
 
 public class TestServerAll {
@@ -32,31 +31,17 @@ public class TestServerAll {
 
     @Before
     public void setUp() {
-/*
-    sudo -iusankuai
-    source /etc/profile
-    source /etc/bashrc
-    source ~/.bashrc
-    source ~/.bash_profile
-    export HADOOP_JAR_AUTHENTICATION=KERBEROS
-    export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
-    export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
-    export HADOOP_PROXY_USER=hadoop-hdp
-    export HADOOP_PROXY_USER=hadoop-hdp@hadoop-hdp
-    /opt/meituan/versions/mthive-1.2.1-package.sentry2/bin/hive --hiveconf hive.mt.metastore.auth.enable=true --hiveconf hive.mt.metastore.audit.id=TEST-1234-ABCD-5678
-*/
-
- /*       sudo -iusankuai
-        export HADOOP_JAR_AUTHENTICATION=KERBEROS
-        export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
-        export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
-        export HADOOP_PROXY_USER=server_all
-                /opt/meituan/hive-1.2/bin/hive
-*/
-        String[] cmd = {"/opt/meituan/hive-1.2/bin/hive", "-e 'use default;'"};
-        System.out.println("exit code:\n" + UtilTool.execCommand(cmd).get(0));
+        String sentrySh = ConstantSentry.jSrc + File.separator + ConstantSentry.sentry_sh + " check Test";
+        String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
+        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        System.out.println("command result:\n" + UtilTool.execCommand(sentryCmd).get(1));
         System.out.println();
-        System.out.println("command result:\n" + UtilTool.execCommand(cmd).get(1));
+
+        String hiveSh = ConstantSentry.jSrc + File.separator + ConstantSentry.sentry_sh + " proxy_user";
+        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
+        System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+        System.out.println("command result:\n" + UtilTool.execCommand(hiveCmd).get(1));
+        System.out.println();
 
     }
 
@@ -496,12 +481,13 @@ DROP DATABASE test_db;
 */
 
 //TO BE DONE
+
     /**
      * -- 1022 SHOW GRANT ROLE
      * 单独测试
      */
 
-    public void testShowGrantRole(){
+    public void testShowGrantRole() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
@@ -721,7 +707,7 @@ DROP DATABASE test_db CASCADE;
      * DROP TABLE test_db.partition_table002;
      * DROP DATABASE test_db;
      */
-    public void testInsertOverwriteTablePartition(){
+    public void testInsertOverwriteTablePartition() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -754,7 +740,6 @@ DROP DATABASE test_db;
 */
 
 
-
     //PASS
     @Test
     /**
@@ -784,7 +769,7 @@ DROP DATABASE test_db;
      *
      * DROP DATABASE test_db;
      */
-    public void testInsertOverwriteTable(){
+    public void testInsertOverwriteTable() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }
@@ -856,8 +841,8 @@ DROP DATABASE test_db;
 
     /**
      * test ADD JAR
-     *      CREATE FUNCTION
-     *
+     * CREATE FUNCTION
+     * <p>
      * CREATE DATABASE test_db;
      * USE test_db;
      * ADD JAR /opt/meituan/qa_test/testfile/hive_qa_udf.jar;
@@ -870,7 +855,7 @@ DROP DATABASE test_db;
      * DELETE JAR /opt/meituan/qa_test/testfile/hive_qa_udf.jar;
      * DROP DATABASE test_db;
      */
-    public void testAddJarCreateFunction(){
+    public void testAddJarCreateFunction() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
     }

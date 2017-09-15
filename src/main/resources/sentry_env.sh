@@ -4,21 +4,25 @@
 #The script will define all sentryShell environment variable that it needs
 #
 
+# Load env
+source ~/.bashrc ~/.bash_profile /etc/profile /etc/bashrc
+
 # Define param and env
 ARGS=2
 BAD_PARAMS=65
 NOMATCH=126
 NOPRI=61
+LOGIN_USER=hive
 ROLE_NAME=server_all
 ROLE_GROUP=server_all_group
 DB_NAME=test_db
 
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
-source /opt/meituan/hadoop/bin/hadoop_user_login.sh hive
+source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 
 # Check CLI parameter
-[ $# -ne $ARGS ] && echo "Usage: `basename $0` (setup|clean|check) (privilege)" && exit $BAD_PARAMS
+[ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` (setup|clean|check) (privilege)" && exit $BAD_PARAMS
 
 # Select the corresponding privilege
 declare -A sentry_privilege
@@ -27,11 +31,11 @@ sentry_privilege[TestDBCreate]="server=server1->db=test_db->action=create"
 sentry_privilege[TestColumnAll]="server=server1->db=test_db->table=test_tbl->column=a->action=all,server=server1->db=test_db->table=test_tbl->column=b->action=all"
 
 if [[ "$2" == "TestServerAll" ]]; then
-    privilege=sentry_privilege[TestServerAll]
+    privilege=${sentry_privilege[TestServerAll]}
 elif [[ "$2" == "TestDBCreate" ]]; then
-    privilege=sentry_privilege[TestDBCreate]
+    privilege=${sentry_privilege[TestDBCreate]}
 elif [[ "$2" == "TestColumnAll" ]]; then
-    privilege=sentry_privilege[TestColumnAll]
+    privilege=${sentry_privilege[TestColumnAll]}
 elif [[ "$2" == "Test" ]]; then
     :
 else
@@ -63,5 +67,3 @@ $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_priv
 echo "Please specify valid action"
 exit $NOMATCH;;
 esac
-
-exit 0
