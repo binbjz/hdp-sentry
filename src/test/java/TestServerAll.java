@@ -37,7 +37,7 @@ public class TestServerAll {
         System.out.println("command result:\n" + UtilTool.execCommand(sentryCmd).get(1));
         System.out.println();
 
-        String hiveSh = ConstantSentry.jSrc + File.separator + ConstantSentry.sentry_sh + " proxy_user";
+        String hiveSh = ConstantSentry.jSrc + File.separator + ConstantSentry.hive_sh + " proxy_user";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
         System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
         System.out.println("command result:\n" + UtilTool.execCommand(hiveCmd).get(1));
