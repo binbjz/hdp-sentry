@@ -9,43 +9,6 @@ import java.util.Map;
 
 public class TestServerAllJson {
 
-    /**
-     *  Add role, group and privilege
-     *
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r server_all
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r server_all -g server_all
-     * /opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename server_all --privilege 'server=server1->action=all'
-     */
-
-    /**
-     * Remove role, group and privilege
-     *
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r server_all -p 'server=server1->action=all'
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r server_all -g server_all
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --drop_role -r server_all
-     */
-
-    /**
-     * Check role, group and privilege
-     * <p>
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g server_all
-     * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r server_all
-     */
-
-/*
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r hdp_qa
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r hdp_qa -g hdp_qa
-/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename hdp_qa --privilege 'server=server1->action=all'
-
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r hdp_qa -p 'server=server1->action=all'
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r hdp_qa -g hdp_qa
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --drop_role -r hdp_qa
-
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g hdp_qa
-/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r hdp_qa
-*/
     @BeforeClass
     public static void setUp() {
         System.out.println("setUp......");
@@ -92,12 +55,6 @@ public class TestServerAllJson {
         Assert.assertEquals(expectedResults, actualResults);
     }
 
-/*
-CREATE DATABASE test_db WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
-SHOW DATABASES LIKE 'test_db';
-DROP DATABASE test_db;
-SHOW DATABASES LIKE 'test_db';
-*/
 
     @AfterClass
     public static void cleanUp() {
