@@ -1,6 +1,11 @@
 import org.junit.*;
+import utilityTool.SentryConstant;
+import utilityTool.TraceHandler;
+import utilityTool.UtilTool;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Map;
 
 
 public class TestServerAll {
@@ -29,38 +34,63 @@ public class TestServerAll {
      * /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r server_all
      */
 
-    @Before
-    public void setUp() {
-        String sentrySh = ConstantSentry.jSrc + File.separator + ConstantSentry.sentry_sh + " check Test";
+/*
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r hdp_qa
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r hdp_qa -g hdp_qa
+/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename hdp_qa --privilege 'server=server1->action=all'
+
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r hdp_qa -p 'server=server1->action=all'
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r hdp_qa -g hdp_qa
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --drop_role -r hdp_qa
+
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g hdp_qa
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r hdp_qa
+*/
+    @BeforeClass
+    public static void setUp() {
+        System.out.println("setUp......");
+
+        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + TraceHandler.getSTElement(0, "className");
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
-        System.out.println("command result:\n" + UtilTool.execCommand(sentryCmd).get(1));
-        System.out.println();
 
-        String hiveSh = ConstantSentry.jSrc + File.separator + ConstantSentry.hive_sh + " proxy_user";
+        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
         System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
-        System.out.println("command result:\n" + UtilTool.execCommand(hiveCmd).get(1));
-        System.out.println();
-
     }
 
     //Pass
     @Test
+//    @Ignore
     /**
      * test CREATE DATABASE
      *      DROP DATABASE
      *      SHOW DATABASES
      *
+     * DROP DATABASE IF EXISTS test_db CASCADE;
      * CREATE DATABASE test_db WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
      * SHOW DATABASES LIKE 'test_db';
      * DROP DATABASE test_db;
      * SHOW DATABASES LIKE 'test_db';
      */
     public void testCreateDropDB() {
-        Assert.assertEquals("hello", "hello");
-        System.out.println("~~~~~~~~~~~");
+        String hiveSql = SentryConstant.hiveExec + " -f " + SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlSrc + File.separator + TraceHandler.getSTElement(0, "methodName") + SentryConstant.suffix_sql;
+        String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
+        System.out.println(UtilTool.arrToStr(sqlCmd));
 
+        Map map = UtilTool.execCommand(sqlCmd);
+        System.out.println("exit code:\n" + map.get(0).toString());
+//        System.out.println("command result:\n" + map.get(1).toString());
+
+        //debug stage: write test results into output file.
+        String hiveOutput = SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlOutput + File.separator + TraceHandler.getSTElement(0, "methodName") + SentryConstant.suffix_output;
+//        System.out.println(hiveOutput);
+//        utilityTool.UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
+
+        String expectedResults = UtilTool.readAllBytes(hiveOutput);
+        String actualResults = map.get(1).toString();
+        Assert.assertEquals(expectedResults, actualResults);
     }
 
 /*
@@ -72,13 +102,15 @@ SHOW DATABASES LIKE 'test_db';
 
     //Pass
     @Test
+    @Ignore
     /**
      * test CREATE DATABASE
-     *      DROP DATABASE CASCADE
-     *      SHOW DATABASES
-     *      CREATE TABLE
-     *      CREATE VIEW
-     *
+     * DROP DATABASE CASCADE
+     * SHOW DATABASES
+     * CREATE TABLE
+     * CREATE VIEW
+     * <p>
+     * DROP DATABASE IF EXISTS test_db CASCADE;
      * CREATE DATABASE test_db WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
      * SHOW DATABASES LIKE 'test_db';
      * CREATE TABLE test_db.test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
@@ -91,6 +123,12 @@ SHOW DATABASES LIKE 'test_db';
     public void testCreateDropDBCascade() {
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
+
+        String hiveSql = SentryConstant.hiveExec + SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlSrc + File.separator + TraceHandler.getSTElement(0, "methodName") + SentryConstant.suffix_sql;
+        System.out.println(hiveSql);
+        String[] SqlCmd = {"/bin/bash", "-c", hiveSql};
+        System.out.println("exit code:\n" + UtilTool.execCommand(SqlCmd).get(0));
+        System.out.println("command result:\n" + UtilTool.execCommand(SqlCmd).get(1));
 
     }
 
@@ -106,7 +144,8 @@ SHOW DATABASES LIKE 'test_db';
 */
 
     //Pass
-
+    @Test
+    @Ignore
     /**
      * test ALTER DATABASE
      * DESCRIBE DATABASE
@@ -132,6 +171,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test CREATE DATABASE
      *      USE <dbName>
@@ -164,6 +204,7 @@ DROP DATABASE test_db;
 
     //PASS  FAILED TO CREATE INDEX
     @Test
+    @Ignore
     /**
      * test CREATE DATABASE
      *      USE <dbName>
@@ -216,6 +257,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test CREATE DATABASE...WITH DBPROPERTIES
      *      USE <dbName>
@@ -261,7 +303,7 @@ DESCRIBE test_tbl;
 ALTER TABLE test_tbl REPLACE COLUMNS (new_col1 INT COMMENT 'new column 1' , new_col2 STRING COMMENT 'new column 2', new_col3 STRING COMMENT 'new column3');
 SHOW CREATE TABLE test_tbl;
 ALTER TABLE test_tbl CHANGE new_col1 new_col1to2 INT COMMENT "put column1 to position 2nd" AFTER new_col2;
-ALTER TABLE test_tbl CHANGE new_col3 new_col3to1 INT COMMENT "put last column to position 1st" FIRST;
+ALTER TABLE test_tbl CHANGfrE new_col3 new_col3to1 INT COMMENT "put last column to position 1st" FIRST;
 DESCRIBE test_tbl;
 ALTER TABLE test_tbl RENAME TO test_tbl_new;
 ALTER TABLE test_tbl_new SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
@@ -271,6 +313,7 @@ DROP DATABASE test_db CASCADE;
 
     //FAILED FOR ALTER PARTITION
     @Test
+    @Ignore
     /**
      * test CREATE TABLE
      *      ALTER TABLE .. SET FILEFORMAT
@@ -352,6 +395,7 @@ DROP DATABASE test_db CASCADE;
 
     //FAILED ALTER TABLE PARTITION
     @Test
+    @Ignore
     /**
      *
      *
@@ -435,6 +479,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      *  ALTER TABLE .. ADD PARTITION
      *  ALTER TABLE .. DROP PARTITION
@@ -480,16 +525,36 @@ DROP TABLE test_db.supply;
 DROP DATABASE test_db;
 */
 
-//TO BE DONE
-
+    //TO BE DONE <Need to confirm>
+    @Test
+    @Ignore
     /**
      * -- 1022 SHOW GRANT ROLE
-     * 单独测试
+     * 单独测试
      */
 
     public void testShowGrantRole() {
-        Assert.assertEquals("hello", "hello");
+//        Assert.assertEquals("hello", "hello");
+//        System.out.println("~~~~~~~~~~~");
+
+        String hiveSql = SentryConstant.hiveExec + " -f " + SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlSrc + File.separator + TraceHandler.getSTElement(0, "methodName") + SentryConstant.suffix_sql;
+        String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
+        System.out.println(Arrays.toString(sqlCmd));
+
+        Map map = UtilTool.execCommand(sqlCmd);
+        System.out.println("exit code:\n" + map.get(0).toString());
+        System.out.println("command result:\n" + map.get(1).toString());
+
+        //debug stage: write test results into output file.
+        String hiveOutput = SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlOutput + File.separator + TraceHandler.getSTElement(0, "methodName") + SentryConstant.suffix_output;
+        System.out.println(hiveOutput);
+//        utilityTool.UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
+
         System.out.println("~~~~~~~~~~~");
+
+        String expectedResults = map.get(1).toString();
+        String actualResults = UtilTool.readAllBytes(hiveOutput);
+        Assert.assertEquals(expectedResults, actualResults);
 
     }
 
@@ -549,9 +614,10 @@ DROP DATABASE test_db;
 
     //PASS 需要把用户加入各个节点的USERADD
     @Test
+    @Ignore
     /**
      * export FILEPATH=/opt/meituan/qa_test/testfile
-     * cat $FILEPATH/afile.txt;
+     * cat $FILEPATH/test_file.txt;
      * twelve&12
      * twelve&1
      * eleven&11
@@ -560,9 +626,9 @@ DROP DATABASE test_db;
      * CREATE DATABASE test_db;
      * CREATE TABLE test_db.collecttest (str STRING, countVal INT)
      * ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
-     * LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE test_db.collecttest;
+     * LOAD DATA LOCAL INPATH '${env:FILEPATH}/test_file.txt' INTO TABLE test_db.collecttest;
      *
-     * SELECT str, concat_ws( ',' , collect(cast(countVal AS STRING))) FROM test_db.collecttest GROUP BY str;
+     * SELECT str, concat_ws( ',' , collect_set(cast(countVal AS STRING))) FROM test_db.collecttest GROUP BY str;
      * eleven 11,10
      * twelve 12,1
      *
@@ -573,11 +639,21 @@ DROP DATABASE test_db;
         Assert.assertEquals("hello", "hello");
         System.out.println("~~~~~~~~~~~");
 
+        String filePath = SentryConstant.tSrc + File.separator + SentryConstant.hiveDataSrc;
+        String hiveSql = SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlSrc + File.separator + TraceHandler.getSTElement(0, "methodName") + SentryConstant.suffix_sql;
+        String hiveCmd = String.format("%s -hiveconf FILEPATH='%s' -f %s", SentryConstant.hiveExec, filePath, hiveSql);
+        System.out.println("hiveCmd: " + hiveCmd);
+
+        String[] sqlCmd = {"/bin/bash", "-c", hiveCmd};
+        System.out.println("sqlCmd" + Arrays.toString(sqlCmd));
+        Map map = UtilTool.execCommand(sqlCmd);
+        System.out.println("exit code:\n" + map.get(0).toString());
+        System.out.println("command result:\n" + map.get(1).toString());
     }
 
 /*
 export FILEPATH=/opt/meituan/qa_test/testfile
-cat $FILEPATH/afile.txt;
+cat $FILEPATH/test_file.txt;
 twelve&12
 twelve&1
 eleven&11
@@ -586,7 +662,7 @@ eleven&10
 CREATE DATABASE test_db;
 CREATE TABLE test_db.collecttest (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
-LOAD DATA LOCAL INPATH '${env:FILEPATH}/afile.txt' INTO TABLE test_db.collecttest;
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/test_file.txt' INTO TABLE test_db.collecttest;
 
 SELECT str, concat_ws( ',' , collect_set(cast(countVal AS STRING))) as val FROM test_db.collecttest GROUP BY str;
 
@@ -598,6 +674,7 @@ DROP DATABASE test_db CASCADE;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test CREATE TABLE .. AS SELECT
      *
@@ -680,6 +757,7 @@ DROP DATABASE test_db CASCADE;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test CREATE TABLE LIKE
      *      SET
@@ -742,6 +820,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test CREATE TABLE LIKE
      *      SET
@@ -762,7 +841,7 @@ DROP DATABASE test_db;
      * INSERT OVERWRITE TABLE test_db.table002 SELECT * FROM test_db.table001;
      * SELECT * FROM test_db.table002;
      *
-     * SELECT ROW_NUMBER() OVER(PARTITION BY ip DESC) ID, name, ip FROM test_db.table002;
+     * SELECT ROW_NUMBER() OVER(PARTITION BY ip ORDER BY ip DESC) ID, name, ip FROM test_db.table002;
      *
      * DROP TABLE test_db.table001;
      * DROP TABLE test_db.table002;
@@ -803,6 +882,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test ADD JAR
      *      CREATE FUNCTION
@@ -839,10 +919,13 @@ LIST JARS;
 DROP DATABASE test_db;
 */
 
+    //FAILED
+    @Test
+    @Ignore
     /**
      * test ADD JAR
-     * CREATE FUNCTION
-     * <p>
+     *      CREATE FUNCTION
+     *
      * CREATE DATABASE test_db;
      * USE test_db;
      * ADD JAR /opt/meituan/qa_test/testfile/hive_qa_udf.jar;
@@ -875,13 +958,19 @@ LIST JARS;
 DROP DATABASE test_db;
 */
 
+
     //PASS
     @Test
+    @Ignore
     /**
      * test ADD FILE
      *
      * #!/bin/bash
-     * echo "hello, $*"
+     * #!/bin/bash
+     * while read LINE
+     * do
+     * echo "Hello,  $LINE"
+     * done
      *
      * CREATE DATABASE test_db;
      * CREATE TABLE test_db.whoyouare(who string);
@@ -905,7 +994,10 @@ DROP DATABASE test_db;
 /*
 cat /opt/meituan/qa_test/testfile/test_who.sh
 #!/bin/bash
-echo "hello, $*"
+while read LINE
+do
+    echo "Hello,  $LINE"
+done
 
 CREATE DATABASE test_db;
 CREATE TABLE test_db.whoyouare(who string);
@@ -924,6 +1016,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test ALTER TABLE ..SET SERDEPROPERTIES
      *
@@ -960,6 +1053,7 @@ DROP DATABASE test_db;
 
     //FAILED ALTER TABLE PARTITION
     @Test
+    @Ignore
     /**
      * test ALTER TABLE .. PARTITION SET SERDEPROPERTIES
      *
@@ -999,6 +1093,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * INSERT OVERWRITE TABLE
      * INSERT OVERWRITE DIRECTORY
@@ -1071,6 +1166,7 @@ DROP DATABASE test_db;
      * INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
      * SELECT * FROM test_db.staged_employees se WHERE se.country = 'US' and se.state = 'CA';
      * !ls -l /tmp/ca_employees;
+     * !ls -rm -r /tmp/ca_employees;
      *
      * FROM (
      * SELECT emp.name, emp.salary FROM test_db.staged_employees emp WHERE emp.salary < 6000
@@ -1112,7 +1208,7 @@ Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Av
 Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
 
 CREATE DATABASE test_db;
-CREATE TABLE test_db.staged_employees (
+CREATE TABLE test_db02.staged_employees (
    name STRING
   ,salary FLOAT
   ,subordinates ARRAY<STRING>
@@ -1143,7 +1239,11 @@ ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'IL'
 export FILEPATH=/opt/meituan/qa_test/testfile
 echo $FILEPATH
 LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
-INTO TABLE test_db.staged_employees
+INTO TABLE test_db02.staged_employees
+PARTITION (country = 'US', state = 'CA');
+
+LOAD DATA LOCAL INPATH '/opt/meituan/qa_test/testfile/california-employees.csv'
+INTO TABLE test_db02.staged_employees
 PARTITION (country = 'US', state = 'CA');
 
 FROM test_db.staged_employees se
@@ -1173,6 +1273,7 @@ SELECT * FROM test_db.employees;
 INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
 SELECT * FROM test_db.staged_employees se WHERE se.country = 'US' and se.state = 'CA';
 !ls -l /tmp/ca_employees;
+!ls -rm -r /tmp/ca_employees;
 
 FROM (
       SELECT emp.name, emp.salary FROM test_db.staged_employees emp WHERE emp.salary < 6000
@@ -1204,6 +1305,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test IMPORT TABLE
      *      EXPORT TABLE
@@ -1222,34 +1324,35 @@ DROP DATABASE test_db;
      * CREATE DATABASE test_db;
      *
      * CREATE TABLE test_db.employees (
-     *   name STRING
-     *  ,salary FLOAT
-     *  ,subordinates ARRAY<STRING>
-     *  ,deductions MAP<STRING, FLOAT>
-     *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-     * ) PARTITIONED BY (country STRING, state STRING)
-     * ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-     * COLLECTIONS ITEMS TERMINATED BY '|'
-     * MAP KEYS TERMINATED BY '='
-     * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-     *
-     * CREATE TABLE test_db.staged_employees (
-     *   name STRING
-     *  ,salary FLOAT
-     *  ,subordinates ARRAY<STRING>
-     *  ,deductions MAP<STRING, FLOAT>
-     *  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+     *  name STRING
+     * ,salary FLOAT
+     * ,subordinates ARRAY<STRING>
+     * ,deductions MAP<STRING, FLOAT>
+     * ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
      * ) PARTITIONED BY (country STRING, state STRING)
      * ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
      * COLLECTION ITEMS TERMINATED BY '|'
      * MAP KEYS TERMINATED BY '='
      * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
      *
-     * ALTER TABLE test_db.employees ADD PARTITION (country = 'US', state = 'CA');
+     * CREATE TABLE test_db.staged_employees (
+     *  name STRING
+     * ,salary FLOAT
+     * ,subordinates ARRAY<STRING>
+     * ,deductions MAP<STRING, FLOAT>
+     * ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+     * ) PARTITIONED BY (country STRING, state STRING)
+     * ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+     * COLLECTION ITEMS TERMINATED BY '|'
+     * MAP KEYS TERMINATED BY '='
+     * LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+     *
      * ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'CA');
+     * ALTER TABLE test_db.employees ADD PARTITION (country = 'US', state = 'CA');
      *
      * SET FILEPATH=/opt/meituan/qa_test/testfile;
      * SELECT '${hiveconf:FILEPATH}';
+     *
      * LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
      * INTO TABLE test_db.staged_employees
      * PARTITION (country = 'US', state = 'CA');
@@ -1262,13 +1365,13 @@ DROP DATABASE test_db;
      * -- PARTITION (country = 'US', state = 'CA');
      *
      * -- 导出分区并且导入到分区表分区
-     * EXPORT TABLE test_db.staged_employees PARTITIONS (country = 'US', state = 'CA') TO '/tmp/employee';
-     * -- '/user/hive/warehouse/test_db.db/export/employee'
-
+     * EXPORT TABLE test_db.staged_employees PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
+     * dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
+     *
      * IMPORT TABLE test_db.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+     * SHOW PARTITIONS test_db.employees;
      *
      * ALTER TABLE test_db.employees TOUCH;
-     *
      *
      * ALTER TABLE test_db.staged_employees TOUCH PARTITION (country = 'US', state = 'CA') ;
      * ALTER TABLE test_db.employees TOUCH PARTITION (country = 'US', state = 'CA') ;
@@ -1279,6 +1382,10 @@ DROP DATABASE test_db;
      * DESCRIBE EXTENDED test_db.employees PARTITION (country='US', state='CA');
      *
      * ALTER TABLE test_db.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
+     * dfs -rm -R /tmp/employee;
+     *
+     * DROP TABLE test_db.employees;
+     * DROP TABLE test_db.staged_employees;
      *
      * DROP DATABASE test_db CASCADE;
      */
@@ -1316,8 +1423,9 @@ MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE test_db.employees ADD PARTITION (country = 'US', state = 'CA');
 
-set FILEPATH=/opt/meituan/qa_test/testfile;
+SET FILEPATH=/opt/meituan/qa_test/testfile;
 SELECT '${hiveconf:FILEPATH}';
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
@@ -1330,7 +1438,6 @@ PARTITION (country = 'US', state = 'CA');
 -- LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 -- INTO TABLE test_db.staged_employees
 -- PARTITION (country = 'US', state = 'CA');
-
 
 -- 导出分区并且导入到分区表分区
 EXPORT TABLE test_db.staged_employees PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
@@ -1350,12 +1457,91 @@ DESCRIBE test_db.employees PARTITION (country='US', state='CA');
 DESCRIBE EXTENDED test_db.employees PARTITION (country='US', state='CA');
 
 ALTER TABLE test_db.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
+dfs -rm -R /tmp/employee;
+
+DROP TABLE test_db.employees;
+DROP TABLE test_db.staged_employees;
 
 DROP DATABASE test_db CASCADE;
 */
 
+    /*
+
+
+    test_db02.staged_employees.name
+
+
+
+
+    CREATE DATABASE test_db02;
+
+    CREATE TABLE test_db02.employees (
+      name STRING
+     ,salary FLOAT
+     ,subordinates ARRAY<STRING>
+     ,deductions MAP<STRING, FLOAT>
+     ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+    ) PARTITIONED BY (country STRING, state STRING)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    COLLECTION ITEMS TERMINATED BY '|'
+    MAP KEYS TERMINATED BY '='
+    LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+    CREATE TABLE test_db02.staged_employees (
+      name STRING
+     ,salary FLOAT
+     ,subordinates ARRAY<STRING>
+     ,deductions MAP<STRING, FLOAT>
+     ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+    ) PARTITIONED BY (country STRING, state STRING)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    COLLECTION ITEMS TERMINATED BY '|'
+    MAP KEYS TERMINATED BY '='
+    LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+    ALTER TABLE test_db02.staged_employees ADD PARTITION (country = 'US', state = 'CA');
+
+    SET FILEPATH=/opt/meituan/qa_test/testfile;
+    SELECT '${hiveconf:FILEPATH}';
+
+    LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+    INTO TABLE test_db02.staged_employees
+    PARTITION (country = 'US', state = 'CA');
+
+    -- TRUNCATE TABLE test_db.staged_employees;
+    -- export FILEPATH=/opt/meituan/qa_test/testfile;
+    -- echo $FILEPATH;
+    -- LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
+    -- INTO TABLE test_db.staged_employees
+    -- PARTITION (country = 'US', state = 'CA');
+
+
+    -- 导出分区并且导入到分区表分区
+    EXPORT TABLE test_db02.staged_employees PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
+    dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
+
+    IMPORT TABLE test_db02.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+    SHOW PARTITIONS test_db02.employees;
+
+    ALTER TABLE test_db02.employees TOUCH;
+
+    ALTER TABLE test_db.staged_employees TOUCH PARTITION (country = 'US', state = 'CA') ;
+    ALTER TABLE test_db.employees TOUCH PARTITION (country = 'US', state = 'CA') ;
+    ALTER TABLE test_db.employees ADD PARTITION (country = 'CHN', state = 'BJ') ;
+    ALTER TABLE test_db.employees TOUCH PARTITION (country = 'CHN', state = 'BJ') ;
+
+    DESCRIBE test_db.employees PARTITION (country='US', state='CA');
+    DESCRIBE EXTENDED test_db.employees PARTITION (country='US', state='CA');
+
+    ALTER TABLE test_db.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
+
+    DROP DATABASE test_db CASCADE;
+    */
+
+
     //PASS
     @Test
+    @Ignore
     /** test ALTER TABLE .. ENABLE / DISABLE
      *
      * CREATE DATABASE test_db;
@@ -1367,7 +1553,10 @@ DROP DATABASE test_db CASCADE;
      * DROP test_db.log_messages;
      * ALTER TABLE test_db.log_messages DISABLE NO_DROP;
      * DROP test_db.log_messages;
-
+     *
+     * CREATE TABLE IF NOT EXISTS test_db.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+     * PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+     *
      * ALTER TABLE test_db.log_messages ENABLE OFFLINE;
      * DROP test_db.log_messages;
      * ALTER TABLE test_db.log_messages DISABLE OFFLINE;
@@ -1390,6 +1579,9 @@ DROP TABLE test_db.log_messages;
 ALTER TABLE test_db.log_messages DISABLE NO_DROP;
 DROP TABLE test_db.log_messages;
 
+CREATE TABLE IF NOT EXISTS test_db.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
 ALTER TABLE test_db.log_messages ENABLE OFFLINE;
 DROP TABLE test_db.log_messages;
 ALTER TABLE test_db.log_messages DISABLE OFFLINE;
@@ -1401,6 +1593,7 @@ DROP DATABASE test_db;
 
     //Failed ALTER TABLE PARTITION
     @Test
+    @Ignore
     /**
      * test ALTER TABLE .. PARTITION ENABLE / DISABLE
      *
@@ -1451,6 +1644,7 @@ DROP DATABASE test_db;
 
     //Pass
     @Test
+    @Ignore
     /**
      * test MSCK REPAIR TABLE
      *
@@ -1549,6 +1743,7 @@ DROP DATABASE test_db;
 
     //FAILED
     @Test
+    @Ignore
     /**
      * test CREATE INDEX
      *      SHOW INDEX
@@ -1613,6 +1808,7 @@ DROP DATABASE test_db;
 
     //FAILED
     @Test
+    @Ignore
     /**
      * test CREATE INDEX
      *      SHOW INDEX
@@ -1726,6 +1922,7 @@ DROP DATABASE test_db;
 
     //PASS
     @Test
+    @Ignore
     /**
      * test DFS
      *
@@ -1767,8 +1964,12 @@ dfs -rm /tmp/california-employees.csv_new;
 */
 
 
-    @After
-    public void cleanUp() {
+    @AfterClass
+    public static void cleanUp() {
+        System.out.println("cleanUp......");
 
+        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + TraceHandler.getSTElement(0, "className");
+        String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
+        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
 }

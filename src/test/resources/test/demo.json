@@ -1,0 +1,17 @@
+{
+  "id": "",
+  "tag": "",
+  "desc": "",
+  "prepare": "",
+  "expect": "OK",
+  "clean": [
+    {
+      "type": "file/sql",
+      "name": "testCreateDropDB.sql"
+    },
+    {
+      "type": "file/sql",
+      "name": "testCreateDropDB.sql"
+    }
+  ]
+}

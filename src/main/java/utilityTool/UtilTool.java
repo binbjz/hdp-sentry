@@ -1,3 +1,5 @@
+package utilityTool;
+
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -6,34 +8,30 @@ import java.util.regex.*;
 
 public class UtilTool {
     public static void main(String[] args) {
-        // execute command
         String cmds = "ifconfig";
         String[] callCmd = {"/bin/bash", "-c", cmds};
-        System.out.println("exit code:\n" + execCommand(callCmd).get(0));
+        System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
         System.out.println();
-        System.out.println("command result:\n" + execCommand(callCmd).get(1));
-        System.out.println(ConstantSentry.hiveExec + ConstantSentry.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + ConstantSentry.hiveSqlSrc + File.separator + "testCreateDropDB.sql");
-        System.out.println(ConstantSentry.jSrc + File.separator + ConstantSentry.sentry_sh);
+        System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
 
-        // execute script
-//        String[] callScript = {"/bin/bash", scripts};
-//        String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
-//        String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
-//        System.out.println("exit code:\n" + execCommand(callScript).get(0));
-//        System.out.println();
-//        System.out.println("command result:\n" + execCommand(callScript).get(1));
+        /** //execute script
+         //String[] callScript = {"/bin/bash", scripts};
+         String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
+         String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
+         System.out.println("exit code:\n" + execCommand(callScript).get(0));
+         System.out.println();
+         System.out.println("command result:\n" + execCommand(callScript).get(1));
 
-
-        //System.out.println("======>>");
-        //String scripts2 = "/Users/zhaobin/Downloads/test.sh";
-        //String[] callScript2 = {"/bin/bash", "-c", "source" + " " + scripts2};
-        //System.out.println(ConstantSentry.workspacePath);
-        //String input = execCommand(callScript2).get(1).toString();
-        //System.out.println(ConstantSentry.resourcePath);
-        //String filePath2 = ConstantSentry.resourcePath + File.separator + "results.txt";
-        //writeAllBytes(filePath2, input);
-        //System.out.println("======>>");
-        //System.out.println(readFileByLine(filePath2));
+         System.out.println("======>>");
+         String scripts2 = "/Users/zhaobin/Downloads/test.sh";
+         String[] callScript2 = {"/bin/bash", "-c", "source" + " " + scripts2};
+         System.out.println(utilityTool.SentryConstant.wsPath);
+         String input = execCommand(callScript2).get(1).toString();
+         System.out.println(utilityTool.SentryConstant.jSrc);
+         String filePath2 = utilityTool.SentryConstant.tSrc + File.separator + "results.txt";
+         writeAllBytes(filePath2, input);
+         System.out.println("======>>");
+         System.out.println(readFileByLine(filePath2)); */
     }
 
     /**
@@ -42,6 +40,7 @@ public class UtilTool {
      * <p>
      * return map(exitCode, command output results)
      */
+
     public static Map execCommand(String... str) {
         Map<Integer, String> map = new HashMap<>();
         ProcessBuilder pb = new ProcessBuilder(str);
@@ -83,10 +82,13 @@ public class UtilTool {
         if (process != null) {
             map.put(0, String.valueOf(process.exitValue()));
         }
+
         try {
-            map.put(1, stringBuilder.substring(0, stringBuilder.length() - 1));
+            map.put(1, stringBuilder.toString());
         } catch (StringIndexOutOfBoundsException e) {
-            System.out.println("You didn't enter a valid input!");
+            if ((stringBuilder.toString() == null) || (stringBuilder.toString().length() == 0)) {
+                return map;
+            }
         }
         return map;
     }
@@ -103,7 +105,6 @@ public class UtilTool {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return content;
     }
 
@@ -135,16 +136,30 @@ public class UtilTool {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return stringBuilder.substring(0, stringBuilder.length() - 1);
+        return stringBuilder.toString();
     }
 
     /**
-     * This method will filter strings that contain time
+     * This method demonstrates arrToStr().
+     * Return a string which is the concatenation of the strings in array.
+     */
+    public static String arrToStr(String[] str) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : str) {
+            sb.append(s).append(" ");
+        }
+
+        String str2 = sb.substring(0, sb.length() - 1);
+        return str2;
+    }
+
+    /**
+     * This method will filter strings that contain time and specified string
      * example: "17/09/13 14:39:55 INFO xxxxxx" will be replaced with an empty string
      */
     public static String filterResults(String str) {
         String REGEX = "(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}:\\d{2}";
-        String REGEX2 = "Just a placeholder";
+        String REGEX2 = "^(Time|CliDriver|Logging).*";
         String REPLACE = "";
         // String REGEX2 = "([a-zA-Z]+(:?)\\s+(!?))+";
         //String REPLACE = "<******>";
