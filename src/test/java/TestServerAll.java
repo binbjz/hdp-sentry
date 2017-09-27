@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class TestServerAll {
     private static final String className = TraceHandler.getSTElement(0, "className");
-    private static final String jsonPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.jsonInput;
+    private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
 
 
