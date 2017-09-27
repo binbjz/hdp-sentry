@@ -35,7 +35,7 @@ public class TestServerAll {
     @Test(dataProvider = "DataProvider_ServerAll")
     public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String resultType, String resultFile) {
         System.out.println("running testcase: " + id);
-        String hiveSql = SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlSrc + File.separator + sqlFile;
+        String hiveSql = SentryConstant.hiveExec + " -f " + SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlSrc + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         System.out.println(UtilTool.arrToStr(sqlCmd));
 
