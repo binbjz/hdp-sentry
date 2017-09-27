@@ -15,17 +15,17 @@
     ]
   },
   {
-    "id": "testCreateDropDB",
+    "id": "testCreateDropTable",
     "tag": "Server",
-    "desc": "The case will test CreateDropDB.",
+    "desc": "The case will test CreateDropTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDropDB2.sql"
+        "name": "testCreateDropTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDropDB2.txt"
+        "name": "testCreateDropTable.txt"
       }
     ]
   }
