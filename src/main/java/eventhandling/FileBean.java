@@ -1,7 +1,6 @@
-package demo;
+package eventhandling;
 
-public class CleanObject {
-
+public class FileBean {
 
     private String type;
     private String name;

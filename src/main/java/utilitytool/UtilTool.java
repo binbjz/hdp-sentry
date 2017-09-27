@@ -1,4 +1,4 @@
-package utilityTool;
+package utilitytool;
 
 import java.io.*;
 import java.nio.file.*;
@@ -25,10 +25,10 @@ public class UtilTool {
          System.out.println("======>>");
          String scripts2 = "/Users/zhaobin/Downloads/test.sh";
          String[] callScript2 = {"/bin/bash", "-c", "source" + " " + scripts2};
-         System.out.println(utilityTool.SentryConstant.wsPath);
+         System.out.println(utilitytool.SentryConstant.wsPath);
          String input = execCommand(callScript2).get(1).toString();
-         System.out.println(utilityTool.SentryConstant.jSrc);
-         String filePath2 = utilityTool.SentryConstant.tSrc + File.separator + "results.txt";
+         System.out.println(utilitytool.SentryConstant.jSrc);
+         String filePath2 = utilitytool.SentryConstant.tSrc + File.separator + "results.txt";
          writeAllBytes(filePath2, input);
          System.out.println("======>>");
          System.out.println(readFileByLine(filePath2)); */
