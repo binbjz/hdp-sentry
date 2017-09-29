@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.Map;
 
 
-public class TestServerAll {
+public class ServerAll {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
@@ -50,6 +50,8 @@ public class TestServerAll {
 
         String expectedResults = UtilTool.readAllBytes(hiveOutput);
         String actualResults = map.get(1).toString();
+        System.out.println("expectedResults: " + expectedResults);
+        System.out.println("actualResults: " + actualResults);
         Assert.assertEquals(desc, expectedResults, actualResults);
     }
 

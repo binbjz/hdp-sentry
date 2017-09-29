@@ -10,7 +10,7 @@ import java.util.List;
 public class TestJ {
     public static void main(String[] args) {
 
-        String fileContext = SentryConstant.tSrc + File.separator + "TestServerAll" + File.separator + SentryConstant.jsonInput + File.separator + File.separator + "TestServerAll.json";
+        String fileContext = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput + File.separator + File.separator + "ServerAll.json";
         String fileContents = UtilTool.readAllBytes(fileContext);
         System.out.println(fileContents);
         List<TCBean> tcBeans = JSON.parseArray(fileContents, TCBean.class);
