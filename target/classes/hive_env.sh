@@ -38,7 +38,7 @@ case "$1" in
     #role, group and privilege
     #export HADOOP_PROXY_USER=hadoop-qa/misid@group1,group2
     :
-;;
+    ;;
 * )
     echo "Please specify valid authentication type"
     exit $NOMATCH;;

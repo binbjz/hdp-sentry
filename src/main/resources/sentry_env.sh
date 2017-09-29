@@ -27,45 +27,48 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 
 # Select the corresponding privilege
 declare -A sentry_privilege
+
 sentry_privilege[ServerAll]="'server=server1->action=all'"
-sentry_privilege[DBCreate]="'server=server1->db=${DB_NAME}->action=create'"
-sentry_privilege[ColumnAll]="'server=server1->db=${DB_NAME}->table=test_tbl->column=a->action=all,server=server1->db=${DB_NAME}->table=test_tbl->column=b->action=all'"
+sentry_privilege[DBCreate]="'server=server1->db=test_db2->action=create'"
+sentry_privilege[ColumnAll]="'server=server1->db=db4create->action=all','server=server1->db=db4drop->action=all','server=server1->db=db4drop_cascade->action=all','server=server1->db=db4alter->action=all','server=server1->db=test_db2->action=all','server=server1->db=db4tbl->action=all'"
 
 if [[ "$2" == "ServerAll" ]]; then
-    privilege=${sentry_privilege[ServerAll]}
-elif [[ "$2" == "TestDBCreate" ]]; then
-    privilege=${sentry_privilege[DBCreate]}
-elif [[ "$2" == "TestColumnAll" ]]; then
-    privilege=${sentry_privilege[ColumnAll]}
+    privilege=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_test[ServerAll]}"`
+elif [[ "$2" == "DBCreate" ]]; then
+    privilege=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_test[DBCreate]}"`
+elif [[ "$2" == "ColumnAll" ]]; then
+    privilege=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_test[ColumnAll]}"`
 elif [[ "$2" == "List" ]]; then # For show privilege to specify $2 with List
-    :
+    : ${privilege:="placeholder"}
 else
     echo "Please specify valid sentry privilege"
     exit $NOPRI
 fi
 
-# Select the corresponding action
-case "$1" in
-"setup")
-    # Add role, group and privilege
-    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $ROLE_NAME
-    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_group -r $ROLE_NAME -g $ROLE_GROUP
-    $SENTRY_HOME/bin/sentryShell --conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege "$privilege"
-    ;;
-"clean")
-    # Remove role, group and privilege
-    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p "$privilege"
-    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --delete_role_group -r $ROLE_NAME -g $ROLE_GROUP
-    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --drop_role -r $ROLE_NAME
-    ;;
-"check")
-    # Check role, group and privilege
-    # Too many roles and temporary comment the line.
-    #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
-    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP
-    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $ROLE_NAME
-    ;;
-* )
-echo "Please specify valid action"
-exit $NOMATCH;;
-esac
+for priv in $privilege; do
+    # Select the corresponding action
+    case "$1" in
+    "setup")
+        # Add role, group and privilege
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $ROLE_NAME
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_group -r $ROLE_NAME -g $ROLE_GROUP
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege "$priv"
+        ;;
+    "clean")
+        # Remove role, group and privilege
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p "$priv"
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --delete_role_group -r $ROLE_NAME -g $ROLE_GROUP
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --drop_role -r $ROLE_NAME
+        ;;
+    "check")
+        # Check role, group and privilege
+        # Too many roles and temporary comment the line.
+        #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $ROLE_NAME
+        ;;
+    * )
+    echo "Please specify valid action"
+    exit $NOMATCH;;
+    esac
+done
