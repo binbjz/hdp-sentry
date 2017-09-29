@@ -1,9 +1,8 @@
-SHOW DATABASES;
---DROP DATABASE IF EXISTS test_db CASCADE;
---CREATE DATABASE test_db WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
---USE test_db;
---CREATE TABLE test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
---SHOW TABLES;
---SHOW TABLES LIKE 'test*';
---DROP TABLE test_tbl;
---DROP DATABASE test_db;
+DROP DATABASE IF EXISTS test_db CASCADE;
+CREATE DATABASE test_db WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+USE test_db;
+CREATE TABLE test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+SHOW TABLES;
+SHOW TABLES LIKE 'test*';
+DROP TABLE test_tbl;
+DROP DATABASE test_db;
