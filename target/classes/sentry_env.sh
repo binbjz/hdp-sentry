@@ -28,8 +28,8 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 # Select the corresponding privilege
 declare -A sentry_privilege
 sentry_privilege[ServerAll]="'server=server1->action=all'"
-sentry_privilege[DBCreate]="'server=server1->db=test_db->action=create'"
-sentry_privilege[ColumnAll]="'server=server1->db=test_db->table=test_tbl->column=a->action=all,server=server1->db=test_db->table=test_tbl->column=b->action=all'"
+sentry_privilege[DBCreate]="'server=server1->db=${DB_NAME}->action=create'"
+sentry_privilege[ColumnAll]="'server=server1->db=${DB_NAME}->table=test_tbl->column=a->action=all,server=server1->db=${DB_NAME}->table=test_tbl->column=b->action=all'"
 
 if [[ "$2" == "ServerAll" ]]; then
     privilege=${sentry_privilege[ServerAll]}
