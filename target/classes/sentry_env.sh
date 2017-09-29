@@ -12,10 +12,10 @@ ARGS=2
 BAD_PARAMS=65
 NOMATCH=126
 NOPRI=61
-LOGIN_USER=hdp_qa
-ROLE_NAME=server_all
-ROLE_GROUP=server_all_group
-DB_NAME=test_db
+LOGIN_USER=hive
+ROLE_NAME=hdp_qa
+ROLE_GROUP=hdp_qa
+DB_NAME=test_db2
 
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
