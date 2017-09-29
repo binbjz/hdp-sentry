@@ -27,16 +27,16 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 
 # Select the corresponding privilege
 declare -A sentry_privilege
-sentry_privilege[TestServerAll]="server=server1->action=all"
-sentry_privilege[TestDBCreate]="server=server1->db=test_db->action=create"
-sentry_privilege[TestColumnAll]="server=server1->db=test_db->table=test_tbl->column=a->action=all,server=server1->db=test_db->table=test_tbl->column=b->action=all"
+sentry_privilege[ServerAll]="server=server1->action=all"
+sentry_privilege[DBCreate]="server=server1->db=test_db->action=create"
+sentry_privilege[ColumnAll]="server=server1->db=test_db->table=test_tbl->column=a->action=all,server=server1->db=test_db->table=test_tbl->column=b->action=all"
 
-if [[ "$2" == "TestServerAll" ]]; then
-    privilege=${sentry_privilege[TestServerAll]}
+if [[ "$2" == "ServerAll" ]]; then
+    privilege=${sentry_privilege[ServerAll]}
 elif [[ "$2" == "TestDBCreate" ]]; then
-    privilege=${sentry_privilege[TestDBCreate]}
+    privilege=${sentry_privilege[DBCreate]}
 elif [[ "$2" == "TestColumnAll" ]]; then
-    privilege=${sentry_privilege[TestColumnAll]}
+    privilege=${sentry_privilege[ColumnAll]}
 elif [[ "$2" == "List" ]]; then # For show privilege to specify $2 with List
     :
 else
