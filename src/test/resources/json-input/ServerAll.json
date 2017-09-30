@@ -1,16 +1,16 @@
 [
   {
-    "id": "testCreateDropDB",
+    "id": "testCreateDropShowDB",
     "tag": "Server",
     "desc": "The case will test CreateDropDB.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDropDB.sql"
+        "name": "testCreateDropShowDB.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDropDB.txt"
+        "name": "testCreateDropShowDB.txt"
       }
     ]
   },
