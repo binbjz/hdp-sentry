@@ -46,7 +46,7 @@ public class ServerAll {
         System.out.println("command result:\n" + map.get(1).toString());
 
         //debug stage: write test results into output file.
-        String hiveOutput = hiveOutputPath + resultFile;
+        String hiveOutput = hiveOutputPath + File.separator + resultFile;
         System.out.println(hiveOutput);
 //        UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
 
