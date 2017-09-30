@@ -16,13 +16,15 @@ public class ServerAll {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
+    private static final String hiveSqlPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlSrc;
+    private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
 
 
     @BeforeClass
     public static void setUp() {
         System.out.println("setUp......");
 
-        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + TraceHandler.getSTElement(0, "className");
+        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
@@ -35,7 +37,7 @@ public class ServerAll {
     @Test(dataProvider = "DataProvider_ServerAll")
     public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String resultType, String resultFile) {
         System.out.println("running testcase: " + id);
-        String hiveSql = SentryConstant.hiveExec + " -f " + SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlSrc + File.separator + sqlFile;
+        String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         System.out.println(UtilTool.arrToStr(sqlCmd));
 
@@ -44,7 +46,7 @@ public class ServerAll {
         System.out.println("command result:\n" + map.get(1).toString());
 
         //debug stage: write test results into output file.
-        String hiveOutput = SentryConstant.tSrc + File.separator + TraceHandler.getSTElement(0, "className") + File.separator + SentryConstant.hiveSqlOutput + File.separator + resultFile;
+        String hiveOutput = hiveOutputPath + resultFile;
         System.out.println(hiveOutput);
 //        UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
 
@@ -66,7 +68,7 @@ public class ServerAll {
     public static void cleanUp() {
         System.out.println("cleanUp......");
 
-        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + TraceHandler.getSTElement(0, "className");
+        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
