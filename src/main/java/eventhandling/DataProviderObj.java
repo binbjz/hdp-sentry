@@ -11,7 +11,7 @@ public class DataProviderObj {
         System.out.println("Generating testData from " + jsonFile);
 
         String fileContents = UtilTool.readAllBytes(jsonFile);
-        System.out.println(fileContents);
+//        System.out.println(fileContents);
         List<TCBean> tcBeans = JSON.parseArray(fileContents, TCBean.class);
         int testCount = tcBeans.size();
         int columnNum = 7;
