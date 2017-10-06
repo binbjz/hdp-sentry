@@ -1,9 +1,6 @@
 import eventhandling.DataProviderObj;
 import org.testng.*;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utilitytool.SentryConstant;
 import utilitytool.TraceHandler;
 import utilitytool.UtilTool;
@@ -20,8 +17,8 @@ public class ServerAll {
     private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
 
 
-    @BeforeClass
-    public static void setUp() {
+    @BeforeTest
+    public void setUp() {
         System.out.println("setUp......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
@@ -67,8 +64,8 @@ public class ServerAll {
     }
 
 
-    @AfterClass
-    public static void cleanUp() {
+    @AfterTest
+    public void cleanUp() {
         System.out.println("cleanUp......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
