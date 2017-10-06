@@ -24,7 +24,7 @@ public class ServerAll {
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println(UtilTool.arrToStr(sentryCmd));
-//        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
 //        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
 //        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
@@ -75,6 +75,6 @@ public class ServerAll {
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-//        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
 }
