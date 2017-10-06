@@ -28,15 +28,15 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 # Select the corresponding privilege
 declare -A sentry_privilege
 
-sentry_privilege[ServerAll]="'server=server1->action=all'"
-sentry_privilege[ServerCreate]="'server=server1->action=create'"
-sentry_privilege[ServerSelect]="'server=server1->action=select'"
-sentry_privilege[ServerInsert]="'server=server1->action=insert'"
+sentry_privilege[ServerAll]="server=server1->action=all"
+sentry_privilege[ServerCreate]="server=server1->action=create"
+sentry_privilege[ServerSelect]="server=server1->action=select"
+sentry_privilege[ServerInsert]="server=server1->action=insert"
 
-sentry_privilege[DBCreate]="'server=server1->db=test_db2->action=create'"
-sentry_privilege[ColumnAll]="'server=server1->db=db4create->action=all','server=server1->db=db4drop->action=all','server=server1->db=db4drop_cascade->action=all','server=server1->db=db4alter->action=all','server=server1->db=test_db2->action=all','server=server1->db=db4tbl->action=all'"
-sentry_privilege[DBInsert]="'server=server1->db=test_db->action=insert','server=server1->db=db4show->action=insert','server=server1->db=db4drop->action=insert'"
-sentry_privilege[DBSelect]="'server=server1->db=test_db->action=select'"
+sentry_privilege[DBCreate]="server=server1->db=test_db2->action=create"
+sentry_privilege[ColumnAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4alter->action=all,server=server1->db=test_db2->action=all,server=server1->db=db4tbl->action=all"
+sentry_privilege[DBInsert]="server=server1->db=test_db->action=insert,server=server1->db=db4show->action=insert,server=server1->db=db4drop->action=insert"
+sentry_privilege[DBSelect]="server=server1->db=test_db->action=select"
 
 
 if [[ "$2" == "ServerAll" ]]; then
