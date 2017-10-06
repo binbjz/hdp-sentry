@@ -12,7 +12,7 @@ ARGS=1
 BAD_PARAMS=65
 NOMATCH=126
 KEYTAB_USER=hive
-PROXY_USER=server_all
+PROXY_USER=hive
 HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 
 
