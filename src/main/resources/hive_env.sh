@@ -13,7 +13,8 @@ BAD_PARAMS=65
 NOMATCH=126
 KEYTAB_USER=hive
 PROXY_USER=hdp_qa
-HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
+#HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
+HIVE_HOME=/opt/meituan/hive-1.2
 
 
 # Check CLI parameter

@@ -17,14 +17,14 @@ public class ServerAll {
     private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
 
 
-    @BeforeTest
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         System.out.println("setUp......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println(UtilTool.arrToStr(sentryCmd));
-        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+//        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
         String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
@@ -64,12 +64,12 @@ public class ServerAll {
     }
 
 
-    @AfterTest
-    public void cleanUp() {
+    @AfterClass
+    public static void cleanUp() {
         System.out.println("cleanUp......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+//        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
 }
