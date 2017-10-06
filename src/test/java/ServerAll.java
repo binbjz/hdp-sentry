@@ -25,12 +25,12 @@ public class ServerAll {
         System.out.println("setUp......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
-        String[] sentryCmd = {"/bin/bash", "-c", "\"source " + sentrySh + "\""};
+        String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println(UtilTool.arrToStr(sentryCmd));
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
         String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
-        String[] hiveCmd = {"/bin/bash", "-c", "\"source " + hiveSh + "\""};
+        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
         System.out.println(UtilTool.arrToStr(hiveCmd));
         System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
     }
@@ -41,7 +41,7 @@ public class ServerAll {
             resultType, String resultFile) {
         System.out.println("running testcase: " + id);
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
-        String[] sqlCmd = {"/bin/bash", "-c", "\"" + hiveSql + "\""};
+        String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         System.out.println(UtilTool.arrToStr(sqlCmd));
 
         Map map = UtilTool.execCommand(sqlCmd);
