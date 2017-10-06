@@ -26,16 +26,21 @@ public class ServerAll {
         System.out.println(UtilTool.arrToStr(sentryCmd));
 //        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
-        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
-        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
-        System.out.println(UtilTool.arrToStr(hiveCmd));
-        System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+//        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
+//        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
+//        System.out.println(UtilTool.arrToStr(hiveCmd));
+//        System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
     }
 
 
     @Test(dataProvider = "DataProvider_ServerAll")
     public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
+        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
+        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
+        System.out.println(UtilTool.arrToStr(hiveCmd));
+        System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+
         System.out.println("running testcase: " + id);
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
