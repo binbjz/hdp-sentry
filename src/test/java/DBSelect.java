@@ -19,7 +19,7 @@ public class DBSelect {
     @BeforeClass
     public static void setUp() {
         System.out.println("preSetUp DBSelect......");
-        String preSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + String.format("prepare%s.sql", className);
+        String preSql = String.format("prepare%s.sql", className);
         UtilTool.privilHandler(className, preSql, "setup");
 
         System.out.println("setUp DBSelect......");
@@ -78,7 +78,7 @@ public class DBSelect {
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
         System.out.println("postCleanUp DBSelect......");
-        String preSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + String.format("post%s.sql", className);
+        String preSql = String.format("post%s.sql", className);
         UtilTool.privilHandler(className, preSql, "clean");
     }
 }

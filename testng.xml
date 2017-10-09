@@ -8,9 +8,14 @@
             <class name="ServerAll"/>
         </classes>
     </test-->
-    <test name="DBInsert">
+    <!--test name="DBInsert">
         <classes>
             <class name="DBInsert"/>
+        </classes>
+    </test-->
+    <test name="DBSelect">
+        <classes>
+            <class name="DBSelect"/>
         </classes>
     </test>
 </suite>
