@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="sentry-test" thread-count="2" verbose="1" annotations="JDK" parallel="tests">
-    <test name="ServerAll">
+    <!--test name="ServerAll">
         <classes>
             <class name="ServerAll"/>
         </classes>
-    </test>
+    </test-->
     <test name="DBInsert">
         <classes>
             <class name="DBInsert"/>
