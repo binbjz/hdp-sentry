@@ -19,7 +19,6 @@ public class DBInsert {
 
     @BeforeClass
     public static void setUp() {
-        System.out.println("===============================================");
         System.out.println("setUp DBInsert......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
@@ -37,7 +36,9 @@ public class DBInsert {
     @Test(dataProvider = "DataProvider_DBInsert")
     public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
+        System.out.println("===============================================");
         System.out.println("DBInsert--> running testcase: " + id);
+        System.out.println("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         System.out.println(UtilTool.arrToStr(sqlCmd));
@@ -72,6 +73,5 @@ public class DBInsert {
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
-        System.out.println("===============================================");
     }
 }
