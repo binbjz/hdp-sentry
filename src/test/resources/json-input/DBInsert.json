@@ -28,5 +28,65 @@
         "name": "testDropDBCascade.txt"
       }
     ]
+  },
+  {
+    "id": "testCreateDropTable",
+    "tag": "DB",
+    "desc": "The case will test CreateDropTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDropTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDropTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTable01",
+    "tag": "DB",
+    "desc": "The case will test AlterDescribeTable01.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable01.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable01.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTable02",
+    "tag": "DB",
+    "desc": "The case will test AlterDescribeTable02.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable02.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable02.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoadDataLocal",
+    "tag": "DB",
+    "desc": "The case will test LoadDataLocal.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testLoadDataLocal.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testLoadDataLocal.txt"
+      }
+    ]
   }
 ]
