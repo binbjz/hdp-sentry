@@ -1,5 +1,8 @@
 import eventhandling.DataProviderObj;
-import org.testng.*;
+//import org.testng.*;
+
+import static org.testng.AssertJUnit.*;
+
 import org.testng.annotations.*;
 import utilitytool.SentryConstant;
 import utilitytool.TraceHandler;
@@ -56,7 +59,7 @@ public class DBInsert {
         String actualResults = map.get(1).toString();
         System.out.println("expectedResults: " + expectedResults);
         System.out.println("actualResults: " + actualResults);
-        Assert.assertEquals(expectedResults, actualResults, desc);
+        assertEquals(expectedResults, actualResults);
     }
 
 
