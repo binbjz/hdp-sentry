@@ -56,7 +56,7 @@ public class DBInsert {
         String actualResults = map.get(1).toString();
         System.out.println("expectedResults: " + expectedResults);
         System.out.println("actualResults: " + actualResults);
-        Assert.assertEquals(desc, expectedResults, actualResults);
+        Assert.assertEquals(expectedResults, actualResults, desc);
     }
 
 
