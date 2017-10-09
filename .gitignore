@@ -12,7 +12,7 @@ datanucleus.log
 sentry-core/sentry-core-common/src/gen
 **/TempStatsStore/
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 test-output/

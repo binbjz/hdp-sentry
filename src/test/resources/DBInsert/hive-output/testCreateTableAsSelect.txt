@@ -1,0 +1,5 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATEDATABASE)
+FAILED: SemanticException [Error 10072]: Database does not exist: db4query
+FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found session_test
+FAILED: SemanticException [Error 10001]: Line 12:17 Table not found 'session_test'
+FAILED: SemanticException [Error 10072]: Database does not exist: db4query
