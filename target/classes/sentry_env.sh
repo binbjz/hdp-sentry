@@ -33,8 +33,9 @@ sentry_privileges[ServerCreate]="server=server1->action=create"
 sentry_privileges[ServerSelect]="server=server1->action=select"
 sentry_privileges[ServerInsert]="server=server1->action=insert"
 
-sentry_privileges[DBCreate]="server=server1->db=test_db2->action=create"
 sentry_privileges[ColumnAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4alter->action=all,server=server1->db=test_db2->action=all,server=server1->db=db4tbl->action=all"
+
+sentry_privileges[DBCreate]="server=server1->db=test_db2->action=create"
 sentry_privileges[DBSelect]="server=server1->db=test_db->action=select"
 sentry_privileges[DBInsert]="server=server1->db=test_db->action=insert"
 
@@ -43,6 +44,8 @@ if [[ "$2" == "ServerAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerAll]}"`
 elif [[ "$2" == "DBCreate" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBCreate]}"`
+elif [[ "$2" == "DBInsert" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBInsert]}"`
 elif [[ "$2" == "ColumnAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ColumnAll]}"`
 elif [[ "$2" == "List" ]]; then # For show privilege to specify $2 with List
