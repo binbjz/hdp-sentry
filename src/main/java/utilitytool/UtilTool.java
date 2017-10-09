@@ -184,7 +184,7 @@ public class UtilTool {
         System.out.println(UtilTool.arrToStr(sentryCmd));
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
-        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
+        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user " + "super";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
         System.out.println(UtilTool.arrToStr(hiveCmd));
         System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));

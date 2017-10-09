@@ -24,7 +24,7 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 declare -A sentry_privileges
 
 # It will be used to setup and clean privilege with highest privilege
-sentry_privileges[PreAllPrivil]="server=server1->action=all"
+sentry_privileges[SuperPrivil]="server=server1->action=all"
 
 # The following will be used to setup and clean and check privilege for each object
 sentry_privileges[ServerAll]="server=server1->action=all"
@@ -41,8 +41,8 @@ sentry_privileges[DBInsert]="server=server1->db=test_db2->action=insert"
 
 if [[ "$2" == "ServerAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerAll]}"`
-elif [[ "$2" == "PreAllPrivil" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[PreAllPrivil]}"`
+elif [[ "$2" == "SuperPrivil" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SuperPrivil]}"`
 elif [[ "$2" == "DBCreate" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBCreate]}"`
 elif [[ "$2" == "DBSelect" ]]; then
@@ -60,7 +60,7 @@ fi
 
 
 # set role name and role group for specify privilege
-if [[ "$2" == "PreAllPrivil" ]]; then
+if [[ "$2" == "SuperPrivil" ]]; then
     ROLE_NAME=hive_qa
     ROLE_GROUP=hive_qa
 else
@@ -96,4 +96,3 @@ for privil in $privileges; do
     exit $NOMATCH;;
     esac
 done
-
