@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.Map;
 
 
-public class ServerAll {
+public class DBInsert {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
@@ -19,7 +19,7 @@ public class ServerAll {
 
     @BeforeClass
     public static void setUp() {
-        System.out.println("setUp ServerAll......");
+        System.out.println("setUp DBInsert......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
@@ -33,10 +33,10 @@ public class ServerAll {
     }
 
 
-    @Test(dataProvider = "DataProvider_ServerAll")
-    public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
+    @Test(dataProvider = "DataProvider_DBInsert")
+    public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
-        System.out.println("ServerAll--> running testcase: " + id);
+        System.out.println("DBInsert--> running testcase: " + id);
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         System.out.println(UtilTool.arrToStr(sqlCmd));
@@ -48,7 +48,7 @@ public class ServerAll {
         //debug stage: write test results into output file.
         String hiveOutput = hiveOutputPath + File.separator + resultFile;
         System.out.println(hiveOutput);
-//        UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
+        UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(hiveOutput);
         String actualResults = map.get(1).toString();
@@ -58,15 +58,15 @@ public class ServerAll {
     }
 
 
-    @DataProvider(name = "DataProvider_ServerAll")
-    public Object[][] dataProviderServerAll() {
+    @DataProvider(name = "DataProvider_DBInsert")
+    public Object[][] dataProviderDBInsert() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
 
 
     @AfterClass
     public static void cleanUp() {
-        System.out.println("cleanUp ServerAll......");
+        System.out.println("cleanUp DBInsert......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
