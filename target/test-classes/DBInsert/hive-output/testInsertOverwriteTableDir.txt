@@ -1,0 +1,34 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATEDATABASE)
+FAILED: SemanticException [Error 10072]: Database does not exist: test_db
+FAILED: SemanticException [Error 10072]: Database does not exist: test_db
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Line 4:11 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 3:5 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
+FAILED: SemanticException [Error 10001]: Line 5:60 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Table not found test_db.employees
+FAILED: SemanticException [Error 10001]: Line 3:85 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
+FAILED: SemanticException [Error 10001]: Line 4:14 Table not found 'staged_employees'
+ls: cannot access /tmp/ca_employees: No such file or directory
+Command failed with exit code = 2
+ls: cannot access /tmp/ca_employees: No such file or directory
+Command failed with exit code = 2
+FAILED: SemanticException [Error 10001]: Line 4:39 Table not found 'staged_employees'
+cat: `'/tmp/union.out/*'': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+rm: `'/tmp/union.out'': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found test_db.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found test_db.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found test_db.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found test_db.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found test_db.staged_employees
+OK
+OK
+FAILED: SemanticException [Error 10072]: Database does not exist: test_db

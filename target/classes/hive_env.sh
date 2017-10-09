@@ -4,17 +4,13 @@
 #The script will define three different types of authentication
 #
 
-# Load env
-source ~/.bashrc ~/.bash_profile /etc/profile /etc/bashrc
-
 # Define param and env for hive
 ARGS=1
 BAD_PARAMS=65
 NOMATCH=126
 KEYTAB_USER=hive
 PROXY_USER=hdp_qa
-#HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
-HIVE_HOME=/opt/meituan/hive-1.2
+HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 
 
 # Check CLI parameter

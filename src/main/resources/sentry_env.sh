@@ -4,9 +4,6 @@
 #The script will define all sentryShell environment variable that it needs
 #
 
-# Load env
-source ~/.bashrc ~/.bash_profile /etc/profile /etc/bashrc
-
 # Define param and env
 ARGS=2
 BAD_PARAMS=65
