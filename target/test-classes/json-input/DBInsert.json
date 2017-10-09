@@ -88,5 +88,20 @@
         "name": "testLoadDataLocal.txt"
       }
     ]
+  },
+  {
+    "id": "testCreateTableAsSelect",
+    "tag": "DB",
+    "desc": "The case will test CreateTableAsSelect.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelect.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelect.txt"
+      }
+    ]
   }
-]
+  }
