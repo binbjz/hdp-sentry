@@ -16,4 +16,5 @@ public class SentryConstant {
     public static final String suffix_sql = ".sql";
     public static final String suffix_output = ".txt";
     public static final String suffix_json = ".json";
+    public static final String prePri = "PreAllPrivil";
 }

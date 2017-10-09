@@ -172,4 +172,30 @@ public class UtilTool {
         }
         return str;
     }
+
+    /**
+     * This method will pre-execute or post-execute sql for each object with highest privilege
+     */
+    public static void privilHandler(String clsName, String sqlFile, String action) {
+        String privilAction = String.format(" %s ", action);
+
+        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + privilAction + SentryConstant.prePri;
+        String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
+        System.out.println(UtilTool.arrToStr(sentryCmd));
+        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+
+        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user";
+        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
+        System.out.println(UtilTool.arrToStr(hiveCmd));
+        System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+
+        String hiveSqlPath = SentryConstant.tSrc + File.separator + clsName + File.separator + SentryConstant.hiveSqlSrc;
+        String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
+        String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
+        System.out.println(UtilTool.arrToStr(sqlCmd));
+
+        Map map = UtilTool.execCommand(sqlCmd);
+        System.out.println("exit code:\n" + map.get(0).toString());
+        System.out.println("command result:\n" + map.get(1).toString());
+    }
 }

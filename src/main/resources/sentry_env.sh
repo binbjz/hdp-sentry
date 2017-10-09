@@ -10,8 +10,6 @@ BAD_PARAMS=65
 NOMATCH=126
 NOPRI=61
 LOGIN_USER=hive
-ROLE_NAME=hdp_qa
-ROLE_GROUP=hdp_qa
 DB_NAME=test_db2
 
 export HADOOP_HOME=/opt/meituan/hadoop
@@ -25,6 +23,10 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 # Select the corresponding privilege
 declare -A sentry_privileges
 
+# It will be used to setup and clean privilege with highest privilege
+sentry_privileges[PreAllPrivil]="server=server1->action=all"
+
+# The following will be used to setup and clean and check privilege for each object
 sentry_privileges[ServerAll]="server=server1->action=all"
 sentry_privileges[ServerCreate]="server=server1->action=create"
 sentry_privileges[ServerSelect]="server=server1->action=select"
@@ -39,8 +41,12 @@ sentry_privileges[DBInsert]="server=server1->db=test_db2->action=insert"
 
 if [[ "$2" == "ServerAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerAll]}"`
+elif [[ "$2" == "PreAllPrivil" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[PreAllPrivil]}"`
 elif [[ "$2" == "DBCreate" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBCreate]}"`
+elif [[ "$2" == "DBSelect" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBSelect]}"`
 elif [[ "$2" == "DBInsert" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBInsert]}"`
 elif [[ "$2" == "ColumnAll" ]]; then
@@ -52,18 +58,29 @@ else
     exit $NOPRI
 fi
 
-for priv in $privileges; do
+
+# set role name and role group for specify privilege
+if [[ "$2" == "PreAllPrivil" ]]; then
+    ROLE_NAME=hive_qa
+    ROLE_GROUP=hive_qa
+else
+    ROLE_NAME=hdp_qa
+    ROLE_GROUP=hdp_qa
+fi
+
+
+for privil in $privileges; do
     # Select the corresponding action
     case "$1" in
     "setup")
         # Add role, group and privilege
         $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
         $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --add_role_group -r $ROLE_NAME -g $ROLE_GROUP
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege "$priv"
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege "privil"
         ;;
     "clean")
         # Remove role, group and privilege
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p "$priv"
+        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p "privil"
         $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --delete_role_group -r $ROLE_NAME -g $ROLE_GROUP
         $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --drop_role -r $ROLE_NAME
         ;;
@@ -79,3 +96,4 @@ for priv in $privileges; do
     exit $NOMATCH;;
     esac
 done
+

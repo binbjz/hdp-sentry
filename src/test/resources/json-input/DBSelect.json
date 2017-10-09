@@ -1,0 +1,32 @@
+[
+  {
+    "id": "testShowDB_Negative",
+    "tag": "DB",
+    "desc": "The case will test ShowDB_Negative.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testShowDB_Negative.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testShowDB_Negative.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDB",
+    "tag": "DB",
+    "desc": "The case will test CreateDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDB.txt"
+      }
+    ]
+  }
+]
