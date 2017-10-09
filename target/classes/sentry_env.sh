@@ -36,8 +36,8 @@ sentry_privileges[ServerInsert]="server=server1->action=insert"
 sentry_privileges[ColumnAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4alter->action=all,server=server1->db=test_db2->action=all,server=server1->db=db4tbl->action=all"
 
 sentry_privileges[DBCreate]="server=server1->db=test_db2->action=create"
-sentry_privileges[DBSelect]="server=server1->db=test_db->action=select"
-sentry_privileges[DBInsert]="server=server1->db=test_db->action=insert"
+sentry_privileges[DBSelect]="server=server1->db=test_db2->action=select"
+sentry_privileges[DBInsert]="server=server1->db=test_db2->action=insert"
 
 
 if [[ "$2" == "ServerAll" ]]; then

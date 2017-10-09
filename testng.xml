@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="sentry-test" thread-count="2" verbose="1" annotations="JDK" parallel="tests">
+<!--suite name="sentry-test" thread-count="2" verbose="1" annotations="JDK" parallel="tests"-->
+<suite name="sentry-test">
     <test name="ServerAll">
         <classes>
             <class name="ServerAll"/>
