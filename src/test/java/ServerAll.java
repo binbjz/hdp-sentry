@@ -70,7 +70,7 @@ public class ServerAll {
 
 
     @DataProvider
-    public Object[][] dataProviderServerAll() {
+    public static Object[][] dataProviderServerAll() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
 

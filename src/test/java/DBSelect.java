@@ -73,7 +73,7 @@ public class DBSelect {
 
 
     @DataProvider
-    public Object[][] dataProviderDBInsert() {
+    public static Object[][] dataProviderDBInsert() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
 

@@ -71,7 +71,7 @@ public class DBInsert {
 
 
     @DataProvider
-    public Object[][] dataProviderDBInsert() {
+    public static Object[][] dataProviderDBInsert() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
 
