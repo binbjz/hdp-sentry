@@ -1,0 +1,6 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testDB
+FAILED: SemanticException [Error 10001]: Line 3:108 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 3:73 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 2:33 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 2:21 Table not found 'collecttest'
+OK

@@ -1,0 +1,12 @@
+FAILED: SemanticException [Error 10001]: Table not found log_messages
+FAILED: SemanticException [Error 10001]: Table not found default.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
+FAILED: SemanticException [Error 10001]: Table not found log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
+OK
+OK
