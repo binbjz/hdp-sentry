@@ -1,0 +1,5 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testDB
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table not found employees
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table not found employees
+FAILED: ParseException line 3:53 extraneous input 'employees' expecting EOF near '<EOF>'

@@ -1,0 +1,5 @@
+FAILED: SemanticException [Error 10001]: Table not found test_partition_serde
+FAILED: SemanticException [Error 10001]: Table not found testDB.test_partition_serde
+FAILED: SemanticException [Error 10001]: Table not found testDB.test_partition_serde
+FAILED: SemanticException [Error 10001]: Table not found testDB.test_partition_serde
+OK

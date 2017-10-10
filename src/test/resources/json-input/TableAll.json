@@ -1,6 +1,6 @@
 [
   {
-    "id": "testAccessNoPrivilegeDB",
+      "id": "testAccessNoPrivilegeDB",
     "tag": "Table",
     "desc": "The case will test AccessNoPrivilegeDB.",
     "cases": [

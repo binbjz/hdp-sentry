@@ -1,0 +1,2 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testDB
+OK

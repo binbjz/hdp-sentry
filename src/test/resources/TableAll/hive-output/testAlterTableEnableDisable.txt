@@ -1,0 +1,8 @@
+FAILED: SemanticException [Error 10001]: Table not found testDB.test_enable_disable1
+OK
+FAILED: SemanticException [Error 10001]: Table not found testDB.test_enable_disable1
+OK
+FAILED: SemanticException [Error 10001]: Table not found testDB.test_enable_disable2
+OK
+FAILED: SemanticException [Error 10001]: Table not found testDB.test_enable_disable2
+OK

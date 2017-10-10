@@ -1,0 +1,5 @@
+FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found session_test
+FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found sessionization_step_one_origins
+FAILED: SemanticException [Error 10001]: Table not found testDB.sessionization_step_one_origins
+OK
+OK
