@@ -45,7 +45,7 @@ public class DBSelect {
 
 
     @Test
-    @UseDataProvider("DataProvider_DBSelect")
+    @UseDataProvider("dataProviderDBInsert")
     public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
@@ -72,7 +72,7 @@ public class DBSelect {
     }
 
 
-    @DataProvider("DataProvider_DBSelect")
+    @DataProvider
     public Object[][] dataProviderDBInsert() {
         return DataProviderObj.dataGenerator(jsonFile);
     }

@@ -42,7 +42,7 @@ public class ServerAll {
 
 
     @Test
-    @UseDataProvider("DataProvider_ServerAll")
+    @UseDataProvider("dataProviderServerAll")
     public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
@@ -69,7 +69,7 @@ public class ServerAll {
     }
 
 
-    @DataProvider("DataProvider_ServerAll")
+    @DataProvider
     public Object[][] dataProviderServerAll() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
