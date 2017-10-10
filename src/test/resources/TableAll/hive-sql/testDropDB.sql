@@ -1,0 +1,3 @@
+--Execution:
+DROP DATABASE testDB;
+SHOW DATABASES LIKE 'testDB';

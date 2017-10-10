@@ -18,7 +18,7 @@ HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 
 # set proxy user for specify privilege
 if [[ "$2" == "super" ]]; then
-    PROXY_USER=hive_qa
+    PROXY_USER=mt_qa
 elif [[ "$2" == "normal" ]]; then
     PROXY_USER=hdp_qa
 else
