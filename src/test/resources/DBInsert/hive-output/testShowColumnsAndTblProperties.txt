@@ -1,8 +1,0 @@
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATEDATABASE)
-FAILED: SemanticException [Error 10072]: Database does not exist: test_DB2
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
-FAILED: SemanticException [Error 10001]: Table not found test_db2.employees_props
-FAILED: SemanticException [Error 10001]: Table not found test_db2.employees_props
-FAILED: SemanticException [Error 10001]: Table not found test_db2.employees_props
-OK
-FAILED: SemanticException [Error 10072]: Database does not exist: test_db2
