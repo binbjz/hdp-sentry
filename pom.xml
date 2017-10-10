@@ -16,26 +16,35 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <junit.version>4.12</junit.version>
         <testng.version>6.11</testng.version>
+        <junit-dataprovider.version>1.10.0</junit-dataprovider.version>
+        <fastjson.version>1.1.43</fastjson.version>
         <testClass>**/Test*.java</testClass>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.java</groupId>
+            <artifactId>junit-dataprovider</artifactId>
+            <version>${junit-dataprovider.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.1.43</version>
+            <version>${fastjson.version}</version>
         </dependency>
-        <!--dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency-->
     </dependencies>
 
     <build>

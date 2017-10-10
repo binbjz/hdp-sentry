@@ -1,14 +1,22 @@
 import eventhandling.DataProviderObj;
-import org.testng.*;
-import org.testng.annotations.*;
 import utilitytool.SentryConstant;
 import utilitytool.TraceHandler;
 import utilitytool.UtilTool;
+
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.util.Map;
 
 
+@RunWith(DataProviderRunner.class)
 public class ServerAll {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
@@ -33,7 +41,8 @@ public class ServerAll {
     }
 
 
-    @Test(dataProvider = "DataProvider_ServerAll")
+    @Test
+    @UseDataProvider("DataProvider_ServerAll")
     public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
@@ -60,7 +69,7 @@ public class ServerAll {
     }
 
 
-    @DataProvider(name = "DataProvider_ServerAll")
+    @DataProvider("DataProvider_ServerAll")
     public Object[][] dataProviderServerAll() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
