@@ -1,0 +1,77 @@
+[
+  {
+    "id": "testAddDeleteFile",
+    "tag": "Server",
+    "desc": "The case will test AddDeleteFile.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteFile.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteFile.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFunction",
+    "tag": "Server",
+    "desc": "The case will test AddJarCreateFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateAlterDescribeShowDropView",
+    "tag": "Server",
+    "desc": "The case will test CreateAlterDescribeShowDropView.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateAlterDescribeShowDropView.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateAlterDescribeShowDropView.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropShowDB",
+    "tag": "Server",
+    "desc": "The case will test CreateDropShowDB command.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDropShowDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDropShowDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "Server",
+    "desc": "The case will test Dfs command.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDfs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDfs.txt"
+      }
+    ]
+  }
+]

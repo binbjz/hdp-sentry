@@ -1,0 +1,12 @@
+CREATE TABLE test_db.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
+ALTER TABLE test_db.supply ADD PARTITION (day = 20110102);
+ALTER TABLE test_db.supply ADD PARTITION (day = 20110103);
+ALTER TABLE test_db.supply ADD PARTITION (day = 20110104);
+SHOW PARTITIONS test_db.supply;
+SET hive.cli.print.header=true;
+SELECT id, part, quantity FROM test_db.supply WHERE day >= 20110102 AND day < 20110103 AND quantity < 4 ;
+ALTER TABLE test_db.supply DROP PARTITION (day = 20110102);
+ALTER TABLE test_db.supply DROP PARTITION (day = 20110103);
+ALTER TABLE test_db.supply DROP PARTITION (day = 20110104);
+SHOW PARTITIONS test_db.supply;
+DROP TABLE test_db.supply;

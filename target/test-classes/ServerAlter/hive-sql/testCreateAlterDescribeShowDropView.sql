@@ -1,0 +1,7 @@
+SHOW TABLES;
+ALTER VIEW view4show SET TBLPROPERTIES ('created_at' = '20170905');
+ALTER TABLE tbl4show ADD COLUMNS (id STRING);
+DESCRIBE view4show;
+SHOW CREATE TABLE view4show;
+DROP VIEW view4show;
+DROP TABLE view4show;

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "testAddDeleteFile",
+    "tag": "Server",
+    "desc": "The case will test AddDeleteFile.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteFile.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteFile.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFunction",
+    "tag": "Server",
+    "desc": "The case will test AddJarCreateFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropDBAndTable",
+    "tag": "Server",
+    "desc": "The case will test CreateDropDBAndTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDropDBAndTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDropDBAndTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "Server",
+    "desc": "The case will test Dfs command.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDfs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDfs.txt"
+      }
+    ]
+  }
+]

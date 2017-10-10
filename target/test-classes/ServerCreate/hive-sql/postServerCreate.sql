@@ -1,0 +1,3 @@
+DROP TABLE tbl4show;
+DROP DATABASE db4show;
+DROP DATABASE test_db;

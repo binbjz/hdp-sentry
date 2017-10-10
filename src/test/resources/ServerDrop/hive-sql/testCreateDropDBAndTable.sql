@@ -1,0 +1,5 @@
+CREATE DATABASE createdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+CREATE TABLE createtbl (ID INT);
+SHOW DATABASES LIKE 'db4show';
+DROP DATABASE db4show;
+SHOW TABLES;
