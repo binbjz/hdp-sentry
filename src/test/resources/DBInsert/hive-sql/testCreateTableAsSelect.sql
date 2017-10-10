@@ -1,12 +1,3 @@
---Precondition:
-CREATE DATABASE db4query;
-CREATE TABLE db4query.session_test (
-   st_user_id STRING
-  ,st_pageview_id STRING
-  ,st_page_url STRING
-  ,st_referrer_url STRING
-  ,st_timestamp DOUBLE);
-
 --Execution:
 INSERT INTO db4query.session_test VALUES ('100', '101', '102', 'HTTP://WWW.MEITUAN.COM', 10000);
 SET hive.cli.print.header=true;
@@ -28,6 +19,3 @@ FROM (SELECT a.a_user_id as c_user_id
       GROUP BY a.a_user_id
               ,a.a_pageview_id
               ,a.a_timestamp) c;
-
---Cleanup:
-DROP DATABASE db4query CASCADE;

@@ -1,8 +1,3 @@
---Precondition:
-CREATE DATABASE db4alter WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
-USE db4alter;
-CREATE TABLE tbl4alter (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
-
 --Execution:
 USE db4alter;
 ALTER TABLE db4alter.tbl4alter ADD COLUMNS (id STRING);
@@ -13,5 +8,3 @@ ALTER TABLE tbl4alter RENAME TO tbl4alter_new;
 ALTER TABLE tbl4alter SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
 DESCRIBE EXTENDED tbl4alter;
 
---Cleanup:
-DROP DATABASE db4alter CASCADE;
