@@ -32,23 +32,28 @@ sentry_privileges[ServerCreate]="server=server1->action=create"
 sentry_privileges[ServerSelect]="server=server1->action=select"
 sentry_privileges[ServerInsert]="server=server1->action=insert"
 
-sentry_privileges[ColumnAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4alter->action=all,server=server1->db=test_db2->action=all,server=server1->db=db4tbl->action=all"
 
 sentry_privileges[DBCreate]="server=server1->db=test_db2->action=create"
 sentry_privileges[DBSelect]="server=server1->db=test_db2->action=select"
 sentry_privileges[DBInsert]="server=server1->db=db4alter->action=insert,server=server1->db=db4alter2->action=insert,server=server1->db=db4load->action=insert,server=server1->db=db4overwrite->action=insert,server=server1->db=db4query->action=insert,server=server1->db=db4func->action=insert,server=server1->db=db4addfile->action=insert,server=server1->db=test_db->action=insert"
 
+sentry_privileges[TableAll]="server=server1->db=test_db->table=test_tble->action=all,server=server1->db=test_db->table=tbl4drop->action=all,server=server1->db=test_db->table=view4drop->action=all,server=server1->db=test_db->table=tbl4alter->action=all,server=server1->db=test_db->table=log_messages->action=all,server=server1->db=test_db->table=log_messages_external->action=all,server=server1->db=test_db->table=supply->action=all,server=server1->db=test_db->table=collecttest->action=all,server=server1->db=test_db->table=session_test->action=all,server=server1->db=test_db->table=sessionization_step_one_origins->action=all,server=server1->db=test_db->table=partition_table001->action=all,server=server1->db=test_db->table=partition_table002->action=all,server=server1->db=test_db->table=table001->action=all,server=server1->db=test_db->table=table002->action=all,server=server1->db=test_db->table=teacher1->action=all,server=server1->db=test_db->table=teacher2->action=all,server=server1->db=test_db->table=whoyouare->action=all,server=server1->db=test_db->table=test_serde->action=all,server=server1->db=test_db->table=test_partition_serde->action=all,server=server1->db=test_db->table=employees_props->action=all,server=server1->db=test_db->table=test_enable_disable->action=all,server=server1->db=test_db->table=test_enable_disable1->action=all,server=server1->db=test_db->table=test_enable_disable2->action=all,server=server1->db=test_db->table=employees->action=all,server=server1->db=test_db->table=staged_employees->action=all,server=server1->db=test_db->table=test_msck->action=all"
 
-if [[ "$2" == "ServerAll" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerAll]}"`
-elif [[ "$2" == "SuperPrivil" ]]; then
+sentry_privileges[ColumnAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4alter->action=all,server=server1->db=test_db2->action=all,server=server1->db=db4tbl->action=all"
+
+
+if [[ "$2" == "SuperPrivil" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SuperPrivil]}"`
+elif [[ "$2" == "ServerAll" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerAll]}"`
 elif [[ "$2" == "DBCreate" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBCreate]}"`
 elif [[ "$2" == "DBSelect" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBSelect]}"`
 elif [[ "$2" == "DBInsert" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBInsert]}"`
+elif [[ "$2" == "TableAll" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableAll]}"`
 elif [[ "$2" == "ColumnAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ColumnAll]}"`
 elif [[ "$2" == "List" ]]; then # For show privilege to specify $2 with List
@@ -61,8 +66,8 @@ fi
 
 # set role name and role group for specify privilege
 if [[ "$2" == "SuperPrivil" ]]; then
-    ROLE_NAME=hive_qa
-    ROLE_GROUP=hive_qa
+    ROLE_NAME=mt_qa
+    ROLE_GROUP=mt_qa
 else
     ROLE_NAME=hdp_qa
     ROLE_GROUP=hdp_qa
