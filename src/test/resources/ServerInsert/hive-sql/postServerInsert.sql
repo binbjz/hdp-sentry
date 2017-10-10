@@ -1,31 +1,31 @@
 DROP DATABASE db4drop;
 
-DROP TABLE test_db.view4drop;
-DROP TABLE test_db.tbl4drop;
-DROP TABLE test_db.tbl4alter;
-DROP TABLE test_db.log_messages;
-DROP TABLE test_db.log_messages_external
-DROP TABLE test_db.log_messages02;
-ALTER TABLE test_db.supply DROP PARTITION (day = 20110102);
-ALTER TABLE test_db.supply DROP PARTITION (day = 20110103);
-DROP TABLE test_db.supply;
-DROP TABLE test_db.collecttest
-DROP TABLE test_db.session_test;
-DROP TABLE test_db.sessionization_step_one_origins;
+DROP TABLE testDB.view4drop;
+DROP TABLE testDB.tbl4drop;
+DROP TABLE testDB.tbl4alter;
+DROP TABLE testDB.log_messages;
+DROP TABLE testDB.log_messages_external
+DROP TABLE testDB.log_messages02;
+ALTER TABLE testDB.supply DROP PARTITION (day = 20110102);
+ALTER TABLE testDB.supply DROP PARTITION (day = 20110103);
+DROP TABLE testDB.supply;
+DROP TABLE testDB.collecttest
+DROP TABLE testDB.session_test;
+DROP TABLE testDB.sessionization_step_one_origins;
 
-DROP TABLE test_db.partition_table001;
-DROP TABLE test_db.partition_table002;
-DROP TABLE test_db.table001;
-DROP TABLE test_db.table002;
-DROP TABLE test_db.teacher;
-DROP TABLE test_db.whoyouare;
-DROP TABLE test_db.test_serde_partition;
-DROP TABLE test_db.staged_employees;
-DROP TABLE test_db.employees;
-DROP TABLE test_db.employees02;
-DROP TABLE test_db.test_enable_disable;
-DROP TABLE test_db.employees_props;
-DROP DATABASE test_db CASCADE;
+DROP TABLE testDB.partition_table001;
+DROP TABLE testDB.partition_table002;
+DROP TABLE testDB.table001;
+DROP TABLE testDB.table002;
+DROP TABLE testDB.teacher;
+DROP TABLE testDB.whoyouare;
+DROP TABLE testDB.test_serde_partition;
+DROP TABLE testDB.staged_employees;
+DROP TABLE testDB.employees;
+DROP TABLE testDB.employees02;
+DROP TABLE testDB.test_enable_disable;
+DROP TABLE testDB.employees_props;
+DROP DATABASE testDB CASCADE;
 
 
 DROP TABLE db4msck.test_msck;

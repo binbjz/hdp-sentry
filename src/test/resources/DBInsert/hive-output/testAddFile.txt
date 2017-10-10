@@ -1,9 +1,0 @@
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATEDATABASE)
-FAILED: SemanticException [Error 10072]: Database does not exist: db4addfile
-FAILED: SemanticException [Error 10001]: Line 2:116 Table not found 'whoyouare'
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'whoyouare'
-Added resources: [/opt/meituan/qa_test/testfile/test_who.sh]
-/opt/meituan/qa_test/testfile/test_who.sh
-FAILED: SemanticException [Error 10001]: Line 2:122 Table not found 'whoyouare'
-OK
-FAILED: SemanticException [Error 10072]: Database does not exist: db4addfile

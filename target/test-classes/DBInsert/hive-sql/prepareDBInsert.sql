@@ -41,8 +41,8 @@ CREATE DATABASE db4addfile;
 CREATE TABLE db4addfile.whoyouare(who string);
 
 
-CREATE DATABASE test_db;
-CREATE TABLE test_db.staged_employees (
+CREATE DATABASE testDB;
+CREATE TABLE testDB.staged_employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -54,7 +54,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE test_db.employees (
+CREATE TABLE testDB.employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -66,11 +66,11 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE test_db.staged_employees ADD PARTITION (country = 'US', state = 'IL');
+ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'IL');
 
-CREATE TABLE test_db.employees02 (
+CREATE TABLE testDB.employees02 (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -82,7 +82,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE test_db.staged_employees02 (
+CREATE TABLE testDB.staged_employees02 (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -93,19 +93,19 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-CREATE DATABASE test_db;
+CREATE DATABASE testDB;
 
-CREATE TABLE IF NOT EXISTS test_db.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE IF NOT EXISTS testDB.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
-CREATE TABLE IF NOT EXISTS test_db.log_messages02 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE IF NOT EXISTS testDB.log_messages02 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
-CREATE TABLE test_db.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
+CREATE TABLE testDB.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
 
-CREATE TABLE IF NOT EXISTS test_db.employees_props (
+CREATE TABLE IF NOT EXISTS testDB.employees_props (
 name  STRING COMMENT 'Employee name'
 ,salary  FLOAT  COMMENT'Employee salary'
 ,subordinates ARRAY<STRING> COMMENT 'Names of subordinates'
 ,deductions  MAP<STRING, FLOAT> COMMENT  'Keys are deductions names, values are percentages'
 ,address  STRUCT<street:STRING,city:STRING, state:STRING, zip:INT> COMMENT 'Home address')
-COMMENT 'Description of the table' PARTITIONED BY (country STRING, state STRING) LOCATION '/user/hive/warehouse/test_db.db/employees_props' TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');
+COMMENT 'Description of the table' PARTITIONED BY (country STRING, state STRING) LOCATION '/user/hive/warehouse/testDB.db/employees_props' TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');

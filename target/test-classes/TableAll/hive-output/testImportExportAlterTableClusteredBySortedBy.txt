@@ -1,7 +1,7 @@
 FAILED: SemanticException [Error 10001]: Table not found staged_employees
 FAILED: SemanticException [Error 10001]: Table not found employees
 OK
-/opt/meituan/qa_test/testfile
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data
 FAILED: SemanticException [Error 10001]: Line 4:11 Table not found 'staged_employees'
 FAILED: SemanticException [Error 10001]: Line 3:13 Table not found 'staged_employees'
 cat: `/tmp/employee/country=US/state=CA/california-employees.csv': No such file or directory

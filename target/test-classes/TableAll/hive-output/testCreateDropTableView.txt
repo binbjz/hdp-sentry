@@ -1,17 +1,49 @@
-FAILED: SemanticException [Error 10001]: Table not found testDB.tbl4drop
-FAILED: SemanticException [Error 10001]: Table not found testDB.view4drop
 OK
-FAILED: SemanticException [Error 10001]: Table not found testDB.view4drop
-FAILED: SemanticException [Error 10001]: Table not found testDB.view4drop
-FAILED: SemanticException [Error 10072]: Database does not exist: testDB
-FAILED: SemanticException [Error 10072]: Database does not exist: testDB
-FAILED: SemanticException [Error 10072]: Database does not exist: testDB
-FAILED: SemanticException [Error 10072]: Database does not exist: testDB
+col1                	tinyint             	                    
+col2                	smallint            	                    
+OK
+CREATE VIEW `testDB.view4drop` AS SELECT `tbl4drop`.`col1`, `tbl4drop`.`col2` FROM `testDB`.`tbl4drop`
 OK
 OK
 OK
+last_modified_by	hdp_qa
+last_modified_time	1507641494
+test_table_properties	qa_setting_this_value
+transient_lastDdlTime	1507641494
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10001]: Line 2:62 Table not found 'view4drop_no_r'
 OK
 OK
 OK
 OK
+OK
+OK
+OK
+OK
+collecttest
+employees
+employees02
+employees_props
+log_messages
+log_messages2
+log_messages_external
+partition_table001
+partition_table002
+session_test
+sessionization_step_one_origins
+staged_employees
+staged_employees02
+supply
+table001
+table002
+tbl4alter
+teacher
+test_enable_disable
+test_enable_disable1
+test_enable_disable2
+test_msck
+test_partition_serde
+test_serde
+whoyouare
 OK

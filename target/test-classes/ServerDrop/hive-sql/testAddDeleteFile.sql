@@ -1,5 +1,6 @@
 USE db4add;
-ADD FILE /opt/meituan/qa_test/testfile/test_who.sh;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+ADD FILE '${hiveconf:FILEPATH}/test_who.sh';
 LIST FILES;
-DELETE FILE /opt/meituan/qa_test/testfile/test_who.sh;
+DELETE FILE '${hiveconf:FILEPATH}/test_who.sh';
 LIST FILE;

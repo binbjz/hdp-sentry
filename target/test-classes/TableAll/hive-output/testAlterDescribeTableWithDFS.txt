@@ -6,7 +6,7 @@ Query returned non-zero code: 1, cause: null
 ls: `/user/hive/warehouse/testDB.db/log_messages/year=2011/month=1/day=2': No such file or directory
 Command failed with exit code = 1
 Query returned non-zero code: 1, cause: null
-FAILED: SemanticException [Error 10072]: Database does not exist: testDB
+OK
 FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
 FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
 FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages

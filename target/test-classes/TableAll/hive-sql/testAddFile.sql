@@ -1,5 +1,5 @@
 --Execution:
-set FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testDB.whoyouare;
 SET hive.cli.print.header=true;

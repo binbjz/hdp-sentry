@@ -1,4 +1,4 @@
-USE test_db;
+USE testDB;
 SHOW TBLPROPERTIES employees_props;
-SHOW COLUMNS IN test_db.employees_props;
-SHOW COLUMNS FROM test_db.employees_props;
+SHOW COLUMNS IN testDB.employees_props;
+SHOW COLUMNS FROM testDB.employees_props;

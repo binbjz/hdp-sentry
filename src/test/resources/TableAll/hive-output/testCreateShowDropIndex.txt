@@ -1,4 +1,4 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testDB
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
 MismatchedTokenException(17!=180)
 	at org.antlr.runtime.BaseRecognizer.recoverFromMismatchedToken(BaseRecognizer.java:617)
 	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)

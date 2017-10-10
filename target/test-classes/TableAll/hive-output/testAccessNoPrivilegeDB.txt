@@ -1,5 +1,4 @@
 OK
 OK
 default
-test_db
-test_db
+testdb

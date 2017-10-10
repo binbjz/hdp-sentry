@@ -66,7 +66,7 @@ public class TableAll {
         String actualResults = map.get(1).toString();
         System.out.println("expectedResults: " + expectedResults);
         System.out.println("actualResults: " + actualResults);
-        Assert.assertEquals(expectedResults, actualResults, desc);
+        Assert.assertEquals(desc, expectedResults, actualResults);
     }
 
 
