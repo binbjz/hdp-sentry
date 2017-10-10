@@ -1,4 +1,4 @@
-testDB TABLE testDB.tbl4alter_new;
-testDB TABLE testDB.test_msck;
-testDB DATABASE unaccessdb;
-testDB DATABASE testDB;
+DROP TABLE testDB.tbl4alter_new;
+DROP TABLE testDB.test_msck;
+DROP DATABASE unaccessdb;
+DROP DATABASE testDB;
