@@ -1,4 +1,4 @@
---Execution:
+USE testDB;
 ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testDB.employees ADD PARTITION (country = 'US', state = 'CA');
 

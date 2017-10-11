@@ -1,11 +1,11 @@
---Execution:
+USE testDB;
 ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'IL');
 ALTER TABLE testDB.employees ADD PARTITION (country = 'US', state = 'CA');
 
-set FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
-LOAD DATA LOCAL INPATH '''${hiveconf:FILEPATH}/california-employees.csv'
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE testDB.staged_employees
 PARTITION (country = 'US', state = 'CA');
 

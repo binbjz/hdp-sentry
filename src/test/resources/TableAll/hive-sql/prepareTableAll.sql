@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS testDB.log_messages2 (hms INT, severity STRING, serve
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 CREATE TABLE testDB.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
 CREATE TABLE testDB.collecttest (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+
 CREATE TABLE testDB.session_test (
   st_user_id STRING
  ,st_pageview_id STRING

@@ -22,5 +22,6 @@ FROM (SELECT a.a_user_id as c_user_id
               ,a.a_timestamp) c;
 
 DESCRIBE testDB.sessionization_step_one_origins;
+SELECT * FROM testDB.sessionization_step_one_origins;
 DROP TABLE testDB.session_test;
 DROP TABLE testDB.sessionization_step_one_origins;

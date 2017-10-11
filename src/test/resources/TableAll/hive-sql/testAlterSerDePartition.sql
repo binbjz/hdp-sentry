@@ -1,4 +1,4 @@
---Execution:
+USE testDB;
 ALTER TABLE testDB.test_partition_serde ADD PARTITION (col10='abc', col20='123');
 DESCRIBE EXTENDED testDB.test_partition_serde PARTITION (col10='abc', col20='123');
 
