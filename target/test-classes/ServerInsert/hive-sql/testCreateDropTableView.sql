@@ -1,4 +1,4 @@
-USE testDB;
+USE testdb;
 SHOW TABLES LIKE '*drop';
 
 CREATE TABLE tbl2create (col1 TINYINT);

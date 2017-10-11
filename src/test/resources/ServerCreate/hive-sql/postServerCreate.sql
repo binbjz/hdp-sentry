@@ -1,3 +1,3 @@
 DROP TABLE tbl4show;
 DROP DATABASE db4show;
-DROP DATABASE testDB;
+DROP DATABASE testdb;

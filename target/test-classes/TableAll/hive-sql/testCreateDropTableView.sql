@@ -1,19 +1,19 @@
-DESCRIBE testDB.tbl4drop;
-SHOW CREATE TABLE testDB.view4drop;
+DESCRIBE testdb.tbl4drop;
+SHOW CREATE TABLE testdb.view4drop;
 SHOW TABLES LIKE '*4drop*';
-ALTER VIEW testDB.view4drop SET TBLPROPERTIES ('test_table_properties' = 'qa_setting_this_value');
-SHOW TBLPROPERTIES testDB.view4drop;
-CREATE TABLE testDB.tbl2create (col1 TINYINT, col2 SMALLINT);
-CREATE VIEW testDB.view2create AS SELECT col1, col2 FROM testDB.view4drop;
-CREATE VIEW testDB.view2create_no_r AS SELECT col1, col2 FROM testDB.view4drop_no_r;
+ALTER VIEW testdb.view4drop SET TBLPROPERTIES ('test_table_properties' = 'qa_setting_this_value');
+SHOW TBLPROPERTIES testdb.view4drop;
+CREATE TABLE testdb.tbl2create (col1 TINYINT, col2 SMALLINT);
+CREATE VIEW testdb.view2create AS SELECT col1, col2 FROM testdb.view4drop;
+CREATE VIEW testdb.view2create_no_r AS SELECT col1, col2 FROM testdb.view4drop_no_r;
 
-DROP VIEW testDB.view2create;
-DROP TABLE testDB.tbl2create;
-DROP VIEW testDB.view4drop_no_r;
-DROP TABLE testDB.tbl4drop_no_r;
-DROP VIEW testDB.view4drop;
-DROP TABLE testDB.tbl4drop;
+DROP VIEW testdb.view2create;
+DROP TABLE testdb.tbl2create;
+DROP VIEW testdb.view4drop_no_r;
+DROP TABLE testdb.tbl4drop_no_r;
+DROP VIEW testdb.view4drop;
+DROP TABLE testdb.tbl4drop;
 
-USE testDB;
+USE testdb;
 SHOW TABLES LIKE '*4drop*';
 SHOW TABLES LIKE '*2create';

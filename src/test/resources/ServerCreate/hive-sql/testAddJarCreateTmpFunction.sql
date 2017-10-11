@@ -1,4 +1,4 @@
-USE testDB;
+USE testdb;
 ADD JAR /opt/meituan/qa_test/testfile/hive_qa_udf.jar;
 LIST JARS;
 CREATE TEMPORARY FUNCTION qa_lower AS 'com.example.hive.udf.LowerCase';

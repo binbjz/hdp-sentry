@@ -1,5 +1,5 @@
 --Execution:
-USE testDB;
+USE testdb;
 SHOW TABLES LIKE 'tbl4alter*';
 ALTER TABLE tbl4alter ADD COLUMNS (id STRING);
 DESCRIBE tbl4alter;
