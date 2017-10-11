@@ -32,6 +32,8 @@ sentry_privileges[ServerAll]="server=server1->action=all"
 sentry_privileges[ServerCreate]="server=server1->action=create"
 sentry_privileges[ServerSelect]="server=server1->action=select"
 sentry_privileges[ServerInsert]="server=server1->action=insert"
+sentry_privileges[ServerAlter]="server=server1->action=alter"
+sentry_privileges[ServerDrop]="server=server1->action=drop"
 
 
 sentry_privileges[DBCreate]="server=server1->db=testdb->action=create"
