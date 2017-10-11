@@ -16,7 +16,7 @@ import java.util.Map;
 
 
 @RunWith(DataProviderRunner.class)
-public class ServerSelect {
+public class TableSelect {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
@@ -26,7 +26,7 @@ public class ServerSelect {
 
     @BeforeClass
     public static void setUp() {
-        System.out.println("setUp ServerSelect......");
+        System.out.println("setUp TableSelect......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
@@ -41,11 +41,11 @@ public class ServerSelect {
 
 
     @Test
-    @UseDataProvider("dataProviderServerSelect")
-    public void testServerSelect(String id, String tag, String desc, String sqlType, String sqlFile, String
+    @UseDataProvider("dataProviderTableSelect")
+    public void testTableSelect(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
-        System.out.println("ServerSelect--> running testcase: " + id);
+        System.out.println("TableSelect--> running testcase: " + id);
         System.out.println("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
@@ -69,17 +69,18 @@ public class ServerSelect {
 
 
     @DataProvider
-    public static Object[][] dataProviderServerSelect() {
+    public static Object[][] dataProviderTableSelect() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
 
 
     @AfterClass
     public static void cleanUp() {
-        System.out.println("cleanUp ServerSelect......");
+        System.out.println("cleanUp TableSelect......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
+        System.out.println(UtilTool.arrToStr(sentryCmd));
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
 }

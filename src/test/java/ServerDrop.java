@@ -42,7 +42,7 @@ public class ServerDrop {
 
     @Test
     @UseDataProvider("dataProviderServerDrop")
-    public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testServerDrop(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
         System.out.println("ServerDrop--> running testcase: " + id);
