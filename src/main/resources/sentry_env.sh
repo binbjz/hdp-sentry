@@ -255,7 +255,7 @@ EOF
 }
 
 #No permission for column
-sentry_privileges[DBAllWithEncryptedColumns1_1]="server=server1->db=encrypt_db4drop_cascade->action=all,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->action=all"
+sentry_privileges[DBAllWithEncryptedColumns1]="server=server1->db=encrypt_db4drop_cascade->action=all,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->action=all"
 #All permission for column
 sentry_privileges[DBAllWithEncryptedColumns1_2]="server=server1->db=encrypt_db4drop_cascade->action=all,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl1->column=encrypt_column->action=all,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl2->column=encrypt_column1->action=all,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl2->column=encrypt_column2->action=all,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4tbl->table=tbl4show->column=encrypt_column->action=all,server=server1->db=encrypt_db4tbl->table=tbl2serde->column=c0->action=all,server=server1->db=encrypt_db4tbl->table=tbl2serde->column=c1->action=all,server=server1->db=encrypt_db4tbl->table=tbl2serde->column=c2->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4data->table=test_serde->column=c0->action=all,server=server1->db=encrypt_db4data->table=test_serde->column=c1->action=all,server=server1->db=encrypt_db4data->table=test_serde->column=c2->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->table=tbl4alter->column=encrypt_col1->action=all,server=server1->db=encrypt_db4alter->table=tbl4alter->column=encrypt_col2->action=all,server=server1->db=encrypt_db4alter->table=tbl4alter->column=encrypt_col3->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=hms->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=severity->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=server->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=process_id->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=message->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=hms->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=severity->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=server->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=process_id->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=message->action=all"
 #select permission for column
@@ -291,6 +291,12 @@ elif [[ "$2" == "TableAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableAll]}"`
 elif [[ "$2" == "ColumnAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ColumnAll]}"`
+elif [[ "$2" == "DBAllWithEncryptedColumns1" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAllWithEncryptedColumns1]}"`
+elif [[ "$2" == "DBAllWithEncryptedColumns2" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAllWithEncryptedColumns2]}"`
+elif [[ "$2" == "DBAllWithEncryptedColumns3" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAllWithEncryptedColumns3]}"`
 elif [[ "$2" == "List" ]]; then # For show privilege to specify $2 with List
     : ${privilege:="placeholder"}
 else
