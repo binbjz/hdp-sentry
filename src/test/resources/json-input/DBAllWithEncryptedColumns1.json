@@ -1,0 +1,137 @@
+[
+  {
+    "id": "testDropDBCascade",
+    "tag": "DB",
+    "desc": "The case will test DropDBCascade.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropAlterTableView",
+    "tag": "Server",
+    "desc": "The case will test CreateDropAlterTableView.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDropAlterTableView.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDropAlterTableView.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterSerDePartition",
+    "tag": "Server",
+    "desc": "The case will test AlterSerDePartition.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterSerDePartition.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterSerDePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTable01",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTable01.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable01.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable01.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableReplace",
+    "tag": "Server",
+    "desc": "The case will test AlterTableReplace.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableReplace.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableReplace.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableChange",
+    "tag": "Server",
+    "desc": "The case will test AlterTableChange.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableRename",
+    "tag": "Server",
+    "desc": "The case will test AlterTableRename.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableRename.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableRename.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTable02",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTable02.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable02.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTable02.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableWithDFS",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableWithDFS.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableWithDFS.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableWithDFS.txt"
+      }
+    ]
+  }
+]

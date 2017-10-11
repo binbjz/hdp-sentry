@@ -1,13 +1,13 @@
-OK
-mkdir: `/user/hive/warehouse/testDB.db/test_msck/month=201603': No such file or directory
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
+mkdir: `/user/hive/warehouse/testdb.db/test_msck/month=201603': No such file or directory
 Command failed with exit code = 1
 Query returned non-zero code: 1, cause: null
-mkdir: `/user/hive/warehouse/testDB.db/test_msck/month=201604': No such file or directory
+mkdir: `/user/hive/warehouse/testdb.db/test_msck/month=201604': No such file or directory
 Command failed with exit code = 1
 Query returned non-zero code: 1, cause: null
-OK
-OK
-ls: `/user/hive/warehouse/testDB.db/test_msck/month=201603': No such file or directory
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
+ls: `/user/hive/warehouse/testdb.db/test_msck/month=201603': No such file or directory
 Command failed with exit code = 1
 Query returned non-zero code: 1, cause: null
 OK

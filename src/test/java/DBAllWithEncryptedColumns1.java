@@ -16,7 +16,7 @@ import java.util.Map;
 
 
 @RunWith(DataProviderRunner.class)
-public class TestDBAllWithEncryptedColumns1 {
+public class DBAllWithEncryptedColumns1 {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
@@ -26,7 +26,7 @@ public class TestDBAllWithEncryptedColumns1 {
 
     @BeforeClass
     public static void setUp() {
-        System.out.println("setUp TestDBAllWithEncryptedColumns1......");
+        System.out.println("setUp DBAllWithEncryptedColumns1......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
@@ -45,7 +45,7 @@ public class TestDBAllWithEncryptedColumns1 {
     public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
-        System.out.println("TestDBAllWithEncryptedColumns1--> running testcase: " + id);
+        System.out.println("DBAllWithEncryptedColumns1--> running testcase: " + id);
         System.out.println("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
@@ -76,7 +76,7 @@ public class TestDBAllWithEncryptedColumns1 {
 
     @AfterClass
     public static void cleanUp() {
-        System.out.println("cleanUp TestDBAllWithEncryptedColumns1......");
+        System.out.println("cleanUp DBAllWithEncryptedColumns1......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
