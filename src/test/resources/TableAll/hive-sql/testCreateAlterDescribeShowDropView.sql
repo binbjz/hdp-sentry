@@ -1,4 +1,3 @@
---Execution:
 USE testdb;
 SHOW TABLES LIKE 'tbl4alter*';
 ALTER TABLE tbl4alter ADD COLUMNS (id STRING);
