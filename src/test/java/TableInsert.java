@@ -1,37 +1,33 @@
-import utilitytool.SentryConstant;
-import utilitytool.TraceHandler;
-import utilitytool.UtilTool;
-import eventhandling.DataProviderObj;
-
-import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
-
+import eventhandling.DataProviderObj;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import utilitytool.SentryConstant;
+import utilitytool.TraceHandler;
+import utilitytool.UtilTool;
 
 import java.io.File;
 import java.util.Map;
 
 
 @RunWith(DataProviderRunner.class)
-public class DBSelect {
+public class TableInsert {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
     private static final String hiveSqlPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlSrc;
     private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
 
+
     @BeforeClass
     public static void setUp() {
-//        System.out.println("preSetUp DBSelect......");
-//        String preSql = String.format("prepare%s.sql", className);
-//        UtilTool.privilHandler(className, preSql, "setup");
+        System.out.println("setUp TableInsert......");
 
-        System.out.println("setUp DBSelect......");
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println(UtilTool.arrToStr(sentryCmd));
@@ -45,11 +41,11 @@ public class DBSelect {
 
 
     @Test
-    @UseDataProvider("dataProviderDBSelect")
-    public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
+    @UseDataProvider("dataProviderTableInsert")
+    public void testTableInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
-        System.out.println("DBSelect--> running testcase: " + id);
+        System.out.println("TableInsert--> running testcase: " + id);
         System.out.println("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
@@ -73,22 +69,18 @@ public class DBSelect {
 
 
     @DataProvider
-    public static Object[][] dataProviderDBSelect() {
+    public static Object[][] dataProviderTableInsert() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
 
 
     @AfterClass
     public static void cleanUp() {
+        System.out.println("cleanUp TableInsert......");
 
-        System.out.println("cleanUp DBSelect......");
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         System.out.println(UtilTool.arrToStr(sentryCmd));
         System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
-
-//        System.out.println("postCleanUp DBSelect......");
-//        String preSql = String.format("post%s.sql", className);
-//        UtilTool.privilHandler(className, preSql, "clean");
     }
 }

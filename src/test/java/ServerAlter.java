@@ -42,7 +42,7 @@ public class ServerAlter {
 
     @Test
     @UseDataProvider("dataProviderServerAlter")
-    public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testServerAlter(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
         System.out.println("ServerAlter--> running testcase: " + id);

@@ -42,7 +42,7 @@ public class ServerSelect {
 
     @Test
     @UseDataProvider("dataProviderServerSelect")
-    public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testServerSelect(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         System.out.println("===============================================");
         System.out.println("ServerSelect--> running testcase: " + id);
