@@ -195,21 +195,6 @@
     ]
   },
   {
-    "id": "testAddJarCreateTmpFunction",
-    "tag": "Table",
-    "desc": "The case will test AddJarCreateTmpFunction.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateTmpFunction.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateTmpFunction.txt"
-      }
-    ]
-  },
-  {
     "id": "testAddJarCreateFunction",
     "tag": "Table",
     "desc": "The case will test AddJarCreateFunction.",
@@ -221,6 +206,21 @@
       {
         "type": "file/sql",
         "name": "testAddJarCreateFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDB",
+    "tag": "Table",
+    "desc": "The case will test AlterDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDB.txt"
       }
     ]
   },
