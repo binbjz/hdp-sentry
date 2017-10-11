@@ -70,7 +70,7 @@ FROM (
       SELECT emp.name, emp.salary FROM testdb.staged_employees emp WHERE emp.salary > 7000
 ) unioninput
 INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*;
-dfs -cat '/tmp/union.out/*';
+dfs -cat /tmp/union.out/*;
 dfs -rm -r '/tmp/union.out';
 
 ANALYZE TABLE testdb.staged_employees COMPUTE STATISTICS FOR columns name, salary;
