@@ -11,6 +11,6 @@ CREATE VIEW encrypt_db4drop_cascade.encrypt_view2 AS SELECT col1, encrypt_column
 CREATE DATABASE encrypt_db4tbl WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 CREATE TABLE encrypt_db4tbl.tbl4show (col1 TINYINT, encrypt_column SMALLINT);
 INSERT INTO encrypt_db4tbl.tbl4show VALUES (1, 100), (2, 200);
-CREATE VIEW encrypt_db4tbl.view4show AS SELECT col1, col2 FROM db4tbl.tbl4show;
+CREATE VIEW encrypt_db4tbl.view4show AS SELECT col1, col2 FROM encrypt_db4tbl.tbl4show;
 CREATE DATABASE encrypt_db4data;
 CREATE DATABASE encrypt_db4alter WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
