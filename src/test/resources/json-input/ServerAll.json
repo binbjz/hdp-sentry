@@ -403,20 +403,5 @@
         "name": "testDfs.txt"
       }
     ]
-  },
-  {
-    "id": "testShowGrantRole",
-    "tag": "Server",
-    "desc": "The case will test ShowGrantRole.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testShowGrantRole.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testShowGrantRole.txt"
-      }
-    ]
   }
 ]
