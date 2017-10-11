@@ -1,0 +1,167 @@
+[
+  {
+    "id": "testAddDropShowPartition",
+    "tag": "DB",
+    "desc": "The case will test AddDropShowPartition.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDropShowPartition.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDropShowPartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoadDataLocal",
+    "tag": "Server",
+    "desc": "The case will test LoadDataLocal.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testLoadDataLocal.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testLoadDataLocal.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateTableAsSelectSourceEncrypted",
+    "tag": "Server",
+    "desc": "The case will test CreateTableAsSelectSourceEncrypted.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectSourceEncrypted.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectSourceEncrypted.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateTableAsSelectTargetEncrypted",
+    "tag": "Server",
+    "desc": "The case will test CreateTableAsSelectTargetEncrypted.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectTargetEncrypted.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectTargetEncrypted.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTablePartitionSrcEncrypt",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTablePartitionSrcEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionSrcEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionSrcEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTablePartitionTgtEncrypt",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTablePartitionTgtEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionTgtEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionTgtEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableSrcEncrypt",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTableSrcEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableSrcEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableSrcEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableTgtEncrypt",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTableTgtEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableTgtEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableTgtEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddDeleteJarCreateTmpFunction",
+    "tag": "Server",
+    "desc": "The case will test AddDeleteJarCreateTmpFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteJarCreateTmpFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteJarCreateTmpFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddDeleteJarCreateFunction",
+    "tag": "Server",
+    "desc": "The case will test AddDeleteJarCreateFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteJarCreateFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteJarCreateFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddDeleteFile",
+    "tag": "Server",
+    "desc": "The case will test AddDeleteFile.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteFile.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDeleteFile.txt"
+      }
+    ]
+  }
+]
