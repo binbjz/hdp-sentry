@@ -25,7 +25,7 @@ declare -A sentry_privileges
 
 ##============
 # It will be used to setup and clean privilege with highest privilege
-sentry_privileges[SuperPrivil]="server=server1->action=all"
+sentry_privileges[SuperPrivil]="server=server1->action=all,server=server1->db=encrypt_db4tbl->table=tbl4show->column=encrypt_column->action=all"
 
 # The following will be used to setup and clean and check privilege for each object
 sentry_privileges[ServerAll]="server=server1->action=all"
