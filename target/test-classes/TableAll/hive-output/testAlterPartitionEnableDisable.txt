@@ -1,13 +1,12 @@
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
-Dropped the partition year=2017/month=8/day=1
-OK
-FAILED: SemanticException [Error 10006]: Partition not found {year=2017, month=8, day=1}
-OK
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
-Dropped the partition year=2017/month=8/day=1
-OK
-FAILED: SemanticException [Error 10006]: Partition not found {year=2017, month=8, day=1}
-OK
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
+FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
 OK

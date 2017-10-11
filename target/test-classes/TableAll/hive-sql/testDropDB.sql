@@ -1,3 +1,3 @@
 --Execution:
-DROP DATABASE testDB;
-SHOW DATABASES LIKE 'testDB';
+DROP DATABASE testdb;
+SHOW DATABASES LIKE 'testdb';

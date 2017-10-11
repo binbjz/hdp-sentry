@@ -1,18 +1,18 @@
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-ls: `/user/hive/warehouse/testDB.db/log_messages/year=2011/month=1/day=1': No such file or directory
+FAILED: SemanticException [Error 10001]: Table not found log_messages2
+FAILED: SemanticException [Error 10001]: Table not found log_messages2
+ls: `/user/hive/warehouse/testdb.db/log_messages2/year=2011/month=1/day=1': No such file or directory
 Command failed with exit code = 1
 Query returned non-zero code: 1, cause: null
-ls: `/user/hive/warehouse/testDB.db/log_messages/year=2011/month=1/day=2': No such file or directory
+ls: `/user/hive/warehouse/testdb.db/log_messages2/year=2011/month=1/day=2': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages2
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages2
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages2
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages2
+rm: `/user/hive/warehouse/testdb.db/log_messages2/year=2011/month=1/day=1': No such file or directory
 Command failed with exit code = 1
 Query returned non-zero code: 1, cause: null
 OK
-FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
-FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
-FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
-FAILED: SemanticException [Error 10001]: Table not found testDB.log_messages
-rm: `/user/hive/warehouse/testDB.db/log_messages/year=2011/month=1/day=1': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-OK
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testDB.db/log_messages_new' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages_new2' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

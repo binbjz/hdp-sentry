@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 USE testdb;
 
+=======
+>>>>>>> b0450854b2f7ed1c2e1b2c8651afe9e2db333a37
 CREATE TABLE testdb.employees (
   name STRING
  ,salary FLOAT
@@ -34,8 +37,15 @@ INTO TABLE testdb.staged_employees
 PARTITION (country = 'US', state = 'CA');
 
 EXPORT TABLE testdb.staged_employees PARTITIONS (country = 'US', state = 'CA') TO '/tmp/employee';
+<<<<<<< HEAD
 
 IMPORT TABLE testdb.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+=======
+
+IMPORT TABLE testdb.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+
+ALTER TABLE testdb.employees TOUCH;
+>>>>>>> b0450854b2f7ed1c2e1b2c8651afe9e2db333a37
 
 ALTER TABLE testdb.employees TOUCH;
 

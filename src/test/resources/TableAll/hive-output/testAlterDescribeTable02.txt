@@ -1,86 +1,12 @@
-OK
-FAILED: SemanticException [Error 10001]: Table not found default.log_messages
-OK
-CREATE TABLE `testDB.log_messages`(
-  `hms` int, 
-  `severity` string, 
-  `server` string, 
-  `process_id` int, 
-  `message` string)
-PARTITIONED BY ( 
-  `year` int, 
-  `month` int, 
-  `day` int)
-ROW FORMAT SERDE 
-  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
-WITH SERDEPROPERTIES ( 
-  'field.delim'='\t', 
-  'serialization.format'='\t') 
-STORED AS INPUTFORMAT 
-  'org.apache.hadoop.mapred.TextInputFormat' 
-OUTPUTFORMAT 
-  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
-  'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages'
-TBLPROPERTIES (
-  'transient_lastDdlTime'='1507632100')
-OK
-year=2012/month=1/day=2
-OK
-OK
-hms                 	int                 	                    
-severity            	string              	                    
-server              	string              	                    
-process_id          	int                 	                    
-message             	string              	                    
-year                	int                 	                    
-month               	int                 	                    
-day                 	int                 	                    
-	 	 
-# Partition Information	 	 
-# col_name            	data_type           	comment             
-	 	 
-year                	int                 	                    
-month               	int                 	                    
-day                 	int                 	                    
-	 	 
-Detailed Table Information	Table(tableName:log_messages_external, dbName:testDB, owner:mt_qa, createTime:1507632101, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages_external, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
-OK
-hms                 	int                 	                    
-severity            	string              	                    
-server              	string              	                    
-process_id          	int                 	                    
-message             	string              	                    
-year                	int                 	                    
-month               	int                 	                    
-day                 	int                 	                    
-	 	 
-# Partition Information	 	 
-# col_name            	data_type           	comment             
-	 	 
-year                	int                 	                    
-month               	int                 	                    
-day                 	int                 	                    
-OK
-OK
-hms                 	int                 	                    
-severity            	string              	                    
-server              	string              	                    
-process_id          	int                 	                    
-message             	string              	                    
-year                	int                 	                    
-month               	int                 	                    
-day                 	int                 	                    
-	 	 
-# Partition Information	 	 
-# col_name            	data_type           	comment             
-	 	 
-year                	int                 	                    
-month               	int                 	                    
-day                 	int                 	                    
-OK
-last_modified_by	hdp_qa
-last_modified_time	1507641517
-transient_lastDdlTime	1507641517
+FAILED: SemanticException [Error 10001]: Table not found log_messages
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
+FAILED: SemanticException [Error 10001]: Table not found log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
 OK
 OK

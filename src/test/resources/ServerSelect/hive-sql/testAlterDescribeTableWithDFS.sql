@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 USE testdb;
 
 dfs -ls /user/hive/warehouse/testdb.db/log_messages02/year=2011/month=1/day=1;
 dfs -ls /user/hive/warehouse/testdb.db/log_messages02/year=2011/month=1/day=2;
 
+=======
+dfs -ls /user/hive/warehouse/testdb.db/log_messages02/year=2011/month=1/day=1;
+dfs -ls /user/hive/warehouse/testdb.db/log_messages02/year=2011/month=1/day=2;
+
+>>>>>>> b0450854b2f7ed1c2e1b2c8651afe9e2db333a37
 dfs -mkdir -R /user/hive/warehouse/testdb.db/log_messages_new02/year=2011/month=1/day=1;
 
 --更改TABLE以将分区指向新位置：

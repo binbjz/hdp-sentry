@@ -11,5 +11,9 @@ ALTER TABLE test_tbl CHANGE new_col3 new_col3to1 INT COMMENT "put last column to
 
 DESCRIBE test_tbl;
 ALTER TABLE test_tbl RENAME TO test_tbl_new;
+<<<<<<< HEAD
 ALTER TABLE test_tbl_new SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
+=======
+ALTER TABLE test_tbl SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
+>>>>>>> b0450854b2f7ed1c2e1b2c8651afe9e2db333a37
 SHOW TBLPROPERTIES test_tbl_new;

@@ -1,7 +1,8 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+Added [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] to class path
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar
 OK
-'/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar' does not exist
-Query returned non-zero code: 1, cause: '/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar' does not exist
-Failed to register testDB.qa_lower using class com.example.hive.udf.LowerCase
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.FunctionTask
-FAILED: SemanticException [Error 10011]: Line 2:7 Invalid function 'qa_lower'
+FAILED: SemanticException [Error 10001]: Line 2:35 Table not found 'teacher'
 OK
+Deleted [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] from class path
