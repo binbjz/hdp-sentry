@@ -10,4 +10,4 @@ DESCRIBE tbl4alter;
 ALTER TABLE tbl4alter SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
 SHOW TBLPROPERTIES tbl4alter;
 ALTER TABLE tbl4alter RENAME TO tbl4alter_new;
-SHOW TABLES LIKE 'tbl4alter*';
+SHOW TABLES LIKE 'tbl4alter*'; -- no table show up due to no privilege on new table
