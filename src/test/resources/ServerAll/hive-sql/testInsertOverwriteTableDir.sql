@@ -24,6 +24,8 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
+USE db4data;
+
 ALTER TABLE db4data.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE db4data.staged_employees ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE db4data.staged_employees ADD PARTITION (country = 'US', state = 'IL');
@@ -50,7 +52,6 @@ SELECT * FROM db4data.employees;
 INSERT OVERWRITE TABLE db4data.employees PARTITION (country = 'US', state = 'CA')
 SELECT name, salary, subordinates, deductions, address FROM db4data.staged_employees se WHERE se.country = 'US' AND se.state = 'CA';
 SELECT * FROM db4data.employees;
-
 
 SET hive.exec.dynamic.partition=true;
 SET hive.vectorized.execution.enabled = true;

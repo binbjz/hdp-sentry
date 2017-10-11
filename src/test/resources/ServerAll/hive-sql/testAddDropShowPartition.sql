@@ -1,5 +1,6 @@
 DROP DATABASE IF EXISTS db4partition CASCADE;
 CREATE DATABASE db4partition;
+USE db4partition;
 CREATE TABLE db4partition.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
 ALTER TABLE db4partition.supply ADD PARTITION (day = 20110102);
 ALTER TABLE db4partition.supply ADD PARTITION (day = 20110103);

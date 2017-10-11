@@ -1,4 +1,4 @@
-USE testDB;
+USE testdb;
 SHOW TABLES LIKE '*drop';
 SHOW CREATE TABLE tbl4drop;
 SHOW CREATE TABLE view4drop;

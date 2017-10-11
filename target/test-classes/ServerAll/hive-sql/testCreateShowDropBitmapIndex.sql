@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS test_db2 CASCADE;
-CREATE DATABASE test_db2;
+DROP DATABASE IF EXISTS testdb CASCADE;
+CREATE DATABASE testdb;
 
-USE test_db2;
+USE testdb;
 CREATE TABLE employees (
   name STRING
  ,salary FLOAT
@@ -23,4 +23,4 @@ SHOW FORMATTED INDEX ON employees;
 DROP INDEX IF EXISTS employees_bitmap_index ON TABLE employees;
 DROP TABLE employees;
 
-DROP DATABASE test_db2;
+DROP DATABASE testdb;

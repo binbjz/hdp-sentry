@@ -25,6 +25,8 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
+USE db4alter;
+
 ALTER TABLE db4alter.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE db4alter.employees ADD PARTITION (country = 'US', state = 'CA');
 

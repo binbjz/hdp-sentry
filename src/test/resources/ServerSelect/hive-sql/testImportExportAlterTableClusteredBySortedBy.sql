@@ -1,4 +1,6 @@
-CREATE TABLE testDB.employees (
+USE testdb;
+
+CREATE TABLE testdb.employees (
   name STRING
  ,salary FLOAT
  ,subordinates ARRAY<STRING>
@@ -10,7 +12,7 @@ COLLECTIONS ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE testDB.staged_employees (
+CREATE TABLE testdb.staged_employees (
   name STRING
  ,salary FLOAT
  ,subordinates ARRAY<STRING>
@@ -22,28 +24,27 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE testDB.employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testDB.staged_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 
 SET FILEPATH=/opt/meituan/qa_test/testfile;
 SELECT '${hiveconf:FILEPATH}';
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE testDB.staged_employees
+INTO TABLE testdb.staged_employees
 PARTITION (country = 'US', state = 'CA');
 
-EXPORT TABLE testDB.staged_employees PARTITIONS (country = 'US', state = 'CA') TO '/tmp/employee';
+EXPORT TABLE testdb.staged_employees PARTITIONS (country = 'US', state = 'CA') TO '/tmp/employee';
 
-IMPORT TABLE testDB.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+IMPORT TABLE testdb.employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
 
-ALTER TABLE testDB.employees TOUCH;
+ALTER TABLE testdb.employees TOUCH;
 
+ALTER TABLE testdb.staged_employees TOUCH PARTITION (country = 'US', state = 'CA') ;
+ALTER TABLE testdb.employees TOUCH PARTITION (country = 'US', state = 'CA') ;
+ALTER TABLE testdb.employees ADD PARTITION (country = 'CHN', state = 'BJ') ;
+ALTER TABLE testdb.employees TOUCH PARTITION (country = 'CHN', state = 'BJ') ;
 
-ALTER TABLE testDB.staged_employees TOUCH PARTITION (country = 'US', state = 'CA') ;
-ALTER TABLE testDB.employees TOUCH PARTITION (country = 'US', state = 'CA') ;
-ALTER TABLE testDB.employees ADD PARTITION (country = 'CHN', state = 'BJ') ;
-ALTER TABLE testDB.employees TOUCH PARTITION (country = 'CHN', state = 'BJ') ;
+DESCRIBE testdb.employees PARTITION (country='US', state='CA');
+DESCRIBE EXTENDED testdb.employees PARTITION (country='US', state='CA');
 
-DESCRIBE testDB.employees PARTITION (country='US', state='CA');
-DESCRIBE EXTENDED testDB.employees PARTITION (country='US', state='CA');
-
-ALTER TABLE testDB.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
+ALTER TABLE testdb.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
