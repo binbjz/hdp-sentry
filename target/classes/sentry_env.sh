@@ -48,7 +48,7 @@ sentry_privileges[TableAll]="server=server1->db=testdb->table=tbl4drop->action=a
 sentry_privileges[ColumnAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4alter->action=all,server=server1->db=testdb->action=all,server=server1->db=db4tbl->action=all"
 ##============
 
-##============For Encrypt column, it needs to be done separately
+##============For Encrypt column, they need to be done separately
 encrypt_ini=/opt/meituan/sentry/conf/external.ini
 
 DBAllWithEncryptedColumns1(){
