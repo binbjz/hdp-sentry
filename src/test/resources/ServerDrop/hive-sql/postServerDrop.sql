@@ -1,0 +1,4 @@
+DROP TABLE default.tbl4show;
+DROP DATABASE db4show;
+DROP DATABASE db4add;
+DROP DATABASE db4func;
