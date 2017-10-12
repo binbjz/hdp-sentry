@@ -3,28 +3,7 @@ Added [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf
 Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar]
 /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar
 OK
-Query ID = sankuai_20171012134510_237684d0-a443-4cff-841d-90f3bef9f871
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0684, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0684/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0684
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 150 msec
-Ended Job = job_1505297521386_0684
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-12_13-45-10_798_9020211220304147551-1/-ext-10000
-Loading data to table testdb.teacher
-1 Rows loaded to testdb.teacher
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 3766 HDFS Write: 11 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 150 msec
 OK
-OK
-teacher qa
-teacher qa
 OK
 qa_lower
 Deleted [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] from class path

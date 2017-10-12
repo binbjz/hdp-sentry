@@ -1,0 +1,29 @@
+OK
+employees_props
+teacher
+test_create_tbl
+test_tbl
+testtable
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
+OK
+employees_props
+teacher
+test_create_tbl
+test_tbl
+testtable
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: SemanticException [Error 10001]: Table not found db4tbl.tbl2create
+FAILED: SemanticException [Error 10001]: Table not found db4tbl.view2create
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
+OK
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
+FAILED: SemanticException [Error 10001]: Table not found db4tbl.view2create
+FAILED: SemanticException [Error 10001]: Table not found db4tbl.view2create
+OK
+tbl4show
+view4show
+OK
+OK

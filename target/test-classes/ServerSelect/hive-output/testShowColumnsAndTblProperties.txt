@@ -3,7 +3,7 @@ OK
 comment	Description of the table
 creator	HADOOP-QA
 notes	test show tblproperties
-transient_lastDdlTime	1507786971
+transient_lastDdlTime	1507797352
 OK
 name                
 salary              

@@ -1,56 +1,58 @@
-FAILED: IllegalArgumentException java.net.URISyntaxException: Relative path in absolute URI: ${env:FILEPATH%7D/california-employees.csv
-Query ID = sankuai_20171012134826_037ead9b-27ab-4f2f-b421-c5b09cba9d4c
+Loading data to table testdb.staged_employees partition (country=US, state=CA)
+Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+Query ID = sankuai_20171012164559_01c2f7ff-be46-4ac6-9e8b-480059d63b22
 Total jobs = 7
 Launching Job 1 out of 7
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0688, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0688/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0688
+Starting Job = job_1505297521386_0699, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0699/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0699
 Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
-MapReduce Total cumulative CPU time: 3 seconds 590 msec
-Ended Job = job_1505297521386_0688
+MapReduce Total cumulative CPU time: 3 seconds 420 msec
+Ended Job = job_1505297521386_0699
+Stage-10 is selected by condition resolver.
 Stage-15 is filtered out by condition resolver.
 Stage-5 is selected by condition resolver.
-Stage-10 is selected by condition resolver.
-Stage-14 is selected by condition resolver.
-Stage-4 is filtered out by condition resolver.
 Stage-9 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Stage-14 is selected by condition resolver.
 Stage-6 is filtered out by condition resolver.
-Stage-16 is filtered out by condition resolver.
 Stage-11 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_13-48-26_149_3444199861536453724-1/-ext-10000
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_13-48-26_149_3444199861536453724-1/-ext-10001
+Stage-16 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_16-45-59_921_272102251655521606-1/-ext-10001
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_16-45-59_921_272102251655521606-1/-ext-10000
 Launching Job 7 out of 7
-Loading data to table testdb.employees partition (country=US, state=OR)
+Loading data to table testdb.employees partition (country=US, state=IL)
 Number of reduce tasks is set to 0 since there's no reduce operator
 Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
-Loading data to table testdb.employees partition (country=US, state=IL)
-Starting Job = job_1505297521386_0689, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0689/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0689
+Loading data to table testdb.employees partition (country=US, state=OR)
+Starting Job = job_1505297521386_0700, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0700/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0700
 Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 MapReduce Jobs Launched: 
-Stage-Stage-3: Map: 2   Cumulative CPU: 3.59 sec   HDFS Read: 22852 HDFS Write: 427 SUCCESS
-Total MapReduce CPU Time Spent: 3 seconds 590 msec
+Stage-Stage-3: Map: 2   Cumulative CPU: 3.42 sec   HDFS Read: 23403 HDFS Write: 854 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 420 msec
 Hadoop job information for Stage-14: number of mappers: 0; number of reducers: 0
-Ended Job = job_1505297521386_0689 with errors
+Ended Job = job_1505297521386_0700 with errors
 Error during job, obtaining debugging information...
-Query ID = sankuai_20171012134853_c70cc669-8519-483e-8ba7-be504efd4e49
+Query ID = sankuai_20171012164626_e7bfc9e3-b60b-4bd5-b5ff-2125702c6637
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0690, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0690/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0690
+Starting Job = job_1505297521386_0701, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0701/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0701
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 180 msec
-Ended Job = job_1505297521386_0690
+MapReduce Total cumulative CPU time: 1 seconds 190 msec
+Ended Job = job_1505297521386_0701
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_13-48-53_420_125717416759573820-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_16-46-26_797_6255196142596933526-1/-ext-10000
 Loading data to table testdb.employees partition (country=US, state=CA)
 Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.18 sec   HDFS Read: 6698 HDFS Write: 427 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 180 msec
-killing job with: job_1505297521386_0689
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.19 sec   HDFS Read: 7271 HDFS Write: 854 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 190 msec
+killing job with: job_1505297521386_0700

@@ -8,4 +8,4 @@ DESCRIBE EXTENDED testdb.log_messages_external;
 DESCRIBE testdb.log_messages_external;
 
 ALTER TABLE testdb.log_messages SET FILEFORMAT SEQUENCEFILE;
-DESCRIBE testdb.log_messages;
+DESCRIBE EXTENDED testdb.log_messages;

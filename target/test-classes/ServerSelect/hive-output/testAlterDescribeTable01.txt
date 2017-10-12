@@ -17,12 +17,13 @@ OUTPUTFORMAT
 LOCATION
   'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_tbl'
 TBLPROPERTIES (
-  'transient_lastDdlTime'='1507786991')
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Invalid column reference new_col1
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Invalid column reference new_col3
+  'transient_lastDdlTime'='1507797372')
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Invalid column reference col3
 OK
 col1                	tinyint             	                    
 col2                	smallint            	                    
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_tbl_new
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_tbl_new
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+OK
+transient_lastDdlTime	1507797372
