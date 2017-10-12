@@ -7,4 +7,6 @@ INSERT INTO teacher VALUES ('TEACHER QA');
 SELECT qa_lower(name) as name FROM teacher;
 SHOW FUNCTIONS LIKE 'qa_lower';
 DELETE JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar;
+DROP FUNCTION qa_lower;
+SHOW FUNCTIONS LIKE 'qa_lower';
 LIST JARS;
