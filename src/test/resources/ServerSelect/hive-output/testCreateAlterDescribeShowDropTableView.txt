@@ -1,0 +1,1 @@
+Could not open input file for reading. (File file:/opt/meituan/qa_test/sentry-test/src/test/resources/ServerSelect/hive-sql/test.sql does not exist)

@@ -1,0 +1,12 @@
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+OK
+day=20110102
+day=20110103
+OK
+id	part	quantity
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+OK
+partition
+day=20110102
+day=20110103

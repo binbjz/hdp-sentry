@@ -1,0 +1,70 @@
+Query ID = sankuai_20171012134716_fd8fb4be-0833-4e0b-9850-ee23bf506d33
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0685, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0685/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0685
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 150 msec
+Ended Job = job_1505297521386_0685
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-12_13-47-16_016_6232159385913641701-1/-ext-10000
+Loading data to table testdb.table001
+3 Rows loaded to testdb.table001
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 4069 HDFS Write: 49 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 150 msec
+OK
+Query ID = sankuai_20171012134738_81ea83d2-39d1-4be6-9c49-c1f4e5c18f74
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0686, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0686/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0686
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 2 seconds 140 msec
+Ended Job = job_1505297521386_0686
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-12_13-47-38_458_5462727975025833972-1/-ext-10000
+Loading data to table testdb.table002
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+1 Rows loaded to testdb.table002
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.14 sec   HDFS Read: 4132 HDFS Write: 17 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 140 msec
+OK
+name	ip
+OK
+table002.name	table002.ip
+meituan	10.0.0.1
+Query ID = sankuai_20171012134759_876b0351-322d-4a63-a952-560a74ce4e11
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0687, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0687/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0687
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 140 msec
+Ended Job = job_1505297521386_0687
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-12_13-47-59_745_3300467142921460991-1/-ext-10000
+Loading data to table testdb.table002
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+3 Rows loaded to testdb.table002
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.14 sec   HDFS Read: 3840 HDFS Write: 49 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 140 msec
+OK
+table001.name	table001.ip
+OK
+table002.name	table002.ip
+meituan	10.0.0.1
+baidu	10.0.0.2
+alibaba	10.0.0.3
+FAILED: ParseException line 3:41 extraneous input 'DESC' expecting ) near '<EOF>'

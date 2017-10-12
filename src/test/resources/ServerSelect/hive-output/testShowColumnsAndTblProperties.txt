@@ -1,0 +1,22 @@
+OK
+OK
+comment	Description of the table
+creator	HADOOP-QA
+notes	test show tblproperties
+transient_lastDdlTime	1507786971
+OK
+name                
+salary              
+subordinates        
+deductions          
+address             
+country             
+state               
+OK
+name                
+salary              
+subordinates        
+deductions          
+address             
+country             
+state               

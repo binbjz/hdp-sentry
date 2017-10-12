@@ -1,0 +1,56 @@
+FAILED: IllegalArgumentException java.net.URISyntaxException: Relative path in absolute URI: ${env:FILEPATH%7D/california-employees.csv
+Query ID = sankuai_20171012134826_037ead9b-27ab-4f2f-b421-c5b09cba9d4c
+Total jobs = 7
+Launching Job 1 out of 7
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0688, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0688/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0688
+Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
+MapReduce Total cumulative CPU time: 3 seconds 590 msec
+Ended Job = job_1505297521386_0688
+Stage-15 is filtered out by condition resolver.
+Stage-5 is selected by condition resolver.
+Stage-10 is selected by condition resolver.
+Stage-14 is selected by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Stage-9 is filtered out by condition resolver.
+Stage-6 is filtered out by condition resolver.
+Stage-16 is filtered out by condition resolver.
+Stage-11 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_13-48-26_149_3444199861536453724-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_13-48-26_149_3444199861536453724-1/-ext-10001
+Launching Job 7 out of 7
+Loading data to table testdb.employees partition (country=US, state=OR)
+Number of reduce tasks is set to 0 since there's no reduce operator
+Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+Loading data to table testdb.employees partition (country=US, state=IL)
+Starting Job = job_1505297521386_0689, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0689/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0689
+Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 2   Cumulative CPU: 3.59 sec   HDFS Read: 22852 HDFS Write: 427 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 590 msec
+Hadoop job information for Stage-14: number of mappers: 0; number of reducers: 0
+Ended Job = job_1505297521386_0689 with errors
+Error during job, obtaining debugging information...
+Query ID = sankuai_20171012134853_c70cc669-8519-483e-8ba7-be504efd4e49
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0690, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0690/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0690
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 180 msec
+Ended Job = job_1505297521386_0690
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-12_13-48-53_420_125717416759573820-1/-ext-10000
+Loading data to table testdb.employees partition (country=US, state=CA)
+Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.18 sec   HDFS Read: 6698 HDFS Write: 427 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 180 msec
+killing job with: job_1505297521386_0689
