@@ -2,12 +2,14 @@ import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import eventhandling.DataProviderObj;
-import org.apache.log4j.Logger;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import utilitytool.SentryConstant;
 import utilitytool.TraceHandler;
 import utilitytool.UtilTool;
@@ -23,7 +25,7 @@ public class ServerInsert {
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
     private static final String hiveSqlPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlSrc;
     private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
-    private static Logger logger = Logger.getLogger(className);
+    private static final Logger logger = LoggerFactory.getLogger(className.getClass());
 
     @BeforeClass
     public static void setUp() {
