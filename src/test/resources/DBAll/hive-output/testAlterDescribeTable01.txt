@@ -1,0 +1,13 @@
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10001]: Table not found db4alter.test_tbl
+FAILED: SemanticException [Error 10001]: Table not found test_tbl
+FAILED: SemanticException [Error 10001]: Table not found db4alter.test_tbl
+FAILED: SemanticException [Error 10001]: Table not found test_tbl
+FAILED: SemanticException [Error 10001]: Table not found test_tbl
+FAILED: SemanticException [Error 10001]: Table not found test_tbl
+FAILED: SemanticException [Error 10001]: Table not found test_tbl
+FAILED: SemanticException [Error 10001]: Table not found db4alter.test_tbl
+FAILED: SemanticException [Error 10001]: Table not found db4alter.test_tbl_new
+FAILED: SemanticException [Error 10001]: Table not found db4alter.test_tbl_new
+OK

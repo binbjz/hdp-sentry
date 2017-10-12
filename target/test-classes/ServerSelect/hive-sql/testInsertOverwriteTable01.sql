@@ -8,4 +8,4 @@ SELECT * FROM testdb.table002;
 INSERT OVERWRITE TABLE testdb.table002 SELECT * FROM testdb.table001;
 SELECT * FROM testdb.table002;
 
-SELECT ROW_NUMBER() OVER(PARTITION BY ip DESC) ID, name, ip FROM testdb.table002;
+SELECT ROW_NUMBER() OVER(PARTITION BY ip ORDER BY ip DESC) ID, name, ip FROM db4data.table002;

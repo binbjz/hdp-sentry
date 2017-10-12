@@ -29,13 +29,15 @@ sentry_privileges[SuperPrivil]="server=server1->action=all,server=server1->db=en
 
 # The following will be used to setup and clean and check privilege for each object
 sentry_privileges[ServerAll]="server=server1->action=all"
-sentry_privileges[ServerCreate]="server=server1->action=create"
-sentry_privileges[ServerSelect]="server=server1->action=select"
-sentry_privileges[ServerInsert]="server=server1->action=insert"
 sentry_privileges[ServerAlter]="server=server1->action=alter"
-sentry_privileges[ServerDrop]="server=server1->action=drop"
+sentry_privileges[ServerCreate]="server=server1->action=create"
+sentry_privileges[ServerDrop]="server=server1->db=db4create->action=drop,server=server1->db=db4drop->action=drop,server=server1->db=db4drop_cascade->action=drop"
+sentry_privileges[ServerInsert]="server=server1->action=insert"
+sentry_privileges[ServerSelect]="server=server1->action=select"
 
+sentry_privileges[DBAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4tbl->action=all,server=server1->db=db4alter->action=all,server=server1->db=test_db->action=all"
 sentry_privileges[DBCreate]="server=server1->db=testdb->action=create"
+sentry_privileges[DBAlter]="server=server1->db=db4create->action=alter,server=server1->db=db4drop->action=alter"
 sentry_privileges[DBSelect]="server=server1->db=testdb->action=select"
 sentry_privileges[DBInsert]="server=server1->db=db4alter->action=insert,server=server1->db=db4alter2->action=insert,server=server1->db=db4load->action=insert,server=server1->db=db4overwrite->action=insert,server=server1->db=db4query->action=insert,server=server1->db=db4func->action=insert,server=server1->db=db4addfile->action=insert,server=server1->db=testdb->action=insert"
 
@@ -290,6 +292,8 @@ elif [[ "$2" == "ServerInsert" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerInsert]}"`
 elif [[ "$2" == "ServerSelect" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerSelect]}"`
+elif [[ "$2" == "DBAll" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAll]}"`
 elif [[ "$2" == "DBCreate" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBCreate]}"`
 elif [[ "$2" == "DBSelect" ]]; then

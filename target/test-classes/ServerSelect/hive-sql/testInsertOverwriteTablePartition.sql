@@ -6,14 +6,9 @@ SET hive.cli.print.header=true;
 
 INSERT OVERWRITE TABLE testdb.partition_table002 PARTITION (dt='20150617', ht='00') SELECT name, ip FROM testdb.partition_table001 WHERE dt='20150617' and ht='00' AND name='meituan';
 SELECT * FROM testdb.partition_table002;
-<<<<<<< HEAD
 
 INSERT OVERWRITE TABLE testdb.partition_table002 PARTITION (dt, ht) SELECT * FROM testdb.partition_table001 WHERE dt='20150617' AND name='baidu';
 SELECT * FROM testdb.partition_table002;
 
-=======
-INSERT OVERWRITE TABLE testdb.partition_table002 PARTITION (dt, ht) SELECT * FROM testdb.partition_table001 WHERE dt='20150617' AND name='baidu';
-SELECT * FROM testdb.partition_table002;
->>>>>>> b0450854b2f7ed1c2e1b2c8651afe9e2db333a37
 INSERT OVERWRITE TABLE testdb.partition_table002 PARTITION (dt='20150617', ht) SELECT name, ip, ht FROM testdb.partition_table001 WHERE dt='20150617' and ht='00' AND name='alibaba';
 SELECT * FROM testdb.partition_table002;

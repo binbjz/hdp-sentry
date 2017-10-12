@@ -1,145 +1,86 @@
-Query ID = sankuai_20171012134921_6eeae7aa-88d6-4516-a8d9-6646df260e2a
+Query ID = sankuai_20171012164655_892f29ca-8d48-48f1-b8ec-35b7c4f59b06
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0691, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0691/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0691
+Starting Job = job_1505297521386_0702, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0702/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0702
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 130 msec
-Ended Job = job_1505297521386_0691
+MapReduce Total cumulative CPU time: 1 seconds 180 msec
+Ended Job = job_1505297521386_0702
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table001/dt=20150617/.hive-staging_hive_2017-10-12_13-49-21_820_282118068740221197-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table001/dt=20150617/.hive-staging_hive_2017-10-12_16-46-55_328_5640743077195363641-1/-ext-10000
 Loading data to table testdb.partition_table001 partition (dt=20150617, ht=00)
 Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.13 sec   HDFS Read: 4218 HDFS Write: 49 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 130 msec
-Query ID = sankuai_20171012134945_f5b1d87c-da2a-4781-820d-63f5918f17a4
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.18 sec   HDFS Read: 4220 HDFS Write: 49 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 180 msec
+Query ID = sankuai_20171012164721_e1a645f8-46ff-4e82-b368-33c57d57c7ec
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0692, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0692/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0692
+Starting Job = job_1505297521386_0703, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0703/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0703
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 420 msec
-Ended Job = job_1505297521386_0692
+MapReduce Total cumulative CPU time: 1 seconds 450 msec
+Ended Job = job_1505297521386_0703
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table002/dt=20150617/.hive-staging_hive_2017-10-12_13-49-45_614_3048880782591671371-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table002/dt=20150617/.hive-staging_hive_2017-10-12_16-47-21_008_5925219214254931966-1/-ext-10000
 Loading data to table testdb.partition_table002 partition (dt=20150617, ht=00)
 Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.42 sec   HDFS Read: 4366 HDFS Write: 0 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 420 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.45 sec   HDFS Read: 4366 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 450 msec
 OK
 partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
-NoViableAltException(294@[])
-	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1071)
-	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:202)
-	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
-	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:399)
-	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:311)
-	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1150)
-	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1198)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1087)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1077)
-	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:216)
-	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:168)
-	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:386)
-	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:321)
-	at org.apache.hadoop.hive.cli.CliDriver.processReader(CliDriver.java:419)
-	at org.apache.hadoop.hive.cli.CliDriver.processFile(CliDriver.java:435)
-	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:731)
-	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:698)
-	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:634)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.apache.hadoop.util.RunJar.run(RunJar.java:232)
-	at org.apache.hadoop.util.RunJar._main(RunJar.java:148)
-	at org.apache.hadoop.util.RunJar.access$000(RunJar.java:52)
-	at org.apache.hadoop.util.RunJar$1.run(RunJar.java:139)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:415)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
-	at org.apache.hadoop.security.SecurityUtil.doAsConfigUser(SecurityUtil.java:649)
-	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
-FAILED: ParseException line 2:0 cannot recognize input near '<' '<' '<'
+Query ID = sankuai_20171012164743_bdc7f634-8756-4c36-8584-65e3b123b4c4
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0704, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0704/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0704
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 450 msec
+Ended Job = job_1505297521386_0704
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-12_16-47-43_845_7279086548136180184-1/-ext-10000
+Loading data to table testdb.partition_table002 partition (dt=null, ht=null)
+	 Time taken for load dynamic partitions : 118
+	 Time taken for adding to write entity : 0
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.45 sec   HDFS Read: 4670 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 450 msec
+OK
+partition_table001.name	partition_table001.ip	partition_table001.dt	partition_table001.ht
 OK
 partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
-NoViableAltException(20@[])
-	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1071)
-	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:202)
-	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
-	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:399)
-	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:311)
-	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1150)
-	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1198)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1087)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1077)
-	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:216)
-	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:168)
-	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:386)
-	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:321)
-	at org.apache.hadoop.hive.cli.CliDriver.processReader(CliDriver.java:419)
-	at org.apache.hadoop.hive.cli.CliDriver.processFile(CliDriver.java:435)
-	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:731)
-	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:698)
-	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:634)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.apache.hadoop.util.RunJar.run(RunJar.java:232)
-	at org.apache.hadoop.util.RunJar._main(RunJar.java:148)
-	at org.apache.hadoop.util.RunJar.access$000(RunJar.java:52)
-	at org.apache.hadoop.util.RunJar$1.run(RunJar.java:139)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:415)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
-	at org.apache.hadoop.security.SecurityUtil.doAsConfigUser(SecurityUtil.java:649)
-	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
-FAILED: ParseException line 3:0 cannot recognize input near '==' '==' '=='
+Query ID = sankuai_20171012164805_63d0b537-7ba0-4ea4-a1b4-cb8c7164e534
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0705, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0705/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0705
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 470 msec
+Ended Job = job_1505297521386_0705
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table002/.hive-staging_hive_2017-10-12_16-48-05_266_3195612877609791132-1/-ext-10000
+Loading data to table testdb.partition_table002 partition (dt=20150617, ht=null)
+	 Time taken for load dynamic partitions : 89
+	 Time taken for adding to write entity : 0
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.47 sec   HDFS Read: 4681 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 470 msec
 OK
-partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
-NoViableAltException(23@[])
-	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1071)
-	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:202)
-	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
-	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:399)
-	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:311)
-	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1150)
-	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1198)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1087)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1077)
-	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:216)
-	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:168)
-	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:386)
-	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:321)
-	at org.apache.hadoop.hive.cli.CliDriver.processReader(CliDriver.java:419)
-	at org.apache.hadoop.hive.cli.CliDriver.processFile(CliDriver.java:435)
-	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:731)
-	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:698)
-	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:634)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.apache.hadoop.util.RunJar.run(RunJar.java:232)
-	at org.apache.hadoop.util.RunJar._main(RunJar.java:148)
-	at org.apache.hadoop.util.RunJar.access$000(RunJar.java:52)
-	at org.apache.hadoop.util.RunJar$1.run(RunJar.java:139)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:415)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
-	at org.apache.hadoop.security.SecurityUtil.doAsConfigUser(SecurityUtil.java:649)
-	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
-FAILED: ParseException line 2:0 cannot recognize input near '>' '>' '>'
+name	ip	ht
 OK
 partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht

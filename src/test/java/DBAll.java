@@ -66,7 +66,7 @@ public class DBAll {
         String actualResults = map.get(1).toString();
         logger.info("expectedResults: " + expectedResults);
         logger.info("actualResults: " + actualResults);
-        Assert.assertEquals(expectedResults, actualResults, desc);
+        Assert.assertEquals(desc, expectedResults, actualResults);
     }
 
 

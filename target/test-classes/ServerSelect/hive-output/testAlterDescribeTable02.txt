@@ -23,7 +23,7 @@ OUTPUTFORMAT
 LOCATION
   'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages'
 TBLPROPERTIES (
-  'transient_lastDdlTime'='1507786989')
+  'transient_lastDdlTime'='1507797369')
 OK
 year=2011/month=1/day=1
 OK
@@ -59,7 +59,7 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-Detailed Table Information	Table(tableName:log_messages_external, dbName:testdb, owner:mt_qa, createTime:1507786989, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages_external, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
+Detailed Table Information	Table(tableName:log_messages_external, dbName:testdb, owner:mt_qa, createTime:1507797370, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages_external, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -93,3 +93,5 @@ day                 	int
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
+	 	 
+Detailed Table Information	Table(tableName:log_messages, dbName:testdb, owner:mt_qa, createTime:1507797369, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=

@@ -9,7 +9,6 @@ ARGS=2
 BAD_PARAMS=65
 NOMATCH=126
 NOPRI=62
-KEYTAB_USER=hive
 HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 
 
@@ -30,7 +29,7 @@ fi
 case "$1" in
 "keytab_auth")
     #keytab authentication
-    source /opt/meituan/hadoop/bin/hadoop_user_login.sh $KEYTAB_USER
+    source /opt/meituan/hadoop/bin/hadoop_user_login.sh $PROXY_USER
     ;;
 "proxy_user")
     #proxy user
