@@ -1,0 +1,26 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+OK
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data
+FAILED: SemanticException [Error 10001]: Line 4:11 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 3:13 Table not found 'staged_employees'
+cat: `/tmp/employee/country=US/state=CA/california-employees.csv': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10027]: Invalid path
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+rm: `/tmp/employee': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+OK
+OK

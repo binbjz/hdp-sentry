@@ -1,0 +1,8 @@
+FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found table001
+FAILED: SemanticException [Error 10001]: Line 3:60 Table not found 'table001'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'table002'
+FAILED: SemanticException [Error 10001]: Line 3:53 Table not found 'table001'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'table002'
+FAILED: SemanticException [Error 10001]: Line 3:77 Table not found 'table002'
+OK
+OK

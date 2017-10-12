@@ -1,0 +1,3 @@
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_serde
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_serde
+OK

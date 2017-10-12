@@ -1,0 +1,6 @@
+FAILED: SemanticException [Error 10001]: Line 3:116 Table not found 'whoyouare'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'whoyouare'
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+FAILED: SemanticException [Error 10001]: Line 2:60 Table not found 'whoyouare'
+OK
