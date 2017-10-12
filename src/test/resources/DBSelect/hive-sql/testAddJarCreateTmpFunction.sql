@@ -8,7 +8,5 @@ CREATE TABLE teacher (name STRING);
 INSERT INTO teacher VALUES ('TEACHER QA');
 SELECT qa_lower(name) as name FROM teacher;
 SHOW FUNCTIONS LIKE '*qa_lower';
-DROP FUNCTION qa_lower;
-SHOW FUNCTIONS LIKE '*qa_lower';
 DROP TABLE teacher;
 DELETE JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar;

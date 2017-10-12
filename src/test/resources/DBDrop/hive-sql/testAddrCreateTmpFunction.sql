@@ -6,5 +6,3 @@ CREATE TEMPORARY FUNCTION qa_lower AS 'com.example.hive.udf.LowerCase';
 DELETE JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar;
 LIST JARS;
 SHOW FUNCTIONS LIKE '*qa_lower';
-DROP FUNCTION qa_lower;
-SHOW FUNCTIONS LIKE '*qa_lower';
