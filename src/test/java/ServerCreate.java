@@ -58,7 +58,7 @@ public class ServerCreate {
         //debug stage: write test results into output file.
         String hiveOutput = hiveOutputPath + File.separator + resultFile;
         System.out.println(hiveOutput);
-//        UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
+        UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(hiveOutput);
         String actualResults = map.get(1).toString();
