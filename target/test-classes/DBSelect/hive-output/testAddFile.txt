@@ -1,0 +1,7 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10001]: Line 2:116 Table not found 'whoyouare'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'whoyouare'
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+FAILED: SemanticException [Error 10001]: Line 2:60 Table not found 'whoyouare'
+OK
