@@ -1,0 +1,12 @@
+Added [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] to class path
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar
+OK
+OK
+OK
+default.qa_lower
+tmp_qa_lower
+OK
+OK
+tmp_qa_lower
+Deleted [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] from class path

@@ -1,0 +1,7 @@
+OK
+FAILED: SemanticException [Error 10001]: Table not found default.view4show
+FAILED: SemanticException [Error 10001]: Table not found default.tbl4show
+FAILED: SemanticException [Error 10001]: Table not found view4show
+FAILED: SemanticException [Error 10001]: Table not found view4show
+OK
+OK

@@ -1,0 +1,3 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: db4add
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
