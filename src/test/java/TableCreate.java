@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import utilitytool.SentryConstant;
 import utilitytool.TraceHandler;
 import utilitytool.UtilTool;
@@ -22,21 +24,22 @@ public class TableCreate {
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
     private static final String hiveSqlPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlSrc;
     private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
+    private static final Logger logger = LoggerFactory.getLogger(className);
 
 
     @BeforeClass
     public static void setUp() {
-        System.out.println("setUp TableCreate......");
+        logger.debug("setUp TableCreate......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        System.out.println(UtilTool.arrToStr(sentryCmd));
-        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        logger.debug(UtilTool.arrToStr(sentryCmd));
+        logger.debug("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
         String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user " + "normal";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
-        System.out.println(UtilTool.arrToStr(hiveCmd));
-        System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+        logger.debug(UtilTool.arrToStr(hiveCmd));
+        logger.debug("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
     }
 
 
@@ -44,26 +47,26 @@ public class TableCreate {
     @UseDataProvider("dataProviderTableCreate")
     public void testTableCreate(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
-        System.out.println("===============================================");
-        System.out.println("TableCreate--> running testcase: " + id);
-        System.out.println("===============================================");
+        logger.debug("===============================================");
+        logger.debug("TableCreate--> running testcase: " + id);
+        logger.debug("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
-        System.out.println(UtilTool.arrToStr(sqlCmd));
+        logger.debug(UtilTool.arrToStr(sqlCmd));
 
         Map map = UtilTool.execCommand(sqlCmd);
-        System.out.println("exit code:\n" + map.get(0).toString());
-        System.out.println("command result:\n" + map.get(1).toString());
+        logger.debug("exit code:\n" + map.get(0).toString());
+        logger.debug("command result:\n" + map.get(1).toString());
 
         //debug stage: write test results into output file.
         String hiveOutput = hiveOutputPath + File.separator + resultFile;
-        System.out.println(hiveOutput);
+        logger.debug(hiveOutput);
         UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(hiveOutput);
         String actualResults = map.get(1).toString();
-        System.out.println("expectedResults: " + expectedResults);
-        System.out.println("actualResults: " + actualResults);
+        logger.debug("expectedResults: " + expectedResults);
+        logger.debug("actualResults: " + actualResults);
         Assert.assertEquals(desc, expectedResults, actualResults);
     }
 
@@ -76,11 +79,11 @@ public class TableCreate {
 
     @AfterClass
     public static void cleanUp() {
-        System.out.println("cleanUp TableCreate......");
+        logger.debug("cleanUp TableCreate......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        System.out.println(UtilTool.arrToStr(sentryCmd));
-        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        logger.debug(UtilTool.arrToStr(sentryCmd));
+        logger.debug("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
 }

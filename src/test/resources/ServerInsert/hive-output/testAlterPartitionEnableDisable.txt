@@ -1,0 +1,13 @@
+OK
+year=2017/month=8/day=1
+year=2017/month=8/day=2
+OK
+OK
+OK
+OK
+OK
+OK
+Dropped the partition year=2017/month=8/day=1
+OK
+Dropped the partition year=2017/month=8/day=2
+OK

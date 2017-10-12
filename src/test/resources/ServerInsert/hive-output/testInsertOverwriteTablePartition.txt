@@ -1,0 +1,96 @@
+Query ID = sankuai_20171012132215_4d8158b7-a8c5-4eb9-8503-d4fce3d1e0e3
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0675, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0675/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0675
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 150 msec
+Ended Job = job_1505297521386_0675
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table001/dt=20150617/.hive-staging_hive_2017-10-12_13-22-15_707_4692602963804838877-1/-ext-10000
+Loading data to table testdb.partition_table001 partition (dt=20150617, ht=00)
+3 Rows loaded to testdb.partition_table001
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 4217 HDFS Write: 49 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 150 msec
+OK
+Query ID = sankuai_20171012132241_aa108428-c692-4036-9146-2c636de1965d
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0676, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0676/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0676
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 840 msec
+Ended Job = job_1505297521386_0676
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table002/dt=20150617/.hive-staging_hive_2017-10-12_13-22-41_926_8508012798817401625-1/-ext-10000
+Loading data to table testdb.partition_table002 partition (dt=20150617, ht=00)
+1 Rows loaded to testdb.partition_table002
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.84 sec   HDFS Read: 4678 HDFS Write: 17 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 840 msec
+OK
+name	ip
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+meituan	10.0.0.1	20150617	00
+Query ID = sankuai_20171012132305_6943b297-975b-4c4c-9272-9a0b17f97cb5
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0677, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0677/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0677
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 2 seconds 320 msec
+Ended Job = job_1505297521386_0677
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-12_13-23-05_529_8191361011355714224-1/-ext-10000
+Loading data to table testdb.partition_table002 partition (dt=null, ht=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table002/dt=20150617/ht=00' to trash at: hdfs://hadoop-meituan-test/user/mt_qa/.Trash/Current
+	 Time taken for load dynamic partitions : 1175
+	Loading partition {dt=20150617, ht=00}
+	 Time taken for adding to write entity : 1
+1 Rows loaded to testdb.partition_table002
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.32 sec   HDFS Read: 5058 HDFS Write: 15 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 320 msec
+OK
+partition_table001.name	partition_table001.ip	partition_table001.dt	partition_table001.ht
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+baidu	10.0.0.2	20150617	00
+Query ID = sankuai_20171012132328_2a539a79-c179-4558-81ce-778f47b2cd2f
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0678, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0678/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0678
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 840 msec
+Ended Job = job_1505297521386_0678
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table002/.hive-staging_hive_2017-10-12_13-23-28_100_3568112789864650906-1/-ext-10000
+Loading data to table testdb.partition_table002 partition (dt=20150617, ht=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/partition_table002/dt=20150617/ht=00' to trash at: hdfs://hadoop-meituan-test/user/mt_qa/.Trash/Current
+	 Time taken for load dynamic partitions : 1113
+	Loading partition {dt=20150617, ht=00}
+	 Time taken for adding to write entity : 1
+1 Rows loaded to testdb.partition_table002
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.84 sec   HDFS Read: 4996 HDFS Write: 17 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 840 msec
+OK
+name	ip	ht
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+alibaba	10.0.0.3	20150617	00
