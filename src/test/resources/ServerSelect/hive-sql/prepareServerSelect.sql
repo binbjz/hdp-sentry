@@ -113,3 +113,4 @@ ALTER TABLE testdb.supply ADD PARTITION (day = 20110102);
 ALTER TABLE testdb.supply ADD PARTITION (day = 20110103);
 CREATE TABLE testdb.whoyouare(who string);
 CREATE TABLE testdb.teacher (name STRING);
+INSERT INTO teacher VALUES ('TEACHER QA');
