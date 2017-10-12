@@ -1,0 +1,89 @@
+OK
+Query ID = sankuai_20171012182431_b15c843f-82ec-45d5-849d-2f93bff9b69c
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0715, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0715/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0715
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 170 msec
+Ended Job = job_1505297521386_0715
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table001/dt=20150617/.hive-staging_hive_2017-10-12_18-24-31_021_1903280048956816337-1/-ext-10000
+Loading data to table db4overwrite.partition_table001 partition (dt=20150617, ht=00)
+Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.17 sec   HDFS Read: 4254 HDFS Write: 49 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 170 msec
+Query ID = sankuai_20171012182456_ba758176-5639-42b3-a6a3-7e6b53d26373
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0716, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0716/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0716
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 440 msec
+Ended Job = job_1505297521386_0716
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table002/dt=20150617/.hive-staging_hive_2017-10-12_18-24-56_652_8569001592324824408-1/-ext-10000
+Loading data to table db4overwrite.partition_table002 partition (dt=20150617, ht=00)
+Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.44 sec   HDFS Read: 4402 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 440 msec
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+Query ID = sankuai_20171012182519_5ab4c6d8-adef-4af3-8b98-6049b4a9bc52
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0717, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0717/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0717
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 500 msec
+Ended Job = job_1505297521386_0717
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-12_18-25-19_430_5240114879942671815-1/-ext-10000
+Loading data to table db4overwrite.partition_table002 partition (dt=null, ht=null)
+	 Time taken for load dynamic partitions : 86
+	 Time taken for adding to write entity : 0
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.5 sec   HDFS Read: 4712 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 500 msec
+OK
+partition_table001.name	partition_table001.ip	partition_table001.dt	partition_table001.ht
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+Query ID = sankuai_20171012182540_3541ba46-d3f8-4bc6-9b2d-276c7f2acadc
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0718, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0718/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0718
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 440 msec
+Ended Job = job_1505297521386_0718
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table002/.hive-staging_hive_2017-10-12_18-25-40_769_2279320237578273913-1/-ext-10000
+Loading data to table db4overwrite.partition_table002 partition (dt=20150617, ht=null)
+	 Time taken for load dynamic partitions : 86
+	 Time taken for adding to write entity : 0
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.44 sec   HDFS Read: 4723 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 440 msec
+OK
+name	ip	ht
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

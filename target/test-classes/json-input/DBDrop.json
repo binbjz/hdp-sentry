@@ -28,5 +28,111 @@
         "name": "testCreateDB.txt"
       }
     ]
+  },
+  {
+    "id": "testDropDB",
+    "tag": "DB",
+    "desc": "The case will test DropDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDBCascade",
+    "tag": "DB",
+    "desc": "The case will test DropDBCascade.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropShowTableView",
+    "tag": "DB",
+    "desc": "The case will test CreateDropShowTableView.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDropShowTableView.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDropShowTableView.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddrCreateTmpFunction",
+    "tag": "DB",
+    "desc": "The case will test AddrCreateTmpFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddrCreateTmpFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddrCreateTmpFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFunction",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddFile",
+    "tag": "DB",
+    "desc": "The case will test AddFile.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddFile.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddFile.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "DB",
+    "desc": "The case will test Dfs.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDfs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDfs.txt"
+      }
+    ]
   }
 ]
+
