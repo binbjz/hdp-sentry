@@ -27,7 +27,6 @@ ALTER TABLE encrypt_db4data.staged_employees ADD PARTITION (country = 'US', stat
 ALTER TABLE encrypt_db4data.staged_employees ADD PARTITION (country = 'US', state = 'IL');
 
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
-echo $FILEPATH
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE encrypt_db4data.staged_employees
 PARTITION (country = 'US', state = 'CA');
