@@ -1,0 +1,7 @@
+OK
+OK
+OK
+FAILED: SemanticException [Error 10072]: Database does not exist: db4create
+FAILED: SemanticException [Error 10072]: Database does not exist: db4create
+FAILED: SemanticException [Error 10072]: Database does not exist: db4create
+FAILED: SemanticException [Error 10072]: Database does not exist: db4create

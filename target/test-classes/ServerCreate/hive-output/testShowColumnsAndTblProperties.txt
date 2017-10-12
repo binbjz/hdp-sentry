@@ -1,0 +1,6 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. NoSuchObjectException(message:Table does not exist or insufficient privileges to access: <default>.<employees_props>)
+FAILED: SemanticException [Error 10001]: Table not found default.employees_props
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
+OK

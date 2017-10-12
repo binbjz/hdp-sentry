@@ -1,0 +1,2 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. NoSuchObjectException(message:Table does not exist or insufficient privileges to access: <default>.<test_create_tbl>)
+FAILED: SemanticException [Error 10001]: Line 2:97 Table not found 'test_create_tbl'
