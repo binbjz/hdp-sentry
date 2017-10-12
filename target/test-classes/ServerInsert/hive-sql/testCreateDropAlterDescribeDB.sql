@@ -1,6 +1,6 @@
 SHOW DATABASES;
 SHOW DATABASES LIKE 'db4drop';
-USE db4drop
+USE db4drop;
 CREATE DATABASE db2create WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 ALTER DATABASE db4alter SET DBPROPERTIES ('edited-by' = 'hadoop-new-qa');
 DROP DATABASE db4drop;

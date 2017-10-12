@@ -128,6 +128,5 @@ CREATE TABLE IF NOT EXISTS db4alter.log_messages (hms INT, severity STRING, serv
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 ALTER TABLE db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 1);
 ALTER TABLE db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 2);
-ALTER TABLE db4alter.log_messages PARTITION (year = 2017, month = 8, day = 2) ENABLE NO_DROP;
 CREATE DATABASE db4msck;
 CREATE TABLE db4msck.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
