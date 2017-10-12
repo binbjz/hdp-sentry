@@ -1,5 +1,3 @@
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
-ADD FILE ${hiveconf:FILEPATH}/test_who.sh;
-LIST FILES;
-DELETE FILE ${hiveconf:FILEPATH}/test_who.sh;
-LIST FILE;
+CREATE DATABASE unaccessibledb;
+CREATE DATABASE db4drop WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+CREATE DATABASE db2drop WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');

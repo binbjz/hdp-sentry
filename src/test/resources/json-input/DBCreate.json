@@ -1,19 +1,4 @@
 [ {
-    "id": "testShowDB_Negative",
-    "tag": "DB",
-    "desc": "The case will test ShowDB_Negative.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testShowDB_Negative.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testShowDB_Negative.txt"
-      }
-    ]
-  },
-  {
     "id": "testAddFile",
     "tag": "DB",
     "desc": "The case will test AddFile.",
@@ -74,32 +59,32 @@
     ]
   },
   {
-    "id": "testDropDB",
+    "id": "testCreateShowDB",
     "tag": "DB",
-    "desc": "The case will test DropDB.",
+    "desc": "The case will test CreateShowDB.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testDropDB.sql"
+        "name": "testCreateShowDB.sql"
       },
       {
         "type": "file/sql",
-        "name": "testDropDB.txt"
+        "name": "testCreateShowDB.txt"
       }
     ]
   },
   {
-    "id": "testCreateDB",
+    "id": "testCreateShowTable",
     "tag": "DB",
-    "desc": "The case will test CreateDB.",
+    "desc": "The case will test CreateShowTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDB.sql"
+        "name": "testCreateShowTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDB.txt"
+        "name": "testCreateShowTable.txt"
       }
     ]
   }

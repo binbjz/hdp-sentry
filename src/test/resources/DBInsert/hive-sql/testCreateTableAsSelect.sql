@@ -1,4 +1,3 @@
---Execution:
 INSERT INTO db4query.session_test VALUES ('100', '101', '102', 'HTTP://WWW.MEITUAN.COM', 10000);
 SET hive.cli.print.header=true;
 SELECT c.c_user_id as ssoo_user_id

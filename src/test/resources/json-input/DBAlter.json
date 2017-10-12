@@ -1,5 +1,4 @@
-[
-  {
+[ {
     "id": "testShowDB_Negative",
     "tag": "DB",
     "desc": "The case will test ShowDB_Negative.",
@@ -11,6 +10,81 @@
       {
         "type": "file/sql",
         "name": "testShowDB_Negative.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddFile",
+    "tag": "DB",
+    "desc": "The case will test AddFile.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddFile.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddFile.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFunction",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateTmpFunction",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateTmpFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateTmpFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateTmpFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "DB",
+    "desc": "The case will test Dfs command.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDfs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDfs.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDB",
+    "tag": "DB",
+    "desc": "The case will test DropDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDB.txt"
       }
     ]
   },

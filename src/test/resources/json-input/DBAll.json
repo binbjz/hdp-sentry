@@ -1,16 +1,46 @@
 [
   {
-    "id": "testCreateDropShowDB",
+    "id": "testShowDB_Negative",
     "tag": "DB",
-    "desc": "The case will test CreateDropDB.",
+    "desc": "The case will test ShowDB_Negative.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDropShowDB.sql"
+        "name": "testShowDB_Negative.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDropShowDB.txt"
+        "name": "testShowDB_Negative.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDB",
+    "tag": "DB",
+    "desc": "The case will test CreateDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDB",
+    "tag": "DB",
+    "desc": "The case will test DropDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDB.txt"
       }
     ]
   },
@@ -30,17 +60,32 @@
     ]
   },
   {
-    "id": "testCreateDropTable",
+    "id": "testCreateDropAlterTableView",
     "tag": "DB",
-    "desc": "The case will test CreateDropTable.",
+    "desc": "The case will test CreateDropAlterTableView.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDropTable.sql"
+        "name": "testCreateDropAlterTableView.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDropTable.txt"
+        "name": "testCreateDropAlterTableView.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterPropertiesDescribeDB",
+    "tag": "DB",
+    "desc": "The case will test AlterPropertiesDescribeDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterPropertiesDescribeDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterPropertiesDescribeDB.txt"
       }
     ]
   },
@@ -71,6 +116,36 @@
       {
         "type": "file/sql",
         "name": "testAlterDescribeTable02.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableWithDFS",
+    "tag": "DB",
+    "desc": "The case will test AlterDescribeTableWithDFS.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableWithDFS.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableWithDFS.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddDropShowPartition",
+    "tag": "DB",
+    "desc": "The case will test AddDropShowPartition.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDropShowPartition.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDropShowPartition.txt"
       }
     ]
   },
@@ -167,7 +242,7 @@
   {
     "id": "testAddFile",
     "tag": "DB",
-    "desc": "The case will test AddFile.",
+    "desc": "The case will test testAddFile.",
     "cases": [
       {
         "type": "file/sql",

@@ -1,8 +1,8 @@
---Execution:
+USE testdb;
 ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
 
-set FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 SELECT '${hiveconf:FILEPATH}';
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
@@ -33,4 +33,4 @@ DESCRIBE testdb.employees PARTITION (country='US', state='CA');
 DESCRIBE EXTENDED testdb.employees PARTITION (country='US', state='CA');
 
 ALTER TABLE testdb.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
-dfs -rm -R /tmp/employee;
+dfs -rm -r /tmp/employee;

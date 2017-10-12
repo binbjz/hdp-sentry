@@ -1,36 +1,5 @@
---Precondition:
-CREATE DATABASE testdb;
-CREATE TABLE testdb.staged_employees (
-   name STRING
-  ,salary FLOAT
-  ,subordinates ARRAY<STRING>
-  ,deductions MAP<STRING, FLOAT>
-  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
-CREATE TABLE testdb.employees (
-   name STRING
-  ,salary FLOAT
-  ,subordinates ARRAY<STRING>
-  ,deductions MAP<STRING, FLOAT>
-  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'IL');
-
-set FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
-
---Execution:
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.staged_employees
 PARTITION (country = 'US', state = 'CA');
