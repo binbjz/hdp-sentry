@@ -25,7 +25,7 @@ public class ServerInsert {
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
     private static final String hiveSqlPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlSrc;
     private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
-    private static final Logger logger = LoggerFactory.getLogger(className.getClass());
+    private static final Logger logger = LoggerFactory.getLogger(className);
 
     @BeforeClass
     public static void setUp() {
