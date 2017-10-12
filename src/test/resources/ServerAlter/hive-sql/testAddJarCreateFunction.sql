@@ -5,4 +5,6 @@ CREATE TEMPORARY FUNCTION tmp_qa_lower AS 'com.example.hive.udf.LowerCase';
 CREATE FUNCTION qa_lower AS 'com.example.hive.udf.LowerCase';
 SHOW FUNCTIONS LIKE '*qa_lower';
 DELETE JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar;
+DROP FUNCTION qa_lower;
+SHOW FUNCTIONS LIKE '*qa_lower';
 LIST JARS;
