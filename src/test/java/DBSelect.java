@@ -31,20 +31,20 @@ public class DBSelect {
 
     @BeforeClass
     public static void setUp() {
-//        logger.debug("preSetUp DBSelect......");
+//        logger.info("preSetUp DBSelect......");
 //        String preSql = String.format("prepare%s.sql", className);
 //        UtilTool.privilHandler(className, preSql, "setup");
 
-        logger.debug("setUp DBSelect......");
+        logger.info("setUp DBSelect......");
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        logger.debug(UtilTool.arrToStr(sentryCmd));
-        logger.debug("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        logger.info(UtilTool.arrToStr(sentryCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
         String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user " + "normal";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
-        logger.debug(UtilTool.arrToStr(hiveCmd));
-        logger.debug("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+        logger.info(UtilTool.arrToStr(hiveCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
     }
 
 
@@ -52,26 +52,26 @@ public class DBSelect {
     @UseDataProvider("dataProviderDBSelect")
     public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
-        logger.debug("===============================================");
-        logger.debug("DBSelect--> running testcase: " + id);
-        logger.debug("===============================================");
+        logger.info("===============================================");
+        logger.info("DBSelect--> running testcase: " + id);
+        logger.info("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
-        logger.debug(UtilTool.arrToStr(sqlCmd));
+        logger.info(UtilTool.arrToStr(sqlCmd));
 
         Map map = UtilTool.execCommand(sqlCmd);
-        logger.debug("exit code:\n" + map.get(0).toString());
-        logger.debug("command result:\n" + map.get(1).toString());
+        logger.info("exit code:\n" + map.get(0).toString());
+        logger.info("command result:\n" + map.get(1).toString());
 
         //debug stage: write test results into output file.
         String hiveOutput = hiveOutputPath + File.separator + resultFile;
-        logger.debug(hiveOutput);
+        logger.info(hiveOutput);
         UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(hiveOutput);
         String actualResults = map.get(1).toString();
-        logger.debug("expectedResults: " + expectedResults);
-        logger.debug("actualResults: " + actualResults);
+        logger.info("expectedResults: " + expectedResults);
+        logger.info("actualResults: " + actualResults);
         Assert.assertEquals(desc, expectedResults, actualResults);
     }
 
@@ -85,13 +85,13 @@ public class DBSelect {
     @AfterClass
     public static void cleanUp() {
 
-        logger.debug("cleanUp DBSelect......");
+        logger.info("cleanUp DBSelect......");
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        logger.debug(UtilTool.arrToStr(sentryCmd));
-        logger.debug("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        logger.info(UtilTool.arrToStr(sentryCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
-//        logger.debug("postCleanUp DBSelect......");
+//        logger.info("postCleanUp DBSelect......");
 //        String preSql = String.format("post%s.sql", className);
 //        UtilTool.privilHandler(className, preSql, "clean");
     }

@@ -1,0 +1,33 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Line 3:11 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 4:5 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Line 4:60 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Line 3:85 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
+FAILED: SemanticException [Error 10001]: Line 4:14 Table not found 'staged_employees'
+total 0
+-rw-r----- 1 sankuai sankuai 0 Oct 10 21:28 000000_0
+000000_0
+FAILED: SemanticException [Error 10001]: Line 4:39 Table not found 'staged_employees'
+cat: `'/tmp/union.out/*'': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+rm: `/tmp/union.out': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
+OK
+OK

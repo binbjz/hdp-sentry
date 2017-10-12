@@ -1,0 +1,5 @@
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+FAILED: SemanticException [Error 10001]: Table not found default.employees_props
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
+OK

@@ -1,0 +1,91 @@
+[ {
+    "id": "testAddFile",
+    "tag": "DB",
+    "desc": "The case will test AddFile.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddFile.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddFile.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFunction",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateTmpFunction",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateTmpFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateTmpFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateTmpFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "DB",
+    "desc": "The case will test Dfs command.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDfs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDfs.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateShowDB",
+    "tag": "DB",
+    "desc": "The case will test CreateShowDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateShowDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateShowDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateShowTable",
+    "tag": "DB",
+    "desc": "The case will test CreateShowTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateShowTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateShowTable.txt"
+      }
+    ]
+  }
+]

@@ -1,16 +1,16 @@
 [
   {
-    "id": "testAddDeleteFile",
+    "id": "testAddFile",
     "tag": "Server",
-    "desc": "The case will test AddDeleteFile.",
+    "desc": "The case will test AddFile.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddDeleteFile.sql"
+        "name": "testAddFile.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddDeleteFile.txt"
+        "name": "testAddFile.txt"
       }
     ]
   },

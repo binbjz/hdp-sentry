@@ -1,0 +1,8 @@
+FAILED: SemanticException [Error 10001]: Table not found supply
+FAILED: SemanticException [Error 10001]: Table not found supply
+FAILED: SemanticException [Error 10001]: Table not found testdb.supply
+FAILED: SemanticException [Error 10001]: Line 2:31 Table not found 'supply'
+FAILED: SemanticException [Error 10001]: Table not found supply
+FAILED: SemanticException [Error 10001]: Table not found supply
+FAILED: SemanticException [Error 10001]: Table not found testdb.supply
+OK

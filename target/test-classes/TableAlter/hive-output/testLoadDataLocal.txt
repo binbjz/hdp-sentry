@@ -1,0 +1,5 @@
+FAILED: SemanticException [Error 10001]: Line 3:112 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 3:73 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 3:33 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 3:21 Table not found 'collecttest'
+OK

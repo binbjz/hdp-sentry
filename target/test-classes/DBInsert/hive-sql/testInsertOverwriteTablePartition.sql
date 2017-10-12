@@ -1,17 +1,9 @@
---Precondition:
-CREATE DATABASE db4overwrite;
-CREATE TABLE db4overwrite.partition_table001 (name STRING, ip STRING)
-PARTITIONED BY (dt STRING, ht STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
-CREATE TABLE IF NOT EXISTS db4overwrite.partition_table002 LIKE db4overwrite.partition_table001;
-
---Execution:
+USE db4overwrite;
 INSERT INTO db4overwrite.partition_table001 PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3');
 
 SET hive.exec.dynamic.partition=true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
 SET hive.cli.print.header=true;
-
 
 INSERT OVERWRITE TABLE db4overwrite.partition_table002 PARTITION (dt='20150617', ht='00') SELECT name, ip FROM db4overwrite.partition_table001 WHERE dt='20150617' and ht='00' AND name='meituan';
 SELECT * FROM db4overwrite.partition_table002;
@@ -24,6 +16,3 @@ SELECT * FROM db4overwrite.partition_table002;
 
 DROP TABLE db4overwrite.partition_table001;
 DROP TABLE db4overwrite.partition_table002;
-
---Cleanup:
-DROP DATABASE db4overwrite CASCADE;

@@ -1,4 +1,3 @@
---Execution:
 USE db4tbl;
 CREATE TABLE tbl2create (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
 CREATE VIEW db4tbl.view2create AS SELECT id, val FROM db4tbl.tbl4show;

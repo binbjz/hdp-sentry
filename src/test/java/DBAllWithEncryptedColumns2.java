@@ -28,17 +28,17 @@ public class DBAllWithEncryptedColumns2 {
 
     @BeforeClass
     public static void setUp() {
-        logger.debug("setUp DBAllWithEncryptedColumns2......");
+        logger.info("setUp DBAllWithEncryptedColumns2......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        logger.debug(UtilTool.arrToStr(sentryCmd));
-        logger.debug("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        logger.info(UtilTool.arrToStr(sentryCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
         String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user " + "normal";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
-        logger.debug(UtilTool.arrToStr(hiveCmd));
-        logger.debug("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+        logger.info(UtilTool.arrToStr(hiveCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
     }
 
 
@@ -46,26 +46,26 @@ public class DBAllWithEncryptedColumns2 {
     @UseDataProvider("dataProviderTestDBAllWithEncryptedColumns2")
     public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
-        logger.debug("===============================================");
-        logger.debug("DBAllWithEncryptedColumns2--> running testcase: " + id);
-        logger.debug("===============================================");
+        logger.info("===============================================");
+        logger.info("DBAllWithEncryptedColumns2--> running testcase: " + id);
+        logger.info("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
-        logger.debug(UtilTool.arrToStr(sqlCmd));
+        logger.info(UtilTool.arrToStr(sqlCmd));
 
         Map map = UtilTool.execCommand(sqlCmd);
-        logger.debug("exit code:\n" + map.get(0).toString());
-        logger.debug("command result:\n" + map.get(1).toString());
+        logger.info("exit code:\n" + map.get(0).toString());
+        logger.info("command result:\n" + map.get(1).toString());
 
         //debug stage: write test results into output file.
         String hiveOutput = hiveOutputPath + File.separator + resultFile;
-        logger.debug(hiveOutput);
+        logger.info(hiveOutput);
         UtilTool.writeAllBytes(hiveOutput, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(hiveOutput);
         String actualResults = map.get(1).toString();
-        logger.debug("expectedResults: " + expectedResults);
-        logger.debug("actualResults: " + actualResults);
+        logger.info("expectedResults: " + expectedResults);
+        logger.info("actualResults: " + actualResults);
         Assert.assertEquals(desc, expectedResults, actualResults);
     }
 
@@ -78,11 +78,11 @@ public class DBAllWithEncryptedColumns2 {
 
     @AfterClass
     public static void cleanUp() {
-        logger.debug("cleanUp DBAllWithEncryptedColumns2......");
+        logger.info("cleanUp DBAllWithEncryptedColumns2......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        logger.debug(UtilTool.arrToStr(sentryCmd));
-        logger.debug("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        logger.info(UtilTool.arrToStr(sentryCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
 }
