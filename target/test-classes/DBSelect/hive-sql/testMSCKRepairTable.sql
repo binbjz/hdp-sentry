@@ -1,4 +1,3 @@
-CREATE TABLE testdb.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
 -- 创建两个分区目录
 dfs -mkdir /user/hive/warehouse/testdb.db/test_msck/month=201603;
 dfs -mkdir /user/hive/warehouse/testdb.db/test_msck/month=201604;
@@ -8,4 +7,3 @@ MSCK REPAIR TABLE testdb.test_msck;
 SHOW PARTITIONS testdb.test_msck;
 dfs -ls -R /user/hive/warehouse/testdb.db/test_msck/month=201603;
 dfs -ls -R /user/hive/warehouse/testdb.db/test_msck/month=201604;
-DROP TABLE testdb.test_msck;

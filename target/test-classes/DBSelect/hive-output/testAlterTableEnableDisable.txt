@@ -1,5 +1,5 @@
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
 NoViableAltException(26@[731:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | dropViewStatement | createFunctionStatement | createMacroStatement | createIndexStatement | dropIndexStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole );])
 	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
 	at org.antlr.runtime.DFA.predict(DFA.java:144)
@@ -37,7 +37,7 @@ NoViableAltException(26@[731:1: ddlStatement : ( createDatabaseStatement | switc
 	at org.apache.hadoop.security.SecurityUtil.doAsConfigUser(SecurityUtil.java:649)
 	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
 FAILED: ParseException line 2:5 cannot recognize input near 'DROP' 'testdb' '.' in ddl statement
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
 NoViableAltException(26@[731:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | dropViewStatement | createFunctionStatement | createMacroStatement | createIndexStatement | dropIndexStatement | dropFunctionStatement | reloadFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | ( grantPrivileges )=> grantPrivileges | ( revokePrivileges )=> revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole );])
 	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
 	at org.antlr.runtime.DFA.predict(DFA.java:144)
@@ -75,8 +75,8 @@ NoViableAltException(26@[731:1: ddlStatement : ( createDatabaseStatement | switc
 	at org.apache.hadoop.security.SecurityUtil.doAsConfigUser(SecurityUtil.java:649)
 	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
 FAILED: ParseException line 2:5 cannot recognize input near 'DROP' 'testdb' '.' in ddl statement
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
+OK
