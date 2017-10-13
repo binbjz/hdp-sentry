@@ -37,7 +37,7 @@ sentry_privileges[ServerSelect]="server=server1->action=select"
 
 sentry_privileges[DBAll]="server=server1->db=db4create->action=all,server=server1->db=db4drop->action=all,server=server1->db=db4drop_cascade->action=all,server=server1->db=db4tbl->action=all,server=server1->db=db4alter->action=all,server=server1->db=test_db->action=all"
 sentry_privileges[DBCreate]="server=server1->db=db4create->action=create,server=server1->db=db4show->action=create"
-sentry_privileges[DBAlter]="server=server1->db=db4create->action=alter,server=server1->db=db4drop->action=alter"
+sentry_privileges[DBAlter]="server=server1->db=db4create->action=alter,server=server1->db=db4drop->action=alter,server=server1->db=default->action=alter"
 sentry_privileges[DBSelect]="server=server1->db=db4tbl->action=select,server=server1->db=db4create->action=select,server=server1->db=db4alter->action=select,server=server1->db=db4drop_cascade->action=select,server=server1->db=db4drop->action=select,server=server1->db=testdb->action=select"
 sentry_privileges[DBInsert]="server=server1->db=db4alter->action=insert,server=server1->db=db4alter2->action=insert,server=server1->db=db4load->action=insert,server=server1->db=db4overwrite->action=insert,server=server1->db=db4query->action=insert,server=server1->db=db4func->action=insert,server=server1->db=db4addfile->action=insert,server=server1->db=testdb->action=insert"
 
