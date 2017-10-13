@@ -1,6 +1,6 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Table not found test_partition_serde
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_partition_serde
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_partition_serde
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_partition_serde
 OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: SemanticException [Error 10006]: Partition not found {col10=abc, col20=123}
+FAILED: SemanticException [Error 10006]: Partition not found {col10=abc, col20=123}
+FAILED: SemanticException [Error 10006]: Partition not found {col10=abc, col20=123}
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

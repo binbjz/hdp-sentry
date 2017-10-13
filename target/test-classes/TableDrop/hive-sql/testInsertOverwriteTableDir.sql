@@ -37,7 +37,7 @@ SELECT * FROM testdb.employees;
 INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
 SELECT * FROM testdb.staged_employees se WHERE se.country = 'US' and se.state = 'CA';
 !ls -l /tmp/ca_employees;
-!ls -rm -r /tmp/ca_employees;
+!rm -r /tmp/ca_employees;
 
 FROM (
       SELECT emp.name, emp.salary FROM testdb.staged_employees emp WHERE emp.salary < 6000

@@ -1,8 +1,10 @@
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found testdb.supply
-FAILED: SemanticException [Error 10001]: Line 2:31 Table not found 'supply'
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found testdb.supply
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
 OK
+OK
+id	part	quantity
+OK
+OK
+OK
+partition
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

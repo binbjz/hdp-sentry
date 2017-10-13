@@ -1,4 +1,5 @@
 CREATE TABLE encrypt_db4msck.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
+
 --创建两个分区目录
 dfs -mkdir /user/hive/warehouse/encrypt_db4msck.db/test_msck/month=201603;
 dfs -mkdir /user/hive/warehouse/encrypt_db4msck.db/test_msck/month=201604;

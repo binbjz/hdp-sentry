@@ -1,13 +1,5 @@
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
-mkdir: `/user/hive/warehouse/testdb.db/test_msck/month=201603': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-mkdir: `/user/hive/warehouse/testdb.db/test_msck/month=201604': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
-ls: `/user/hive/warehouse/testdb.db/test_msck/month=201603': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 OK
+OK
+Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

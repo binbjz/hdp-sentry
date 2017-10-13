@@ -8,3 +8,4 @@ DROP TABLE testdb.staged_employees02;
 DROP TABLE testdb.tbl4alter_new;
 DROP DATABASE unaccessdb;
 DROP DATABASE testdb CASCADE;
+DROP DATABASE db4drop_cascade CASCADE;

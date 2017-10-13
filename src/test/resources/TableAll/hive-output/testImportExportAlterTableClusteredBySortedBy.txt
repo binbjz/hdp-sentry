@@ -5,8 +5,8 @@ OK
 /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data
 Loading data to table testdb.staged_employees02 partition (country=US, state=CA)
 OK
-Copying data from file:/tmp/sankuai/c8ad62b1-6aee-467c-9f02-445179a30bc9/hive_2017-10-13_17-47-02_690_9005433446426404720-1/-local-10000/_metadata
-Copying file: file:/tmp/sankuai/c8ad62b1-6aee-467c-9f02-445179a30bc9/hive_2017-10-13_17-47-02_690_9005433446426404720-1/-local-10000/_metadata
+Copying data from file:/tmp/sankuai/e8b94424-b8e0-4816-bed0-ef8c1efb7e6f/hive_2017-10-13_20-10-46_166_4160095275633781224-1/-local-10000/_metadata
+Copying file: file:/tmp/sankuai/e8b94424-b8e0-4816-bed0-ef8c1efb7e6f/hive_2017-10-13_20-10-46_166_4160095275633781224-1/-local-10000/_metadata
 Copying data from viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/staged_employees02/country=US/state=CA
 Copying file: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/staged_employees02/country=US/state=CA/california-employees.csv
 OK
@@ -57,8 +57,8 @@ state               	string
 country             	string              	                    
 state               	string              	                    
 	 	 
-Detailed Partition Information	Partition(values:[US, CA], dbName:testdb, tableName:employees02, createTime:1507888025, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:name, type:string, comment:null), FieldSchema(name:salary, type:float, comment:null), FieldSchema(name:subordinates, type:array<string>, comment:null), FieldSchema(name:deductions, type:map<string,float>, comment:null), FieldSchema(name:address, type:struct<street:string,city:string,state:string,zip:int>, comment:null), FieldSchema(name:country, type:string, comment:null), FieldSchema(name:state, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees02/country=US/state=CA, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{colelction.delim=|, mapkey.delim==, serialization.format=,, line.delim=	 
-, field.delim=,}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:{numFiles=1, transient_lastDdlTime=1507888029, COLUMN_STATS_ACCURATE=true, totalSize=427})		 
+Detailed Partition Information	Partition(values:[US, CA], dbName:testdb, tableName:employees02, createTime:1507896648, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:name, type:string, comment:null), FieldSchema(name:salary, type:float, comment:null), FieldSchema(name:subordinates, type:array<string>, comment:null), FieldSchema(name:deductions, type:map<string,float>, comment:null), FieldSchema(name:address, type:struct<street:string,city:string,state:string,zip:int>, comment:null), FieldSchema(name:country, type:string, comment:null), FieldSchema(name:state, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees02/country=US/state=CA, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{colelction.delim=|, mapkey.delim==, serialization.format=,, line.delim=	 
+, field.delim=,}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:{numFiles=1, transient_lastDdlTime=1507896652, COLUMN_STATS_ACCURATE=true, totalSize=427})		 
 OK
 Moved: 'viewfs://hadoop-meituan-test/tmp/employee' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 OK

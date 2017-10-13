@@ -1,5 +1,65 @@
-FAILED: SemanticException [Error 10001]: Line 3:112 Table not found 'collecttest'
-FAILED: SemanticException [Error 10001]: Line 3:73 Table not found 'collecttest'
-FAILED: SemanticException [Error 10001]: Line 3:33 Table not found 'collecttest'
-FAILED: SemanticException [Error 10001]: Line 3:21 Table not found 'collecttest'
+Loading data to table testdb.collecttest
 OK
+Query ID = sankuai_20171013190816_efa36af4-5ab5-4ffb-a33c-f27f7d37d5e2
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0893, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0893/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0893
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+MapReduce Total cumulative CPU time: 5 seconds 810 msec
+Ended Job = job_1505297521386_0893
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.81 sec   HDFS Read: 8544 HDFS Write: 25 SUCCESS
+Total MapReduce CPU Time Spent: 5 seconds 810 msec
+OK
+eleven	11,10
+twelve	12,1
+Query ID = sankuai_20171013190844_709eed2a-f0ea-4fe8-8d29-fb80beaf4c9c
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0894, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0894/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0894
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+MapReduce Total cumulative CPU time: 4 seconds 490 msec
+Ended Job = job_1505297521386_0894
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.49 sec   HDFS Read: 7412 HDFS Write: 18 SUCCESS
+Total MapReduce CPU Time Spent: 4 seconds 490 msec
+OK
+eleven	2
+twelve	2
+Query ID = sankuai_20171013190910_9074ee35-bdb2-404d-93fa-13dc80ebef7d
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0895, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0895/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0895
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+MapReduce Total cumulative CPU time: 3 seconds 320 msec
+Ended Job = job_1505297521386_0895
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.32 sec   HDFS Read: 6907 HDFS Write: 2 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 320 msec
+OK
+4
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

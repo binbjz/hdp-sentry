@@ -21,14 +21,14 @@ day                 	int
 # Detailed Table Information	 	 
 Database:           	testdb              	 
 Owner:              	mt_qa               	 
-CreateTime:         	Fri Oct 13 17:32:11 CST 2017	 
+CreateTime:         	Fri Oct 13 19:55:09 CST 2017	 
 LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
 Retention:          	0                   	 
 Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages2	 
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
-	transient_lastDdlTime	1507887131          
+	transient_lastDdlTime	1507895709          
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
@@ -61,19 +61,19 @@ day                 	int
 Partition Value:    	[2011, 1, 1]        	 
 Database:           	testdb              	 
 Table:              	log_messages2       	 
-CreateTime:         	Fri Oct 13 17:34:55 CST 2017	 
+CreateTime:         	Fri Oct 13 19:58:47 CST 2017	 
 LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
 Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages_new2/year=2011/month=1/day=1	 
 Partition Parameters:	 	 
 	COLUMN_STATS_ACCURATE	false               
 	last_modified_by    	hdp_qa              
-	last_modified_time  	1507887297          
+	last_modified_time  	1507895929          
 	numFiles            	0                   
 	numRows             	-1                  
 	rawDataSize         	-1                  
 	totalSize           	0                   
-	transient_lastDdlTime	1507887297          
+	transient_lastDdlTime	1507895929          
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
@@ -106,12 +106,12 @@ day                 	int
 Partition Value:    	[2011, 1, 2]        	 
 Database:           	testdb              	 
 Table:              	log_messages2       	 
-CreateTime:         	Fri Oct 13 17:34:56 CST 2017	 
+CreateTime:         	Fri Oct 13 19:58:48 CST 2017	 
 LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
 Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages2/year=2011/month=1/day=2	 
 Partition Parameters:	 	 
-	transient_lastDdlTime	1507887296          
+	transient_lastDdlTime	1507895928          
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
@@ -147,7 +147,7 @@ day                 	int
 # Detailed Table Information	 	 
 Database:           	testdb              	 
 Owner:              	mt_qa               	 
-CreateTime:         	Fri Oct 13 17:32:11 CST 2017	 
+CreateTime:         	Fri Oct 13 19:55:09 CST 2017	 
 LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
 Retention:          	0                   	 
@@ -155,8 +155,8 @@ Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 	last_modified_by    	hdp_qa              
-	last_modified_time  	1507887300          
-	transient_lastDdlTime	1507887300          
+	last_modified_time  	1507895933          
+	transient_lastDdlTime	1507895933          
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 

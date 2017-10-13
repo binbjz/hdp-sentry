@@ -28,13 +28,13 @@ OK
 OK
 COLUMN_STATS_ACCURATE	false
 last_modified_by	hdp_qa
-last_modified_time	1507887275
+last_modified_time	1507895908
 notes	Test for set tblproperties
 numFiles	0
 numRows	-1
 rawDataSize	-1
 totalSize	0
-transient_lastDdlTime	1507887275
+transient_lastDdlTime	1507895908
 OK
 OK
 NoViableAltException(-1@[])
