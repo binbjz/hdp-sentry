@@ -1,6 +1,6 @@
 [
   {
-      "id": "testAccessNoPrivilegeDB",
+    "id": "testAccessNoPrivilegeDB",
     "tag": "Table",
     "desc": "The case will test AccessNoPrivilegeDB.",
     "cases": [
@@ -360,32 +360,17 @@
     ]
   },
   {
-    "id": "testCreateShowDropIndex",
+    "id": "testDfs",
     "tag": "Table",
-    "desc": "The case will test CreateShowDropIndex.",
+    "desc": "The case will test Dfs.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateShowDropIndex.sql"
+        "name": "testDfs.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateShowDropIndex.txt"
-      }
-    ]
-  },
-  {
-    "id": "testCreateShowDropBitmapIndex",
-    "tag": "Table",
-    "desc": "The case will test CreateShowDropBitmapIndex.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testCreateShowDropBitmapIndex.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testCreateShowDropBitmapIndex.txt"
+        "name": "testDfs.txt"
       }
     ]
   }
