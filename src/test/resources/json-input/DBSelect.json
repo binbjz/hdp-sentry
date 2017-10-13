@@ -210,17 +210,17 @@
     ]
   },
   {
-    "id": "testCreateTableAsSelect",
+    "id": "testSelect",
     "tag": "DB",
-    "desc": "The case will test CreateTableAsSelect.",
+    "desc": "The case will test Select.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateTableAsSelect.sql"
+        "name": "testSelect.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateTableAsSelect.txt"
+        "name": "testSelect.txt"
       }
     ]
   },
