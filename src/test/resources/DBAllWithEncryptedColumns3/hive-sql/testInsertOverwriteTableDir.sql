@@ -68,6 +68,7 @@ UNION ALL
 SELECT emp.name, emp.salary FROM encrypt_db4data.staged_employees emp WHERE emp.salary > 7000
 ) unioninput
 INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*;
+
 dfs -cat /tmp/union.out/* ;
 dfs -rm -r /tmp/union.out ;
 
@@ -85,4 +86,4 @@ DESCRIBE EXTENDED encrypt_db4data.staged_employees PARTITION (country = 'US', st
 dfs -rm /user/warehouse/hive/encrypt_db4data.db/staged_employees/california-employees.csv
 
 DROP TABLE encrypt_db4data.staged_employees;
-         * DROP TABLE encrypt_db4data.employees;
+DROP TABLE encrypt_db4data.employees;

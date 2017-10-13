@@ -1,4 +1,8 @@
 CREATE DATABASE unaccessdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+
+CREATE DATABASE db4drop_cascade WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+CREATE TABLE db4drop_cascade.tbl4drop (col1 TINYINT, col2 SMALLINT);
+
 CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 CREATE TABLE testdb.tbl4drop (col1 TINYINT, col2 SMALLINT);
 CREATE VIEW testdb.view4drop AS SELECT col1, col2 FROM testdb.tbl4drop;
