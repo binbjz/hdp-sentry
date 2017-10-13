@@ -1,15 +1,27 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: db4alter
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: SemanticException [Error 10072]: Database does not exist: db4alter
-FAILED: SemanticException [Error 10001]: Table not found log_messages_external
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages_external
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages_external
 OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: SemanticException [Error 10006]: Partition not found {year=2011, month=1, day=1}
+FAILED: SemanticException [Error 10006]: Partition not found {year=2011, month=1, day=1}
 OK
-rm: `/user/hive/warehouse/db4alter.db/log_messages_external': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
+FAILED: SemanticException [Error 10006]: Partition not found {year=2011, month=1, day=1}
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+Detailed Table Information	Table(tableName:log_messages_external, dbName:db4alter, owner:mt_qa, createTime:1507883435, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_external, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

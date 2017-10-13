@@ -1,6 +1,30 @@
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
-FAILED: SemanticException [Error 10001]: Table not found test_serde
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_serde
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_serde
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_serde
 OK
+OK
+c0                  	string              	from deserializer   
+c1                  	string              	from deserializer   
+c2                  	string              	from deserializer   
+col10               	string              	                    
+col20               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+col10               	string              	                    
+col20               	string              	                    
+	 	 
+Detailed Partition Information	Partition(values:[abc_new, 123], dbName:testdb, tableName:test_serde_partition, createTime:1507883401, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:c0, type:string, comment:null), FieldSchema(name:c1, type:string, comment:null), FieldSchema(name:c2, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_serde_partition/col10=abc_new/col20=123, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.contrib.serde2.RegexSerDe, parameters:{output.format.string=%1$s	%2$s, serialization.format=1, input.regex=bduid\[(.*)\]uid\[(\d+)\]uname\[(.*)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:{transient_lastDdlTime=1507883401})
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
+OK
+c0                  	string              	from deserializer   
+c1                  	string              	from deserializer   
+c2                  	string              	from deserializer   
+col10               	string              	                    
+col20               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+col10               	string              	                    
+col20               	string              	                    
+	 	 
+Detailed Partition Information	Partition(values:[abc_new, 123], dbName:testdb, tableName:test_serde_partition, createTime:1507883401, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:c0, type:string, comment:null), FieldSchema(name:c1, type:string, comment:null), FieldSchema(name:c2, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_serde_partition/col10=abc_new/col20=123, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.contrib.serde2.RegexSerDe, parameters:{output.format.string=%1$s	%2$s, serialization.format=1, input.regex=bduid\[(.*)\]uid\[(\d+)\]uname\[(.*)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:{transient_lastDdlTime=1507883401})
