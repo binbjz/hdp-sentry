@@ -1,28 +1,4 @@
 USE testdb;
-CREATE TABLE testdb.staged_employees (
- name STRING
-,salary FLOAT
-,subordinates ARRAY<STRING>
-,deductions MAP<STRING, FLOAT>
-,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-
-CREATE TABLE testdb.employees (
- name STRING
-,salary FLOAT
-,subordinates ARRAY<STRING>
-,deductions MAP<STRING, FLOAT>
-,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-
 ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'IL');
@@ -79,6 +55,3 @@ ANALYZE TABLE testdb.staged_employees PARTITION (country, state) COMPUTE STATIST
 -- 查看分区的统计信息
 DESCRIBE EXTENDED testdb.staged_employees;
 DESCRIBE EXTENDED testdb.staged_employees PARTITION (country = 'US', state = 'CA');
-
-DROP TABLE testdb.staged_employees;
-DROP TABLE testdb.employees;
