@@ -1,8 +1,9 @@
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable1
 OK
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable1
 OK
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable2
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable1 is protected from being dropped
 OK
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable2
+OK
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable2 is protected from being dropped
+OK
 OK

@@ -1,33 +1,268 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Table not found staged_employees
-FAILED: SemanticException [Error 10001]: Table not found staged_employees
-FAILED: SemanticException [Error 10001]: Table not found staged_employees
-FAILED: SemanticException [Error 10001]: Table not found employees
-FAILED: SemanticException [Error 10001]: Line 3:11 Table not found 'staged_employees'
-FAILED: SemanticException [Error 10001]: Line 4:5 Table not found 'staged_employees'
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
-FAILED: SemanticException [Error 10001]: Table not found testdb.employees
-FAILED: SemanticException [Error 10001]: Line 4:60 Table not found 'staged_employees'
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
-FAILED: SemanticException [Error 10001]: Table not found testdb.employees
-FAILED: SemanticException [Error 10001]: Line 3:85 Table not found 'staged_employees'
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees'
-FAILED: SemanticException [Error 10001]: Line 4:14 Table not found 'staged_employees'
-total 0
--rw-r----- 1 sankuai sankuai 0 Oct 10 21:28 000000_0
+OK
+OK
+OK
+OK
+OK
+Loading data to table testdb.staged_employees partition (country=US, state=CA)
+OK
+Query ID = sankuai_20171013174237_6364e655-ff54-4c5b-a631-920b6e7dc68f
+Total jobs = 7
+Launching Job 1 out of 7
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0881, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0881/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0881
+Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
+MapReduce Total cumulative CPU time: 3 seconds 420 msec
+Ended Job = job_1505297521386_0881
+Stage-15 is filtered out by condition resolver.
+Stage-10 is selected by condition resolver.
+Stage-5 is selected by condition resolver.
+Stage-14 is selected by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Stage-9 is filtered out by condition resolver.
+Stage-6 is filtered out by condition resolver.
+Stage-16 is filtered out by condition resolver.
+Stage-11 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-13_17-42-37_806_1245794877553330747-1/-ext-10001
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-13_17-42-37_806_1245794877553330747-1/-ext-10000
+Launching Job 7 out of 7
+Loading data to table testdb.employees partition (country=US, state=IL)
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0882, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0882/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0882
+Loading data to table testdb.employees partition (country=US, state=OR)
+Hadoop job information for Stage-14: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 130 msec
+Ended Job = job_1505297521386_0882
+Loading data to table testdb.employees partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to testdb.employees
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 2   Cumulative CPU: 3.42 sec   HDFS Read: 22998 HDFS Write: 427 SUCCESS
+Stage-Stage-14: Map: 1   Cumulative CPU: 1.13 sec   HDFS Read: 4478 HDFS Write: 427 SUCCESS
+Total MapReduce CPU Time Spent: 4 seconds 550 msec
+OK
+OK
+employees.name	employees.salary	employees.subordinates	employees.deductions	employees.address	employees.country	employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+OK
+Query ID = sankuai_20171013174325_9cad4693-d3d9-4c7f-bcca-62b1ed672650
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0883, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0883/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0883
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 200 msec
+Ended Job = job_1505297521386_0883
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/.hive-staging_hive_2017-10-13_17-43-25_572_8096217788383052533-1/-ext-10000
+Loading data to table testdb.employees partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to testdb.employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.2 sec   HDFS Read: 6787 HDFS Write: 427 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 200 msec
+OK
+name	salary	subordinates	deductions	address
+OK
+employees.name	employees.salary	employees.subordinates	employees.deductions	employees.address	employees.country	employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+OK
+Query ID = sankuai_20171013174350_11b491e9-f11e-4ff8-8115-c3fb572a013a
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0884, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0884/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0884
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
+MapReduce Total cumulative CPU time: 2 seconds 250 msec
+Ended Job = job_1505297521386_0884
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/.hive-staging_hive_2017-10-13_17-43-50_377_739739654130144656-1/-ext-10000
+Loading data to table testdb.employees partition (country=US, state=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+	 Time taken for load dynamic partitions : 1064
+	Loading partition {country=US, state=CA}
+	 Time taken for adding to write entity : 1
+4 Rows loaded to testdb.employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2   Cumulative CPU: 2.25 sec   HDFS Read: 15680 HDFS Write: 427 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 250 msec
+OK
+se.name	se.salary	se.subordinates	se.deductions	se.address	se.state
+OK
+employees.name	employees.salary	employees.subordinates	employees.deductions	employees.address	employees.country	employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Query ID = sankuai_20171013174413_a240c586-e574-4377-acbb-d9d1843279cb
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0885, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0885/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0885
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 210 msec
+Ended Job = job_1505297521386_0885
+Copying data to local directory /tmp/ca_employees
+Copying data to local directory /tmp/ca_employees
+4 Rows loaded to /tmp/ca_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.21 sec   HDFS Read: 6241 HDFS Write: 451 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 210 msec
+OK
+se.name	se.salary	se.subordinates	se.deductions	se.address	se.country	se.state
+total 4
+-rw-r----- 1 sankuai sankuai 451 Oct 13 17:44 000000_0
 000000_0
-FAILED: SemanticException [Error 10001]: Line 4:39 Table not found 'staged_employees'
-cat: `'/tmp/union.out/*'': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-rm: `/tmp/union.out': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-FAILED: SemanticException [Error 10001]: Table not found staged_employees
-FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
-FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
-FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
-FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
-FAILED: SemanticException [Error 10001]: Table not found testdb.staged_employees
+Query ID = sankuai_20171013174431_53e0ce2e-fabe-40bc-8008-8630b084ac97
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0886, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0886/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0886
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
+MapReduce Total cumulative CPU time: 3 seconds 700 msec
+Ended Job = job_1505297521386_0886
+Stage-3 is filtered out by condition resolver.
+Stage-2 is selected by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Launching Job 3 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0887, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0887/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0887
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 150 msec
+Ended Job = job_1505297521386_0887
+Moving data to: /tmp/union.out
+8 Rows loaded to /tmp/union.out
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2   Cumulative CPU: 3.7 sec   HDFS Read: 15598 HDFS Write: 74 SUCCESS
+Stage-Stage-2: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 1844 HDFS Write: 74 SUCCESS
+Total MapReduce CPU Time Spent: 4 seconds 850 msec
+OK
+unioninput.name	unioninput.salary
+John Doe100000.0
+Mary Smith80000.0
+Todd Jones70000.0
+Bill King60000.0
+Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Query ID = sankuai_20171013174512_9899302c-891a-4a82-9cce-4f75f10f5985
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0888, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0888/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0888
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 1
+MapReduce Total cumulative CPU time: 12 seconds 190 msec
+Ended Job = job_1505297521386_0888
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2  Reduce: 1   Cumulative CPU: 12.19 sec   HDFS Read: 25057 HDFS Write: 53 SUCCESS
+Total MapReduce CPU Time Spent: 12 seconds 190 msec
+OK
+_c0	_c1	country	state
+Query ID = sankuai_20171013174539_d0474627-91ef-41e8-9b07-e5a9d519c6e2
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0889, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0889/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0889
+Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 70 msec
+Ended Job = job_1505297521386_0889
+Partition testdb.staged_employees{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 1   Cumulative CPU: 1.07 sec   HDFS Read: 4691 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 70 msec
+OK
+testdb.staged_employees.name	testdb.staged_employees.salary	testdb.staged_employees.subordinates	testdb.staged_employees.deductions	testdb.staged_employees.address	testdb.staged_employees.country	testdb.staged_employees.state
+Query ID = sankuai_20171013174605_8244d0e1-d073-4ede-8cbb-2d2f0c7b19fd
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0890, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0890/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0890
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+MapReduce Total cumulative CPU time: 2 seconds 70 msec
+Ended Job = job_1505297521386_0890
+Partition testdb.staged_employees{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition testdb.staged_employees{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition testdb.staged_employees{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.07 sec   HDFS Read: 11130 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 70 msec
+OK
+testdb.staged_employees.name	testdb.staged_employees.salary	testdb.staged_employees.subordinates	testdb.staged_employees.deductions	testdb.staged_employees.address	testdb.staged_employees.country	testdb.staged_employees.state
+Query ID = sankuai_20171013174627_03e351fc-17da-43f0-ba24-6736ecc2668c
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0891, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0891/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0891
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+MapReduce Total cumulative CPU time: 2 seconds 70 msec
+Ended Job = job_1505297521386_0891
+Partition testdb.staged_employees{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition testdb.staged_employees{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition testdb.staged_employees{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.07 sec   HDFS Read: 11474 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 70 msec
+OK
+testdb.staged_employees.name	testdb.staged_employees.salary	testdb.staged_employees.subordinates	testdb.staged_employees.deductions	testdb.staged_employees.address	testdb.staged_employees.country	testdb.staged_employees.state
+OK
+col_name	data_type	comment
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+Detailed Table Information	Table(tableName:staged_employees, dbName:testdb, owner:mt_qa, createTime:1507887163, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:name, type:string, comment:null), FieldSchema(name:salary, type:float, comment:null), FieldSchema(name:subordinates, type:array<string>, comment:null), FieldSchema(name:deductions, type:map<string,float>, comment:null), FieldSchema(name:address, type:struct<street:string,city:string,state:string,zip:int>, comment:null), FieldSchema(name:country, type:string, comment:null), FieldSchema(name:state, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/staged_employees, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{colelction.delim=|, mapkey.delim==, serialization.format=,, line.delim=	 
+, field.delim=,}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), partitionKeys:[FieldSchema(name:country, type:string, comment:null), FieldSchema(name:state, type:string, comment:null)], parameters:{transient_lastDdlTime=1507887163}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE)		 
+OK
+col_name	data_type	comment
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+Detailed Partition Information	Partition(values:[US, CA], dbName:testdb, tableName:staged_employees, createTime:1507887753, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:name, type:string, comment:null), FieldSchema(name:salary, type:float, comment:null), FieldSchema(name:subordinates, type:array<string>, comment:null), FieldSchema(name:deductions, type:map<string,float>, comment:null), FieldSchema(name:address, type:struct<street:string,city:string,state:string,zip:int>, comment:null), FieldSchema(name:country, type:string, comment:null), FieldSchema(name:state, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/staged_employees/country=US/state=CA, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{colelction.delim=|, mapkey.delim==, serialization.format=,, line.delim=	 
+, field.delim=,}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:{numFiles=1, transient_lastDdlTime=1507888007, COLUMN_STATS_ACCURATE=true, totalSize=427, numRows=0, rawDataSize=0})		 
 OK
 OK

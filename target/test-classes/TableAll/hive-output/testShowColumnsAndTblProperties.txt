@@ -1,5 +1,23 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Table not found default.employees_props
-FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
-FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
+OK
+OK
+comment	Description of the table
+creator	HADOOP-QA
+notes	test show tblproperties
+transient_lastDdlTime	1507887168
+OK
+name                
+salary              
+subordinates        
+deductions          
+address             
+country             
+state               
+OK
+name                
+salary              
+subordinates        
+deductions          
+address             
+country             
+state               
 OK

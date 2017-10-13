@@ -1,8 +1,14 @@
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found testdb.supply
-FAILED: SemanticException [Error 10001]: Line 2:31 Table not found 'supply'
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found supply
-FAILED: SemanticException [Error 10001]: Table not found testdb.supply
+OK
+OK
+OK
+day=20110102
+day=20110103
+OK
+id	part	quantity
+Dropped the partition day=20110102
+OK
+Dropped the partition day=20110103
+OK
+OK
+partition
 OK

@@ -1,12 +1,14 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_enable_disable
-FAILED: SemanticException [Error 10001]: Table not found test_enable_disable
+OK
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@test_enable_disable@year=2017/month=8/day=1
+OK
+Dropped the partition year=2017/month=8/day=1
+OK
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@test_enable_disable@year=2017/month=8/day=1
+OK
+Dropped the partition year=2017/month=8/day=1
+OK
 OK
