@@ -5,6 +5,8 @@ CREATE TABLE testdb.session_test (
  ,st_referrer_url STRING
  ,st_timestamp DOUBLE);
 
+INSERT INTO db4data.session_test VALUES ('user001','page_no1','www.mt.com','www.mt.com/referrer_url', '1506682968'), ('user002','page_no2','www.mt.com','www.mt.com/referrer_url', '1506683968');
+
 SET hive.cli.print.header=true;
 
 CREATE TABLE testdb.sessionization_step_one_origins

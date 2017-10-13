@@ -256,7 +256,7 @@ EOF
 }
 
 #No permission for column
-sentry_privileges[DBAllWithEncryptedColumns1_1]="server=server1->db=encrypt_db4drop_cascade->action=all,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->action=all"
+sentry_privileges[DBAllWithEncryptedColumns1]="server=server1->db=encrypt_db4drop_cascade->action=all,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->action=all"
 #All permission for column
 sentry_privileges[DBAllWithEncryptedColumns1_2]="server=server1->db=encrypt_db4drop_cascade->action=all,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl1->column=encrypt_column->action=all,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl2->column=encrypt_column1->action=all,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl2->column=encrypt_column2->action=all,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4tbl->table=tbl4show->column=encrypt_column->action=all,server=server1->db=encrypt_db4tbl->table=tbl2serde->column=c0->action=all,server=server1->db=encrypt_db4tbl->table=tbl2serde->column=c1->action=all,server=server1->db=encrypt_db4tbl->table=tbl2serde->column=c2->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4data->table=test_serde->column=c0->action=all,server=server1->db=encrypt_db4data->table=test_serde->column=c1->action=all,server=server1->db=encrypt_db4data->table=test_serde->column=c2->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->table=tbl4alter->column=encrypt_col1->action=all,server=server1->db=encrypt_db4alter->table=tbl4alter->column=encrypt_col2->action=all,server=server1->db=encrypt_db4alter->table=tbl4alter->column=encrypt_col3->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=hms->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=severity->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=server->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=process_id->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=message->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=hms->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=severity->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=server->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=process_id->action=all,server=server1->db=encrypt_db4alter->table=log_messages_external->column=message->action=all"
 #select permission for column
@@ -277,11 +277,9 @@ sentry_privileges[DBAllWithEncryptedColumns3_2]="server=server1->db=encrypt_db4d
 sentry_privileges[DBAllWithEncryptedColumns3_3]="server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4data->table=test_serde->column=c0->action=select,server=server1->db=encrypt_db4data->table=test_serde->column=c1->action=select,server=server1->db=encrypt_db4data->table=test_serde->column=c2->action=select,server=server1->db=encrypt_db4data->table=testbuiltinfuncs->column=col1->action=select,server=server1->db=encrypt_db4data->table=testbuiltinfuncs->column=col2->action=select,server=server1->db=encrypt_db4data->table=testbuiltinfuncs->column=col3->action=select,server=server1->db=encrypt_db4data->table=staged_employees->column=name->action=select,server=server1->db=encrypt_db4data->table=staged_employees->column=salary->action=select,server=server1->db=encrypt_db4data->table=staged_employees->column=subordinates->action=select,server=server1->db=encrypt_db4data->table=staged_employees->column=deductions->action=select,server=server1->db=encrypt_db4data->table=staged_employees->column=address->action=select,server=server1->db=encrypt_db4data->table=staged_employees02->column=salary->action=select,server=server1->db=encrypt_db4data->table=staged_employees02->column=subordinates->action=select,server=server1->db=encrypt_db4data->table=staged_employees02->column=deductions->action=select,server=server1->db=encrypt_db4data->table=staged_employees02->column=address->action=select,server=server1->db=encrypt_db4data->table=employees02->column=name->action=select,server=server1->db=encrypt_db4data->table=employees02->column=salary->action=select,server=server1->db=encrypt_db4data->table=employees02->column=subordinates->action=select,server=server1->db=encrypt_db4data->table=employees02->column=deductions->action=select,server=server1->db=encrypt_db4data->table=employees02->column=address->action=select,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->table=log_messages->column=hms->action=select,server=server1->db=encrypt_db4alter->table=log_messages->column=severity->action=select,server=server1->db=encrypt_db4alter->table=log_messages->column=server->action=select,server=server1->db=encrypt_db4alter->table=log_messages->column=process_id->action=select,server=server1->db=encrypt_db4alter->table=log_messages->column=message->action=select,server=server1->db=encrypt_db4msck->action=all,server=server1->db=encrypt_db4msck->table=test_msck->column=id->action=select,server=server1->db=encrypt_db4msck->table=test_msck->column=val->action=select,server=server1->db=encrypt_db4props->action=all,server=server1->db=encrypt_db4props->table=employees_props->column=name->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=salary->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=subordinates->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=deductions->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=address->action=select"
 ##============
 
-# Super Privilege
+
 if [[ "$2" == "SuperPrivil" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SuperPrivil]}"`
-
-# Server Privilege
 elif [[ "$2" == "ServerAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerAll]}"`
 elif [[ "$2" == "ServerCreate" ]]; then
@@ -294,8 +292,6 @@ elif [[ "$2" == "ServerInsert" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerInsert]}"`
 elif [[ "$2" == "ServerSelect" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ServerSelect]}"`
-
-# DB Privilege
 elif [[ "$2" == "DBAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAll]}"`
 elif [[ "$2" == "DBCreate" ]]; then
@@ -307,23 +303,9 @@ elif [[ "$2" == "DBAlter" ]]; then
 elif [[ "$2" == "DBInsert" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBInsert]}"`
 elif [[ "$2" == "DBDrop" ]]; then
-
-# DB Privilege
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBDrop]}"`
 elif [[ "$2" == "TableAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableAll]}"`
-elif [[ "$2" == "TableAlter" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableAlter]}"`
-elif [[ "$2" == "TableCreate" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableCreate]}"`
-elif [[ "$2" == "TableDrop" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableDrop]}"`
-elif [[ "$2" == "TableInsert" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableInsert]}"`
-elif [[ "$2" == "TableSelect" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[TableSelect]}"`
-
-# Column Privilege
 elif [[ "$2" == "ColumnAll" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ColumnAll]}"`
 elif [[ "$2" == "DBAllWithEncryptedColumns1" ]]; then
