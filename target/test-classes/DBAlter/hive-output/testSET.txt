@@ -1,0 +1,12 @@
+OK
+filepath
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data
+OK
+printheader
+true
+OK
+partition
+true
+OK
+partition_mode
+nonstrict
