@@ -1,5 +1,8 @@
 package utilitytool;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -7,31 +10,32 @@ import java.util.regex.*;
 
 
 public class UtilTool {
+    private static final String className = TraceHandler.getSTElement(0, "className");
+    private static final Logger logger = LoggerFactory.getLogger(className);
+
     public static void main(String[] args) {
         String cmds = "ifconfig";
         String[] callCmd = {"/bin/bash", "-c", cmds};
-        System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
-        System.out.println();
-        System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
+        logger.info("exit code:\n" + execCommand(callCmd).get(0).toString());
+        logger.info("command result:\n" + execCommand(callCmd).get(1).toString());
 
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};
          String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
          String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
-         System.out.println("exit code:\n" + execCommand(callScript).get(0));
-         System.out.println();
-         System.out.println("command result:\n" + execCommand(callScript).get(1));
+         logger.info("exit code:\n" + execCommand(callScript).get(0));
+         logger.info("command result:\n" + execCommand(callScript).get(1));
 
-         System.out.println("======>>");
+         logger.info("======>>");
          String scripts2 = "/Users/zhaobin/Downloads/test.sh";
          String[] callScript2 = {"/bin/bash", "-c", "source" + " " + scripts2};
-         System.out.println(utilitytool.SentryConstant.wsPath);
+         logger.info(utilitytool.SentryConstant.wsPath);
          String input = execCommand(callScript2).get(1).toString();
-         System.out.println(utilitytool.SentryConstant.jSrc);
+         logger.info(utilitytool.SentryConstant.jSrc);
          String filePath2 = utilitytool.SentryConstant.tSrc + File.separator + "results.txt";
          writeAllBytes(filePath2, input);
-         System.out.println("======>>");
-         System.out.println(readFileByLine(filePath2)); */
+         logger.info("======>>");
+         logger.info(readFileByLine(filePath2)); */
     }
 
     /**
@@ -181,21 +185,21 @@ public class UtilTool {
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + privilAction + SentryConstant.prePri;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        System.out.println(UtilTool.arrToStr(sentryCmd));
-        System.out.println("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
+        logger.info(UtilTool.arrToStr(sentryCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
 
         String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user " + "super";
         String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
-        System.out.println(UtilTool.arrToStr(hiveCmd));
-        System.out.println("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
+        logger.info(UtilTool.arrToStr(hiveCmd));
+        logger.info("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
 
         String hiveSqlPath = SentryConstant.tSrc + File.separator + clsName + File.separator + SentryConstant.hiveSqlSrc;
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
-        System.out.println(UtilTool.arrToStr(sqlCmd));
+        logger.info(UtilTool.arrToStr(sqlCmd));
 
         Map map = UtilTool.execCommand(sqlCmd);
-        System.out.println("exit code:\n" + map.get(0).toString());
-        System.out.println("command result:\n" + map.get(1).toString());
+        logger.info("exit code:\n" + map.get(0).toString());
+        logger.info("command result:\n" + map.get(1).toString());
     }
 }
