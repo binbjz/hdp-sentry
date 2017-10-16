@@ -14,7 +14,17 @@ PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMIN
 CREATE EXTERNAL TABLE IF NOT EXISTS testdb.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 CREATE TABLE IF NOT EXISTS testdb.log_messages2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+ALTER TABLE testdb.log_messages ADD PARTITION (year = 2012, month = 1, day = 1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages/2012/01/02';
+ALTER TABLE testdb.log_messages_external ADD PARTITION (year = 2012, month = 1, day = 2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages_external/2012/01/02';
+
+ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 1);
+ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 2);
+
 CREATE TABLE testdb.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
+ALTER TABLE testdb.supply ADD PARTITION (day = 20110102);
+ALTER TABLE testdb.supply ADD PARTITION (day = 20110103);
+
 CREATE TABLE testdb.collecttest (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
 
 CREATE TABLE testdb.session_test (
@@ -50,6 +60,8 @@ CREATE TABLE testdb.test_partition_serde(c0 string, c1 string, c2 string) PARTIT
 ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 
+ALTER TABLE testdb.test_partition_serde ADD PARTITION (col10='abc', col20='123');
+
 CREATE TABLE testdb.staged_employees (
  name STRING
 ,salary FLOAT
@@ -69,12 +81,24 @@ CREATE TABLE testdb.employees (
 ,deductions MAP<STRING, FLOAT>
 ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 CREATE TABLE testdb.employees02 (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE testdb.employees022 (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -107,6 +131,9 @@ PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMIN
 CREATE TABLE IF NOT EXISTS testdb.test_enable_disable (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
+ALTER TABLE testdb.test_enable_disable ADD PARTITION (year = 2017, month = 8, day = 1);
+ALTER TABLE testdb.test_enable_disable ADD PARTITION (year = 2017, month = 8, day = 2);
+
 CREATE TABLE testdb.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
 
 CREATE TABLE IF NOT EXISTS testdb.employees_props (
@@ -119,3 +146,18 @@ COMMENT 'Description of the table'
 PARTITIONED BY (country STRING, state STRING)
 LOCATION '/user/hive/warehouse/testdb.db/employees_props'
 TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');
+
+ALTER TABLE testdb.staged_employees02 ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.employees02 ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.employees02 ADD PARTITION (country = 'CHN', state = 'BJ') ;
+
+ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'IL');
+
+ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'IL');
+
+INSERT INTO testdb.partition_table001 PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3');
+

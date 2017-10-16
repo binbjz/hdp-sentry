@@ -1,9 +1,6 @@
 USE testdb;
-ALTER TABLE testdb.staged_employees02 ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.employees02 ADD PARTITION (country = 'US', state = 'CA');
 
-set FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
-SELECT '${hiveconf:FILEPATH}';
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.staged_employees02
@@ -20,7 +17,7 @@ ALTER TABLE testdb.employees02 TOUCH;
 
 ALTER TABLE testdb.staged_employees02 TOUCH PARTITION (country = 'US', state = 'CA') ;
 ALTER TABLE testdb.employees02 TOUCH PARTITION (country = 'US', state = 'CA') ;
-ALTER TABLE testdb.employees02 ADD PARTITION (country = 'CHN', state = 'BJ') ;
+
 ALTER TABLE testdb.employees02 TOUCH PARTITION (country = 'CHN', state = 'BJ') ;
 
 DESCRIBE testdb.employees02 PARTITION (country='US', state='CA');

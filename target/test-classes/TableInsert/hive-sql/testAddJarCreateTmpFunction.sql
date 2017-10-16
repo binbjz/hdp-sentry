@@ -1,4 +1,3 @@
---Execution:
 USE testdb;
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 

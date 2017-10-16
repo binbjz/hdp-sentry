@@ -31,8 +31,6 @@ LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE encrypt_db4data.staged_employees
 PARTITION (country = 'US', state = 'CA');
 
-dfs -cat /user/warehouse/hive/encrypt_db4data.db/staged_employees/california-employees.csv
-
 
 FROM encrypt_db4data.staged_employees se
 INSERT OVERWRITE TABLE encrypt_db4data.employees PARTITION (country = 'US', state = 'OR')

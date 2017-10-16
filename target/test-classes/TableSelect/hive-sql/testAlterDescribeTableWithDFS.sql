@@ -1,6 +1,3 @@
-ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 1);
-ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 2);
-
 dfs -ls /user/hive/warehouse/testdb.db/log_messages2/year=2011/month=1/day=1;
 dfs -ls /user/hive/warehouse/testdb.db/log_messages2/year=2011/month=1/day=2;
 
