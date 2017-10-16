@@ -17,6 +17,8 @@ DROP TABLE db4alter.test_serde;
 DROP TABLE db4alter.test_serde_partition;
 DROP DATABASE db4alter;
 
+DROP DATABASE db4show;
+
 DROP DATABASE db4alter2 CASCADE;
 
 DROP TABLE testdb.staged_employees;

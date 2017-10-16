@@ -7,6 +7,7 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 
 CREATE DATABASE db4alter2;
+CREATE DATABASE db4show;
 CREATE TABLE IF NOT EXISTS db4alter2.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 ALTER TABLE db4alter2.log_messages ADD PARTITION(year = 2011, month = 1, day = 1);
