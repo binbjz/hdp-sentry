@@ -1,86 +1,86 @@
 OK
-Query ID = sankuai_20171012182431_b15c843f-82ec-45d5-849d-2f93bff9b69c
+Query ID = sankuai_20171016132743_b51f6792-eb4b-4ca6-9aff-64a16dfa2b7e
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0715, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0715/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0715
+Starting Job = job_1505297521386_1048, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1048/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1048
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 170 msec
-Ended Job = job_1505297521386_0715
+MapReduce Total cumulative CPU time: 1 seconds 190 msec
+Ended Job = job_1505297521386_1048
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table001/dt=20150617/.hive-staging_hive_2017-10-12_18-24-31_021_1903280048956816337-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table001/dt=20150617/.hive-staging_hive_2017-10-16_13-27-43_019_1254262454332088859-1/-ext-10000
 Loading data to table db4overwrite.partition_table001 partition (dt=20150617, ht=00)
 Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.17 sec   HDFS Read: 4254 HDFS Write: 49 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 170 msec
-Query ID = sankuai_20171012182456_ba758176-5639-42b3-a6a3-7e6b53d26373
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.19 sec   HDFS Read: 4254 HDFS Write: 49 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 190 msec
+Query ID = sankuai_20171016132808_1dfab331-22fa-447b-9727-fa4d5f47d310
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0716, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0716/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0716
+Starting Job = job_1505297521386_1049, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1049/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1049
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 440 msec
-Ended Job = job_1505297521386_0716
+MapReduce Total cumulative CPU time: 1 seconds 470 msec
+Ended Job = job_1505297521386_1049
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table002/dt=20150617/.hive-staging_hive_2017-10-12_18-24-56_652_8569001592324824408-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table002/dt=20150617/.hive-staging_hive_2017-10-16_13-28-08_695_4412520116795993934-1/-ext-10000
 Loading data to table db4overwrite.partition_table002 partition (dt=20150617, ht=00)
 Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.44 sec   HDFS Read: 4402 HDFS Write: 0 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 440 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.47 sec   HDFS Read: 4402 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 470 msec
 OK
 partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
-Query ID = sankuai_20171012182519_5ab4c6d8-adef-4af3-8b98-6049b4a9bc52
+Query ID = sankuai_20171016132831_d9fee1af-1a8f-423d-8a13-a0f635863829
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0717, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0717/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0717
+Starting Job = job_1505297521386_1050, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1050/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1050
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 500 msec
-Ended Job = job_1505297521386_0717
+MapReduce Total cumulative CPU time: 1 seconds 450 msec
+Ended Job = job_1505297521386_1050
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-12_18-25-19_430_5240114879942671815-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-16_13-28-31_465_6080859851890415875-1/-ext-10000
 Loading data to table db4overwrite.partition_table002 partition (dt=null, ht=null)
-	 Time taken for load dynamic partitions : 86
+	 Time taken for load dynamic partitions : 81
 	 Time taken for adding to write entity : 0
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.5 sec   HDFS Read: 4712 HDFS Write: 0 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 500 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.45 sec   HDFS Read: 4712 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 450 msec
 OK
 partition_table001.name	partition_table001.ip	partition_table001.dt	partition_table001.ht
 OK
 partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
-Query ID = sankuai_20171012182540_3541ba46-d3f8-4bc6-9b2d-276c7f2acadc
+Query ID = sankuai_20171016132852_b670d207-3371-4f8b-94b3-a1fcc34ba0ef
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0718, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0718/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0718
+Starting Job = job_1505297521386_1051, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1051/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1051
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 440 msec
-Ended Job = job_1505297521386_0718
+MapReduce Total cumulative CPU time: 1 seconds 420 msec
+Ended Job = job_1505297521386_1051
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table002/.hive-staging_hive_2017-10-12_18-25-40_769_2279320237578273913-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/partition_table002/.hive-staging_hive_2017-10-16_13-28-52_837_5261564890079199838-1/-ext-10000
 Loading data to table db4overwrite.partition_table002 partition (dt=20150617, ht=null)
-	 Time taken for load dynamic partitions : 86
+	 Time taken for load dynamic partitions : 80
 	 Time taken for adding to write entity : 0
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.44 sec   HDFS Read: 4723 HDFS Write: 0 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 440 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.42 sec   HDFS Read: 4723 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 420 msec
 OK
 name	ip	ht
 OK

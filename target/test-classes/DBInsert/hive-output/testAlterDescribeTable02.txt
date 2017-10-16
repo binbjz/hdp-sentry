@@ -24,12 +24,12 @@ day                 	int
 Partition Value:    	[2011, 1, 1]        	 
 Database:           	db4alter2           	 
 Table:              	log_messages        	 
-CreateTime:         	Thu Oct 12 18:20:59 CST 2017	 
+CreateTime:         	Mon Oct 16 13:23:53 CST 2017	 
 LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
 Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter2.db/log_messages/year=2011/month=1/day=1	 
 Partition Parameters:	 	 
-	transient_lastDdlTime	1507803659          
+	transient_lastDdlTime	1508131433          
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 

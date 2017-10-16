@@ -1,20 +1,20 @@
-Query ID = sankuai_20171012182400_28d61672-dca9-47a5-afbd-8ef8653304dc
+Query ID = sankuai_20171016132713_84068ac5-924a-4288-86b5-e4b68c36c9dd
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0714, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0714/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0714
+Starting Job = job_1505297521386_1047, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1047/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1047
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 530 msec
-Ended Job = job_1505297521386_0714
+MapReduce Total cumulative CPU time: 1 seconds 930 msec
+Ended Job = job_1505297521386_1047
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4query.db/.hive-staging_hive_2017-10-12_18-24-00_960_2146026985656960413-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4query.db/.hive-staging_hive_2017-10-16_13-27-13_144_1012811968955393204-1/-ext-10000
 Loading data to table db4query.session_test
 1 Rows loaded to db4query.session_test
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.53 sec   HDFS Read: 5003 HDFS Write: 43 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 530 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.93 sec   HDFS Read: 5003 HDFS Write: 43 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 930 msec
 OK
 FAILED: SemanticException [Error 10001]: Line 12:17 Table not found 'session_test'

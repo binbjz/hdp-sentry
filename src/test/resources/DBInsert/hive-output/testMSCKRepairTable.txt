@@ -3,5 +3,5 @@ OK
 Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
 OK
 Found 2 items
-drwxr-x--x   - hdp_qa supergroup          0 2017-10-12 18:36 /user/hive/warehouse/testdb.db/test_msck/month=201603
-drwxr-x--x   - hdp_qa supergroup          0 2017-10-12 18:36 /user/hive/warehouse/testdb.db/test_msck/month=201604
+drwxr-x--x   - hdp_qa supergroup          0 2017-10-16 13:36 /user/hive/warehouse/testdb.db/test_msck/month=201603
+drwxr-x--x   - hdp_qa supergroup          0 2017-10-16 13:36 /user/hive/warehouse/testdb.db/test_msck/month=201604
