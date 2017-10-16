@@ -17,4 +17,4 @@ OUTPUTFORMAT
 LOCATION
   'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/test_serde'
 TBLPROPERTIES (
-  'transient_lastDdlTime'='1508131431')
+  'transient_lastDdlTime'='1508143741')

@@ -1,24 +1,22 @@
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found employees
 OK
 /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data
-Loading data to table testdb.staged_employees partition (country=US, state=CA)
-Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
-FAILED: SemanticException Line 4:13 Invalid path ''/tmp/employee'': Target is not an empty directory : hdfs://hadoop-meituan-test/tmp/employee
+FAILED: SemanticException [Error 10001]: Line 4:11 Table not found 'staged_employees'
+FAILED: SemanticException [Error 10001]: Line 4:13 Table not found 'staged_employees'
 John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Michigan Ave.|Chicago|IL|60600
 Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Ontario St.|Chicago|IL|60601
 Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Ave.|Oak Park|IL|60700
 Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
-FAILED: SemanticException [Error 10120]: The existing table is not compatible with the import spec.   Table Serde format does not match
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Specified partition does not exist
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Specified partition does not exist
-FAILED: SemanticException [Error 10006]: Partition not found {country=US, state=CA}
-FAILED: SemanticException [Error 10006]: Partition not found {country=US, state=CA}
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: SemanticException Exception while processing
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found staged_employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
+FAILED: SemanticException [Error 10001]: Table not found testdb.employees
 Moved: 'viewfs://hadoop-meituan-test/tmp/employee' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

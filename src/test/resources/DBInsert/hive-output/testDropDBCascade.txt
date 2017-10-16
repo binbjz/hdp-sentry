@@ -1,12 +1,6 @@
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
 OK
-db4addfile
 db4alter
-db4alter2
-db4func
-db4load
 db4overwrite
-db4query
 default
-testdb

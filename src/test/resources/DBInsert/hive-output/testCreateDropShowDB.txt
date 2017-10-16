@@ -3,12 +3,6 @@ FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTa
 FAILED: SemanticException [Error 10072]: Database does not exist: db4show
 FAILED: SemanticException [Error 10072]: Database does not exist: db4show
 OK
-db4addfile
 db4alter
-db4alter2
-db4func
-db4load
 db4overwrite
-db4query
 default
-testdb

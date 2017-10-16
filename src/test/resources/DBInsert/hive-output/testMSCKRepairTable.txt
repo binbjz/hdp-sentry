@@ -1,7 +1,4 @@
-OK
-OK
-Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
-OK
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
+FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
 Found 2 items
-drwxr-x--x   - hdp_qa supergroup          0 2017-10-16 13:36 /user/hive/warehouse/testdb.db/test_msck/month=201603
-drwxr-x--x   - hdp_qa supergroup          0 2017-10-16 13:36 /user/hive/warehouse/testdb.db/test_msck/month=201604

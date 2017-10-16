@@ -1,65 +1,65 @@
 OK
-Query ID = sankuai_20171016132921_77725b86-fd0b-40c8-a9d2-28d52451dcf9
+Query ID = sankuai_20171016165351_897adeae-5512-4bc8-9715-8798710d4a6e
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_1052, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1052/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1052
+Starting Job = job_1505297521386_1079, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1079/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1079
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 140 msec
-Ended Job = job_1505297521386_1052
+MapReduce Total cumulative CPU time: 1 seconds 160 msec
+Ended Job = job_1505297521386_1079
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-16_13-29-21_028_5402924267499253809-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-16_16-53-51_033_9018241296304385403-1/-ext-10000
 Loading data to table db4overwrite.table001
 3 Rows loaded to db4overwrite.table001
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.14 sec   HDFS Read: 4103 HDFS Write: 49 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 140 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.16 sec   HDFS Read: 4103 HDFS Write: 49 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 160 msec
 OK
-Query ID = sankuai_20171016132945_fff3c875-80dc-451f-b770-74fcb676e7e9
+Query ID = sankuai_20171016165415_cb60b6a8-7554-436c-ad6a-f9a695d0f1fc
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_1053, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1053/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1053
+Starting Job = job_1505297521386_1080, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1080/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1080
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 810 msec
-Ended Job = job_1505297521386_1053
+MapReduce Total cumulative CPU time: 2 seconds 10 msec
+Ended Job = job_1505297521386_1080
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-16_13-29-45_397_6344518799620565584-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-16_16-54-15_398_3684249450567882907-1/-ext-10000
 Loading data to table db4overwrite.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 1 Rows loaded to db4overwrite.table002
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.81 sec   HDFS Read: 4186 HDFS Write: 17 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 810 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.01 sec   HDFS Read: 4186 HDFS Write: 17 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 10 msec
 OK
 name	ip
 OK
 table002.name	table002.ip
 meituan	10.0.0.1
-Query ID = sankuai_20171016133006_be249340-3c4f-4b0f-81ab-9adfb7af8c74
+Query ID = sankuai_20171016165436_4bffeb93-b236-4f17-abb0-c7182c1efc93
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_1054, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1054/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1054
+Starting Job = job_1505297521386_1081, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1081/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1081
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
 MapReduce Total cumulative CPU time: 1 seconds 150 msec
-Ended Job = job_1505297521386_1054
+Ended Job = job_1505297521386_1081
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-16_13-30-06_801_843815006650015488-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/.hive-staging_hive_2017-10-16_16-54-36_710_3002857335586486687-1/-ext-10000
 Loading data to table db4overwrite.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4overwrite.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 3 Rows loaded to db4overwrite.table002
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 3809 HDFS Write: 49 SUCCESS
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 3900 HDFS Write: 49 SUCCESS
 Total MapReduce CPU Time Spent: 1 seconds 150 msec
 OK
 table001.name	table001.ip
@@ -68,7 +68,7 @@ table002.name	table002.ip
 meituan	10.0.0.1
 baidu	10.0.0.2
 alibaba	10.0.0.3
-Query ID = sankuai_20171016133028_cddaf4fc-d908-4205-a4f5-d5043eb1aca1
+Query ID = sankuai_20171016165457_1d3de2df-c586-4ad7-9b87-36a42cdb0484
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks not specified. Estimated from input data size: 1
@@ -78,14 +78,14 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=<number>
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_1055, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1055/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1055
+Starting Job = job_1505297521386_1082, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1082/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1082
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-MapReduce Total cumulative CPU time: 3 seconds 200 msec
-Ended Job = job_1505297521386_1055
+MapReduce Total cumulative CPU time: 3 seconds 300 msec
+Ended Job = job_1505297521386_1082
 MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.2 sec   HDFS Read: 8485 HDFS Write: 55 SUCCESS
-Total MapReduce CPU Time Spent: 3 seconds 200 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.3 sec   HDFS Read: 8485 HDFS Write: 55 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 300 msec
 OK
 id	name	ip
 1	alibaba	10.0.0.3
