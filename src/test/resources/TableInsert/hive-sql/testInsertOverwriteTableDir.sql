@@ -1,14 +1,9 @@
 USE testdb;
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'IL');
-ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
 
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.staged_employees
 PARTITION (country = 'US', state = 'CA');
-
 
 FROM testdb.staged_employees se
 INSERT OVERWRITE TABLE testdb.employees PARTITION (country = 'US', state = 'OR')

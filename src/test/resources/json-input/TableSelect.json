@@ -210,17 +210,17 @@
     ]
   },
   {
-    "id": "testAlterDB",
+    "id": "testAlterDescribeDB",
     "tag": "Table",
-    "desc": "The case will test AlterDB.",
+    "desc": "The case will test AlterDescribeDB.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDB.sql"
+        "name": "testAlterDescribeDB.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDB.txt"
+        "name": "testAlterDescribeDB.txt"
       }
     ]
   },

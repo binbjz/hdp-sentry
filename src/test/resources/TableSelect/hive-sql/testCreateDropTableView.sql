@@ -7,6 +7,8 @@ CREATE TABLE testdb.tbl2create (col1 TINYINT, col2 SMALLINT);
 CREATE VIEW testdb.view2create AS SELECT col1, col2 FROM testdb.view4drop;
 CREATE VIEW testdb.view2create_no_r AS SELECT col1, col2 FROM testdb.view4drop_no_r;
 
+CREATE EXTERNAL TABLE IF NOT EXISTS testdb.tbl4create_external (col1 TINYINT, col2 SMALLINT);
+
 DROP VIEW testdb.view2create;
 DROP TABLE testdb.tbl2create;
 DROP VIEW testdb.view4drop_no_r;
