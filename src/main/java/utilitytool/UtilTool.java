@@ -186,8 +186,6 @@ public class UtilTool {
     public static String filterResults(String str) {
         String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2})";
         String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
-//        String REGEX2 = "^(Time|CliDriver|Logging).*";
-//        String REGEX3 = ".*(Stage|reduce|MapReduce|job|Query).*";
         String REPLACE = "";
         // String REGEX2 = "([a-zA-Z]+(:?)\\s+(!?))+";
         //String REPLACE = "<******>";
