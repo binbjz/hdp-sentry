@@ -4,7 +4,7 @@ DROP TABLE testdb.teacher;
 DROP TABLE testdb.tbl4drop_no_r;
 DROP TABLE testdb.view4drop_no_r;
 DROP TABLE testdb.employees02;
-DROP TABLE testdb.src_tgt_employees02;
+DROP TABLE testdb.src_employees02;
 DROP TABLE testdb.tbl4alter_new;
 DROP DATABASE unaccessdb;
 DROP DATABASE testdb CASCADE;

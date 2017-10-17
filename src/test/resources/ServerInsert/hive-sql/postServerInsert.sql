@@ -20,7 +20,7 @@ DROP TABLE testdb.table002;
 DROP TABLE testdb.teacher;
 DROP TABLE testdb.whoyouare;
 DROP TABLE testdb.test_serde_partition;
-DROP TABLE testdb.src_tgt_employees;
+DROP TABLE testdb.src_employees;
 DROP TABLE testdb.employees;
 DROP TABLE testdb.employees02;
 DROP TABLE testdb.test_enable_disable;

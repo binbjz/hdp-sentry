@@ -63,7 +63,7 @@ WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*
 
 ALTER TABLE testdb.test_partition_serde ADD PARTITION (col10='abc', col20='123');
 
-CREATE TABLE testdb.src_tgt_employees (
+CREATE TABLE testdb.src_employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -100,7 +100,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE testdb.src_tgt_employees02 (
+CREATE TABLE testdb.src_employees02 (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -136,13 +136,13 @@ PARTITIONED BY (country STRING, state STRING)
 LOCATION '/user/hive/warehouse/testdb.db/employees_props'
 TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');
 
-ALTER TABLE testdb.src_tgt_employees02 ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees02 ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.employees02 ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.employees02 ADD PARTITION (country = 'CHN', state = 'BJ');
 
-ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'IL');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'IL');
 ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
 
 

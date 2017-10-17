@@ -15,13 +15,13 @@ public class UtilTool {
 
     public static void main(String[] args) {
         //Just for debug
-//        String cmds = "ifconfig";
-//        String[] callCmd = {"/bin/bash", "-c", cmds};
-//        System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
-//        System.out.println();
-//        System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
+        String cmds = "ifconfig";
+        String[] callCmd = {"/bin/bash", "-c", cmds};
+        System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
+        System.out.println();
+        System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
 
-        String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
+        /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
         String fileName = filterTmpPath + "filterTmp.txt";
         System.out.println(fileName);
 
@@ -38,8 +38,8 @@ public class UtilTool {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        System.out.println(stringBuilder2.toString());
+
+        System.out.println(stringBuilder2.toString());*/
 
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};

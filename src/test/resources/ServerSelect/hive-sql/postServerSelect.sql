@@ -4,11 +4,11 @@ DROP TABLE testdb.test_msck;
 DROP TABLE testdb.collecttest;
 DROP TABLE testdb.partition_table001;
 DROP TABLE testdb.partition_table002;
-DROP TABLE testdb.src_tgt_employees;
+DROP TABLE testdb.src_employees;
 DROP TABLE testdb.employees;
 DROP TABLE testdb.table001;
 DROP TABLE testdb.table002;
-DROP TABLE testdb.src_tgt_employees02;
+DROP TABLE testdb.src_employees02;
 
 DROP TABLE testdb.tbl4drop;
 DROP VIEW testdb.view4drop;

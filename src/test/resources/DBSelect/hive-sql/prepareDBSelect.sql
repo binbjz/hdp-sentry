@@ -31,7 +31,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
 CREATE TABLE IF NOT EXISTS testdb.partition_table002 LIKE testdb.partition_table001;
 
-CREATE TABLE testdb.src_tgt_employees (
+CREATE TABLE testdb.src_employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -73,7 +73,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE testdb.src_tgt_employees02 (
+CREATE TABLE testdb.src_employees02 (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>

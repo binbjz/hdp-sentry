@@ -43,7 +43,7 @@ CREATE TABLE db4addfile.whoyouare(who string);
 
 
 CREATE DATABASE testdb;
-CREATE TABLE testdb.src_tgt_employees (
+CREATE TABLE testdb.src_employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -67,9 +67,9 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'IL');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'IL');
 
 CREATE TABLE testdb.employees02 (
  name STRING
@@ -83,7 +83,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE testdb.src_tgt_employees02 (
+CREATE TABLE testdb.src_employees02 (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>

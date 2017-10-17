@@ -43,7 +43,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE encrypt_db4data.src_tgt_employees (
+CREATE TABLE encrypt_db4data.src_employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -55,4 +55,4 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE encrypt_db4data.src_tgt_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE encrypt_db4data.src_employees ADD PARTITION (country = 'US', state = 'CA');

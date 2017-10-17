@@ -62,7 +62,7 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 ALTER TABLE testdb.test_serde_partition ADD PARTITION (col10='abc', col20='123');
 
-CREATE TABLE testdb.src_tgt_employees (
+CREATE TABLE testdb.src_employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -98,7 +98,7 @@ COLLECTIONS ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-CREATE TABLE testdb.src_tgt_employees02 (
+CREATE TABLE testdb.src_employees02 (
   name STRING
  ,salary FLOAT
  ,subordinates ARRAY<STRING>
