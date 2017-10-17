@@ -14,6 +14,7 @@ public class UtilTool {
     private static final Logger logger = LoggerFactory.getLogger(className);
 
     public static void main(String[] args) {
+        //Just for debug
 //        String cmds = "ifconfig";
 //        String[] callCmd = {"/bin/bash", "-c", cmds};
 //        System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
@@ -37,10 +38,8 @@ public class UtilTool {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        
         System.out.println(stringBuilder2.toString());
-
-//        System.out.println(filterResults(str));
 
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};

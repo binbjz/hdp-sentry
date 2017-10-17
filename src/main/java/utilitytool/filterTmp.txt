@@ -20,3 +20,6 @@ se.name se.salary se.subordinates se.deductions se.address  se.country  se.state
 total 4
 -rw-r----- 1 sankuai sankuai 451 Oct 16 19:15 000000_0
 000000_0
+
+[INFO] 2017/10/16 19:12:54,619 DBInsert:57 - /bin/bash -c /opt/meituan/hive-1.2/bin/hive --hiveconf hive.cli.errors.ignore=true -f /opt/meituan/qa_test/sentry-test/src/test/resources/DBInsert/hive-sql/testAddFile.sql
+total 12
