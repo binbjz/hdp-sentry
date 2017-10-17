@@ -1,0 +1,22 @@
+MapReduce Jobs Launched:
+Stage-Stage-0: Map: 1   Cumulative CPU: 1.05 sec   HDFS Read: 4619 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 50 msec
+OK
+testdb.src_tgt_employees.name  testdb.src_tgt_employees.salary  testdb.src_tgt_employees.subordinates  testdb.src_tgt_employees.deductions  testdb.src_tgt_employees.address testdb.src_tgt_employees.country testdb.src_tgt_employees.state
+Query ID = sankuai_20171016191646_4bee15fc-47e2-4f7e-bfcf-69f2394d3b96
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_1128, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1128/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1128
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+MapReduce Total cumulative CPU time: 2 seconds 60 msec
+Ended Job = job_1505297521386_1128
+Partition testdb.src_tgt_employees{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition testdb.src_tgt_employees{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition testdb.src_tgt_employees{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+[Warning] could not update stats.
+se.name se.salary se.subordinates se.deductions se.address  se.country  se.state
+total 4
+-rw-r----- 1 sankuai sankuai 451 Oct 16 19:15 000000_0
+000000_0

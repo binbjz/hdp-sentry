@@ -14,28 +14,51 @@ public class UtilTool {
     private static final Logger logger = LoggerFactory.getLogger(className);
 
     public static void main(String[] args) {
-        String cmds = "ifconfig";
-        String[] callCmd = {"/bin/bash", "-c", cmds};
-        logger.info("exit code:\n" + execCommand(callCmd).get(0).toString());
-        logger.info("command result:\n" + execCommand(callCmd).get(1).toString());
+//        String cmds = "ifconfig";
+//        String[] callCmd = {"/bin/bash", "-c", cmds};
+//        System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
+//        System.out.println();
+//        System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
+
+        String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
+        String fileName = filterTmpPath + "filterTmp.txt";
+        System.out.println(fileName);
+
+        StringBuilder stringBuilder2 = new StringBuilder();
+        try (BufferedReader br2 = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br2.readLine()) != null) {
+                line = filterResults(line);
+                if (line == null || line.length() == 0) {
+                    continue;
+                }
+                stringBuilder2.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(stringBuilder2.toString());
+
+//        System.out.println(filterResults(str));
 
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};
          String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
          String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
-         logger.info("exit code:\n" + execCommand(callScript).get(0));
-         logger.info("command result:\n" + execCommand(callScript).get(1));
+         ("exit code:\n" + execCommand(callScript).get(0));
+         System.out.println("command result:\n" + execCommand(callScript).get(1));
 
-         logger.info("======>>");
+         System.out.println("======>>");
          String scripts2 = "/Users/zhaobin/Downloads/test.sh";
          String[] callScript2 = {"/bin/bash", "-c", "source" + " " + scripts2};
-         logger.info(utilitytool.SentryConstant.wsPath);
+         System.out.println(utilitytool.SentryConstant.wsPath);
          String input = execCommand(callScript2).get(1).toString();
-         logger.info(utilitytool.SentryConstant.jSrc);
+         System.out.println(utilitytool.SentryConstant.jSrc);
          String filePath2 = utilitytool.SentryConstant.tSrc + File.separator + "results.txt";
          writeAllBytes(filePath2, input);
-         logger.info("======>>");
-         logger.info(readFileByLine(filePath2)); */
+         System.out.println("======>>");
+         System.out.println(readFileByLine(filePath2)); */
     }
 
     /**
@@ -162,8 +185,10 @@ public class UtilTool {
      * example: "17/09/13 14:39:55 INFO xxxxxx" will be replaced with an empty string
      */
     public static String filterResults(String str) {
-        String REGEX = "(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?";
-        String REGEX2 = "^(Time|CliDriver|Logging).*";
+        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2})";
+        String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
+//        String REGEX2 = "^(Time|CliDriver|Logging).*";
+//        String REGEX3 = ".*(Stage|reduce|MapReduce|job|Query).*";
         String REPLACE = "";
         // String REGEX2 = "([a-zA-Z]+(:?)\\s+(!?))+";
         //String REPLACE = "<******>";

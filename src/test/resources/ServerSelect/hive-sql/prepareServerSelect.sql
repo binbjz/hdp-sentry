@@ -28,7 +28,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
 CREATE TABLE IF NOT EXISTS testdb.partition_table002 LIKE testdb.partition_table001;
 
-CREATE TABLE testdb.staged_employees (
+CREATE TABLE testdb.src_tgt_employees (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -52,15 +52,15 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE testdb.staged_employees ADD PARTITION (country = 'US', state = 'IL');
+ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_tgt_employees ADD PARTITION (country = 'US', state = 'IL');
 
 CREATE TABLE testdb.table001 (name STRING, ip STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 CREATE TABLE IF NOT EXISTS testdb.table002 LIKE testdb.table001;
 
-CREATE TABLE testdb.staged_employees02 (
+CREATE TABLE testdb.src_tgt_employees02 (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -72,9 +72,9 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE testdb.staged_employees02 ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.staged_employees02 ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE testdb.staged_employees02 ADD PARTITION (country = 'US', state = 'IL');
+ALTER TABLE testdb.src_tgt_employees02 ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_tgt_employees02 ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_tgt_employees02 ADD PARTITION (country = 'US', state = 'IL');
 
 CREATE DATABASE db4drop_cascade WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 CREATE TABLE db4drop_cascade.test_tbl (col1 TINYINT, col2 SMALLINT);

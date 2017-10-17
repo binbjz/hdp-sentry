@@ -21,10 +21,10 @@ DROP DATABASE db4show;
 
 DROP DATABASE db4alter2 CASCADE;
 
-DROP TABLE testdb.staged_employees;
+DROP TABLE testdb.src_tgt_employees;
 DROP TABLE testdb.employees;
 DROP TABLE testdb.employees02;
-DROP TABLE testdb.staged_employees02;
+DROP TABLE testdb.src_tgt_employees02;
 DROP TABLE testdb.log_messages02;
 DROP TABLE testdb.test_msck;
 DROP TABLE testdb.employees_props;

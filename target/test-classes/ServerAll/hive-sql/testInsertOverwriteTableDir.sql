@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS db4data CASCADE;
 CREATE DATABASE db4data;
-CREATE TABLE db4data.staged_employees (
+CREATE TABLE db4data.src_tgt_employees (
    name STRING
   ,salary FLOAT
   ,subordinates ARRAY<STRING>
@@ -26,18 +26,18 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 USE db4data;
 
-ALTER TABLE db4data.staged_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE db4data.staged_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE db4data.staged_employees ADD PARTITION (country = 'US', state = 'IL');
+ALTER TABLE db4data.src_tgt_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE db4data.src_tgt_employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE db4data.src_tgt_employees ADD PARTITION (country = 'US', state = 'IL');
 
 
 LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
-INTO TABLE db4data.staged_employees
+INTO TABLE db4data.src_tgt_employees
 PARTITION (country = 'US', state = 'CA');
 
-SELECT * FROM db4data.staged_employees;
+SELECT * FROM db4data.src_tgt_employees;
 
-FROM db4data.staged_employees se
+FROM db4data.src_tgt_employees se
 INSERT OVERWRITE TABLE db4data.employees PARTITION (country = 'US', state = 'OR')
 SELECT name, salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'OR'
 INSERT OVERWRITE TABLE db4data.employees PARTITION (country = 'US', state = 'IL')
@@ -50,38 +50,38 @@ SELECT * FROM db4data.employees;
 
 
 INSERT OVERWRITE TABLE db4data.employees PARTITION (country = 'US', state = 'CA')
-SELECT name, salary, subordinates, deductions, address FROM db4data.staged_employees se WHERE se.country = 'US' AND se.state = 'CA';
+SELECT name, salary, subordinates, deductions, address FROM db4data.src_tgt_employees se WHERE se.country = 'US' AND se.state = 'CA';
 SELECT * FROM db4data.employees;
 
 SET hive.exec.dynamic.partition=true;
 SET hive.vectorized.execution.enabled = true;
 SET hive.vectorized.execution.reduce.enabled = true;
 INSERT OVERWRITE TABLE db4data.employees PARTITION (country = 'US', state)
-SELECT se.name, se.salary, se.subordinates, se.deductions, se.address, se.state FROM db4data.staged_employees se WHERE se.country = 'US';
+SELECT se.name, se.salary, se.subordinates, se.deductions, se.address, se.state FROM db4data.src_tgt_employees se WHERE se.country = 'US';
 SELECT * FROM db4data.employees;
 
 INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
-SELECT * FROM db4data.staged_employees se WHERE se.country = 'US' and se.state = 'CA';
+SELECT * FROM db4data.src_tgt_employees se WHERE se.country = 'US' and se.state = 'CA';
 !ls -l /tmp/ca_employees;
 !rm -r /tmp/ca_employees;
 
 FROM (
-      SELECT emp.name, emp.salary FROM db4data.staged_employees emp WHERE emp.salary < 6000
+      SELECT emp.name, emp.salary FROM db4data.src_tgt_employees emp WHERE emp.salary < 6000
       UNION ALL
-      SELECT emp.name, emp.salary FROM db4data.staged_employees emp WHERE emp.salary > 7000
+      SELECT emp.name, emp.salary FROM db4data.src_tgt_employees emp WHERE emp.salary > 7000
 ) unioninput
 INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*;
 dfs -cat /tmp/union.out/* ;
 dfs -rm -r /tmp/union.out ;
 
-ANALYZE TABLE db4data.staged_employees COMPUTE STATISTICS FOR columns name, salary;
-ANALYZE TABLE db4data.staged_employees PARTITION (country = 'US', state = 'CA') COMPUTE STATISTICS;
-ANALYZE TABLE db4data.staged_employees PARTITION (country = 'US', state)  COMPUTE STATISTICS;
-ANALYZE TABLE db4data.staged_employees PARTITION (country, state) COMPUTE STATISTICS;
-DESCRIBE EXTENDED db4data.staged_employees;
-DESCRIBE EXTENDED db4data.staged_employees PARTITION (country = 'US', state = 'CA');
+ANALYZE TABLE db4data.src_tgt_employees COMPUTE STATISTICS FOR columns name, salary;
+ANALYZE TABLE db4data.src_tgt_employees PARTITION (country = 'US', state = 'CA') COMPUTE STATISTICS;
+ANALYZE TABLE db4data.src_tgt_employees PARTITION (country = 'US', state)  COMPUTE STATISTICS;
+ANALYZE TABLE db4data.src_tgt_employees PARTITION (country, state) COMPUTE STATISTICS;
+DESCRIBE EXTENDED db4data.src_tgt_employees;
+DESCRIBE EXTENDED db4data.src_tgt_employees PARTITION (country = 'US', state = 'CA');
 
-DROP TABLE db4data.staged_employees;
+DROP TABLE db4data.src_tgt_employees;
 DROP TABLE db4data.employees;
 
 DROP DATABASE db4data;
