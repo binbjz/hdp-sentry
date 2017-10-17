@@ -344,22 +344,6 @@ sentry_privileges[ColumnAll]="server=server1->db=db4create->action=all,server=se
 ##============
 
 ##============For Encrypt column, they need to be done separately
-encrypt_ini=/opt/meituan/sentry/conf/external.ini
-
-DBAllWithEncryptedColumns1(){
-cat <<- EOF >> $encrypt_ini
-[encrypted_table]
-encrypt_db4data.test_serde=c0,c1,c2
-encrypt_db4alter.log_messages=hms,severity,server,process_id,message
-encrypt_db4msck.test_msck=id,val
-encrypt_db4data.staged_employees=name,salary,subordinates,deductions,address
-encrypt_db4data.staged_employees02=name,salary,subordinates,deductions,address
-encrypt_db4data.employees02=name,salary,subordinates,deductions,address
-encrypt_db4props.employees_props=name,salary,subordinates,deductions,address
-encrypt_db4data.testbuiltinfuncs=col1,col2,col3
-EOF
-}
-
 #No permission for column
 sentry_privileges[DBAllWithEncryptedColumns]="server=server1->db=encrypt_db4drop_cascade->action=all,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4func->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4msck->action=all,server=server1->db=encrypt_db4props->action=all"
 #All permission for column
