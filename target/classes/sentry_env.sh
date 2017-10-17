@@ -349,29 +349,6 @@ encrypt_ini=/opt/meituan/sentry/conf/external.ini
 DBAllWithEncryptedColumns1(){
 cat <<- EOF >> $encrypt_ini
 [encrypted_table]
-encrypt_db4alter.log_messages=hms,severity,server,process_id,message
-encrypt_db4alter.log_messages_external=hms,severity,server,process_id,message
-EOF
-}
-
-DBAllWithEncryptedColumns2(){
-cat <<- EOF >> $encrypt_ini
-[encrypted_table]
-encrypt_db4alter.supply=id,part,quantity,day
-encrypt_db4data.collecttest=str,countVal
-encrypt_db4data.session_src_encrypted=st_user_id,st_pageview_id,st_page_url,st_referrer_url,st_timestamp
-encrypt_db4data.sessionization_step_one_origins_tgt_encrypted=ssoo_user_id,ssoo_pageview_id,ssoo_timestamp
-encrypt_db4data.partition_table_tgt=name,ip
-encrypt_db4data.table_tgt=name,ip
-encrypt_db4func.teacher=name
-encrypt_db4data.whoyouare=who
-encrypt_db4data.table_src=name,ip
-EOF
-}
-
-DBAllWithEncryptedColumns3(){
-cat <<- EOF >> $encrypt_ini
-[encrypted_table]
 encrypt_db4data.test_serde=c0,c1,c2
 encrypt_db4alter.log_messages=hms,severity,server,process_id,message
 encrypt_db4msck.test_msck=id,val
