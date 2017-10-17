@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utilitytool.SentryConstant;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 
 @RunWith(DataProviderRunner.class)
-public class DBAllWithEncryptedColumns3 {
+public class DBAllWithEncryptedColumns {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
@@ -28,7 +29,7 @@ public class DBAllWithEncryptedColumns3 {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBAllWithEncryptedColumns3......");
+        logger.info("setUp DBAllWithEncryptedColumns......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
@@ -43,11 +44,11 @@ public class DBAllWithEncryptedColumns3 {
 
 
     @Test
-    @UseDataProvider("dataProviderTestDBAllWithEncryptedColumns3")
+    @UseDataProvider("dataProviderTestDBAllWithEncryptedColumns")
     public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
-        logger.info("DBAllWithEncryptedColumns3--> running testcase: " + id);
+        logger.info("DBAllWithEncryptedColumns--> running testcase: " + id);
         logger.info("===============================================");
         String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
@@ -71,14 +72,14 @@ public class DBAllWithEncryptedColumns3 {
 
 
     @DataProvider
-    public static Object[][] dataProviderTestDBAllWithEncryptedColumns3() {
+    public static Object[][] dataProviderTestDBAllWithEncryptedColumns() {
         return DataProviderObj.dataGenerator(jsonFile);
     }
 
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBAllWithEncryptedColumns3......");
+        logger.info("cleanUp DBAllWithEncryptedColumns......");
 
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
