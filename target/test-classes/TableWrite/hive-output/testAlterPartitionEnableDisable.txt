@@ -1,0 +1,14 @@
+OK
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@test_enable_disable@year=2017/month=8/day=1
+OK
+Dropped the partition year=2017/month=8/day=1
+OK
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@test_enable_disable@year=2017/month=8/day=1
+OK
+Dropped the partition year=2017/month=8/day=1
+OK
+OK

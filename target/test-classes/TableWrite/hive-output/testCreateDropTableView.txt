@@ -1,0 +1,24 @@
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+OK
+CREATE VIEW `testdb.view4drop` AS SELECT `tbl4drop`.`col1`, `tbl4drop`.`col2` FROM `testdb`.`tbl4drop`
+OK
+OK
+OK
+last_modified_by	hdp_qa
+last_modified_time	1507895893
+test_table_properties	qa_setting_this_value
+transient_lastDdlTime	1507895893
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10001]: Line 2:62 Table not found 'view4drop_no_r'
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK

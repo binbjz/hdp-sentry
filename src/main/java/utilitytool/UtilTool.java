@@ -39,7 +39,7 @@ public class UtilTool {
             e.printStackTrace();
         }*/
 
-        String str = "whatlslfdsjdfjskf";
+        String str = "Loading data to table encrypt_db4alter.supply partition (day=2011-01-02)";
         System.out.println(filterResults(str));
 
         /** //execute script

@@ -1,0 +1,24 @@
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+col3                	int                 	                    
+col4                	bigint              	                    
+col5                	boolean             	                    
+col6                	float               	                    
+col7                	double              	                    
+col8                	string              	                    
+col9                	timestamp           	                    
+	 	 
+Detailed Table Information	Table(tableName:test_view, dbName:db4view, owner:hdp_qa, createTime:1507731250, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:col1, type:tinyint, comment:null), FieldSchema(name:col2, type:smallint, comment:null), FieldSchema(name:col3, type:int, comment:null), FieldSchema(name:col4, type:bigint, comment:null), FieldSchema(name:col5, type:boolean, comment:null), FieldSchema(name:col6, type:float, comment:null), FieldSchema(name:col7, type:double, comment:null), FieldSchema(name:col8, type:string, comment:null), FieldSchema(name:col9, type:timestamp, comment:null)], location:null, inputFormat:org.apache.hadoop.mapred.SequenceFileInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:null, parameters:{}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), partitionKeys:[], parameters:{last_modified_by=hdp_qa, last_modified_time=1507731250, created_at=20170905, transient_lastDdlTime=1507731250}, viewOriginalText:SELECT col1, col2, col3, col4, col5, col6, col7, col8, col9 FROM test_tbl, viewExpandedText:SELECT `test_tbl`.`col1`, `test_tbl`.`col2`, `test_tbl`.`col3`, `test_tbl`.`col4`, `test_tbl`.`col5`, `test_tbl`.`col6`, `test_tbl`.`col7`, `test_tbl`.`col8`, `test_tbl`.`col9` FROM `db4view`.`test_tbl`, tableType:VIRTUAL_VIEW)	
+OK
+CREATE VIEW `test_view` AS SELECT `test_tbl`.`col1`, `test_tbl`.`col2`, `test_tbl`.`col3`, `test_tbl`.`col4`, `test_tbl`.`col5`, `test_tbl`.`col6`, `test_tbl`.`col7`, `test_tbl`.`col8`, `test_tbl`.`col9` FROM `db4view`.`test_tbl`
+OK
+OK
+OK
+OK

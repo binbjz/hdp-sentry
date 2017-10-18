@@ -1,0 +1,7 @@
+DROP DATABASE IF EXISTS db2alter CASCADE;
+USE default;
+CREATE DATABASE db2alter WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+DESCRIBE DATABASE EXTENDED db2alter;
+ALTER DATABASE db2alter SET DBPROPERTIES ('edited-by' = 'hadoop-new-qa');
+DESCRIBE DATABASE EXTENDED db2alter;
+DROP DATABASE db2alter;
