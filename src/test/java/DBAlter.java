@@ -28,11 +28,9 @@ public class DBAlter {
 
     @BeforeClass
     public static void setUp() {
-//        logger.info("preSetUp DBAlter......");
-//        String preSql = String.format("prepare%s.sql", className);
-//        UtilTool.privilHandler(className, preSql, "setup");
-
         logger.info("setUp DBAlter......");
+
+        System.setProperty("log.base", SentryConstant.logPath);
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         logger.info(UtilTool.arrToStr(sentryCmd));
@@ -87,9 +85,5 @@ public class DBAlter {
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         logger.info(UtilTool.arrToStr(sentryCmd));
         logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
-
-//        logger.info("postCleanUp DBSelect......");
-//        String preSql = String.format("post%s.sql", className);
-//        UtilTool.privilHandler(className, preSql, "clean");
     }
 }

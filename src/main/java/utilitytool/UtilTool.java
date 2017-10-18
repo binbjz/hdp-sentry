@@ -21,6 +21,7 @@ public class UtilTool {
         System.out.println();
         System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
 
+
         /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
         String fileName = filterTmpPath + "filterTmp.txt";
         System.out.println(fileName);
