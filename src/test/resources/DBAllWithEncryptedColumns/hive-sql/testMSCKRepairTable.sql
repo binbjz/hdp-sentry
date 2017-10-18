@@ -14,7 +14,7 @@ dfs -mkdir /user/hive/warehouse/encrypt_db4msck.db/test_msck/month=201604;
 --使用MSCK修复分区
 MSCK REPAIR TABLE encrypt_db4msck.test_msck;
 
-SELECT id, encrypt_val, month FROM encrypt_db4msck.test_msck;
+SELECT encrypt_id, encrypt_val, month FROM encrypt_db4msck.test_msck;
 SELECT COUNT(*) FROM encrypt_db4msck.test_msck;
 
 --再次查看，发现已经成功更新元信息

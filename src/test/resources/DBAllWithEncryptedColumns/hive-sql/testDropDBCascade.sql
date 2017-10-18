@@ -4,7 +4,7 @@
 
 USE encrypt_db4drop_cascade;
 CREATE TABLE encrypt_tbl4drop (encrypt_id INT, encrypt_val STRING);
-CREATE VIEW AS encrypt_view4drop AS SELECT * FROM encrypt_db4drop_cascade.encrypt_tbl4drop;
+CREATE VIEW encrypt_view4drop AS SELECT * FROM encrypt_db4drop_cascade.encrypt_tbl4drop;
 
 SELECT * FROM encrypt_db4drop_cascade.encrypt_tbl4drop;
 SELECT * FROM encrypt_db4drop_cascade.encrypt_view4drop;

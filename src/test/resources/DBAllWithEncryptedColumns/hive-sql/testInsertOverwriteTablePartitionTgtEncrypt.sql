@@ -15,7 +15,7 @@ SET hive.exec.dynamic.partition=true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
 SET hive.cli.print.header=true;
 
-CREATE TABLE IF NOT EXISTS encrypt_db4data.partition_table_tgt LIKE test_db.partition_table001;
+CREATE TABLE IF NOT EXISTS encrypt_db4data.partition_table_tgt LIKE encrypt_db4data.partition_table001;
 INSERT OVERWRITE TABLE encrypt_db4data.partition_table_tgt PARTITION (dt='20150617', ht='00') SELECT name, ip FROM encrypt_db4data.partition_table001 WHERE dt='20150617' and ht='00' AND name='meituan';
 SELECT COUNT(*) row_count FROM encrypt_db4data.partition_table_tgt;
 SELECT * FROM encrypt_db4data.partition_table_tgt;
