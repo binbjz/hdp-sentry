@@ -31,7 +31,6 @@ public class DBDrop {
     public static void setUp() {
         logger.info("setUp DBDrop......");
 
-        System.setProperty("log.base", SentryConstant.logPath);
         String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
         String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
         logger.info(UtilTool.arrToStr(sentryCmd));
