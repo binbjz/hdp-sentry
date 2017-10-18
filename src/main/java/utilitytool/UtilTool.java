@@ -38,10 +38,7 @@ public class UtilTool {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
-
-        String str = "Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/supply/.hive-staging_hive_2017-10-18_16-07-55_988_8242111387025676819-1/-ext-10000";
-        System.out.println(filterResults(str));
-
+        
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};
          String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
