@@ -1,0 +1,13 @@
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+col3to1             	int                 	put last column to position 1st
+encrypt_col2        	bigint              	                    
+col1to2             	int                 	put column1 to position 2nd
+OK
+OK
+OK

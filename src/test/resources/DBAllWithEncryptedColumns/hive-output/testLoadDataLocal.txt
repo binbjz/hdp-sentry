@@ -1,0 +1,21 @@
+OK
+OK
+Loading data to table encrypt_db4data.collecttest
+OK
+OK
+eleven	11,10
+twelve	12,1
+OK
+eleven	2
+twelve	2
+OK
+4
+twelve&12
+twelve&1
+eleven&11
+eleven&10
+twelve&12
+twelve&1
+eleven&11
+eleven&10
+OK

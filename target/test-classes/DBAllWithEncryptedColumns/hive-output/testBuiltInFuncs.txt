@@ -1,0 +1,7 @@
+OK
+OK
+Loading data to table encrypt_db4data.testbuiltinfuncs
+3 Rows loaded to encrypt_db4data.testbuiltinfuncs
+OK
+FAILED: SemanticException [Error 10004]: Line 2:14 Invalid table alias or column reference 'col2': (possible column names are: encrypted_name_51725_col1, encrypted_name_61105_col2, encrypted_name_91059_col3) or Column insufficient privileges to access: col2
+OK

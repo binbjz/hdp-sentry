@@ -1,0 +1,10 @@
+OK
+OK
+OK
+OK
+OK
+OK
+new_col1            	int                 	new column 1        
+new_col2            	string              	new column 2        
+new_col3            	string              	new column3         
+OK

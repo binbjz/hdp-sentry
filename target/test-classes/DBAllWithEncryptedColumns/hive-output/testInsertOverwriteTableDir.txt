@@ -1,0 +1,70 @@
+OK
+OK
+OK
+OK
+OK
+OK
+Loading data to table encrypt_db4data.encrypt_employees partition (country=US, state=CA)
+OK
+OK
+OK
+OK
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=IL)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=IL' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=OR)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=OR' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
+OK
+OK
+encrypt_tgt_employees.encrypt_name	encrypt_tgt_employees.encrypt_salary	encrypt_tgt_employees.encrypt_subordinates	encrypt_tgt_employees.encrypt_deductions	encrypt_tgt_employees.encrypt_address	encrypt_tgt_employees.country	encrypt_tgt_employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
+OK
+encrypt_name	encrypt_salary	encrypt_subordinates	encrypt_deductions	encrypt_address
+OK
+encrypt_tgt_employees.encrypt_name	encrypt_tgt_employees.encrypt_salary	encrypt_tgt_employees.encrypt_subordinates	encrypt_tgt_employees.encrypt_deductions	encrypt_tgt_employees.encrypt_address	encrypt_tgt_employees.country	encrypt_tgt_employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+OK
+c0
+4
+OK
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+	Loading partition {country=US, state=CA}
+4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
+OK
+se.encrypt_name	se.encrypt_salary	se.encrypt_subordinates	se.encrypt_deductions	se.encrypt_address	se.state
+OK
+encrypt_employees.encrypt_name	encrypt_employees.encrypt_salary	encrypt_employees.encrypt_subordinates	encrypt_employees.encrypt_deductions	encrypt_employees.encrypt_address	encrypt_employees.country	encrypt_employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Copying data to local directory /tmp/ca_employees
+Copying data to local directory /tmp/ca_employees
+4 Rows loaded to /tmp/ca_employees
+OK
+se.encrypt_name	se.encrypt_salary	se.encrypt_subordinates	se.encrypt_deductions	se.encrypt_address	se.country	se.state
+total 4
+000000_0
+Moving data to: /tmp/union.out
+8 Rows loaded to /tmp/union.out
+OK
+unioninput.encrypt_name	unioninput.encrypt_salary
+John Doe100000.0
+Mary Smith80000.0
+Todd Jones70000.0
+Bill King60000.0
+Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK
+OK

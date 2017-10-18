@@ -1,0 +1,56 @@
+OK
+OK
+OK
+OK
+OK
+Loading data to table encrypt_db4data.encrypt_src_employees partition (country=US, state=CA)
+OK
+OK
+_c0	_c1	country	state
+Partition encrypt_db4data.encrypt_src_employees{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+OK
+encrypt_db4data.encrypt_src_employees.encrypt_name	encrypt_db4data.encrypt_src_employees.encrypt_salary	encrypt_db4data.encrypt_src_employees.encrypt_subordinates	encrypt_db4data.encrypt_src_employees.encrypt_deductions	encrypt_db4data.encrypt_src_employees.encrypt_address	encrypt_db4data.encrypt_src_employees.country	encrypt_db4data.encrypt_src_employees.state
+Partition encrypt_db4data.encrypt_src_employees{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition encrypt_db4data.encrypt_src_employees{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition encrypt_db4data.encrypt_src_employees{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+OK
+encrypt_db4data.encrypt_src_employees.encrypt_name	encrypt_db4data.encrypt_src_employees.encrypt_salary	encrypt_db4data.encrypt_src_employees.encrypt_subordinates	encrypt_db4data.encrypt_src_employees.encrypt_deductions	encrypt_db4data.encrypt_src_employees.encrypt_address	encrypt_db4data.encrypt_src_employees.country	encrypt_db4data.encrypt_src_employees.state
+Partition encrypt_db4data.encrypt_src_employees{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition encrypt_db4data.encrypt_src_employees{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition encrypt_db4data.encrypt_src_employees{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+OK
+encrypt_db4data.encrypt_src_employees.encrypt_name	encrypt_db4data.encrypt_src_employees.encrypt_salary	encrypt_db4data.encrypt_src_employees.encrypt_subordinates	encrypt_db4data.encrypt_src_employees.encrypt_deductions	encrypt_db4data.encrypt_src_employees.encrypt_address	encrypt_db4data.encrypt_src_employees.country	encrypt_db4data.encrypt_src_employees.state
+OK
+col_name	data_type	comment
+encrypt_name        	string              	                    
+encrypt_salary      	float               	                    
+encrypt_subordinates	array<string>       	                    
+encrypt_deductions  	map<string,float>   	                    
+encrypt_address     	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+OK
+col_name	data_type	comment
+encrypt_name        	string              	                    
+encrypt_salary      	float               	                    
+encrypt_subordinates	array<string>       	                    
+encrypt_deductions  	map<string,float>   	                    
+encrypt_address     	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_src_employees/country=US/state=CA/california-employees.csv' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK

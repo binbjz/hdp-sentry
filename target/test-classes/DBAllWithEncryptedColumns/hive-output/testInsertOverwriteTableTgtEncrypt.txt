@@ -1,0 +1,37 @@
+OK
+OK
+Loading data to table encrypt_db4data.table001
+3 Rows loaded to encrypt_db4data.table001
+OK
+OK
+Loading data to table encrypt_db4data.table_tgt
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/table_tgt' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+1 Rows loaded to encrypt_db4data.table_tgt
+OK
+name	ip
+OK
+row_count
+1
+OK
+table_tgt.name	table_tgt.ip
+meituan	10.0.0.1
+Loading data to table encrypt_db4data.table_tgt
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/table_tgt' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+3 Rows loaded to encrypt_db4data.table_tgt
+OK
+table001.name	table001.ip
+OK
+row_count
+3
+OK
+table_tgt.name	table_tgt.ip
+meituan	10.0.0.1
+baidu	10.0.0.2
+alibaba	10.0.0.3
+OK
+id	name	ip
+1	alibaba	10.0.0.3
+1	baidu	10.0.0.2
+1	meituan	10.0.0.1
+OK
+OK

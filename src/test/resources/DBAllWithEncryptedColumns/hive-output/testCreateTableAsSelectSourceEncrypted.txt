@@ -1,0 +1,17 @@
+OK
+OK
+Loading data to table encrypt_db4data.session_src_encrypted
+2 Rows loaded to encrypt_db4data.session_src_encrypted
+OK
+Execution log at: /var/sankuai/logs/hive1.2/sankuai/hive.log
+Execution completed successfully
+MapredLocal task succeeded
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/sessionization_step_one_origins
+2 Rows loaded to encrypt_db4data.sessionization_step_one_origins
+OK
+OK
+col_name	data_type	comment
+ssoo_user_id        	string              	                    
+ssoo_pageview_id    	string              	                    
+OK
+OK

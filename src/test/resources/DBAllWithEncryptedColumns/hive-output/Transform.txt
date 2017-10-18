@@ -1,0 +1,17 @@
+OK
+OK
+Loading data to table encrypt_db4data.whoyouare
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/whoyouare' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK
+OK
+whoyouare.who
+Mr.A
+Miss.B
+Dr.C
+'/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh' does not exist
+OK
+who
+Hello,  Mr.A
+Hello,  Miss.B
+Hello,  Dr.C
+OK

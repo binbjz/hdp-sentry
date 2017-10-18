@@ -1,0 +1,19 @@
+OK
+OK
+Loading data to table encrypt_db4data.partition_table001 partition (dt=20150617, ht=00)
+3 Rows loaded to encrypt_db4data.partition_table001
+OK
+cat: `/user/warehouse/hive/encrypt_db4data.db/partition_table001': No such file or directory
+Command failed with exit code = 1
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table not found partition_table001
+FAILED: SemanticException [Error 10001]: Line 2:23 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 2:31 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 3:23 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 2:31 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 3:23 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 2:31 Table not found 'partition_table_tgt'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'partition_table_tgt'
+OK
+OK
