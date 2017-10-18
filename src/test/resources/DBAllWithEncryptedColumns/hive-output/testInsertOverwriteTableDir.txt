@@ -9,10 +9,10 @@ OK
 OK
 OK
 OK
-Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=IL)
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=IL' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=OR)
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=OR' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=IL)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=IL' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=CA)
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
