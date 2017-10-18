@@ -1,29 +1,27 @@
 OK
-employees_props
-teacher
-test_create_tbl
-test_tbl
-testtable
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
-OK
-employees_props
-teacher
-test_create_tbl
-test_tbl
-testtable
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
-FAILED: SemanticException [Error 10001]: Table not found db4tbl.tbl2create
-FAILED: SemanticException [Error 10001]: Table not found db4tbl.view2create
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
 OK
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
-FAILED: SemanticException [Error 10001]: Table not found db4tbl.view2create
-FAILED: SemanticException [Error 10001]: Table not found db4tbl.view2create
 OK
+OK
+OK
+OK
+OK
+OK
+OK
+tbl2create
+view2create
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+	 	 
+OK
+CREATE VIEW `db4tbl.view2create` AS SELECT `tbl4show`.`col1`, `tbl4show`.`col2` FROM `db4tbl`.`tbl4show`
+OK
+tbl2create
 tbl4show
+view2create
 view4show
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

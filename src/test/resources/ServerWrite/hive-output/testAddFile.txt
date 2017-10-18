@@ -1,0 +1,21 @@
+OK
+OK
+OK
+OK
+Loading data to table db4add.whoyouare
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4add.db/whoyouare' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK
+OK
+whoyouare.who
+Mr.A
+Miss.B
+Dr.C
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+OK
+who
+Hello,  Mr.A
+Hello,  Miss.B
+Hello,  Dr.C
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

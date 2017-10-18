@@ -1,16 +1,12 @@
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
 mkdir: `/user/hive/warehouse/testdb.db/test_msck/month=201603': No such file or directory
 Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 mkdir: `/user/hive/warehouse/testdb.db/test_msck/month=201604': No such file or directory
 Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
 FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
 ls: `/user/hive/warehouse/testdb.db/test_msck/month=201603': No such file or directory
 Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 ls: `/user/hive/warehouse/testdb.db/test_msck/month=201604': No such file or directory
 Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 OK

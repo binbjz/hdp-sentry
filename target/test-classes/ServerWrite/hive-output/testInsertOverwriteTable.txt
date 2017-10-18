@@ -1,69 +1,21 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database db4data already exists
 OK
-OK
-OK
-Query ID = sankuai_20171011221941_ce62814b-0ad4-4c91-a33f-9422580692c8
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0640, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0640/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0640
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 140 msec
-Ended Job = job_1505297521386_0640
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4data.db/.hive-staging_hive_2017-10-11_22-19-41_338_8077015803986419458-1/-ext-10000
 Loading data to table db4data.table001
 3 Rows loaded to db4data.table001
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.14 sec   HDFS Read: 4073 HDFS Write: 49 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 140 msec
 OK
 OK
-Query ID = sankuai_20171011222006_083841ec-acd4-4657-bae6-0d8a1c346eed
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0641, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0641/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0641
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 890 msec
-Ended Job = job_1505297521386_0641
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4data.db/.hive-staging_hive_2017-10-11_22-20-06_175_8949853169872002507-1/-ext-10000
 Loading data to table db4data.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4data.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 1 Rows loaded to db4data.table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.89 sec   HDFS Read: 4141 HDFS Write: 17 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 890 msec
 OK
 name	ip
 OK
 table002.name	table002.ip
 meituan	10.0.0.1
-Query ID = sankuai_20171011222029_46e42d93-9a10-40f6-b36a-6bcb3f62a978
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_0642, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0642/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0642
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-MapReduce Total cumulative CPU time: 1 seconds 170 msec
-Ended Job = job_1505297521386_0642
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/db4data.db/.hive-staging_hive_2017-10-11_22-20-29_570_8336207290609782134-1/-ext-10000
 Loading data to table db4data.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4data.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 3 Rows loaded to db4data.table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.17 sec   HDFS Read: 3850 HDFS Write: 49 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 170 msec
 OK
 table001.name	table001.ip
 OK
@@ -71,29 +23,11 @@ table002.name	table002.ip
 meituan	10.0.0.1
 baidu	10.0.0.2
 alibaba	10.0.0.3
-Query ID = sankuai_20171011222050_56894a68-d460-41b3-8366-966b74e635c6
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_0643, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0643/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0643
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-MapReduce Total cumulative CPU time: 3 seconds 430 msec
-Ended Job = job_1505297521386_0643
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.43 sec   HDFS Read: 8448 HDFS Write: 55 SUCCESS
-Total MapReduce CPU Time Spent: 3 seconds 430 msec
 OK
 id	name	ip
 1	alibaba	10.0.0.3
 1	baidu	10.0.0.2
 1	meituan	10.0.0.1
-OK
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

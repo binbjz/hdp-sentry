@@ -1,7 +1,7 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database testdb already exists
 OK
-OK
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table employees already exists)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table not found employees_bitmap_index_table
 OK
 OK
@@ -9,5 +9,5 @@ idx_name            	tab_name            	col_names           	idx_tab_name     
 	 	 	 	 	 
 	 	 	 	 	 
 FAILED: ParseException line 3:53 extraneous input 'employees' expecting EOF near '<EOF>'
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

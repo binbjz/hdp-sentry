@@ -1,5 +1,5 @@
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database db4alter already exists
 OK
 OK
 OK
@@ -27,7 +27,6 @@ OUTPUTFORMAT
 LOCATION
   'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages'
 TBLPROPERTIES (
-  'transient_lastDdlTime'='1507731274')
 OK
 year=2011/month=1/day=1
 OK
@@ -47,7 +46,6 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-Detailed Table Information	Table(tableName:log_messages, dbName:db4alter, owner:hdp_qa, createTime:1507731274, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -82,7 +80,6 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-Detailed Table Information	Table(tableName:log_messages, dbName:db4alter, owner:hdp_qa, createTime:1507731274, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages, inputFormat:org.apache.hadoop.mapred.SequenceFileInputFormat, outputFormat:org.apache.hadoop.mapred.SequenceFileOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -118,7 +115,6 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-Detailed Table Information	Table(tableName:log_messages_external, dbName:db4alter, owner:hdp_qa, createTime:1507731280, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:server, type:string, comment:null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:message, type:string, comment:null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_external, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -135,5 +131,5 @@ day                 	int
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

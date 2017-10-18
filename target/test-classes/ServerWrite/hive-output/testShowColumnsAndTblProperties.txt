@@ -6,7 +6,6 @@ OK
 comment	Description of the table
 creator	HADOOP-QA
 notes	test show tblproperties
-transient_lastDdlTime	1507732093
 OK
 name                
 salary              
@@ -23,5 +22,5 @@ deductions
 address             
 country             
 state               
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

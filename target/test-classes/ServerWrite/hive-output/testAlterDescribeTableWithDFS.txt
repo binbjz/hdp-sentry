@@ -1,9 +1,10 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database db4alter already exists
 OK
 OK
 OK
-OK
-OK
-OK
+ls: `/user/hive/warehouse/db4alter.db/log_messages/year=2011/month=1/day=1': No such file or directory
+Command failed with exit code = 1
 OK
 OK
 # col_name            	data_type           	comment             
@@ -24,19 +25,17 @@ day                 	int
 # Detailed Table Information	 	 
 Database:           	db4alter            	 
 Owner:              	hdp_qa              	 
-CreateTime:         	Wed Oct 11 22:14:51 CST 2017	 
-LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
 Retention:          	0                   	 
 Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages	 
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
-	transient_lastDdlTime	1507731291          
+	last_modified_by    	hdp_qa              
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
-InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
-OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+InputFormat:        	org.apache.hadoop.mapred.SequenceFileInputFormat	 
+OutputFormat:       	org.apache.hadoop.mapred.SequenceFileOutputFormat	 
 Compressed:         	No                  	 
 Num Buckets:        	-1                  	 
 Bucket Columns:     	[]                  	 
@@ -64,17 +63,19 @@ day                 	int
 Partition Value:    	[2011, 1, 1]        	 
 Database:           	db4alter            	 
 Table:              	log_messages        	 
-CreateTime:         	Wed Oct 11 22:14:51 CST 2017	 
-LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
-Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages/year=2011/month=1/day=1	 
 Partition Parameters:	 	 
-	transient_lastDdlTime	1507731291          
+	COLUMN_STATS_ACCURATE	false               
+	last_modified_by    	hdp_qa              
+	numFiles            	0                   
+	numRows             	-1                  
+	rawDataSize         	-1                  
+	totalSize           	0                   
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
-InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
-OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+InputFormat:        	org.apache.hadoop.mapred.SequenceFileInputFormat	 
+OutputFormat:       	org.apache.hadoop.mapred.SequenceFileOutputFormat	 
 Compressed:         	No                  	 
 Num Buckets:        	-1                  	 
 Bucket Columns:     	[]                  	 
@@ -102,24 +103,20 @@ day                 	int
 Partition Value:    	[2011, 1, 2]        	 
 Database:           	db4alter            	 
 Table:              	log_messages        	 
-CreateTime:         	Wed Oct 11 22:14:52 CST 2017	 
-LastAccessTime:     	UNKNOWN             	 
 Protect Mode:       	None                	 
 Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_new/year=2011/month=1/day=2	 
 Partition Parameters:	 	 
 	COLUMN_STATS_ACCURATE	false               
 	last_modified_by    	hdp_qa              
-	last_modified_time  	1507731293          
 	numFiles            	0                   
 	numRows             	-1                  
 	rawDataSize         	-1                  
 	totalSize           	0                   
-	transient_lastDdlTime	1507731293          
 	 	 
 # Storage Information	 	 
 SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
-InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
-OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+InputFormat:        	org.apache.hadoop.mapred.SequenceFileInputFormat	 
+OutputFormat:       	org.apache.hadoop.mapred.SequenceFileOutputFormat	 
 Compressed:         	No                  	 
 Num Buckets:        	-1                  	 
 Bucket Columns:     	[]                  	 
@@ -129,5 +126,5 @@ Storage Desc Params:
 	serialization.format	\t                  
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_new' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

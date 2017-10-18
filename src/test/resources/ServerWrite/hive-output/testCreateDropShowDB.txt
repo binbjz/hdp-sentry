@@ -2,5 +2,6 @@ OK
 OK
 OK
 testdb
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)
 OK
-OK
+testdb

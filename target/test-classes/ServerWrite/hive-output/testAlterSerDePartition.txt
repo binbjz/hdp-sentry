@@ -1,36 +1,10 @@
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database db4alter already exists
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table test_serde already exists)
 OK
-OK
-OK
-OK
-OK
-OK
-c0                  	string              	from deserializer   
-c1                  	string              	from deserializer   
-c2                  	string              	from deserializer   
-col10               	string              	                    
-col20               	string              	                    
-	 	 
-# Partition Information	 	 
-# col_name            	data_type           	comment             
-	 	 
-col10               	string              	                    
-col20               	string              	                    
-	 	 
-Detailed Partition Information	Partition(values:[abc, 123], dbName:db4alter, tableName:test_serde, createTime:1507731790, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:c0, type:string, comment:null), FieldSchema(name:c1, type:string, comment:null), FieldSchema(name:c2, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/test_serde/col10=abc/col20=123, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.contrib.serde2.RegexSerDe, parameters:{output.format.string=%1$s	%2$s, serialization.format=1, input.regex=bduid\[(.*)\]uid\[(\d+)\]uname\[(.*)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:{transient_lastDdlTime=1507731790})
-OK
-OK
-c0                  	string              	from deserializer   
-c1                  	string              	from deserializer   
-c2                  	string              	from deserializer   
-col10               	string              	                    
-col20               	string              	                    
-	 	 
-# Partition Information	 	 
-# col_name            	data_type           	comment             
-	 	 
-col10               	string              	                    
-col20               	string              	                    
-	 	 
-Detailed Partition Information	Partition(values:[abc, 123], dbName:db4alter, tableName:test_serde, createTime:1507731790, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:c0, type:string, comment:null), FieldSchema(name:c1, type:string, comment:null), FieldSchema(name:c2, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/test_serde/col10=abc/col20=123, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.contrib.serde2.RegexSerDe, parameters:{output.format.string=%1$s	%2$s, serialization.format=1, charset=GBK, input.regex=bduid\[(.*)\]uid\[(\d+)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:{numFiles=0, last_modified_by=hdp_qa, last_modified_time=1507731791, transient_lastDdlTime=1507731792, COLUMN_STATS_ACCURATE=false, totalSize=0, numRows=-1, rawDataSize=-1})
-OK
-OK
+FAILED: ValidationFailureSemanticException table is not partitioned but partition spec exists: {col10=abc, col20=123}
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. cannot find field test_serde from [0:c0, 1:c1, 2:c2]
+FAILED: ValidationFailureSemanticException table is not partitioned but partition spec exists: {col10=abc, col20=123}
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. cannot find field test_serde from [0:c0, 1:c1, 2:c2]
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

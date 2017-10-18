@@ -1,18 +1,15 @@
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database db4partition already exists
 OK
 OK
 OK
 OK
 FAILED: SemanticException [Error 30011]: Partition protected from being dropped db4partition@log_messages@year=2017/month=8/day=1
 OK
-Dropped the partition year=2017/month=8/day=1
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
 OK
 FAILED: SemanticException [Error 30011]: Partition protected from being dropped db4partition@log_messages@year=2017/month=8/day=1
 OK
-Dropped the partition year=2017/month=8/day=1
-OK
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

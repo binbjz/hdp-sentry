@@ -1,5 +1,5 @@
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database db4alter already exists
 OK
 OK
 OK
@@ -23,11 +23,9 @@ LOCATION
 TBLPROPERTIES (
   'COLUMN_STATS_ACCURATE'='false', 
   'last_modified_by'='hdp_qa', 
-  'last_modified_time'='1507731780', 
   'numFiles'='0', 
   'numRows'='-1', 
   'rawDataSize'='-1', 
   'totalSize'='0', 
-  'transient_lastDdlTime'='1507731780')
-OK
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)

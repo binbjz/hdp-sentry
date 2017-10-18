@@ -1,13 +1,13 @@
-OK
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
 Added [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] to class path
 Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar]
 /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
 FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found teacher
 FAILED: SemanticException [Error 10001]: Line 2:35 Table not found 'teacher'
 OK
-testdb.qa_lower
+default.qa_lower
 OK
 OK
 OK

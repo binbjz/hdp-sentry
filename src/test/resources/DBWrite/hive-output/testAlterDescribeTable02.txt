@@ -1,15 +1,62 @@
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
-FAILED: SemanticException [Error 10001]: Table not found log_messages_external
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages_external
-FAILED: SemanticException [Error 10001]: Table not found db4alter.log_messages_external
 OK
 OK
-rm: `/user/hive/warehouse/db4alter.db/log_messages_external': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
+OK
+year=2011/month=1/day=1
+year=2011/month=1/day=2
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

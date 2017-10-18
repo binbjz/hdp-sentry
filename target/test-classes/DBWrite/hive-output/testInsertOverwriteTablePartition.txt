@@ -1,6 +1,6 @@
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
 FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found partition_table001
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table not found partition_table001
+FAILED: SemanticException [Error 10072]: Database does not exist: testdb
 FAILED: SemanticException [Error 10001]: Line 2:105 Table not found 'partition_table001'
 FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'partition_table002'
 FAILED: SemanticException [Error 10001]: Line 3:82 Table not found 'partition_table001'

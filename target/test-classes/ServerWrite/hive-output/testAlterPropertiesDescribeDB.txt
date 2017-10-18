@@ -2,8 +2,6 @@ OK
 OK
 OK
 OK
-db2alter		viewfs://hadoop-meituan-test/user/hive/warehouse/db2alter.db	hdp_qa	USER	{date=2017-10-02, creator=hadoop-QA}
 OK
 OK
-db2alter		viewfs://hadoop-meituan-test/user/hive/warehouse/db2alter.db	hdp_qa	USER	{edited-by=hadoop-new-qa, date=2017-10-02, creator=hadoop-QA}
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)
