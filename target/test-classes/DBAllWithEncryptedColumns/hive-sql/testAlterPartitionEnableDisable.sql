@@ -1,4 +1,14 @@
+--encrypt_db4alter.log_messages=encrypt_hms,encrypt_severity,encrypt_server,encrypt_process_id,encrypt_message
+--CREATE DATABASE encrypt_db4alter;
+--DROP DATABASE encrypt_db4alter;
+
 USE encrypt_db4alter;
+CREATE TABLE IF NOT EXISTS encrypt_db4alter.log_messages (encrypt_hms INT, encrypt_severity STRING, encrypt_server STRING, encrypt_process_id INT, encrypt_message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+ALTER TABLE encrypt_db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 1);
+ALTER TABLE encrypt_db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 2);
+
 ALTER TABLE encrypt_db4alter.log_messages PARTITION(year = 2017, month = 8, day = 1) ENABLE NO_DROP;
 ALTER TABLE encrypt_db4alter.log_messages DROP PARTITION (year = 2017, month = 8, day = 1);
 
@@ -10,3 +20,5 @@ ALTER TABLE encrypt_db4alter.log_messages DROP PARTITION (year = 2017, month = 8
 
 ALTER TABLE encrypt_db4alter.log_messages PARTITION(year = 2017, month = 8, day = 2) DISABLE OFFLINE;
 ALTER TABLE encrypt_db4alter.log_messages DROP PARTITION (year = 2017, month = 8, day = 2);
+
+DROP TABLE encrypt_db4alter.log_messages;

@@ -1,31 +1,31 @@
 [
   {
-    "id": "testDropDBCascade",
+    "id": "testAddDropShowPartition",
     "tag": "DB",
-    "desc": "The case will test DropDBCascade.",
+    "desc": "The case will test AddDropShowPartition.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testDropDBCascade.sql"
+        "name": "testAddDropShowPartition.sql"
       },
       {
         "type": "file/sql",
-        "name": "testDropDBCascade.txt"
+        "name": "testAddDropShowPartition.txt"
       }
     ]
   },
   {
-    "id": "testCreateDropAlterTableView",
+    "id": "testAlterPartitionEnableDisable",
     "tag": "Server",
-    "desc": "The case will test CreateDropAlterTableView.",
+    "desc": "The case will test AlterPartitionEnableDisable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDropAlterTableView.sql"
+        "name": "testAlterPartitionEnableDisable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDropAlterTableView.txt"
+        "name": "testAlterPartitionEnableDisable.txt"
       }
     ]
   },
@@ -45,32 +45,32 @@
     ]
   },
   {
-    "id": "testAlterDescribeTable01",
+    "id": "testAlterSerDeTable",
     "tag": "Server",
-    "desc": "The case will test AlterDescribeTable01.",
+    "desc": "The case will test AlterSerDeTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.sql"
+        "name": "testAlterSerDeTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.txt"
+        "name": "testAlterSerDeTable.txt"
       }
     ]
   },
   {
-    "id": "testAlterTableReplace",
+    "id": "testAlterTableAddColumns",
     "tag": "Server",
-    "desc": "The case will test AlterTableReplace.",
+    "desc": "The case will test AlterTableAddColumns.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterTableReplace.sql"
+        "name": "testAlterTableAddColumns.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterTableReplace.txt"
+        "name": "testAlterTableAddColumns.txt"
       }
     ]
   },
@@ -90,6 +90,36 @@
     ]
   },
   {
+    "id": "testAlterTableChange",
+    "tag": "Server",
+    "desc": "The case will test AlterTableChange.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableEnableDisable",
+    "tag": "Server",
+    "desc": "The case will test AlterTableEnableDisable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableEnableDisable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableEnableDisable.txt"
+      }
+    ]
+  },
+  {
     "id": "testAlterTableRename",
     "tag": "Server",
     "desc": "The case will test AlterTableRename.",
@@ -105,62 +135,92 @@
     ]
   },
   {
-    "id": "testAlterDescribeTable02",
-    "tag": "Server",
-    "desc": "The case will test AlterDescribeTable02.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAlterDescribeTable02.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAlterDescribeTable02.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAlterDescribeTableWithDFS",
-    "tag": "Server",
-    "desc": "The case will test AlterDescribeTableWithDFS.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAlterDescribeTableWithDFS.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAlterDescribeTableWithDFS.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddDropShowPartition",
+    "id": "testAlterTableReplace",
     "tag": "DB",
-    "desc": "The case will test AddDropShowPartition.",
+    "desc": "The case will test AlterTableReplace.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddDropShowPartition.sql"
+        "name": "testAlterTableReplace.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddDropShowPartition.txt"
+        "name": "testAlterTableReplace.txt"
       }
     ]
   },
   {
-    "id": "testLoadDataLocal",
+    "id": "testAlterTableSetFormat",
     "tag": "Server",
-    "desc": "The case will test LoadDataLocal.",
+    "desc": "The case will test AlterTableSetFormat.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testLoadDataLocal.sql"
+        "name": "testAlterTableSetFormat.sql"
       },
       {
         "type": "file/sql",
-        "name": "testLoadDataLocal.txt"
+        "name": "testAlterTableSetFormat.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableTouchClusteredBy",
+    "tag": "Server",
+    "desc": "The case will test AlterTableTouchClusteredBy.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableTouchClusteredBy.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableTouchClusteredBy.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAnalyzeTable",
+    "tag": "Server",
+    "desc": "The case will test AnalyzeTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAnalyzeTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAnalyzeTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testBuiltInFuncs",
+    "tag": "Server",
+    "desc": "The case will test BuiltInFuncs.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testBuiltInFuncs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testBuiltInFuncs.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropAlterTableView",
+    "tag": "Server",
+    "desc": "The case will test CreateDropAlterTableView.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDropAlterTableView.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDropAlterTableView.txt"
       }
     ]
   },
@@ -191,6 +251,66 @@
       {
         "type": "file/sql",
         "name": "testCreateTableAsSelectTargetEncrypted.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDescribeFormattedTable",
+    "tag": "Server",
+    "desc": "The case will test DescribeFormattedTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDescribeFormattedTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDescribeFormattedTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDBCascade",
+    "tag": "Server",
+    "desc": "The case will test DropDBCascade.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.txt"
+      }
+    ]
+  },
+  {
+    "id": "testImportExportEncryptTable",
+    "tag": "Server",
+    "desc": "The case will test ImportExportEncryptTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testImportExportEncryptTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testImportExportEncryptTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableDir",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTableDir.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableDir.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableDir.txt"
       }
     ]
   },
@@ -255,122 +375,17 @@
     ]
   },
   {
-    "id": "testAddDeleteJarCreateTmpFunction",
+    "id": "testLoadDataLocal",
     "tag": "Server",
-    "desc": "The case will test AddDeleteJarCreateTmpFunction.",
+    "desc": "The case will test LoadDataLocal.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddDeleteJarCreateTmpFunction.sql"
+        "name": "testLoadDataLocal.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddDeleteJarCreateTmpFunction.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddDeleteJarCreateFunction",
-    "tag": "Server",
-    "desc": "The case will test AddDeleteJarCreateFunction.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddDeleteJarCreateFunction.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddDeleteJarCreateFunction.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddDeleteFile",
-    "tag": "Server",
-    "desc": "The case will test AddDeleteFile.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddDeleteFile.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddDeleteFile.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAlterSerDeTable",
-    "tag": "DB",
-    "desc": "The case will test AlterSerDeTable.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAlterSerDeTable.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAlterSerDeTable.txt"
-      }
-    ]
-  },
-  {
-    "id": "testInsertOverwriteTableDir",
-    "tag": "Server",
-    "desc": "The case will test InsertOverwriteTableDir.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testInsertOverwriteTableDir.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testInsertOverwriteTableDir.txt"
-      }
-    ]
-  },
-  {
-    "id": "testImportExportAlterTableClusteredBySortedBy",
-    "tag": "Server",
-    "desc": "The case will test ImportExportAlterTableClusteredBySortedBy.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testImportExportAlterTableClusteredBySortedBy.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testImportExportAlterTableClusteredBySortedBy.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAlterTableEnableDisable",
-    "tag": "Server",
-    "desc": "The case will test AlterTableEnableDisable.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAlterTableEnableDisable.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAlterTableEnableDisable.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAlterPartitionEnableDisable",
-    "tag": "Server",
-    "desc": "The case will test AlterPartitionEnableDisable.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAlterPartitionEnableDisable.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAlterPartitionEnableDisable.txt"
+        "name": "testLoadDataLocal.txt"
       }
     ]
   },
@@ -390,6 +405,21 @@
     ]
   },
   {
+    "id": "testQueryUserDefinedFunction",
+    "tag": "Server",
+    "desc": "The case will test QueryUserDefinedFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testQueryUserDefinedFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testQueryUserDefinedFunction.txt"
+      }
+    ]
+  },
+  {
     "id": "testShowColumnsAndTblProperties",
     "tag": "Server",
     "desc": "The case will test ShowColumnsAndTblProperties.",
@@ -405,17 +435,17 @@
     ]
   },
   {
-    "id": "testBuiltInFuncs",
+    "id": "Transform",
     "tag": "Server",
-    "desc": "The case will test BuiltInFuncs.",
+    "desc": "The case will test Transform.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testBuiltInFuncs.sql"
+        "name": "Transform.sql"
       },
       {
         "type": "file/sql",
-        "name": "testBuiltInFuncs.txt"
+        "name": "Transform.txt"
       }
     ]
   }

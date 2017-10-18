@@ -1,3 +1,7 @@
+--encrypt_db4data.sessionization_step_one_origins_tgt_encrypted=ssoo_user_id,ssoo_pageview_id,ssoo_timestamp
+--CREATE DATABASE encrypt_db4data;
+--DROP DATABASE encrypt_db4data;
+
 CREATE TABLE encrypt_db4data.session_test (
   st_user_id STRING
  ,st_pageview_id STRING

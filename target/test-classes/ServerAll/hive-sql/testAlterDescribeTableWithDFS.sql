@@ -13,8 +13,13 @@ dfs -ls /user/hive/warehouse/db4alter.db/log_messages/year=2011/month=1/day=1;
 dfs -ls /user/hive/warehouse/db4alter.db/log_messages/year=2011/month=1/day=2;
 dfs -mkdir -p /user/hive/warehouse/db4alter.db/log_messages_new/year=2011/month=1/day=2;
 
+--更改TABLE以将分区指向新位置
 ALTER TABLE db4alter.log_messages PARTITION (year = 2011, month = 1, day = 2) SET LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_new/year=2011/month=1/day=2';
+
+--获取table的真实hdfs路径
 DESC FORMATTED db4alter.log_messages;
+
+--获取partition的真实hdfs路径
 DESC FORMATTED db4alter.log_messages partition (year = 2011, month = 1, day =1);
 DESC FORMATTED db4alter.log_messages partition (year = 2011, month = 1, day =2);
 

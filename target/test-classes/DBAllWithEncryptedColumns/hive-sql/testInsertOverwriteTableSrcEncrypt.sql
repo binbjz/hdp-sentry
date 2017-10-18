@@ -1,3 +1,8 @@
+--encrypt_db4data.table_src=name,ip
+--CREATE DATABASE encrypt_db4data;
+--DROP DATABASE encrypt_db4data;
+
+USE encrypt_db4data;
 CREATE TABLE encrypt_db4data.table_src (name STRING, ip STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 

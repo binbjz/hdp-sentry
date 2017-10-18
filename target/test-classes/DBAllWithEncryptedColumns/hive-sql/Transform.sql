@@ -1,6 +1,11 @@
+--encrypt_db4data.whoyouare=who
+--CREATE DATABASE encrypt_db4data
+--DROP DATABASE encrypt_db4data
+
 CREATE TABLE encrypt_db4data.whoyouare(who string);
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
+USE encrypt_db4data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE encrypt_db4data.whoyouare;
 SET hive.cli.print.header=true;
 SELECT * FROM encrypt_db4data.whoyouare;

@@ -1,3 +1,8 @@
+--encrypt_db4data.table_tgt=name,ip
+--CREATE DATABASE encrypt_db4data;
+--DROP DATABASE encrypt_db4data;
+
+USE encrypt_db4data;
 CREATE TABLE encrypt_db4data.table001 (name STRING, ip STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
@@ -7,9 +12,11 @@ SET hive.cli.print.header=true;
 
 CREATE TABLE IF NOT EXISTS encrypt_db4data.table_tgt LIKE encrypt_db4data.table001;
 INSERT OVERWRITE TABLE encrypt_db4data.table_tgt SELECT name, ip FROM encrypt_db4data.table001 WHERE name='meituan';
+SELECT COUNT(*) row_count FROM encrypt_db4data.table_tgt;
 SELECT * FROM encrypt_db4data.table_tgt;
 
 INSERT OVERWRITE TABLE encrypt_db4data.table_tgt SELECT * FROM encrypt_db4data.table001;
+SELECT COUNT(*) row_count FROM encrypt_db4data.table_tgt;
 SELECT * FROM encrypt_db4data.table_tgt;
 
 SELECT ROW_NUMBER() OVER(PARTITION BY ip ORDER BY ip DESC) ID, name, ip FROM encrypt_db4data.table_tgt;
