@@ -47,7 +47,7 @@ public class TableAll {
 
     @Test
     @UseDataProvider("dataProviderTableAll")
-    public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testTableAll(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
         logger.info("TableAll--> running testcase: " + id);

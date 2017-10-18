@@ -1,0 +1,65 @@
+Loading data to table testdb.collecttest
+OK
+Query ID = sankuai_20171013195913_02008258-6e25-4868-9ef2-6433b1a73624
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0917, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0917/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0917
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+MapReduce Total cumulative CPU time: 5 seconds 550 msec
+Ended Job = job_1505297521386_0917
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.55 sec   HDFS Read: 8546 HDFS Write: 25 SUCCESS
+Total MapReduce CPU Time Spent: 5 seconds 550 msec
+OK
+eleven	11,10
+twelve	12,1
+Query ID = sankuai_20171013195942_b8d63d6b-0cb8-4d22-9b75-69505160be16
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0918, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0918/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0918
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+MapReduce Total cumulative CPU time: 3 seconds 410 msec
+Ended Job = job_1505297521386_0918
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.41 sec   HDFS Read: 7410 HDFS Write: 18 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 410 msec
+OK
+eleven	2
+twelve	2
+Query ID = sankuai_20171013200007_e2343b5d-c855-4190-b5c0-30476783f38d
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0919, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0919/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0919
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+MapReduce Total cumulative CPU time: 5 seconds 820 msec
+Ended Job = job_1505297521386_0919
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.82 sec   HDFS Read: 6907 HDFS Write: 2 SUCCESS
+Total MapReduce CPU Time Spent: 5 seconds 820 msec
+OK
+4
+OK

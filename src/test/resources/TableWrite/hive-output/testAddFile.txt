@@ -1,0 +1,28 @@
+Loading data to table testdb.whoyouare
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/whoyouare' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK
+OK
+whoyouare.who
+Mr.A
+Miss.B
+Dr.C
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+Query ID = sankuai_20171013200533_948db153-4b79-4dc1-9cff-ae2a02a28093
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0930, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0930/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0930
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 200 msec
+Ended Job = job_1505297521386_0930
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.2 sec   HDFS Read: 3500 HDFS Write: 41 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 200 msec
+OK
+who
+Hello,  Mr.A
+Hello,  Miss.B
+Hello,  Dr.C
+OK

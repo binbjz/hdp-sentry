@@ -45,7 +45,7 @@ public class TableAlter {
 
     @Test
     @UseDataProvider("dataProviderTableAlter")
-    public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testTableAlter(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
         logger.info("TableAlter--> running testcase: " + id);
