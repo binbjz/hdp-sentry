@@ -39,6 +39,9 @@ public class UtilTool {
             e.printStackTrace();
         }*/
 
+        String str = "whatlslfdsjdfjskf";
+        System.out.println(filterResults(str));
+
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};
          String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
@@ -182,7 +185,7 @@ public class UtilTool {
      * example: "17/09/13 14:39:55 INFO xxxxxx" will be replaced with an empty string
      */
     public static String filterResults(String str) {
-        String REGEX = "(((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})?|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2})";
+        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
         String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
         String REPLACE = "";
         // String REGEX2 = "([a-zA-Z]+(:?)\\s+(!?))+";
