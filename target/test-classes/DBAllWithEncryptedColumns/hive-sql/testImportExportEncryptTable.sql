@@ -36,10 +36,15 @@ INTO TABLE encrypt_db4data.encrypt_employees
 PARTITION (country = 'US', state = 'CA');
 
 dfs -cat /user/hive/warehouse/encrypt_db4data.db/encrypt_employees/country=US/state=CA/california-employees.csv;
+dfs -count /tmp/employee/country=US/state=CA/california-employees.csv;
+dfs -copyToLocal /user/hive/warehouse/encrypt_db4data.db/encrypt_employees/country=US/state=CA/california-employees.csv /tmp/california-employees.csv;
+!ls -l /tmp/california-employees.csv;
+!rm -r /tmp/california-employees.csv;
 
 -- 导出分区并且导入到分区表分区
 EXPORT TABLE encrypt_db4data.encrypt_employees PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
 dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
+
 
 IMPORT TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
 SHOW PARTITIONS encrypt_db4data.encrypt_tgt_employees;
