@@ -1,0 +1,72 @@
+OK
+OK
+tbl4alter
+OK
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+col3                	int                 	                    
+col4                	bigint              	                    
+col5                	boolean             	                    
+col6                	float               	                    
+col7                	double              	                    
+col8                	string              	                    
+col9                	timestamp           	                    
+id                  	string              	                    
+OK
+OK
+new_col1            	int                 	new column 1        
+new_col2            	string              	new column 2        
+new_col3            	string              	new column3         
+OK
+OK
+OK
+new_col3to1         	int                 	put last column to position 1st
+new_col2            	string              	new column 2        
+new_col1to2         	int                 	put column1 to position 2nd
+OK
+OK
+COLUMN_STATS_ACCURATE	false
+last_modified_by	hdp_qa
+last_modified_time	1507895908
+notes	Test for set tblproperties
+numFiles	0
+numRows	-1
+rawDataSize	-1
+totalSize	0
+transient_lastDdlTime	1507895908
+OK
+OK
+NoViableAltException(-1@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1071)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:202)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:399)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:311)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1150)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1198)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1087)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1077)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:216)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:168)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:386)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:321)
+	at org.apache.hadoop.hive.cli.CliDriver.processReader(CliDriver.java:419)
+	at org.apache.hadoop.hive.cli.CliDriver.processFile(CliDriver.java:435)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:731)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:698)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:634)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:232)
+	at org.apache.hadoop.util.RunJar._main(RunJar.java:148)
+	at org.apache.hadoop.util.RunJar.access$000(RunJar.java:52)
+	at org.apache.hadoop.util.RunJar$1.run(RunJar.java:139)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
+	at org.apache.hadoop.security.SecurityUtil.doAsConfigUser(SecurityUtil.java:649)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+FAILED: ParseException line 2:0 cannot recognize input near '<EOF>' '<EOF>' '<EOF>'

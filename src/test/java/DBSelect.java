@@ -50,7 +50,7 @@ public class DBSelect {
 
     @Test
     @UseDataProvider("dataProviderDBSelect")
-    public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testDBSelect(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
         logger.info("DBSelect--> running testcase: " + id);

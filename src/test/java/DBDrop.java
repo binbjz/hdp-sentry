@@ -48,7 +48,7 @@ public class DBDrop {
 
     @Test
     @UseDataProvider("dataProviderDBDrop")
-    public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testDBDrop(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
         logger.info("DBDrop--> running testcase: " + id);

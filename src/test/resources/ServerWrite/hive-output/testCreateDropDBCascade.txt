@@ -1,0 +1,12 @@
+OK
+OK
+OK
+db2drop_cascade
+OK
+OK
+OK
+OK
+tbl4drop
+view4drop
+OK
+OK

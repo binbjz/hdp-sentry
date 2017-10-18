@@ -45,7 +45,7 @@ public class ServerCreate {
 
     @Test
     @UseDataProvider("dataProviderServerCreate")
-    public void testServerAll(String id, String tag, String desc, String sqlType, String sqlFile, String
+    public void testServerCreate(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
         logger.info("ServerCreate--> running testcase: " + id);
