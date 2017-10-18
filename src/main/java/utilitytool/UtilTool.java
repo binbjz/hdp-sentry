@@ -38,7 +38,7 @@ public class UtilTool {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
-        
+
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};
          String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
