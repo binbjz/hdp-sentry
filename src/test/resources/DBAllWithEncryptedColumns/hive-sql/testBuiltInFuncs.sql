@@ -1,3 +1,7 @@
+--encrypt_db4data.testbuiltinfuncs=col1,col2,col3
+--CREATE DATABASE encrypt_db4data;
+--DROP DATABASE encrypt_db4data;
+
 USE encrypt_db4data;
 CREATE TABLE IF NOT EXISTS testbuiltinfuncs (col1 STRING, col2 STRING, col3 STRING);
 INSERT INTO testbuiltinfuncs VALUES ('lower', 'ab', 'cd,ab,ef'), ('Mixed', 'ab,ef', 'cd,ab,ef'), ('UPPER', 'abc', 'cd,ab,ef');

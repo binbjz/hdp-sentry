@@ -1,19 +1,14 @@
+--CREATE DATABASE encrypt_db4drop_cascade;
+--DROP DATABASE encrypt_db4drop_cascade;
+--encrypt_db4drop_cascade.encrypt_tbl4drop=encrypt_id,encrypt_val
+
 USE encrypt_db4drop_cascade;
-DESCRIBE DATABASE EXTENDED encrypt_db4drop_cascade;
-ALTER DATABASE encrypt_db4drop_cascade SET DBPROPERTIES ('edited-by' = 'hadoop-new-qa');
-DESCRIBE DATABASE EXTENDED encrypt_db4drop_cascade;
+CREATE TABLE encrypt_tbl4drop (encrypt_id INT, encrypt_val STRING);
+CREATE VIEW AS encrypt_view4drop AS SELECT * FROM encrypt_db4drop_cascade.encrypt_tbl4drop;
 
-SELECT col1, col2 FROM encrypt_db4drop_cascade.encrypt_view1;
-SELECT col1 FROM encrypt_db4drop_cascade.encrypt_view2;
+SELECT * FROM encrypt_db4drop_cascade.encrypt_tbl4drop;
+SELECT * FROM encrypt_db4drop_cascade.encrypt_view4drop;
 
-SELECT encrypt_column FROM encrypt_tbl1;
-SELECT encrypt_column1, encrypt_column2 FROM encrypt_tbl2;
-SELECT col1, col2, encrypt_column FROM encrypt_db4drop_cascade.encrypt_view1;
-SELECT col1, encrypt_column1, encrypt_column2 FROM encrypt_db4drop_cascade.encrypt_view2;
-
-SHOW TABLES;
-DROP VIEW encrypt_db4drop_cascade.encrypt_view2;
-DROP TABLE encrypt_db4drop_cascade.encrypt_tbl2;
 SHOW TABLES;
 DROP DATABASE encrypt_db4drop_cascade CASCADE;
 SHOW DATABASES LIKE 'encrypt_db4drop_cascade';
