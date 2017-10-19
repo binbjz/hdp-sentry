@@ -40,6 +40,13 @@ case "$1" in
     export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
     export HADOOP_PROXY_USER=$PROXY_USER
     ;;
+"clean_proxy_user")
+    #proxy user
+    unset HADOOP_JAR_AUTHENTICATION
+    unset HADOOP_JAR_KERBEROS_KEYTAB_FILE
+    unset HADOOP_JAR_KERBEROS_PRINCIPAL
+    unset HADOOP_PROXY_USER
+    ;;
 "proxy_user_group")
     #role, group and privilege
     #export HADOOP_PROXY_USER=hadoop-qa/misid@group1,group2
