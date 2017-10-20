@@ -27,11 +27,11 @@ for tc in $sentry_tcs; do
     fi
 
     source $projectdir/src/main/resources/hive_env.sh proxy_user normal
-    /usr/bin/time -f "Time: %U" java -Djava.ext.dirs=${libdir} -cp ${projectdir}/target/classes:${projectdir}/target/test-classes org.junit.runner.JUnitCore ${tc}
+    java -Djava.ext.dirs=${libdir} -cp ${projectdir}/target/classes:${projectdir}/target/test-classes org.junit.runner.JUnitCore ${tc}
 
     if ! echo "$tc" | grep -qi "$exclude_tc"; then
         source $projectdir/src/main/resources/hive_env.sh proxy_user super
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $projectdir/src/test/resources/$tc/hive-sql/post{tc}.sql
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $projectdir/src/test/resources/$tc/hive-sql/post${tc}.sql
     fi
     source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     source $projectdir/src/main/resources/sentry_env.sh clean ${tc}
