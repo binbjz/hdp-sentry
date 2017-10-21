@@ -1,3 +1,5 @@
+--DROP TABLE testdb.supply;
+
 USE testdb;
 CREATE TABLE testdb.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
 ALTER TABLE testdb.supply ADD PARTITION (day = 20110102);
@@ -10,4 +12,3 @@ ALTER TABLE testdb.supply DROP PARTITION (day = 20110102);
 ALTER TABLE testdb.supply DROP PARTITION (day = 20110103);
 ALTER TABLE testdb.supply DROP PARTITION (day = 20110104);
 SHOW PARTITIONS testdb.supply;
-DROP TABLE testdb.supply;

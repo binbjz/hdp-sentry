@@ -1,3 +1,8 @@
+--DROP VIEW db4tbl.view2create;
+--DROP TABLE db4tbl.tbl2create;
+--DROP VIEW db4tbl.view4show;
+--DROP TABLE db4tbl.tbl4show;
+
 SHOW TABLES;
 CREATE TABLE db4tbl.tbl2create (col1 TINYINT, col2 SMALLINT);
 CREATE VIEW db4tbl.view2create AS SELECT col1, col2 FROM db4tbl.tbl4show;

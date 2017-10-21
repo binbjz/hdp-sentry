@@ -1,6 +1,6 @@
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
-LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_employees02
 PARTITION (country = 'US', state = 'CA');
 

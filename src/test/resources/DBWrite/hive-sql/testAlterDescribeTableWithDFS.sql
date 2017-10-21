@@ -1,3 +1,5 @@
+--DROP TABLE testdb.log_messages;
+
 USE testdb;
 CREATE TABLE IF NOT EXISTS testdb.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
@@ -22,5 +24,3 @@ DESC FORMATTED testdb.log_messages PARTITION (year = 2011, month = 1, day =2);
 --使用hadoop fs -rmr 命令删除分区的HDFS副本
 dfs -rm -r /user/hive/warehouse/testdb.db/log_messages;
 dfs -rm -r /user/hive/warehouse/testdb.db/log_messages_new;
-
-DROP TABLE testdb.log_messages;

@@ -1,3 +1,7 @@
+--CREATE DATABASE testdb;
+--DROP DATABASE testdb;
+--DROP TABLE testdb.test_msck;
+
 CREATE TABLE testdb.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
 -- 创建两个分区目录
 dfs -mkdir /user/hive/warehouse/testdb.db/test_msck/month=201603;

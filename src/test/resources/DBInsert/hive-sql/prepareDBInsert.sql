@@ -112,3 +112,6 @@ COMMENT 'Description of the table'
 PARTITIONED BY (country STRING, state STRING)
 LOCATION '/user/hive/warehouse/testdb.db/employees_props'
 TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');
+
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');

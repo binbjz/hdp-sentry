@@ -1,3 +1,6 @@
+--DROP TABLE testdb.partition_table001;
+--DROP TABLE testdb.partition_table002;
+
 CREATE TABLE testdb.partition_table001 (name STRING, ip STRING)
 PARTITIONED BY (dt STRING, ht STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
@@ -17,6 +20,3 @@ SELECT * FROM testdb.partition_table002;
 
 INSERT OVERWRITE TABLE testdb.partition_table002 PARTITION (dt='20150617', ht) SELECT name, ip, ht FROM testdb.partition_table001 WHERE dt='20150617' and ht='00' AND name='alibaba';
 SELECT * FROM testdb.partition_table002;
-
-DROP TABLE testdb.partition_table001;
-DROP TABLE testdb.partition_table002;

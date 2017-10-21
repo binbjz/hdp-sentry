@@ -39,9 +39,7 @@ IMPORT TABLE testdb.employees PARTITION (country = 'US', state = 'CA') FROM '/tm
 ALTER TABLE testdb.employees TOUCH;
 
 ALTER TABLE testdb.src_employees TOUCH PARTITION (country = 'US', state = 'CA') ;
-ALTER TABLE testdb.employees TOUCH PARTITION (country = 'US', state = 'CA') ;
-ALTER TABLE testdb.employees ADD PARTITION (country = 'CHN', state = 'BJ') ;
-ALTER TABLE testdb.employees TOUCH PARTITION (country = 'CHN', state = 'BJ') ;
+ALTER TABLE testdb.employees TOUCH PARTITION (country = 'US', state = 'CA');
 
 DESCRIBE testdb.employees PARTITION (country='US', state='CA');
 DESCRIBE EXTENDED testdb.employees PARTITION (country='US', state='CA');

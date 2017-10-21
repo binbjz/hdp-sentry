@@ -1,3 +1,6 @@
+--DROP TABLE testdb.session_test;
+--DROP TABLE testdb.sessionization_step_one_origins;
+
 CREATE TABLE testdb.session_test (
   st_user_id STRING
  ,st_pageview_id STRING
@@ -31,5 +34,4 @@ FROM (SELECT a.a_user_id as c_user_id
               ,a.a_timestamp) c;
 
 DESCRIBE testdb.sessionization_step_one_origins;
-DROP TABLE testdb.session_test;
-DROP TABLE testdb.sessionization_step_one_origins;
+
