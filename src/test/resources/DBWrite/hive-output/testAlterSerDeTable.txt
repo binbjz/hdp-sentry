@@ -1,5 +1,28 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_serde
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_serde
+OK
+OK
+OK
+OK
+CREATE TABLE `testdb.test_serde`(
+  `c0` string COMMENT 'from deserializer', 
+  `c1` string COMMENT 'from deserializer', 
+  `c2` string COMMENT 'from deserializer')
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.contrib.serde2.RegexSerDe' 
+WITH SERDEPROPERTIES ( 
+  'charset'='GBK', 
+  'input.regex'='bduid\\[(.*)\\]uid\\[(\\d+)\\]', 
+  'output.format.string'='%1$s\t%2$s') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_serde'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'last_modified_by'='hdp_qa', 
+  'numFiles'='0', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'totalSize'='0', 
 OK

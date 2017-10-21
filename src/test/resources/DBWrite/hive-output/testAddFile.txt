@@ -1,7 +1,27 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Line 2:116 Table not found 'whoyouare'
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'whoyouare'
+OK
+Loading data to table testdb.whoyouare
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/whoyouare' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK
+OK
+whoyouare.who
+Mr.A
+Miss.B
+Dr.C
 Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
 /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
-FAILED: SemanticException [Error 10001]: Line 2:60 Table not found 'whoyouare'
+Query ID = sankuai_20171020175522_8c0a8108-d354-4099-914d-24203cd5b53f
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_1741, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1741/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1741
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_1741
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.18 sec   HDFS Read: 3504 HDFS Write: 41 SUCCESS
 OK
+who
+Hello,  Mr.A
+Hello,  Miss.B
+Hello,  Dr.C
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

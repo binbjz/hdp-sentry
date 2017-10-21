@@ -1,3 +1,5 @@
+--DROP TABLE employees_props;
+
 USE testdb;
 CREATE TABLE IF NOT EXISTS employees_props (
   name  STRING COMMENT 'Employee name'
@@ -13,5 +15,3 @@ TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'=
 SHOW TBLPROPERTIES employees_props;
 SHOW COLUMNS IN testdb.employees_props;
 SHOW COLUMNS FROM testdb.employees_props;
-
-DROP TABLE employees_props;

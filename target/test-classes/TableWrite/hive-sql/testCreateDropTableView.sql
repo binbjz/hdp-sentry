@@ -1,3 +1,10 @@
+--DROP VIEW testdb.view2create;
+--DROP TABLE testdb.tbl2create;
+--DROP VIEW testdb.view4drop_no_r;
+--DROP TABLE testdb.tbl4drop_no_r;
+--DROP VIEW testdb.view4drop;
+--DROP TABLE testdb.tbl4drop;
+
 DESCRIBE testdb.tbl4drop;
 SHOW CREATE TABLE testdb.view4drop;
 SHOW TABLES LIKE '*4drop*';

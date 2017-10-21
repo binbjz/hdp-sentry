@@ -2,6 +2,7 @@
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
+
 CREATE TABLE encrypt_db4data.session_test (
   st_user_id STRING
  ,st_pageview_id STRING
@@ -32,6 +33,8 @@ FROM (SELECT a.a_user_id as c_user_id
       GROUP BY a.a_user_id
               ,a.a_pageview_id
               ,a.a_timestamp) c;
+
+SELECT COUNT(*) FROM encrypt_db4data.sessionization_step_one_origins_tgt_encrypted;
 
 DESCRIBE encrypt_db4data.sessionization_step_one_origins_tgt_encrypted;
 DROP TABLE encrypt_db4data.session_test;

@@ -1,3 +1,6 @@
+--DROP TABLE db4add.whoyouare;
+--DROP DATABASE db4add;
+
 DROP DATABASE IF EXISTS db4add CASCADE;
 CREATE DATABASE db4add;
 USE db4add;
@@ -12,5 +15,3 @@ SET hive.cli.print.header=true;
 SELECT TRANSFORM (who) USING 'sh test_who.sh' AS (who) FROM db4add.whoyouare;
 DELETE FILE ${hiveconf:FILEPATH}/test_who.sh;
 LIST FILE;
-DROP TABLE db4add.whoyouare;
-DROP DATABASE db4add;

@@ -1,4 +1,7 @@
-DROP DATABASE IF EXISTS db4alter CASCADE;
+--DROP DATABASE db4alter CASCADE;
+--DROP DATABASE IF EXISTS db4alter CASCADE;
+
+
 CREATE DATABASE db4alter WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 USE db4alter;
 CREATE TABLE test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
@@ -12,4 +15,4 @@ DESCRIBE test_tbl;
 ALTER TABLE test_tbl RENAME TO test_tbl_new;
 ALTER TABLE test_tbl_new SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
 DESCRIBE EXTENDED test_tbl_new;
-DROP DATABASE db4alter CASCADE;
+

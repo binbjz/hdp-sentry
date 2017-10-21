@@ -10,4 +10,6 @@ WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*
 ALTER TABLE encrypt_db4data.test_serde SET SERDEPROPERTIES ('charset' = 'GBK', 'input.regex'='bduid\\[(.*)\\]uid\\[(\\d+)\\]', 'output.format.string' = '%1$s\t%2$s');
 SHOW CREATE TABLE encrypt_db4data.test_serde;
 
+SELECT * FROM encrypt_db4data.test_serde
+
 DROP TABLE encrypt_db4data.test_serde;

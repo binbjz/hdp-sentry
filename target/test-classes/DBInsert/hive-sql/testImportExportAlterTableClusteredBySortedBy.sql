@@ -1,7 +1,4 @@
 USE testdb;
-ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
-
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 SELECT '${hiveconf:FILEPATH}';
 

@@ -38,7 +38,7 @@ OK
 new_col3to1         	int                 	put last column to position 1st
 new_col2            	string              	new column 2        
 new_col1to2         	int                 	put column1 to position 2nd
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. new table db4alter.test_tbl_new already exists
+OK
 OK
 OK
 COLUMN_STATS_ACCURATE	false

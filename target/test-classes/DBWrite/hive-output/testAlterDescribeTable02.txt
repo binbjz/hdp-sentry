@@ -1,5 +1,6 @@
 OK
 OK
+OK
 hms                 	int                 	                    
 severity            	string              	                    
 server              	string              	                    
@@ -19,7 +20,6 @@ day                 	int
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
 OK
 year=2011/month=1/day=1
-year=2011/month=1/day=2
 OK
 hms                 	int                 	                    
 severity            	string              	                    

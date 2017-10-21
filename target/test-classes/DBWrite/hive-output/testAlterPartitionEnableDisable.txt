@@ -1,13 +1,12 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
-FAILED: SemanticException [Error 10001]: Table not found log_messages
-FAILED: SemanticException [Error 10001]: Table not found testdb.log_messages
-FAILED: SemanticException [Error 10001]: Table not found log_messages
 OK
+OK
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@log_messages@year=2017/month=8/day=1
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@log_messages@year=2017/month=8/day=1
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

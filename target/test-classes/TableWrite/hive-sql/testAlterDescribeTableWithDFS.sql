@@ -1,3 +1,6 @@
+--DROP TABLE testdb.log_messages2;
+--dfs -rm -r /user/hive/warehouse/testdb.db/log_messages_new2;
+
 ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 1);
 ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 2);
 
@@ -20,6 +23,3 @@ ALTER TABLE testdb.log_messages2 SET LOCATION 'viewfs://hadoop-meituan-test/user
 DESC FORMATTED testdb.log_messages2;
 --使用hadoop fs -rmr 命令删除分区的HDFS副本：
 dfs -rm -r /user/hive/warehouse/testdb.db/log_messages2/year=2011/month=1/day=1;
-
-DROP TABLE testdb.log_messages2;
-dfs -rm -r /user/hive/warehouse/testdb.db/log_messages_new2;

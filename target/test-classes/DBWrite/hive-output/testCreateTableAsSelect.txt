@@ -1,6 +1,29 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
+OK
 FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found session_test
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: SemanticException [Error 10001]: Table not found testdb.sessionization_step_one_origins
+Query ID = sankuai_20171020175011_7d7f9abf-45f1-46a1-90eb-0d08f3ce6f3c
+Total jobs = 1
+Execution log at: /var/sankuai/logs/hive1.2/sankuai/hive.log
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_1730, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_1730/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_1730
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+Ended Job = job_1505297521386_1730
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/sessionization_step_one_origins
+MapReduce Jobs Launched: 
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 6.09 sec   HDFS Read: 16396 HDFS Write: 0 SUCCESS
 OK
 OK
+col_name	data_type	comment
+ssoo_user_id        	string              	                    
+ssoo_pageview_id    	string              	                    
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

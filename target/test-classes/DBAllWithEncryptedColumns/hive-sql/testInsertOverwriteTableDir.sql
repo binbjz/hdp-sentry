@@ -17,6 +17,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
+
 CREATE TABLE encrypt_db4data.encrypt_tgt_employees (
  encrypt_name STRING
 ,encrypt_salary FLOAT
@@ -29,9 +30,6 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE encrypt_db4data.encrypt_employees ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE encrypt_db4data.encrypt_employees ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE encrypt_db4data.encrypt_employees ADD PARTITION (country = 'US', state = 'IL');
 
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
@@ -42,13 +40,20 @@ ALTER TABLE encrypt_db4data.encrypt_tgt_employees ADD PARTITION (country = 'US',
 ALTER TABLE encrypt_db4data.encrypt_tgt_employees ADD PARTITION (country = 'US', state = 'IL');
 ALTER TABLE encrypt_db4data.encrypt_tgt_employees ADD PARTITION (country = 'US', state = 'CA');
 
+SET hive.exec.dynamic.partition.mode=nonstrict;
+SET hive.exec.dynamic.partition=true;
+
 FROM encrypt_db4data.encrypt_employees se
-INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'OR')
-SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'OR'
-INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'IL')
-SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'IL'
-INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'CA')
-SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'CA';
+INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country, state)
+SELECT * ;
+
+--FROM encrypt_db4data.encrypt_employees se
+--INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'OR')
+--SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'OR'
+--INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'IL')
+--SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'IL'
+--INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'CA')
+--SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'CA';
 
 SET hive.cli.print.header=true;
 SELECT * FROM encrypt_db4data.encrypt_tgt_employees;

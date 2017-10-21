@@ -1,3 +1,6 @@
+--DROP TABLE testdb.employees;
+--DROP TABLE testdb.src_employees;
+
 USE testdb;
 CREATE TABLE testdb.employees (
  name STRING
@@ -56,6 +59,3 @@ DESCRIBE EXTENDED testdb.employees PARTITION (country='US', state='CA');
 
 ALTER TABLE testdb.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
 dfs -rm -r /tmp/employee;
-
-DROP TABLE testdb.employees;
-DROP TABLE testdb.src_employees;

@@ -1,3 +1,9 @@
+--DROP TABLE testdb.whoyouare;
+--server=server1->db=testdb->table=whoyouare->action=alter
+--server=server1->db=testdb->table=whoyouare->action=create
+--server=server1->db=testdb->table=whoyouare->action=insert
+
+USE testdb;
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.whoyouare;
@@ -9,5 +15,3 @@ SET hive.cli.print.header=true;
 SELECT TRANSFORM (who) USING 'sh test_who.sh' AS (who) FROM testdb.whoyouare;
 DELETE FILE ${hiveconf:FILEPATH}/test_who.sh;
 LIST FILE;
-DROP TABLE testdb.whoyouare;
-

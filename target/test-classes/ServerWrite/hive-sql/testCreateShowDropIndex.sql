@@ -1,4 +1,10 @@
-DROP DATABASE IF EXISTS testdb CASCADE;
+--DROP INDEX IF EXISTS testdb.employees_index ON TABLE testdb.employees;
+--DROP TABLE testdb.employees;
+
+--DROP DATABASE testdb;
+--DROP DATABASE IF EXISTS testdb CASCADE;
+
+
 CREATE DATABASE testdb;
 CREATE TABLE testdb.employees (
    name STRING

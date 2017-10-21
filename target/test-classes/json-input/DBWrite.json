@@ -90,32 +90,32 @@
     ]
   },
   {
-    "id": "testAlterDescribeTable01",
+    "id": "testAlterChangeDescribeTable",
     "tag": "DB",
-    "desc": "The case will test AlterDescribeTable01.",
+    "desc": "The case will test AlterChangeDescribeTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.sql"
+        "name": "testAlterChangeDescribeTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.txt"
+        "name": "testAlterChangeDescribeTable.txt"
       }
     ]
   },
   {
-    "id": "testAlterDescribeTable02",
+    "id": "testAlterLocationFileformatDescribeTable",
     "tag": "DB",
-    "desc": "The case will test AlterDescribeTable02.",
+    "desc": "The case will test AlterLocationFileformatDescribeTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable02.sql"
+        "name": "testAlterLocationFileformatDescribeTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable02.txt"
+        "name": "testAlterLocationFileformatDescribeTable.txt"
       }
     ]
   },
@@ -210,32 +210,17 @@
     ]
   },
   {
-    "id": "testAddJarCreateTmpFunction",
+    "id": "testAddJarCreateFuncAndTmpFunc",
     "tag": "DB",
-    "desc": "The case will test AddJarCreateTmpFunction.",
+    "desc": "The case will test AddJarCreateFuncAndTmpFunc.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddJarCreateTmpFunction.sql"
+        "name": "testAddJarCreateFuncAndTmpFunc.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddJarCreateTmpFunction.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddJarCreateFunction",
-    "tag": "DB",
-    "desc": "The case will test AddJarCreateFunction.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFunction.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFunction.txt"
+        "name": "testAddJarCreateFuncAndTmpFunc.txt"
       }
     ]
   },

@@ -1,4 +1,9 @@
-DROP DATABASE IF EXISTS db4data CASCADE;
+--DROP TABLE db4data.src_employees;
+--DROP TABLE db4data.employees;
+
+--DROP DATABASE db4data;
+--DROP DATABASE IF EXISTS db4data CASCADE;
+
 CREATE DATABASE db4data;
 CREATE TABLE db4data.src_employees (
    name STRING
@@ -30,8 +35,8 @@ ALTER TABLE db4data.src_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE db4data.src_employees ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE db4data.src_employees ADD PARTITION (country = 'US', state = 'IL');
 
-
-LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE db4data.src_employees
 PARTITION (country = 'US', state = 'CA');
 
@@ -80,8 +85,3 @@ ANALYZE TABLE db4data.src_employees PARTITION (country = 'US', state)  COMPUTE S
 ANALYZE TABLE db4data.src_employees PARTITION (country, state) COMPUTE STATISTICS;
 DESCRIBE EXTENDED db4data.src_employees;
 DESCRIBE EXTENDED db4data.src_employees PARTITION (country = 'US', state = 'CA');
-
-DROP TABLE db4data.src_employees;
-DROP TABLE db4data.employees;
-
-DROP DATABASE db4data;
