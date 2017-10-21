@@ -32,16 +32,6 @@ public class DBInsert {
     @BeforeClass
     public static void setUp() {
         logger.info("setUp DBInsert......");
-
-        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " setup " + className;
-        String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        logger.info(UtilTool.arrToStr(sentryCmd));
-        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
-
-        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user " + "normal";
-        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
-        logger.info(UtilTool.arrToStr(hiveCmd));
-        logger.info("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
     }
 
 
@@ -82,10 +72,5 @@ public class DBInsert {
     @AfterClass
     public static void cleanUp() {
         logger.info("cleanUp DBInsert......");
-
-        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + " clean " + className;
-        String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        logger.info(UtilTool.arrToStr(sentryCmd));
-        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
     }
 }
