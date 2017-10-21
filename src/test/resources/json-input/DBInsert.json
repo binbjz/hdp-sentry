@@ -150,17 +150,17 @@
     ]
   },
   {
-    "id": "testAddJarCreateTmpFunction",
+    "id": "testAddJarCreateFuncAndTmpFunc",
     "tag": "DB",
-    "desc": "The case will test AddJarCreateTmpFunction.",
+    "desc": "The case will test AddJarCreateFuncAndTmpFunc.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddJarCreateTmpFunction.sql"
+        "name": "testAddJarCreateFuncAndTmpFunc.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddJarCreateTmpFunction.txt"
+        "name": "testAddJarCreateFuncAndTmpFunc.txt"
       }
     ]
   },
