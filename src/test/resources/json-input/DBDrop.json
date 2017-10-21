@@ -75,32 +75,17 @@
     ]
   },
   {
-    "id": "testAddrCreateTmpFunction",
+    "id": "testAddJarCreateFuncAndTmpFunc",
     "tag": "DB",
-    "desc": "The case will test AddrCreateTmpFunction.",
+    "desc": "The case will test AddJarCreateFuncAndTmpFunc.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddrCreateTmpFunction.sql"
+        "name": "testAddJarCreateFuncAndTmpFunc.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddrCreateTmpFunction.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddJarCreateFunction",
-    "tag": "DB",
-    "desc": "The case will test AddJarCreateFunction.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFunction.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFunction.txt"
+        "name": "testAddJarCreateFuncAndTmpFunc.txt"
       }
     ]
   },

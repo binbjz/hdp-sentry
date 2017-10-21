@@ -1,3 +1,6 @@
+--DROP TABLE testdb.src_employees;
+--DROP TABLE testdb.employees;
+
 USE testdb;
 ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'OR');
@@ -58,6 +61,3 @@ ANALYZE TABLE testdb.src_employees PARTITION (country, state) COMPUTE STATISTICS
 -- 查看分区的统计信息：
 DESCRIBE EXTENDED testdb.src_employees;
 DESCRIBE EXTENDED testdb.src_employees PARTITION (country = 'US', state = 'CA');
-
-DROP TABLE testdb.src_employees;
-DROP TABLE testdb.employees;
