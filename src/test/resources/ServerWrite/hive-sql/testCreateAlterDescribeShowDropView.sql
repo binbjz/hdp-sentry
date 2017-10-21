@@ -1,4 +1,8 @@
-DROP DATABASE IF EXISTS db4view CASCADE;
+--DROP VIEW test_view;
+--DROP TABLE test_tbl;
+--DROP DATABASE db4view;
+--DROP DATABASE IF EXISTS db4view CASCADE;
+
 CREATE DATABASE db4view WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 USE db4view;
 CREATE TABLE test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
@@ -9,4 +13,3 @@ SHOW CREATE TABLE test_view;
 DROP VIEW test_view;
 DROP TABLE test_tbl;
 SHOW TABLES;
-DROP DATABASE db4view;

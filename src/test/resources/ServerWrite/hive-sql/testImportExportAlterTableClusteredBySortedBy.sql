@@ -1,4 +1,10 @@
-DROP DATABASE IF EXISTS db4alter CASCADE;
+--DROP TABLE db4alter.employees;
+--DROP TABLE db4alter.src_employees;
+
+--DROP DATABASE db4alter CASCADE;
+
+--DROP DATABASE IF EXISTS db4alter CASCADE;
+
 CREATE DATABASE db4alter;
 
 CREATE TABLE db4alter.employees (
@@ -55,8 +61,3 @@ DESCRIBE EXTENDED db4alter.employees PARTITION (country='US', state='CA');
 
 ALTER TABLE db4alter.employees CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
 dfs -rm -r /tmp/employee;
-
-DROP TABLE db4alter.employees;
-DROP TABLE db4alter.src_employees;
-
-DROP DATABASE db4alter CASCADE;

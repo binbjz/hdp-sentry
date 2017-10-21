@@ -1,4 +1,8 @@
-DROP DATABASE IF EXISTS testdb CASCADE;
+--DROP INDEX IF EXISTS employees_bitmap_index ON TABLE employees;
+--DROP TABLE employees;
+--DROP DATABASE testdb;
+--DROP DATABASE IF EXISTS testdb CASCADE;
+
 CREATE DATABASE testdb;
 
 USE testdb;

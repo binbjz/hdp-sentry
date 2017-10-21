@@ -1,4 +1,6 @@
-DROP DATABASE IF EXISTS db4data CASCADE;
+--DROP DATABASE db4data CASCADE;
+--DROP DATABASE IF EXISTS db4data CASCADE;
+
 CREATE DATABASE db4data;
 CREATE TABLE db4data.session_test (
    st_user_id STRING
@@ -33,5 +35,3 @@ SET hive.cli.print.header=true;
 SELECT * FROM db4data.sessionization_step_one_origins;
 
 DESCRIBE db4data.sessionization_step_one_origins;
-
-DROP DATABASE db4data CASCADE;

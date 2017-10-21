@@ -1,4 +1,7 @@
-DROP DATABASE IF EXISTS db4properties CASCADE;
+--DROP DATABASE IF EXISTS db4properties CASCADE;
+--DROP TABLE employees_props;
+--DROP DATABASE db4properties;
+
 CREATE DATABASE db4properties;
 USE db4properties;
 CREATE TABLE IF NOT EXISTS employees_props (
@@ -15,6 +18,3 @@ TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'=
 SHOW TBLPROPERTIES employees_props;
 SHOW COLUMNS IN db4properties.employees_props;
 SHOW COLUMNS FROM db4properties.employees_props;
-
-DROP TABLE employees_props;
-DROP DATABASE db4properties;

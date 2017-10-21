@@ -1,4 +1,6 @@
-DROP DATABASE IF EXISTS testdb CASCADE;
+--DROP DATABASE testdb CASCADE;
+--DROP DATABASE IF EXISTS testdb CASCADE;
+
 CREATE DATABASE testdb;
 CREATE TABLE testdb.collecttest (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
@@ -11,4 +13,3 @@ SELECT str, concat_ws( ',' , collect_set(cast(countVal AS STRING))) as val FROM 
 SELECT str, count(*) as val FROM testdb.collecttest GROUP BY str;
 SELECT count(*) FROM testdb.collecttest;
 
-DROP DATABASE testdb CASCADE;

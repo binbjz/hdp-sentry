@@ -1,4 +1,8 @@
-DROP DATABASE IF EXISTS db4partition CASCADE;
+--DROP TABLE db4partition.partition_table001;
+--DROP TABLE db4partition.partition_table002;
+--DROP DATABASE db4partition;
+--DROP DATABASE IF EXISTS db4partition CASCADE;
+
 CREATE DATABASE db4partition;
 CREATE TABLE db4partition.partition_table001 (name STRING, ip STRING)
 PARTITIONED BY (dt STRING, ht STRING)
@@ -20,7 +24,3 @@ SELECT * FROM db4partition.partition_table002;
 
 INSERT OVERWRITE TABLE db4partition.partition_table002 PARTITION (dt='20150617', ht) SELECT name, ip, ht FROM db4partition.partition_table001 WHERE dt='20150617' and ht='00' AND name='alibaba';
 SELECT * FROM db4partition.partition_table002;
-
-DROP TABLE db4partition.partition_table001;
-DROP TABLE db4partition.partition_table002;
-DROP DATABASE db4partition;
