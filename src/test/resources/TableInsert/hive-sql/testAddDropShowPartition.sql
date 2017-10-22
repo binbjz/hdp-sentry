@@ -9,4 +9,3 @@ ALTER TABLE testdb.supply DROP PARTITION (day = 20110103);
 
 ALTER TABLE testdb.supply DROP PARTITION (day = 20110101);
 SHOW PARTITIONS testdb.supply;
-DROP TABLE testdb.supply;

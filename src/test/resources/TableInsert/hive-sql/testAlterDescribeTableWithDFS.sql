@@ -18,5 +18,4 @@ DESC FORMATTED testdb.log_messages2;
 
 dfs -rm -r /user/hive/warehouse/testdb.db/log_messages2;
 
-DROP TABLE testdb.log_messages2;
 dfs -rm -r /user/hive/warehouse/testdb.db/log_messages_new2;

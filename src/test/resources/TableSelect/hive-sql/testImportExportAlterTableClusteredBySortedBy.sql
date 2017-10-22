@@ -24,7 +24,3 @@ DESCRIBE EXTENDED testdb.employees02 PARTITION (country='US', state='CA');
 
 ALTER TABLE testdb.employees02 CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
 dfs -rm -r /tmp/employee;
-
-DROP TABLE testdb.employees02;
-DROP TABLE testdb.src_employees02;
-DROP TABLE testdb.src_employees022;

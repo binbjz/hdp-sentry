@@ -156,7 +156,7 @@
     "cases": [
       {
         "type": "file/sql",
-        "name": "test.sql"
+        "name": "testCreateAlterDescribeShowDropTableView.sql"
       },
       {
         "type": "file/sql",
@@ -221,6 +221,21 @@
       {
         "type": "file/sql",
         "name": "testImportExportAlterTableClusteredBySortedBy.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteDir",
+    "tag": "Server",
+    "desc": "The case will test testInsertOverwriteDir.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteDir.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteDir.txt"
       }
     ]
   },

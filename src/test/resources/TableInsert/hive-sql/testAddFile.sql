@@ -9,5 +9,3 @@ SET hive.cli.print.header=true;
 SELECT TRANSFORM (who) USING 'sh test_who.sh' AS (who) FROM testdb.whoyouare;
 DELETE FILE ${hiveconf:FILEPATH}/test_who.sh;
 LIST FILE;
-DROP TABLE testdb.whoyouare;
-

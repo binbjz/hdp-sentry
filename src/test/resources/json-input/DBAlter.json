@@ -74,17 +74,17 @@
     ]
   },
   {
-    "id": "testCreateDescribeDB.sql",
+    "id": "testCreateDescribeDB",
     "tag": "DB",
     "desc": "The case will test CreateDescribeDB.sql.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDescribeDB.sql.sql"
+        "name": "testCreateDescribeDB.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDescribeDB.sql.txt"
+        "name": "testCreateDescribeDB.txt"
       }
     ]
   },
