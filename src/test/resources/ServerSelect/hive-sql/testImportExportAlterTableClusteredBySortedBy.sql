@@ -1,30 +1,6 @@
 USE testdb;
 
-CREATE TABLE testdb.employees (
-  name STRING
- ,salary FLOAT
- ,subordinates ARRAY<STRING>
- ,deductions MAP<STRING, FLOAT>
- ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-COLLECTIONS ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-
-CREATE TABLE testdb.src_employees (
-  name STRING
- ,salary FLOAT
- ,subordinates ARRAY<STRING>
- ,deductions MAP<STRING, FLOAT>
- ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
-
-ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
+--ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
 
 SET FILEPATH=/opt/meituan/qa_test/testfile;

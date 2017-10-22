@@ -1,4 +1,4 @@
-USE db4tbl;
+nnnnm/USE db4tbl;
 SHOW TABLES;
 CREATE TABLE db4tbl.tbl2create (col1 TINYINT, col2 SMALLINT);
 CREATE VIEW db4tbl.view2create AS SELECT col1, col2 FROM db4tbl.tbl4show;
