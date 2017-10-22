@@ -16,6 +16,3 @@ SELECT * FROM testdb.partition_table002;
 TRUNCATE TABLE testdb.partition_table002;
 INSERT INTO TABLE testdb.partition_table002 PARTITION (dt='20150617', ht='00') SELECT name, ip FROM testdb.partition_table001 WHERE dt='20150617' and ht='00' AND name='baidu';
 SELECT * FROM testdb.partition_table002;
-
-DROP TABLE testdb.partition_table001;
-DROP TABLE testdb.partition_table002;

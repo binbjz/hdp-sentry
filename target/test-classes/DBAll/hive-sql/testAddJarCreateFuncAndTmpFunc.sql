@@ -9,7 +9,6 @@ INSERT INTO teacher VALUES ('TEACHER QA');
 SELECT tmp_qa_lower(name) as name FROM teacher;
 SELECT qa_lower(name) as name FROM teacher;
 SHOW FUNCTIONS LIKE '*qa_lower';
-SHOW FUNCTIONS LIKE '*qa_lower';
 DROP TABLE teacher;
 DROP FUNCTION qa_lower;
 SHOW FUNCTIONS LIKE '*qa_lower';

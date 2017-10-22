@@ -12,5 +12,3 @@ ALTER TABLE testdb.test_enable_disable DROP PARTITION (year = 2017, month = 8, d
 
 ALTER TABLE testdb.test_enable_disable PARTITION(year = 2017, month = 8, day = 1) DISABLE OFFLINE;
 ALTER TABLE testdb.test_enable_disable DROP PARTITION (year = 2017, month = 8, day = 1);
-
-DROP TABLE testdb.test_enable_disable;

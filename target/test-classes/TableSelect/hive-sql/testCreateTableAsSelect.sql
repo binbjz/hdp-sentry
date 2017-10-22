@@ -23,5 +23,3 @@ FROM (SELECT a.a_user_id as c_user_id
 
 DESCRIBE testdb.sessionization_step_one_origins;
 SELECT * FROM testdb.sessionization_step_one_origins;
-DROP TABLE testdb.session_test;
-DROP TABLE testdb.sessionization_step_one_origins;

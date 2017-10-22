@@ -6,6 +6,10 @@ CREATE TABLE db4alter.test_serde_partition (c0 string, c1 string, c2 string) PAR
 ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 
+CREATE DATABASE db4tbl;
+CREATE TABLE db4tbl.tbl4show (id INT, val STRING);
+CREATE VIEW db4tbl.view4show AS SELECT id, val FROM db4tbl.tbl4show;
+
 CREATE DATABASE db4alter2;
 CREATE DATABASE db4show;
 CREATE TABLE IF NOT EXISTS db4alter2.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
@@ -62,7 +66,7 @@ CREATE TABLE testdb.employees (
 ,deductions MAP<STRING, FLOAT>
 ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
@@ -115,3 +119,8 @@ TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'=
 
 ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.employees ADD PARTITION (country = 'US', state = 'CA');
+
+ALTER TABLE testdb.log_messages ADD PARTITION (year = 2017, month = 8, day = 1);
+ALTER TABLE testdb.log_messages ADD PARTITION (year = 2017, month = 8, day = 2);
+
+ALTER TABLE db4alter.test_serde ADD PARTITION (col10='abc', col20='123');

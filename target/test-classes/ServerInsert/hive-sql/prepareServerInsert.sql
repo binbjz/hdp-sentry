@@ -93,7 +93,7 @@ CREATE TABLE testdb.employees02 (
  ,deductions MAP<STRING, FLOAT>
  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTIONS ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
@@ -130,3 +130,7 @@ ALTER TABLE db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 1
 ALTER TABLE db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 2);
 CREATE DATABASE db4msck;
 CREATE TABLE db4msck.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
+
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'IL');

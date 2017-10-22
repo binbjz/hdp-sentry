@@ -40,6 +40,7 @@ DROP DATABASE db4tbl;
 
 DROP TABLE db4alter.log_messages;
 DROP TABLE db4alter.log_messages_external;
+DROP TABLE db4alter.test_tbl_new;
 DROP DATABASE db4alter;
 
 

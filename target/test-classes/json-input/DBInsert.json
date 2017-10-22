@@ -165,21 +165,6 @@
     ]
   },
   {
-    "id": "testAddJarCreateFunction",
-    "tag": "DB",
-    "desc": "The case will test AddJarCreateFunction.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFunction.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFunction.txt"
-      }
-    ]
-  },
-  {
     "id": "testAddFile",
     "tag": "DB",
     "desc": "The case will test AddFile.",

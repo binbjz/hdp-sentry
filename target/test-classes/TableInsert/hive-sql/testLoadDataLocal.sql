@@ -7,5 +7,3 @@ SELECT str, concat_ws( ',' , collect_set(cast(countVal AS STRING))) FROM testdb.
 SELECT str, count(*) as val FROM testdb.collecttest GROUP BY str;
 
 SELECT count(*) FROM testdb.collecttest;
-
-DROP TABLE testdb.collecttest;

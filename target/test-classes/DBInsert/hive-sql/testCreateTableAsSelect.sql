@@ -10,10 +10,10 @@ FROM (SELECT a.a_user_id as c_user_id
       FROM (SELECT st_user_id as a_user_id
                   ,st_pageview_id as a_pageview_id
                   ,st_timestamp as a_timestamp
-            FROM testdb.session_test ) a
+            FROM db4query.session_test ) a
          JOIN (SELECT st_user_id as b_user_id
                      ,st_timestamp as b_timestamp
-               FROM testdb.session_test ) b
+               FROM db4query.session_test ) b
            ON a.a_user_id = b.b_user_id
       GROUP BY a.a_user_id
               ,a.a_pageview_id
