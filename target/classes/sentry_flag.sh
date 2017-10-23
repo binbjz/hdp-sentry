@@ -5,8 +5,13 @@
 #
 
 privil_type=proxy_user
-sentry_f=SentryFlag
 projectdir=/opt/meituan/qa_test/sentry-test
+
+declare -A sentry_priv sentry_f
+sentry_priv[table]="SentryFlagTable"
+sentry_priv[db]="SentryFlagDB"
+sentry_f[table]="table"
+sentry_f[db]="db"
 
 # 1. Check server all with table select
 # Check sentry flag with temp sql
@@ -27,26 +32,23 @@ EOF
 
 # Check sentry flag status
 check_sentry_flag_status(){
-    for sf in $sentry_f; do
-        source $projectdir/src/main/resources/sentry_env.sh setup ${sf}
-        source $projectdir/src/main/resources/hive_env.sh $privil_type super
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${1}.sql
+    source $projectdir/src/main/resources/sentry_env.sh setup ${1}
+    source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${2}.sql
 
-        source $projectdir/src/main/resources/sentry_env.sh check ${sf} > $$_${1}.txt 2>&1
-        result=`grep "${sentry_privileges[SentryFlag]}" $$_${1}.txt`
-        [[ -n $result ]] && sentry_flag=flase || sentry_flag=true
-        echo -e "`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag: $sentry_flag\n"
+    source $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
+    result=`grep "${sentry_privileges[SentryFlag]}" $$_${2}.txt`
+    [[ -n $result ]] && sentry_flag=flase || sentry_flag=true
+    echo -e "`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag: $sentry_flag\n"
 
-        if [[ $privil_type = "proxy_user" ]]; then
-            source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
-        fi
+    if [[ $privil_type = "proxy_user" ]]; then
+        source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
+    fi
 
-        source $projectdir/src/main/resources/sentry_env.sh clean ${sf} > /dev/null 2>&1
-    done
-
+    source $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
     # Clean sentry flag temp env
-    rm -rf $$_${1}.sql $$_${1}.txt
+    rm -rf $$_${2}.sql $$_${2}.txt
 }
 
-flag_list="table db"
-for i in $flag_list;do check_sentry_flag_status $i;done
+check_sentry_flag_status ${sentry_priv[table]} ${sentry_f[table]}
+check_sentry_flag_status ${sentry_priv[db]} ${sentry_f[db]}

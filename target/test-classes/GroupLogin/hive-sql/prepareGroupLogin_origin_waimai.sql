@@ -1,54 +1,24 @@
-CREATE  TABLE `ba_ups.mt_dp_uid_mapping_new`(
- `mt_uid` bigint COMMENT '美团userid',
- `dp_uid` bigint COMMENT '点评userid',
- `mobile` bigint COMMENT '对应手机号')
-COMMENT '通过手机号关联的美团点评uid映射表'
-ROW FORMAT SERDE
- 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
-WITH SERDEPROPERTIES (
- 'field.delim'='\t',
- 'line.delim'='\n',
- 'serialization.format'='\t')
-STORED AS INPUTFORMAT
- 'org.apache.hadoop.mapred.TextInputFormat'
-OUTPUTFORMAT
- 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
- 'viewfs://hadoop-meituan/nn07/warehouse/ba_ups.db/mt_dp_uid_mapping_new'
-TBLPROPERTIES (
- 'numFiles'='100',
- 'last_modified_by'='hadoop-proj-ups',
- 'last_modified_time'='1484033177',
- 'transient_lastDdlTime'='1508260134',
- 'COLUMN_STATS_ACCURATE'='false',
- 'totalSize'='15686459084',
- 'numRows'='-1',
- 'rawDataSize'='-1');
-
-
 CREATE VIEW `origin_waimai.waimai_cos__wm_employ` AS select `employ_encrypted`.`uid`,
       `employ_encrypted`.`mis_id`,
       `employ_encrypted`.`name`,
       `employ_encrypted`.`email`,
-      `employ_encrypted`.`mobile`,   -- ?????
+      `employ_encrypted`.`mobile`,
       `employ_encrypted`.`pos_id`,
       `employ_encrypted`.`wm_pos_name`,   -- (DM / CM / BDM / BD)
-      `employ_encrypted`.`pos_name`,   -- ???
-      `employ_encrypted`.`city_id`,   -- ????ID
-      `employ_encrypted`.`org_id`,   --  ?????ID
-      `employ_encrypted`.`wm_org_city_id`,   -- ????ID (??????0)
-      `employ_encrypted`.`leader_uid`,   -- ?????UID
+      `employ_encrypted`.`pos_name`,
+      `employ_encrypted`.`city_id`,
+      `employ_encrypted`.`org_id`,
+      `employ_encrypted`.`wm_org_city_id`,
+      `employ_encrypted`.`leader_uid`,
       `employ_encrypted`.`ctime`,
       `employ_encrypted`.`utime`,
-      `employ_encrypted`.`valid`,   -- ?????0???1??
-      `employ_encrypted`.`role`,   -- ????????1:?????,2:??????,3:???????,4:?????,5:??, 0:??(???????BD)?-1:????????????BD???????????????????????????
-      `employ_encrypted`.`res_ids`,   -- ????ID???????????????1???ID????2????ID????0?5??
-      `employ_encrypted`.`hq_types`,   -- ?????0=????1=??
-      `employ_encrypted`.`_update_timestamp`   -- ????
- from `mart_wmorg`.`employ_encrypted`
-Time taken: 0.144 seconds, Fetched: 20 row(s)
-hive> show create table origin_waimai.waimai_safe_order;
-OK
+      `employ_encrypted`.`valid`,
+      `employ_encrypted`.`role`,
+      `employ_encrypted`.`res_ids`,
+      `employ_encrypted`.`hq_types`,
+      `employ_encrypted`.`_update_timestamp`
+ from `mart_wmorg`.`employ_encrypted`;
+
 CREATE VIEW `origin_waimai.waimai_safe_order` AS select
 
    `waimai_order_shard__wm`.`wm_order_id_hash`,
@@ -130,5 +100,4 @@ CREATE VIEW `origin_waimai.waimai_safe_order` AS select
    `waimai_order_shard__wm`.`category`,
    `waimai_order_shard__wm`.`config_id`,
    `waimai_order_shard__wm`.`apply_part_refund`
-from `origindb`.`waimai_order_shard__wm`
-Time taken: 0.152 seconds, Fetched: 82 row(s)
+from `origindb`.`waimai_order_shard__wm`;
