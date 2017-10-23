@@ -1,0 +1,4 @@
+SHOW DATABASES LIKE 'origin_waimai';
+DROP DATABASE origin_waimai CASCADE;
+DROP DATABASE dim CASCADE;
+SHOW DATABASES LIKE 'origin_waimai';

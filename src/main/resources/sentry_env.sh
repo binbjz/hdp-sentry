@@ -25,7 +25,8 @@ declare -A sentry_privileges
 
 ##============
 # It will be used to check sentry flag value with true or false
-sentry_privileges[SentryFlag]="server=server1->db=testdb->table=test_sentry_flag->action=select"
+sentry_privileges[SentryFlagTable]="server=server1->db=testdb->table=test_sentry_flag->action=select"
+sentry_privileges[SentryFlagDB]="server=server1->db=testdb->action=select"
 
 # It will be used to setup and clean privilege with highest privilege
 sentry_privileges[SuperPrivil]="server=server1->action=all,server=server1->db=encrypt_db4tbl->table=tbl4show->column=encrypt_column->action=all"
@@ -398,8 +399,10 @@ sentry_privileges[GROUP_4]="server=server1->db=ba_ups->action=select,server=serv
 
 ##============
 # Sentry Flag
-if [[ "$2" == "SentryFlag" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlag]}"`
+if [[ "$2" == "SentryFlagTable" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagTable]}"`
+elif [[ "$2" == "SentryFlagDB" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagDB]}"`
 
 # Super Privilege
 elif [[ "$2" == "SuperPrivil" ]]; then
