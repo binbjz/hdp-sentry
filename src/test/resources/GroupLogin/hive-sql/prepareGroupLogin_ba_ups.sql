@@ -14,7 +14,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn07/warehouse/ba_ups.db/mt_dp_uid_mapping_new'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/ba_ups.db/mt_dp_uid_mapping_new'
 TBLPROPERTIES (
  'numFiles'='100',
  'last_modified_by'='hadoop-proj-ups',

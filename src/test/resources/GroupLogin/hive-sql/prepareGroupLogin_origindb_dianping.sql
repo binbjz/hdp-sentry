@@ -34,7 +34,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn01/warehouse/origin_dianping.db/dpmid_ugcreview_basereview'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/origin_dianping.db/dpmid_ugcreview_basereview'
 TBLPROPERTIES (
  'numPartitions'='0', 
  'numFiles'='32', 

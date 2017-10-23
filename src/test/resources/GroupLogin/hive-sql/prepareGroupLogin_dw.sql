@@ -34,7 +34,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn19/warehouse/dw.db/dim_employee'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/dw.db/dim_employee'
 TBLPROPERTIES (
  'numFiles'='4',
  'last_modified_by'='hadoop-data',

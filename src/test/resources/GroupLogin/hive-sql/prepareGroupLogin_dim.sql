@@ -22,7 +22,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn01/warehouse/dim.db/ndm_user'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/dim.db/ndm_user'
 TBLPROPERTIES (
  'numFiles'='163',
  'last_modified_by'='hadoop-data',
@@ -51,7 +51,7 @@ VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-
 
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
-CREATE TABLE collecttest (str STRING, countVal INT)
+CREATE TABLE dim.collecttest (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE collecttest;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
