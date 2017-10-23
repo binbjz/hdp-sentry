@@ -2,7 +2,7 @@
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
-
+USE encrypt_db4data;
 CREATE TABLE encrypt_db4data.session_test (
   st_user_id STRING
  ,st_pageview_id STRING
@@ -15,9 +15,9 @@ SET hive.cli.print.header=true;
 
 CREATE TABLE encrypt_db4data.sessionization_step_one_origins_tgt_encrypted
 AS
-SELECT c.c_user_id as ssoo_user_id
-      ,c.c_pageview_id as ssoo_pageview_id
-      ,c.c_timestamp as ssoo_timestamp
+SELECT c.c_user_id as encrypt_ssoo_user_id
+      ,c.c_pageview_id as encrypt_ssoo_pageview_id
+      ,c.c_timestamp as encrypt_ssoo_timestamp
 FROM (SELECT a.a_user_id as c_user_id
             ,a.a_pageview_id as c_pageview_id
             ,a.a_timestamp as c_timestamp

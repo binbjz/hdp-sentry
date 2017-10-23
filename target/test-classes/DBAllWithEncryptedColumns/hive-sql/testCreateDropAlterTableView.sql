@@ -1,6 +1,6 @@
 --encrypt_db4tbl.tbl4view=encrypt_c0,encrypt_c1,encrypt_c2
---CREATE DATABASE encrypt_db4alter;
---DROP DATABASE encrypt_db4alter;
+--CREATE DATABASE encrypt_db4tbl;
+--DROP DATABASE encrypt_db4tbl;
 
 USE encrypt_db4tbl;
 
