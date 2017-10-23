@@ -1,7 +1,7 @@
 #!/bin/bash
 #filename: sentry_flag.sh
 #
-#The script will check sentry flag and run sentry test
+#The script will check sentry flag status (true|false)
 #
 
 privil_type=proxy_user
@@ -10,30 +10,43 @@ projectdir=/opt/meituan/qa_test/sentry-test
 
 # 1. Check server all with table select
 # Check sentry flag with temp sql
-cat <<- EOF > $$.sql
+cat <<- EOF > $$_table.sql
 CREATE DATABASE IF NOT EXISTS testdb;
 USE testdb;
 CREATE TABLE test_sentry_flag(id STRING);
 DROP TABLE test_sentry_flag;
 EOF
 
+# 2. Check server all with db select
+# Check sentry flag with temp sql
+cat <<- EOF > $$_db.sql
+CREATE DATABASE IF NOT EXISTS testdb;
+USE testdb;
+DROP database testdb;
+EOF
+
 # Check sentry flag status
-for sf in $sentry_f; do
-    source $projectdir/src/main/resources/sentry_env.sh setup ${sf}
-    source $projectdir/src/main/resources/hive_env.sh $privil_type super
-    $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$.sql
+check_sentry_flag_status(){
+    for sf in $sentry_f; do
+        source $projectdir/src/main/resources/sentry_env.sh setup ${sf}
+        source $projectdir/src/main/resources/hive_env.sh $privil_type super
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${1}.sql
 
-    source $projectdir/src/main/resources/sentry_env.sh check ${sf} > $$.txt 2>&1
-    result=`grep "${sentry_privileges[SentryFlag]}" $$.txt`
-    [[ -n $result ]] && sentry_flag=flase || sentry_flag=true
-    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag:" $sentry_flag
+        source $projectdir/src/main/resources/sentry_env.sh check ${sf} > $$_${1}.txt 2>&1
+        result=`grep "${sentry_privileges[SentryFlag]}" $$_${1}.txt`
+        [[ -n $result ]] && sentry_flag=flase || sentry_flag=true
+        echo -e "`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag: $sentry_flag\n"
 
-    if [[ $privil_type = "proxy_user" ]]; then
-        source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
-    fi
+        if [[ $privil_type = "proxy_user" ]]; then
+            source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
+        fi
 
-    source $projectdir/src/main/resources/sentry_env.sh clean ${sf} > /dev/null 2>&1
-done
+        source $projectdir/src/main/resources/sentry_env.sh clean ${sf} > /dev/null 2>&1
+    done
 
-# Clean sentry flag temp env
-rm -rf $$.sql $$.txt
+    # Clean sentry flag temp env
+    rm -rf $$_${1}.sql $$_${1}.txt
+}
+
+flag_list="table db"
+for i in $flag_list;do check_sentry_flag_status $i;done
