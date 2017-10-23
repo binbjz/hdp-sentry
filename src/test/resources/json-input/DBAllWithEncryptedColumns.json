@@ -435,17 +435,17 @@
     ]
   },
   {
-    "id": "Transform",
+    "id": "testTransform",
     "tag": "Server",
     "desc": "The case will test Transform.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "Transform.sql"
+        "name": "testTransform.sql"
       },
       {
         "type": "file/sql",
-        "name": "Transform.txt"
+        "name": "testTransform.txt"
       }
     ]
   }
