@@ -47,4 +47,5 @@ for tc in $sentry_tcs; do
     source $projectdir/src/main/resources/sentry_env.sh clean ${tc}
 done
 
+# Cleanup super privilege
 source $projectdir/src/main/resources/sentry_env.sh clean SuperPrivil
