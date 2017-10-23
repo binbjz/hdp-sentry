@@ -1,0 +1,10 @@
+CREATE DATABASE ba_ups;
+CREATE DATABASE dim;
+CREATE DATABASE dw;
+CREATE DATABASE mart_waimai;
+CREATE DATABASE mart_waimai_crm;
+CREATE DATABASE mart_wmorg;
+CREATE DATABASE origin_waimai;
+CREATE DATABASE origindb;
+CREATE DATABASE origindb_delta;
+CREATE DATABASE origin_dianping;
