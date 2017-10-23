@@ -1,6 +1,7 @@
 #!/bin/bash
 #filename: run_sentry_tcs.sh
 #
+#The script will run sentry test
 #/usr/bin/time -f "Time: %U" bash run_sentry_tcs.sh
 #
 
@@ -10,6 +11,7 @@ exclude_tc="ServerAll|ServerWrite"
 projectdir=/opt/meituan/qa_test/sentry-test
 libdir=/opt/meituan/qa_test/data_bin
 
+# Check project directory
 if [ ! -d "$projectdir" ]; then
     echo "$projectdir is not a directory."
     exit $E_BADDIR
@@ -18,7 +20,11 @@ fi
 cd $projectdir
 source $projectdir/src/main/resources/sentry_env.sh setup SuperPrivil
 
-sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite"
+# Check sentry flag
+source $projectdir/src/main/resources/sentry_flag.sh
+
+# Run sentry test
+sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns"
 
 for tc in $sentry_tcs; do
     source $projectdir/src/main/resources/sentry_env.sh setup ${tc}
