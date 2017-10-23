@@ -32,32 +32,6 @@ ALTER TABLE encrypt_db4data.test_clusteredby CLUSTERED BY (encrypt_name, encrypt
 
 DROP TABLE encrypt_db4data.test_clusteredby;
 
---encrypt_db4alter.test_partition=encrypt_id,encrypt_part,encrypt_quantity
---encrypt_db4alter.test_enable_disable_partition=encrypt_hms,encrypt_severity,encrypt_server,encrypt_process_id,encrypt_message
---encrypt_db4alter.tbl4addcolumn=encrypt_col1,encrypt_col2,encrypt_col3
---encrypt_db4alter.tbl4change=encrypt_col1,encrypt_col2,encrypt_col3
---encrypt_db4alter.test_enable_disable=encrypt_hms,encrypt_severity,encrypt_server,encrypt_process_id,encrypt_message
---encrypt_db4alter.tbl4rename=encrypt_col1,encrypt_col2,encrypt_col3
---encrypt_db4alter.tbl4replace=encrypt_col1,encrypt_col2,encrypt_col3
---encrypt_db4alter.tbl4fileformat=encrypt_hms,encrypt_severity,encrypt_server,encrypt_process_id,encrypt_message
---encrypt_db4alter.tbl4fileformat_external=encrypt_hms,encrypt_severity,encrypt_server,encrypt_process_id,encrypt_message
---encrypt_db4data.test_clusteredby=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
 
---encrypt_db4data.test_serde_partition=encrypt_c0,encrypt_c1,encrypt_c2
---encrypt_db4data.test_serde=encrypt_c0,encrypt_c1,encrypt_c2
 
---CREATE DATABASE encrypt_db4alter;
---DROP DATABASE encrypt_db4alter;
---CREATE DATABASE encrypt_db4data;
---DROP DATABASE encrypt_db4data;
---encrypt_db4data.encrypt_test_analyze=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
---CREATE DATABASE encrypt_db4data;
---DROP DATABASE encrypt_db4data;
---encrypt_db4data.tbl4builtinfuncs=col1,col2,col3
---CREATE DATABASE encrypt_db4data;
---DROP DATABASE encrypt_db4data;
-
---encrypt_db4tbl.tbl4view=encrypt_c0,encrypt_c1,encrypt_c2
---CREATE DATABASE encrypt_db4alter;
---DROP DATABASE encrypt_db4alter;
 
