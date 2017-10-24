@@ -16,7 +16,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn01/warehouse/mart_waimai_crm.db/topic_dt_check_list__poiaor_aortype_audit'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai_crm.db/topic_dt_check_list__poiaor_aortype_audit'
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimaiaudit',
  'last_modified_time'='1505294937',
@@ -47,7 +47,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn01/warehouse/mart_waimai_crm.db/topic_dt_aor__b_order_amount_audit'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai_crm.db/topic_dt_aor__b_order_amount_audit'
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimaiuser',
  'last_modified_time'='1482992564',

@@ -31,6 +31,6 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/hive-ods/origindb_delta.db/waimai_money_exchange__wm_exchange_flow'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/origindb_delta.db/waimai_money_exchange__wm_exchange_flow'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1507688631');

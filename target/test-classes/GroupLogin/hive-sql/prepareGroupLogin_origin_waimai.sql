@@ -20,7 +20,6 @@ CREATE VIEW `origin_waimai.waimai_cos__wm_employ` AS select `employ_encrypted`.`
  from `mart_wmorg`.`employ_encrypted`;
 
 CREATE VIEW `origin_waimai.waimai_safe_order` AS select
-
    `waimai_order_shard__wm`.`wm_order_id_hash`,
    `waimai_order_shard__wm`.`wm_order_id_view`,
    `waimai_order_shard__wm`.`wm_poi_order_dayseq`,

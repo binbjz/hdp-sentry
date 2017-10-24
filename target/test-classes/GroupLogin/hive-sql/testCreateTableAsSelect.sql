@@ -1,5 +1,6 @@
 SET hive.cli.print.header=true;
 
+USE dim;
 CREATE  TABLE dim.ndm_user_new(
 AS
 SELECT
@@ -18,6 +19,7 @@ FROM dim.ndm_user;
 
 SELECT * FROM dim.ndm_user_new;
 
+USE mart_waimai;
 CREATE  TABLE mart_waimai.ndm_user_new(
 AS
 SELECT

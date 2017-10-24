@@ -26,7 +26,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn11/warehouse/mart_wmorg.db/employ_encrypted'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_wmorg.db/employ_encrypted'
 TBLPROPERTIES (
  'numFiles'='1',
  'COLUMN_STATS_ACCURATE'='false',

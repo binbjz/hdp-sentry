@@ -17,7 +17,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn23/warehouse/mart_waimai.db/dim_act_type'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_act_type'
 TBLPROPERTIES (
  'numFiles'='1',
  'last_modified_by'='hadoop-waimai',
@@ -47,7 +47,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn23/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1482166667');
 
@@ -80,7 +80,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn23/warehouse/mart_waimai.db/dim_ad_cpc_activity'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity'
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimai',
  'last_modified_time'='1484568134',
@@ -108,7 +108,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn23/warehouse/mart_waimai.db/dim_aor_ord_price_level_his'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_aor_ord_price_level_his'
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimai',
  'last_modified_time'='1488572832',
@@ -127,7 +127,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn23/warehouse/mart_waimai.db/cis_mappoi_in_aor'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/cis_mappoi_in_aor'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1437472165');
 
@@ -143,18 +143,87 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
- 'viewfs://hadoop-meituan/nn23/warehouse/mart_waimai.db/cis_mappoi_in_sp_area'
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/cis_mappoi_in_sp_area'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1437070163');
 
 CREATE TABLE mart_waimai.table001 (name STRING, ip STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
-CREATE TABLE IF NOT EXISTS mart_waimai.table002 LIKE testdb.table001;
+CREATE TABLE IF NOT EXISTS mart_waimai.table002 LIKE mart_waimai.table001;
 
 CREATE TABLE mart_waimai.partition_table001 (name STRING, ip STRING)
 PARTITIONED BY (dt STRING, ht STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
-CREATE TABLE IF NOT EXISTS mart_waimai.partition_table002 LIKE testdb.partition_table001;
+CREATE TABLE IF NOT EXISTS mart_waimai.partition_table002 LIKE mart_waimai.partition_table001;
 
+CREATE TABLE mart_waimai.collecttest (str STRING, countVal INT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+
+CREATE TABLE mart_waimai.test_replace_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+
+CREATE TABLE mart_waimai.test_rename (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+
+CREATE TABLE IF NOT EXISTS mart_waimai.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+CREATE TABLE IF NOT EXISTS mart_waimai.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+CREATE TABLE mart_waimai.test_change (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+
+CREATE TABLE mart_waimai.test_add_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+
+CREATE TABLE IF NOT EXISTS mart_waimai.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS mart_waimai.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+CREATE TABLE mart_waimai.employees_import_export (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE mart_waimai.src_employees_import_export (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE mart_waimai.src_employees_insert_overwrite (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE mart_waimai.employees_insert_overwrite (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
