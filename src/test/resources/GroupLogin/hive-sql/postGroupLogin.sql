@@ -8,18 +8,16 @@ DROP DATABASE dim;
 DROP TABLE dw.dim_employee;
 DROP DATABASE dw;
 
-DROP TABLE mart_waimai.dim_act_type;
-DROP TABLE mart_waimai.dim_ad_cpc_activity_poi;
-DROP TABLE mart_waimai.dim_ad_cpc_activity;
-DROP TABLE mart_waimai.dim_aor_ord_price_level_his;
 DROP TABLE mart_waimai.cis_mappoi_in_aor;
 DROP TABLE mart_waimai.cis_mappoi_in_sp_area;
-
-DROP TABLE mart_waimai.table001;
-DROP TABLE mart_waimai.table002;
-
+DROP TABLE mart_waimai.dim_act_type;
+DROP TABLE mart_waimai.dim_ad_cpc_activity;
+DROP TABLE mart_waimai.dim_ad_cpc_activity_poi;
+DROP TABLE mart_waimai.dim_aor_ord_price_level_his;
 DROP TABLE mart_waimai.partition_table001;
 DROP TABLE mart_waimai.partition_table002;
+DROP TABLE mart_waimai.table001;
+DROP TABLE mart_waimai.table002;
 
 DROP DATABASE mart_waimai;
 

@@ -67,3 +67,97 @@ less src/test/log/sentry_debug.log
 ##=====run script
 cd /opt/meituan/qa_test/sentry-test/
 bash run_sentry_tcs.sh
+
+
+update external ini files
+copy new ini file to sentry server by misid
+[lijinxin02@gh-data-hdp-qa03 resources]$ scp external.ini lijinxin02@gh-data-hdp-qa03.corp.sankuai.com:/tmp
+lijinxin02@gh-data-hdp-qa03.corp.sankuai.com's password:
+external.ini                                                                  100% 3454     3.4KB/s   00:00
+[lijinxin02@gh-data-hdp-qa03 resources]$ scp external.ini lijinxin02@gh-data-hdp-qa04.corp.sankuai.com:/tmp
+lijinxin02@gh-data-hdp-qa04.corp.sankuai.com's password:
+external.ini                                                                  100% 3454     3.4KB/s   00:00
+[lijinxin02@gh-data-hdp-qa03 resources]$ scp external.ini lijinxin02@gh-data-hdp-qa05.corp.sankuai.com:/tmp
+
+update ini file
+[sankuai@gh-data-hdp-qa04.corp.sankuai.com:/opt/meituan/sentry/conf]$ cp /tmp/external.ini external.ini
+cp: overwrite `external.ini'? yes
+
+restart hms and sentry service
+sentry服务的重启：在dx-data-hive-metastore01切到sankuai用户，执行sudo svc -t /service/meituan.data.hadoop.sentry
+跟sentry类似，重启HMS：sudo svc -t /service/meituan.data.hive.hive/
+
+
+
+
+---HIVE CLIENT
+
+sudo -iusankuai
+export HADOOP_JAR_AUTHENTICATION=KERBEROS
+export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
+export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+export HADOOP_PROXY_USER=server_all
+/opt/meituan/hive-1.2/bin/hive
+
+
+
+
+sudo -iusankuai
+export HADOOP_JAR_AUTHENTICATION=KERBEROS
+export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
+export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+export HADOOP_PROXY_USER=hdp_qa/hdp_qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group
+
+
+
+hdp_qa=hdp_qa,ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group
+
+
+
+
+
+java -cp .:./junit.jar:./sentry_test.jar:./hamcrest-core-1.3.jar org.junit.runner.JUnitCore TestServerAll
+
+
+
+hadoop-launcher.keytab
+export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
+export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+export HADOOP_PROXY_USER=server_all
+
+
+方式与proxy user基本相同，只是proxy user指定了具体的激活组
+具体写法为export HADOOP_PROXY_USER=hadoop-qa/misid@group1,group2
+其中group名称可以有多个，以逗号分隔；如果指定的激活组不是user对应的有效组，会直接抛出异常
+
+
+
+---SENTRY SHELL
+sudo -iusankuai
+export HADOOP_HOME=/opt/meituan/hadoop
+export HIVE_HOME=/opt/meituan/hive-1.2
+source /opt/meituan/hadoop/bin/hadoop_user_login.sh hive
+
+
+  
+Add role, group and privilege
+
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r column_all
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r column_all -g column_all_group
+/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --role column_all --privilege "server=server1->db=test_db->table=test_tbl->column=a->action=all"
+
+
+Remove role, group and privilege
+
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --revoke_privilege_role -r column_all -p "server=server1->db=test_db->table=test_tbl->column=a->action=all"
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --delete_role_group -r column_all -g column_all_group
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --drop_role -r column_all
+
+
+
+Check role, group and privilege
+
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g column_all_group
+/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r column_all
+
