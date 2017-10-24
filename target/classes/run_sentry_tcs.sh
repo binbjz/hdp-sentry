@@ -19,21 +19,19 @@ if [ ! -d "$projectdir" ]; then
 fi
 
 cd $projectdir
-#source $projectdir/src/main/resources/sentry_env.sh setup SuperPrivil
+source $projectdir/src/main/resources/sentry_env.sh setup SuperPrivil
 
 # Check sentry flag
 source $projectdir/src/main/resources/sentry_flag.sh
 
 # Run sentry test
-sentry_tcs="ServerAlter"
-#sentry_tcs="DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3"
-#sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3 GroupLogin_4"
+sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3 GroupLogin_4"
 
 for tc in $sentry_tcs; do
     # It will be used to set multiple permissions for the same test case
     export case_name=$tc
 
-    # Exclude the test case that does not contain preppare sql
+    # Exclude the test case that does not contain prepare sql
     source $projectdir/src/main/resources/sentry_env.sh setup ${tc}
     if ! echo "$tc" | egrep -qi "'$exclude_tc'"; then
         # Grant role super privilege
@@ -58,9 +56,12 @@ for tc in $sentry_tcs; do
         $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $projectdir/src/test/resources/${tc}/hive-sql/post${tc}.sql
     fi
 
+    # Clean proxy user env if exists
     if [[ $privil_type = "proxy_user" ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
+
+    # Clean role normal privilege
     source $projectdir/src/main/resources/sentry_env.sh clean ${tc}
 done
 
