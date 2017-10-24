@@ -9,11 +9,8 @@ DROP TABLE dw.dim_employee;
 DROP DATABASE dw CASCADE;
 
 DROP TABLE mart_waimai.cis_mappoi_in_aor;
-DROP TABLE mart_waimai.cis_mappoi_in_sp_area;
-DROP TABLE mart_waimai.dim_act_type;
 DROP TABLE mart_waimai.dim_ad_cpc_activity;
 DROP TABLE mart_waimai.dim_ad_cpc_activity_poi;
-DROP TABLE mart_waimai.dim_aor_ord_price_level_his;
 DROP TABLE mart_waimai.partition_table001;
 DROP TABLE mart_waimai.partition_table002;
 DROP TABLE mart_waimai.table001;
@@ -49,7 +46,6 @@ DROP TABLE mart_waimai.employees_inser
 DROP DATABASE mart_waimai CASCADE;
 
 
-
 DROP TABLE mart_wmorg.employ_encrypted;
 DROP DATABASE mart_wmorg CASCADE;
 
@@ -68,5 +64,4 @@ DROP TABLE origin_dianping.dpmid_ugcreview_basereview;
 DROP DATABASE origin_dianping CASCADE;
 
 DROP TABLE mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit;
-DROP TABLE mart_waimai_crm.topic_dt_aor__b_order_amount_audit;
 DROP DATABASE mart_waimai_crm CASCADE;
