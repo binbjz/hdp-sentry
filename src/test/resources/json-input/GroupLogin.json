@@ -300,6 +300,21 @@
     ]
   },
   {
+    "id": "testEncryptColumn",
+    "tag": "DB",
+    "desc": "The case will test EncryptColumn.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testEncryptColumn.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testEncryptColumn.txt"
+      }
+    ]
+  },
+  {
     "id": "testImportExportAlterTableClusteredBySortedBy",
     "tag": "DB",
     "desc": "The case will test ImportExportAlterTableClusteredBySortedBy.",

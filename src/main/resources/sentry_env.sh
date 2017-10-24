@@ -92,12 +92,17 @@ sentry_privileges[superuser_columns]
 
 #proxy user+groups
 #DB ALL + TABLE SELECT
+#origin_waimai.waimai_safe_order VIEW reference encrypt columns
+#origindb.waimai_order_shard__wm TABLE has encrypt columns
+#give privilege on the base table for encrypt columns
+#give privilege on the view for encrypt columns
+#dim.ndm_user has 2 encrypt columns, grant select privilege
 sentry_privileges[GROUP_1]
+mart_waimai_group="server=server1->db=mart_waimai->action=all"
 ba_ups_group="server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->action=select"
 dw_group="server=server1->db=dim->table=ndm_user->action=select"
 dw_group="server=server1->db=dim->table=collecttest->action=select"
 dw_group="server=server1->db=dw->table=dim_employee->action=select"
-mart_waimai_group="server=server1->db=mart_waimai->action=all"
 mart_waimai_crm_group="server=server1->db=mart_waimai_crm->table=topic_dt_check_list__poiaor_aortype_audit->action=select"
 mart_waimai_crm_group="server=server1->db=mart_waimai_crm->table=topic_dt_aor__b_order_amount_audit->action=select"
 mart_wmorg_group="server=server1->db=mart_wmorg->table=employ_encrypted->action=select"
@@ -108,7 +113,28 @@ origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->actio
 origindb_delta_group="server=server1->db=origindb_delta->table=waimai_money_exchange__wm_exchange_flow->action=select"
 origin_dianping_group="server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->action=select"
 
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
+
+origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select"
+origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select"
+origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select"
+origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select"
+origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_phone->action=select"
+
+dim_group="server=server1->db=dim->table=ndm_user->column=username->action=select"
+dim_group="server=server1->db=dim->table=ndm_user->column=mobile->action=select"
+
+
 #DB.TABLE SELECT+CREATE+INSERT+ALTER + TABLE SELECT
+#origin_waimai.waimai_safe_order VIEW reference encrypt columns
+#origindb.waimai_order_shard__wm TABLE has encrypt columns
+#give privilege on the base table for encrypt columns
+#do not give privilege on the view for encrypt columns
+#dim.ndm_user has 2 encrypt columns, grant select privilege
 sentry_privileges[GROUP_2]
 mart_waimai_group="server=server1->db=mart_waimai->table=dim_act_type->action=select"
 mart_waimai_group="server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=select"
@@ -163,7 +189,22 @@ origin_dianping_group="server=server1->db=origin_dianping->table=dpmid_ugcreview
 mart_waimai_crm_group="server=server1->db=mart_waimai_crm->table=topic_dt_check_list__poiaor_aortype_audit->action=select"
 mart_waimai_crm_group="server=server1->db=mart_waimai_crm->table=topic_dt_aor__b_order_amount_audit->action=select"
 
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select"
+origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
+
+dim_group="server=server1->db=dim->table=ndm_user->column=username->action=select"
+dim_group="server=server1->db=dim->table=ndm_user->column=mobile->action=select"
+
+
 #DB ALL + DB SELECT
+#origin_waimai.waimai_safe_order VIEW reference encrypt columns
+#origindb.waimai_order_shard__wm TABLE has encrypt columns
+#do not give privilege on the base table for encrypt columns
+#give privilege on the view for encrypt columns
+#dim.ndm_user has 2 encrypt columns, do not grant select privilege
 sentry_privileges[GROUP_3]=
 ba_ups_group="server=server1->db=ba_ups->action=select"
 dim_group="server=server1->db=dim->action=select"
@@ -176,31 +217,56 @@ origindb_group="server=server1->db=origindb->action=select"
 origindb_delta_group="server=server1->db=origindb_delta->action=select"
 origin_dianping_group="server=server1->db=origin_dianping->action=select"
 
-
-### grant encrypt column privilege
-origin_dianping_group="server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->column=reviewbody->action=select"
-
-origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
-origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
-origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select"
-origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select"
-origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
-
-origin_waimai_group="server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=email->action=select"
-origin_waimai_group="server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=mobile->action=select"
-
 origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select"
 origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select"
 origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select"
 origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select"
 origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_phone->action=select"
 
-dw_group="server=server1->db=dw->table=dim_employee->column=birthday->action=select"
-dw_group="server=server1->db=dw->table=dim_employee->column=mobile_phone_no->action=select"
+#DB SELECT+CREATE+ALTER+INSERT + DB SELECT
+#dim.ndm_user has 2 encrypt columns, grant select privilege
+sentry_privileges[GROUP_4]=
+ba_ups_group="server=server1->db=ba_ups->action=select"
+dim_group="server=server1->db=dim->action=select"
+dw_group="server=server1->db=dw->action=select"
+mart_waimai_group="server=server1->db=mart_waimai->action=select"
+mart_waimai_group="server=server1->db=mart_waimai->action=create"
+mart_waimai_group="server=server1->db=mart_waimai->action=alter"
+mart_waimai_group="server=server1->db=mart_waimai->action=insert"
+mart_waimai_crm_group="server=server1->db=mart_waimai_crm->action=select"
+mart_wmorg_group="server=server1->db=mart_wmorg->action=select"
+origin_waimai_group="server=server1->db=origin_waimai->action=select"
+origindb_group="server=server1->db=origindb->action=select"
+origindb_delta_group="server=server1->db=origindb_delta->action=select"
+origin_dianping_group="server=server1->db=origin_dianping->action=select"
 dim_group="server=server1->db=dim->table=ndm_user->column=username->action=select"
 dim_group="server=server1->db=dim->table=ndm_user->column=mobile->action=select"
 
-ba_ups_group="server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->column=mobile->action=select"
+
+### grant encrypt column privilege
+#origin_dianping_group="server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->column=reviewbody->action=select"
+#
+#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
+#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
+#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select"
+#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select"
+#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
+#
+#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=email->action=select"
+#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=mobile->action=select"
+#
+#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select"
+#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select"
+#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select"
+#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select"
+#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_phone->action=select"
+#
+#dw_group="server=server1->db=dw->table=dim_employee->column=birthday->action=select"
+#dw_group="server=server1->db=dw->table=dim_employee->column=mobile_phone_no->action=select"
+#dim_group="server=server1->db=dim->table=ndm_user->column=username->action=select"
+#dim_group="server=server1->db=dim->table=ndm_user->column=mobile->action=select"
+#
+#ba_ups_group="server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->column=mobile->action=select"
 
 
 
@@ -262,24 +328,6 @@ ba_ups_group="server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->column=mob
 #/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dim->table=ndm_user->column=username->action=select"
 #/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dim->table=ndm_user->column=mobile->action=select"
 #/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename ba_ups_group --privilege "server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->column=mobile->action=select"
-
-
-#DB SELECT+CREATE+ALTER+INSERT + DB SELECT
-sentry_privileges[GROUP_4]=
-ba_ups_group="server=server1->db=ba_ups->action=select"
-dim_group="server=server1->db=dim->action=select"
-dw_group="server=server1->db=dw->action=select"
-mart_waimai_group="server=server1->db=mart_waimai->action=select"
-mart_waimai_group="server=server1->db=mart_waimai->action=create"
-mart_waimai_group="server=server1->db=mart_waimai->action=alter"
-mart_waimai_group="server=server1->db=mart_waimai->action=insert"
-mart_waimai_crm_group="server=server1->db=mart_waimai_crm->action=select"
-mart_wmorg_group="server=server1->db=mart_wmorg->action=select"
-origin_waimai_group="server=server1->db=origin_waimai->action=select"
-origindb_group="server=server1->db=origindb->action=select"
-origindb_delta_group="server=server1->db=origindb_delta->action=select"
-origin_dianping_group="server=server1->db=origin_dianping->action=select"
-
 
 ##============
 # Sentry Flag
