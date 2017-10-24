@@ -528,36 +528,6 @@ TBLPROPERTIES (
  'rawDataSize'='-1');
 
 -- DATABASE : mart_waimai -----------------------------------
-CREATE  TABLE `mart_waimai.dim_act_type`(
- `act_type_id` int COMMENT '活动类型id',
- `act_type_name` string COMMENT '活动类型名称',
- `act_category_id` int COMMENT '活动类型大类id',
- `act_category_name` string COMMENT '活动类型大类名称',
- `root_act_id` int COMMENT '',
- `root_act_name` string COMMENT '全部')
-COMMENT '活动类型'
-ROW FORMAT SERDE
- 'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
-WITH SERDEPROPERTIES (
- 'field.delim'='\t',
- 'line.delim'='\n',
- 'serialization.format'='\t')
-STORED AS INPUTFORMAT
- 'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
-OUTPUTFORMAT
- 'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
-LOCATION
- 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_act_type'
-TBLPROPERTIES (
- 'numFiles'='1',
- 'last_modified_by'='hadoop-waimai',
- 'last_modified_time'='1484289639',
- 'transient_lastDdlTime'='1501348539',
- 'COLUMN_STATS_ACCURATE'='false',
- 'totalSize'='1010',
- 'numRows'='-1',
- 'rawDataSize'='-1');
-
 CREATE  TABLE `mart_waimai.dim_ad_cpc_activity_poi`(
  `ad_activity_key` string COMMENT '维度代理键',
  `ad_activity_id` bigint COMMENT '活动id',
@@ -616,34 +586,6 @@ TBLPROPERTIES (
  'last_modified_time'='1484568134',
  'transient_lastDdlTime'='1484568134');
 
-CREATE  TABLE `mart_waimai.dim_aor_ord_price_level_his`(
- `client` int COMMENT '1:C端维度  2：B端维度',
- `aor_id` int COMMENT '蜂窝id',
- `aor_type` tinyint COMMENT '蜂窝类型 1校园 2白领 ',
- `price_level` int COMMENT '原价分段级别：1->[0,10),2->[10,15),3->[15,20),4->[20,25),5->[25,30),6->[30,35),7->[35,40),8->[40,45),9->[45,50),10->[50,60),11->[60,70),12->[70,80),13->[80,90),14->[90,100),15->[100,150),16->[150,200),17:>=200',
- `order_num` int COMMENT '订单量')
-COMMENT '蜂窝级别原价交易额分段订单量'
-PARTITIONED BY (
- `mo` string COMMENT '月号',
- `wk` string COMMENT '自然周',
- `dt` string COMMENT 'dt')
-ROW FORMAT SERDE
- 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
-WITH SERDEPROPERTIES (
- 'field.delim'='\t',
- 'line.delim'='\n',
- 'serialization.format'='\t')
-STORED AS INPUTFORMAT
- 'org.apache.hadoop.mapred.TextInputFormat'
-OUTPUTFORMAT
- 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
- 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_aor_ord_price_level_his'
-TBLPROPERTIES (
- 'last_modified_by'='hadoop-waimai',
- 'last_modified_time'='1488572832',
- 'transient_lastDdlTime'='1488572832');
-
 CREATE  TABLE `mart_waimai.cis_mappoi_in_aor`(
  `poi_id` string,
  `aor_id` int,
@@ -660,22 +602,6 @@ LOCATION
  'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/cis_mappoi_in_aor'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1437472165');
-
-CREATE  TABLE `mart_waimai.cis_mappoi_in_sp_area`(
- `poi_id` string,
- `wm_poi_id` int)
-PARTITIONED BY (
- `dt` string)
-ROW FORMAT SERDE
- 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
-STORED AS INPUTFORMAT
- 'org.apache.hadoop.mapred.TextInputFormat'
-OUTPUTFORMAT
- 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
- 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/cis_mappoi_in_sp_area'
-TBLPROPERTIES (
- 'transient_lastDdlTime'='1437070163');
 
 CREATE TABLE mart_waimai.table001 (name STRING, ip STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
@@ -776,34 +702,3 @@ TBLPROPERTIES (
  'last_modified_by'='hadoop-waimaiaudit',
  'last_modified_time'='1505294937',
  'transient_lastDdlTime'='1505294944');
-
-CREATE  TABLE `mart_waimai_crm.topic_dt_aor__b_order_amount_audit`(
- `aor_id` int COMMENT '外卖商家id',
- `spd_orig_amt` double COMMENT '专送原价交易额(special original amount)',
- `nspd_orig_amt` double COMMENT '非专送原价交易额(non-special original amount)',
- `orig_amt` double COMMENT '原价交易额(original amount)',
- `spd_actl_amt` double COMMENT '专送实付交易额(special actual amount)',
- `nspd_actl_amt` double COMMENT '非专送实付交易额(non-special actual amount)',
- `actl_amt` double COMMENT '实付交易额(actual amount)',
- `spd_ord_num` int COMMENT '专送订单量(special order number)',
- `nspd_ord_num` int COMMENT '非专送订单量(non-special order number)',
- `ord_num` int COMMENT '订单量(order number)')
-COMMENT '商家月维度交易额模块'
-PARTITIONED BY (
- `dt` string)
-ROW FORMAT SERDE
- 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
-WITH SERDEPROPERTIES (
- 'field.delim'='\t',
- 'line.delim'='\n',
- 'serialization.format'='\t')
-STORED AS INPUTFORMAT
- 'org.apache.hadoop.mapred.TextInputFormat'
-OUTPUTFORMAT
- 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
- 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai_crm.db/topic_dt_aor__b_order_amount_audit'
-TBLPROPERTIES (
- 'last_modified_by'='hadoop-waimaiuser',
- 'last_modified_time'='1482992564',
- 'transient_lastDdlTime'='1482992564');
