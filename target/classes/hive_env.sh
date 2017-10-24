@@ -51,7 +51,7 @@ case "$1" in
     ;;
 "proxy_user_group")
     #role, group and privilege
-    #export HADOOP_PROXY_USER=hadoop-qa/misid@group1,group2
+    export HADOOP_PROXY_USER=hadoop-qa/misid@group1,group2
     :
 ;;
 * )

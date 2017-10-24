@@ -19,7 +19,6 @@ import java.util.Map;
 
 @RunWith(DataProviderRunner.class)
 public class ServerAlter {
-    private static final String caseName = System.getenv("case_name");
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
@@ -30,7 +29,6 @@ public class ServerAlter {
     @BeforeClass
     public static void setUp() {
         logger.info("setUp ServerAlter......");
-        logger.info("caseName: " + caseName);
     }
 
 

@@ -20,11 +20,12 @@ import java.util.Map;
 
 @RunWith(DataProviderRunner.class)
 public class DBAllWithEncryptedColumns {
+    private static final String caseName = System.getenv("case_name");
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
     private static final String hiveSqlPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlSrc;
-    private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + className + File.separator + SentryConstant.hiveSqlOutput;
+    private static final String hiveOutputPath = SentryConstant.tSrc + File.separator + caseName + File.separator + SentryConstant.hiveSqlOutput;
     private static final Logger logger = LoggerFactory.getLogger(className);
 
     @BeforeClass
