@@ -61,7 +61,7 @@ source /opt/meituan/qa_test/sentry-test/src/main/resources/hive_env.sh clean_pro
 
 
 ##======all log
-less src/test/log/sentry_debug.log
+less src/test/log/sentry-test.log
 /opt/meituan/qa_test/sentry-test/src/test/resources/ServerAlter/hive-output/*
 
 ##=====run script
@@ -160,4 +160,3 @@ Check role, group and privilege
 /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role
 /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_role -g column_all_group
 /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml --list_privilege -r column_all
-
