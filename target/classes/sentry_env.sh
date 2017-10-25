@@ -129,18 +129,18 @@ sentry_privileges[GroupLogin]="server=server1->db=mart_waimai->action=all,server
 #do not give privilege on the view for encrypt columns
 #dim.ndm_user has 2 encrypt columns, grant select privilege
 
-dw_group
-mart_wmorg_group
-origin_waimai_group
-
-origindb_group
-
-origindb_delta_group
-origin_dianping_group
-mart_waimai_crm_group
-
-origindb_group
-dim_group
+#dw_group
+#mart_wmorg_group
+#origin_waimai_group
+#
+#origindb_group
+#
+#origindb_delta_group
+#origin_dianping_group
+#mart_waimai_crm_group
+#
+#origindb_group
+#dim_group
 
 
 sentry_privileges[GroupLogin_2]="server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=select,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=select,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=select,server=server1->db=mart_waimai->table=table001->action=select,server=server1->db=mart_waimai->table=table002->action=select,server=server1->db=mart_waimai->table=partition_table001->action=select,server=server1->db=mart_waimai->table=partition_table002->action=select,server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=create,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=create,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=create,server=server1->db=mart_waimai->table=table001->action=create,server=server1->db=mart_waimai->table=table002->action=create,server=server1->db=mart_waimai->table=partition_table001->action=create,server=server1->db=mart_waimai->table=partition_table002->action=create,server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=insert,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=insert,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=insert,server=server1->db=mart_waimai->table=table001->action=insert,server=server1->db=mart_waimai->table=table002->action=insert,server=server1->db=mart_waimai->table=partition_table001->action=insert,server=server1->db=mart_waimai->table=partition_table002->action=insert,server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=alter,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=alter,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=alter,server=server1->db=mart_waimai->table=table001->action=alter,server=server1->db=mart_waimai->table=table002->action=alter,server=server1->db=mart_waimai->table=partition_table001->action=alter,server=server1->db=mart_waimai->table=partition_table002->action=alter,server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->action=select,server=server1->db=dim->table=ndm_user->action=select,server=server1->db=dim->table=collecttest->action=select,server=server1->db=dw->table=dim_employee->action=select,server=server1->db=mart_wmorg->table=employ_encrypted->action=select,server=server1->db=origin_waimai->table=waimai_cos__wm_employ->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->action=select,server=server1->db=origindb->table=gis__admin_division->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->action=select,server=server1->db=origindb_delta->table=waimai_money_exchange__wm_exchange_flow->action=select,server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->action=select,server=server1->db=mart_waimai_crm->table=topic_dt_check_list__poiaor_aortype_audit->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select,server=server1->db=dim->table=ndm_user->column=mobile->action=select,server=server1->db=dim->table=ndm_user->column=username->action=select"
