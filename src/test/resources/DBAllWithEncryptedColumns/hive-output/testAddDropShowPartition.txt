@@ -5,18 +5,26 @@ OK
 OK
 day=20110102
 day=20110103
-Loading data to table encrypt_db4alter.supply partition (day=20110102)
-2 Rows loaded to encrypt_db4alter.supply
+Query ID = sankuai_20171025123341_7dcd05c8-2771-4b7b-9e91-93b18ee739a5
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2467, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2467/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2467
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2467
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/test_partition/.hive-staging_hive_2017-10-25_12-33-41_794_2314363914249997714-1/-ext-10000
+Loading data to table encrypt_db4alter.test_partition partition (day=20110102)
+2 Rows loaded to encrypt_db4alter.test_partition
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.69 sec   HDFS Read: 4819 HDFS Write: 16 SUCCESS
 OK
 _col0	_col1	_col2
-OK
-encrypt_id	encrypt_part	encrypt_quantity
-1	100	1
-2	200	2
-OK
-supply.encrypt_id	supply.encrypt_part	supply.encrypt_quantity	supply.day
-1	100	1	20110102
-2	200	2	20110102
+FAILED: SemanticException [Error 10001]: Line 3:55 Table not found 'supply'
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<test_partition>
 Dropped the partition day=20110102
 OK
 Dropped the partition day=20110103

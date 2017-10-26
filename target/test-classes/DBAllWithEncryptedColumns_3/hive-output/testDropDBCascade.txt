@@ -1,9 +1,9 @@
 OK
-OK
-FAILED: ParseException line 2:15 extraneous input 'encrypt_view4drop' expecting AS near '<EOF>'
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: SemanticException [Error 10001]: Line 2:47 Table not found 'encrypt_tbl4drop'
+FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'encrypt_tbl4drop'
 FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'encrypt_view4drop'
 OK
-encrypt_tbl4drop
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPDATABASE)
 OK
-OK
+encrypt_db4drop_cascade

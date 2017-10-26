@@ -1,0 +1,3 @@
+OK
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.test_replace_columns
+FAILED: SemanticException [Error 10001]: Table not found test_replace_columns

@@ -1,70 +1,47 @@
 OK
 OK
 OK
-OK
-OK
-OK
 Loading data to table encrypt_db4data.encrypt_employees partition (country=US, state=CA)
 OK
 OK
 OK
 OK
-Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=OR)
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=OR' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=IL)
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=IL' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=CA)
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
-OK
-OK
-encrypt_tgt_employees.encrypt_name	encrypt_tgt_employees.encrypt_salary	encrypt_tgt_employees.encrypt_subordinates	encrypt_tgt_employees.encrypt_deductions	encrypt_tgt_employees.encrypt_address	encrypt_tgt_employees.country	encrypt_tgt_employees.state
-John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
-Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
-Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
-Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
-Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=CA)
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
-OK
-encrypt_name	encrypt_salary	encrypt_subordinates	encrypt_deductions	encrypt_address
-OK
-encrypt_tgt_employees.encrypt_name	encrypt_tgt_employees.encrypt_salary	encrypt_tgt_employees.encrypt_subordinates	encrypt_tgt_employees.encrypt_deductions	encrypt_tgt_employees.encrypt_address	encrypt_tgt_employees.country	encrypt_tgt_employees.state
-John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
-Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
-Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
-Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_employees>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_tgt_employees>
+FAILED: SemanticException [Error 10004]: Line 4:7 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_44830_encrypt_name, encrypted_name_43174_encrypt_salary, encrypted_name_34156_encrypt_subordinates, encrypted_name_45399_encrypt_deductions, encrypted_name_10431_encrypt_address, country, state) or Column insufficient privileges to access: encrypt_name
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_tgt_employees>
+Query ID = sankuai_20171025134027_ee07bb08-c9c0-4b58-9bd2-76482c7f5d9b
+Total jobs = 1
+Launching Job 1 out of 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_2480, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2480/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2480
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+Ended Job = job_1505297521386_2480
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.84 sec   HDFS Read: 12487 HDFS Write: 2 SUCCESS
 OK
 c0
-4
+0
 OK
-Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=null)
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-	Loading partition {country=US, state=CA}
-4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
-OK
-se.encrypt_name	se.encrypt_salary	se.encrypt_subordinates	se.encrypt_deductions	se.encrypt_address	se.state
-OK
-encrypt_employees.encrypt_name	encrypt_employees.encrypt_salary	encrypt_employees.encrypt_subordinates	encrypt_employees.encrypt_deductions	encrypt_employees.encrypt_address	encrypt_employees.country	encrypt_employees.state
-John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
-Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
-Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
-Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
-Copying data to local directory /tmp/ca_employees
-Copying data to local directory /tmp/ca_employees
-4 Rows loaded to /tmp/ca_employees
-OK
-se.encrypt_name	se.encrypt_salary	se.encrypt_subordinates	se.encrypt_deductions	se.encrypt_address	se.country	se.state
-total 4
-000000_0
-Moving data to: /tmp/union.out
-8 Rows loaded to /tmp/union.out
-OK
-unioninput.encrypt_name	unioninput.encrypt_salary
-John Doe100000.0
-Mary Smith80000.0
-Todd Jones70000.0
-Bill King60000.0
-Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+FAILED: SemanticException [Error 10002]: Line 3:10 Invalid column reference 'encrypt_name'
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_employees>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_employees>
+ls: cannot access /tmp/ca_employees: No such file or directory
+Command failed with exit code = 2
+ls: cannot access /tmp/ca_employees: No such file or directory
+Command failed with exit code = 2
+FAILED: SemanticException [Error 10002]: Line 4:97 Invalid column reference 'encrypt_salary'
+cat: `/tmp/union.out/*': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+rm: `/tmp/union.out': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
 OK
 OK

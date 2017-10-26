@@ -1,9 +1,10 @@
 OK
 OK
-FAILED: ParseException line 2:15 extraneous input 'encrypt_view4drop' expecting AS near '<EOF>'
 OK
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'encrypt_view4drop'
+OK
+OK
 OK
 encrypt_tbl4drop
+encrypt_view4drop
 OK
 OK

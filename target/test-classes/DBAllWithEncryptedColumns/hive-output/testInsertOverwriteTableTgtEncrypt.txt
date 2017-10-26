@@ -1,37 +1,100 @@
 OK
 OK
+Query ID = sankuai_20171025135841_7af6a8cd-7398-4933-9a5c-b7835b99747b
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2490, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2490/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2490
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2490
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-25_13-58-41_138_2239906260548558063-1/-ext-10000
 Loading data to table encrypt_db4data.table001
 3 Rows loaded to encrypt_db4data.table001
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.13 sec   HDFS Read: 4121 HDFS Write: 49 SUCCESS
 OK
 OK
+Query ID = sankuai_20171025135919_135645ad-3ecd-467b-a384-db411b3f2009
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2491, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2491/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2491
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2491
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-25_13-59-19_208_5372556121295328655-1/-ext-10000
 Loading data to table encrypt_db4data.table_tgt
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/table_tgt' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 1 Rows loaded to encrypt_db4data.table_tgt
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.81 sec   HDFS Read: 4395 HDFS Write: 17 SUCCESS
 OK
 name	ip
+Query ID = sankuai_20171025135952_8980f1ca-830a-463b-8c65-b3040e0fc7f3
+Total jobs = 1
+Launching Job 1 out of 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_2492, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2492/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2492
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+Ended Job = job_1505297521386_2492
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.28 sec   HDFS Read: 7120 HDFS Write: 2 SUCCESS
 OK
 row_count
 1
-OK
-table_tgt.name	table_tgt.ip
-meituan	10.0.0.1
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table_tgt>
+Query ID = sankuai_20171025140035_b5dc7bd7-c681-454a-aae2-7027e577ecdc
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2493, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2493/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2493
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2493
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-25_14-00-35_332_6157481666169117712-1/-ext-10000
 Loading data to table encrypt_db4data.table_tgt
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/table_tgt' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 3 Rows loaded to encrypt_db4data.table_tgt
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.14 sec   HDFS Read: 4024 HDFS Write: 49 SUCCESS
 OK
 table001.name	table001.ip
+Query ID = sankuai_20171025140115_661e2fd5-e8d4-4bac-9b98-5c9a6374d6b4
+Total jobs = 1
+Launching Job 1 out of 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_2494, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2494/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2494
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+Ended Job = job_1505297521386_2494
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.92 sec   HDFS Read: 7159 HDFS Write: 2 SUCCESS
 OK
 row_count
 3
-OK
-table_tgt.name	table_tgt.ip
-meituan	10.0.0.1
-baidu	10.0.0.2
-alibaba	10.0.0.3
-OK
-id	name	ip
-1	alibaba	10.0.0.3
-1	baidu	10.0.0.2
-1	meituan	10.0.0.1
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table_tgt>
+FAILED: SemanticException Failed to breakup Windowing invocations into Groups. At least 1 group must only depend on input columns. Also check for circular dependencies.
+Underlying error: org.apache.hadoop.hive.ql.parse.SemanticException: Line 3:38 Invalid table alias or column reference 'ip': (possible column names are: encrypted_name_15061_name, encrypted_name_8318_ip) or Column insufficient privileges to access: ip
 OK
 OK

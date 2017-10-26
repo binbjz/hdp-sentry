@@ -51,7 +51,12 @@ case "$1" in
     ;;
 "proxy_user_group")
     #role, group and privilege
-    export HADOOP_PROXY_USER=hdq-qa/hdq-qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group
+    export HADOOP_HOME=/opt/meituan/hadoop
+    export HIVE_HOME=$HIVE_HOME
+    export HADOOP_JAR_AUTHENTICATION=KERBEROS
+    export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
+    export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+    export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group
     :
 ;;
 * )

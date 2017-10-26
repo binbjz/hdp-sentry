@@ -37,7 +37,7 @@ check_sentry_flag_status(){
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${2}.sql
 
     source $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
-    result=`grep "${sentry_privileges[SentryFlag]}" $$_${2}.txt`
+    result=`grep "${sentry_privileges[$1]}" $$_${2}.txt`
     [[ -n $result ]] && sentry_flag=flase || sentry_flag=true
     echo -e "`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag: $sentry_flag\n"
 

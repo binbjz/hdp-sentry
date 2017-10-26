@@ -1,0 +1,51 @@
+OK
+OK
+Loading data to table encrypt_db4data.whoyouare
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/whoyouare' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK
+OK
+whoyouare.who
+Mr.A
+Miss.B
+Dr.C
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+Query ID = sankuai_20171025164939_7c619425-2ca3-48ff-87cd-91bbdb1fadb7
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2551, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2551/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2551
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2551 with errors
+Error during job, obtaining debugging information...
+Examining task ID: task_1505297521386_2551_m_000000 (and more) from job job_1505297521386_2551
+Task with the most failures(4): 
+-----
+Task ID:
+  task_1505297521386_2551_m_000000
+URL:
+  http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2551/jobhistory/task/task_1505297521386_2551_m_000000
+-----
+Diagnostic Messages for this Task:
+	at org.apache.hadoop.hive.ql.exec.mr.ExecMapper.close(ExecMapper.java:210)
+	at org.apache.hadoop.mapred.MapRunner.run(MapRunner.java:69)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:457)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:343)
+	at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:168)
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20003]: An error occurred when trying to close the Operator running your custom script.
+	at org.apache.hadoop.hive.ql.exec.ScriptOperator.close(ScriptOperator.java:560)
+	at org.apache.hadoop.hive.ql.exec.Operator.close(Operator.java:630)
+	at org.apache.hadoop.hive.ql.exec.Operator.close(Operator.java:630)
+	at org.apache.hadoop.hive.ql.exec.Operator.close(Operator.java:630)
+	at org.apache.hadoop.hive.ql.exec.mr.ExecMapper.close(ExecMapper.java:192)
+	... 8 more
+FAILED: Execution Error, return code 20003 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask. An error occurred when trying to close the Operator running your custom script.
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   HDFS Read: 0 HDFS Write: 0 FAIL
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+OK

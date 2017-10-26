@@ -6,11 +6,11 @@ OK
 OK
 # col_name            	data_type           	comment             
 	 	 
-encrypt_hms         	int                 	                    
-encrypt_severity    	string              	                    
-encrypt_server      	string              	                    
-encrypt_process_id  	int                 	                    
-encrypt_message     	string              	                    
+ENCRYPTED_NAME_29202_encrypt_hms	int                 	ENCRYPTED_COMMENT_16766
+ENCRYPTED_NAME_74091_encrypt_severity	string              	ENCRYPTED_COMMENT_94995
+ENCRYPTED_NAME_5309_encrypt_server	string              	ENCRYPTED_COMMENT_2637
+ENCRYPTED_NAME_97454_encrypt_process_id	int                 	ENCRYPTED_COMMENT_20863
+ENCRYPTED_NAME_6349_encrypt_message	string              	ENCRYPTED_COMMENT_84470
 	 	 
 # Partition Information	 	 
 # col_name            	data_type           	comment             
@@ -24,7 +24,7 @@ Database:           	encrypt_db4alter
 Owner:              	hdp_qa              	 
 Protect Mode:       	None                	 
 Retention:          	0                   	 
-Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/log_messages	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4descformatted	 
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 	 	 
@@ -42,11 +42,11 @@ Storage Desc Params:
 OK
 # col_name            	data_type           	comment             
 	 	 
-encrypt_hms         	int                 	                    
-encrypt_severity    	string              	                    
-encrypt_server      	string              	                    
-encrypt_process_id  	int                 	                    
-encrypt_message     	string              	                    
+encrypted_name_54944_encrypt_hms	int                 	ENCRYPTED_COMMENT_48732
+encrypted_name_45292_encrypt_severity	string              	ENCRYPTED_COMMENT_33721
+encrypted_name_19170_encrypt_server	string              	ENCRYPTED_COMMENT_67673
+encrypted_name_784_encrypt_process_id	int                 	ENCRYPTED_COMMENT_73797
+encrypted_name_95038_encrypt_message	string              	ENCRYPTED_COMMENT_54329
 	 	 
 # Partition Information	 	 
 # col_name            	data_type           	comment             
@@ -58,9 +58,9 @@ day                 	int
 # Detailed Partition Information	 	 
 Partition Value:    	[2011, 1, 1]        	 
 Database:           	encrypt_db4alter    	 
-Table:              	log_messages        	 
+Table:              	tbl4descformatted   	 
 Protect Mode:       	None                	 
-Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/log_messages/year=2011/month=1/day=1	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4descformatted/year=2011/month=1/day=1	 
 Partition Parameters:	 	 
 	 	 
 # Storage Information	 	 
@@ -77,11 +77,11 @@ Storage Desc Params:
 OK
 # col_name            	data_type           	comment             
 	 	 
-encrypt_hms         	int                 	                    
-encrypt_severity    	string              	                    
-encrypt_server      	string              	                    
-encrypt_process_id  	int                 	                    
-encrypt_message     	string              	                    
+encrypted_name_90574_encrypt_hms	int                 	ENCRYPTED_COMMENT_82035
+encrypted_name_46927_encrypt_severity	string              	ENCRYPTED_COMMENT_1068
+encrypted_name_23477_encrypt_server	string              	ENCRYPTED_COMMENT_31042
+encrypted_name_29878_encrypt_process_id	int                 	ENCRYPTED_COMMENT_85720
+encrypted_name_42135_encrypt_message	string              	ENCRYPTED_COMMENT_17060
 	 	 
 # Partition Information	 	 
 # col_name            	data_type           	comment             
@@ -93,9 +93,9 @@ day                 	int
 # Detailed Partition Information	 	 
 Partition Value:    	[2011, 1, 2]        	 
 Database:           	encrypt_db4alter    	 
-Table:              	log_messages        	 
+Table:              	tbl4descformatted   	 
 Protect Mode:       	None                	 
-Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/log_messages_new/year=2011/month=1/day=2	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4descformatted_new/year=2011/month=1/day=2	 
 Partition Parameters:	 	 
 	COLUMN_STATS_ACCURATE	false               
 	last_modified_by    	hdp_qa              
@@ -115,6 +115,6 @@ Sort Columns:       	[]
 Storage Desc Params:	 	 
 	field.delim         	\t                  
 	serialization.format	\t                  
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/log_messages' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/log_messages_new' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4descformatted' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4descformatted_new' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 OK

@@ -1,7 +1,7 @@
 #!/bin/bash
 #filename: sentry_env.sh
 #
-#The script will define all sentryShell environment variable that it needs
+#The script will grant sentry role and group privilege for proxy user and keytab login way
 #
 
 # Define param and env
@@ -74,177 +74,7 @@ sentry_privileges[DBAllWithEncryptedColumns_2]="server=server1->db=encrypt_db4al
 
 #Select permission for column
 sentry_privileges[DBAllWithEncryptedColumns_3]="server=server1->db=encrypt_db4alter->action=all,server=server1->db=encrypt_db4alter->table=test_partition->column=encrypt_id->action=select,server=server1->db=encrypt_db4alter->table=test_partition->column=encrypt_part->action=select,server=server1->db=encrypt_db4alter->table=test_partition->column=encrypt_quantity->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable_partition->column=encrypt_hms->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable_partition->column=encrypt_severity->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable_partition->column=encrypt_server->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable_partition->column=encrypt_process_id->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable_partition->column=encrypt_message->action=select,server=server1->db=encrypt_db4alter->table=tbl4addcolumn->column=encrypt_col1->action=select,server=server1->db=encrypt_db4alter->table=tbl4addcolumn->column=encrypt_col2->action=select,server=server1->db=encrypt_db4alter->table=tbl4addcolumn->column=encrypt_col3->action=select,server=server1->db=encrypt_db4alter->table=tbl4change->column=encrypt_col1->action=select,server=server1->db=encrypt_db4alter->table=tbl4change->column=encrypt_col2->action=select,server=server1->db=encrypt_db4alter->table=tbl4change->column=encrypt_col3->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable->column=encrypt_hms->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable->column=encrypt_severity->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable->column=encrypt_server->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable->column=encrypt_process_id->action=select,server=server1->db=encrypt_db4alter->table=test_enable_disable->column=encrypt_message->action=select,server=server1->db=encrypt_db4alter->table=tbl4rename->column=encrypt_col1->action=select,server=server1->db=encrypt_db4alter->table=tbl4rename->column=encrypt_col2->action=select,server=server1->db=encrypt_db4alter->table=tbl4rename->column=encrypt_col3->action=select,server=server1->db=encrypt_db4alter->table=tbl4replace->column=encrypt_col1->action=select,server=server1->db=encrypt_db4alter->table=tbl4replace->column=encrypt_col2->action=select,server=server1->db=encrypt_db4alter->table=tbl4replace->column=encrypt_col3->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat->column=encrypt_hms->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat->column=encrypt_severity->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat->column=encrypt_server->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat->column=encrypt_process_id->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat->column=encrypt_message->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat_external->column=encrypt_hms->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat_external->column=encrypt_severity->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat_external->column=encrypt_server->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat_external->column=encrypt_process_id->action=select,server=server1->db=encrypt_db4alter->table=tbl4fileformat_external->column=encrypt_message->action=select,server=server1->db=encrypt_db4alter->table=tbl4descformatted->column=encrypt_hms->action=select,server=server1->db=encrypt_db4alter->table=tbl4descformatted->column=encrypt_severity->action=select,server=server1->db=encrypt_db4alter->table=tbl4descformatted->column=encrypt_server->action=select,server=server1->db=encrypt_db4alter->table=tbl4descformatted->column=encrypt_process_id->action=select,server=server1->db=encrypt_db4alter->table=tbl4descformatted->column=encrypt_message->action=select,server=server1->db=encrypt_db4data->action=all,server=server1->db=encrypt_db4data->table=test_serde_partition->column=encrypt_c0->action=select,server=server1->db=encrypt_db4data->table=test_serde_partition->column=encrypt_c1->action=select,server=server1->db=encrypt_db4data->table=test_serde_partition->column=encrypt_c2->action=select,server=server1->db=encrypt_db4data->table=test_serde->column=encrypt_c0->action=select,server=server1->db=encrypt_db4data->table=test_serde->column=encrypt_c1->action=select,server=server1->db=encrypt_db4data->table=test_serde->column=encrypt_c2->action=select,server=server1->db=encrypt_db4data->table=test_clusteredby->column=encrypt_name->action=select,server=server1->db=encrypt_db4data->table=test_clusteredby->column=encrypt_salary->action=select,server=server1->db=encrypt_db4data->table=test_clusteredby->column=encrypt_subordinates->action=select,server=server1->db=encrypt_db4data->table=test_clusteredby->column=encrypt_deductions->action=select,server=server1->db=encrypt_db4data->table=test_clusteredby->column=encrypt_address->action=select,server=server1->db=encrypt_db4data->table=encrypt_test_analyze->column=encrypt_name->action=select,server=server1->db=encrypt_db4data->table=encrypt_test_analyze->column=encrypt_salary->action=select,server=server1->db=encrypt_db4data->table=encrypt_test_analyze->column=encrypt_subordinates->action=select,server=server1->db=encrypt_db4data->table=encrypt_test_analyze->column=encrypt_deductions->action=select,server=server1->db=encrypt_db4data->table=encrypt_test_analyze->column=encrypt_address->action=select,server=server1->db=encrypt_db4data->table=tbl4builtinfuncs->column=encrypt_col1->action=select,server=server1->db=encrypt_db4data->table=tbl4builtinfuncs->column=encrypt_col2->action=select,server=server1->db=encrypt_db4data->table=tbl4builtinfuncs->column=encrypt_col3->action=select,server=server1->db=encrypt_db4data->table=session_src_encrypted->column=encrypt_user_id->action=select,server=server1->db=encrypt_db4data->table=session_src_encrypted->column=encrypt_pageview_id->action=select,server=server1->db=encrypt_db4data->table=session_src_encrypted->column=encrypt_page_url->action=select,server=server1->db=encrypt_db4data->table=session_src_encrypted->column=encrypt_referrer_url->action=select,server=server1->db=encrypt_db4data->table=session_src_encrypted->column=encrypt_timestamp->action=select,server=server1->db=encrypt_db4data->table=sessionization_step_one_origins_tgt_encrypted->column=encrypt_ssoo_user_id->action=select,server=server1->db=encrypt_db4data->table=sessionization_step_one_origins_tgt_encrypted->column=encrypt_ssoo_pageview_id->action=select,server=server1->db=encrypt_db4data->table=sessionization_step_one_origins_tgt_encrypted->column=encrypt_ssoo_timestamp->action=select,server=server1->db=encrypt_db4data->table=encrypt_import_export->column=encrypt_name->action=select,server=server1->db=encrypt_db4data->table=encrypt_import_export->column=encrypt_salary->action=select,server=server1->db=encrypt_db4data->table=encrypt_import_export->column=encrypt_subordinates->action=select,server=server1->db=encrypt_db4data->table=encrypt_import_export->column=encrypt_deductions->action=select,server=server1->db=encrypt_db4data->table=encrypt_import_export->column=encrypt_address->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_import_export->column=encrypt_name->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_import_export->column=encrypt_salary->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_import_export->column=encrypt_subordinates->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_import_export->column=encrypt_deductions->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_import_export->column=encrypt_address->action=select,server=server1->db=encrypt_db4data->table=encrypt_employees->column=encrypt_name->action=select,server=server1->db=encrypt_db4data->table=encrypt_employees->column=encrypt_salary->action=select,server=server1->db=encrypt_db4data->table=encrypt_employees->column=encrypt_subordinates->action=select,server=server1->db=encrypt_db4data->table=encrypt_employees->column=encrypt_deductions->action=select,server=server1->db=encrypt_db4data->table=encrypt_employees->column=encrypt_address->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_employees->column=encrypt_name->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_employees->column=encrypt_salary->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_employees->column=encrypt_subordinates->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_employees->column=encrypt_deductions->action=select,server=server1->db=encrypt_db4data->table=encrypt_tgt_employees->column=encrypt_address->action=select,server=server1->db=encrypt_db4data->table=partition_table_src->column=name->action=select,server=server1->db=encrypt_db4data->table=partition_table_src->column=ip->action=select,server=server1->db=encrypt_db4data->table=partition_table_tgt->column=name->action=select,server=server1->db=encrypt_db4data->table=partition_table_tgt->column=ip->action=select,server=server1->db=encrypt_db4data->table=table_src->column=name->action=select,server=server1->db=encrypt_db4data->table=table_src->column=ip->action=select,server=server1->db=encrypt_db4data->table=table_tgt->column=name->action=select,server=server1->db=encrypt_db4data->table=table_tgt->column=ip->action=select,server=server1->db=encrypt_db4data->table=collecttest->column=str->action=select,server=server1->db=encrypt_db4data->table=whoyouare->column=who->action=select,server=server1->db=encrypt_db4tbl->action=all,server=server1->db=encrypt_db4tbl->table=tbl4view->column=encrypt_c0->action=select,server=server1->db=encrypt_db4tbl->table=tbl4view->column=encrypt_c1->action=select,server=server1->db=encrypt_db4tbl->table=tbl4view->column=encrypt_c2->action=select,server=server1->db=encrypt_db4drop_cascade->action=select,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl4drop->column=encrypt_id->action=select,server=server1->db=encrypt_db4drop_cascade->table=encrypt_tbl4drop->column=encrypt_val->action=select,server=server1->db=encrypt_db4msck->action=all,server=server1->db=encrypt_db4msck->table=test_msck->column=encrypt_id->action=select,server=server1->db=encrypt_db4msck->table=test_msck->column=encrypt_val->action=select,server=server1->db=encrypt_db4props->action=all,server=server1->db=encrypt_db4props->table=employees_props->column=encrypt_name->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=encrypt_salary->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=encrypt_subordinates->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=encrypt_deductions->action=select,server=server1->db=encrypt_db4props->table=employees_props->column=encrypt_address->action=select,server=server1->db=encrypt_db4func->action=all,server=server1->db=encrypt_db4func->table=teacher->column=name->action=select"
-##============
 
-##============Proxy Uer+Groups Privilege
-####super user to create tables and views
-
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mt_qa --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mt_qa --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mt_qa --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mt_qa --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mt_qa --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
-
-
-#sentry_privileges[superuser_columns]="server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
-
-
-#sentry_privileges[superuser_columns]=
-#"server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
-
-
-
-#proxy user+groups
-#DB ALL + TABLE SELECT
-#origin_waimai.waimai_safe_order VIEW reference encrypt columns
-#origindb.waimai_order_shard__wm TABLE has encrypt columns
-#give privilege on the base table for encrypt columns
-#give privilege on the view for encrypt columns
-#dim.ndm_user has 2 encrypt columns, grant select privilege
-#
-
-#GROUPS USED IN THIS CASE:
-#mart_waimai_group
-#ba_ups_group
-#dw_group
-#mart_waimai_crm_group
-#mart_wmorg_group
-#origin_waimai_group
-#origindb_group
-#origindb_delta_group
-#origin_dianping_group
-#origindb_group
-#origin_waimai_group
-#dim_group
-
-
-
-
-sentry_privileges[GroupLogin]="server=server1->db=mart_waimai->action=all,server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->action=select,server=server1->db=dim->table=ndm_user->action=select,server=server1->db=dim->table=collecttest->action=select,server=server1->db=dw->table=dim_employee->action=select,server=server1->db=mart_waimai_crm->table=topic_dt_check_list__poiaor_aortype_audit->action=select,server=server1->db=mart_wmorg->table=employ_encrypted->action=select,server=server1->db=origin_waimai->table=waimai_cos__wm_employ->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->action=select,server=server1->db=origindb->table=gis__admin_division->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->action=select,server=server1->db=origindb_delta->table=waimai_money_exchange__wm_exchange_flow->action=select,server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_phone->action=select,server=server1->db=dim->table=ndm_user->column=username->action=select,server=server1->db=dim->table=ndm_user->column=mobile->action=select,server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=select,server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->action=select"
-
-#DB.TABLE SELECT+CREATE+INSERT+ALTER + TABLE SELECT
-#origin_waimai.waimai_safe_order VIEW reference encrypt columns
-#origindb.waimai_order_shard__wm TABLE has encrypt columns
-#give privilege on the base table for encrypt columns
-#do not give privilege on the view for encrypt columns
-#dim.ndm_user has 2 encrypt columns, grant select privilege
-
-#dw_group
-#mart_wmorg_group
-#origin_waimai_group
-#
-#origindb_group
-#
-#origindb_delta_group
-#origin_dianping_group
-#mart_waimai_crm_group
-#
-#origindb_group
-#dim_group
-
-
-sentry_privileges[GroupLogin_2]="server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=select,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=select,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=select,server=server1->db=mart_waimai->table=table001->action=select,server=server1->db=mart_waimai->table=table002->action=select,server=server1->db=mart_waimai->table=partition_table001->action=select,server=server1->db=mart_waimai->table=partition_table002->action=select,server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=create,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=create,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=create,server=server1->db=mart_waimai->table=table001->action=create,server=server1->db=mart_waimai->table=table002->action=create,server=server1->db=mart_waimai->table=partition_table001->action=create,server=server1->db=mart_waimai->table=partition_table002->action=create,server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=insert,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=insert,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=insert,server=server1->db=mart_waimai->table=table001->action=insert,server=server1->db=mart_waimai->table=table002->action=insert,server=server1->db=mart_waimai->table=partition_table001->action=insert,server=server1->db=mart_waimai->table=partition_table002->action=insert,server=server1->db=mart_waimai->table=dim_ad_cpc_activity_poi->action=alter,server=server1->db=mart_waimai->table=dim_ad_cpc_activity->action=alter,server=server1->db=mart_waimai->table=cis_mappoi_in_aor->action=alter,server=server1->db=mart_waimai->table=table001->action=alter,server=server1->db=mart_waimai->table=table002->action=alter,server=server1->db=mart_waimai->table=partition_table001->action=alter,server=server1->db=mart_waimai->table=partition_table002->action=alter,server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->action=select,server=server1->db=dim->table=ndm_user->action=select,server=server1->db=dim->table=collecttest->action=select,server=server1->db=dw->table=dim_employee->action=select,server=server1->db=mart_wmorg->table=employ_encrypted->action=select,server=server1->db=origin_waimai->table=waimai_cos__wm_employ->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->action=select,server=server1->db=origindb->table=gis__admin_division->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->action=select,server=server1->db=origindb_delta->table=waimai_money_exchange__wm_exchange_flow->action=select,server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->action=select,server=server1->db=mart_waimai_crm->table=topic_dt_check_list__poiaor_aortype_audit->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select,server=server1->db=dim->table=ndm_user->column=mobile->action=select,server=server1->db=dim->table=ndm_user->column=username->action=select"
-
-
-#DB ALL + DB SELECT
-#origin_waimai.waimai_safe_order VIEW reference encrypt columns
-#origindb.waimai_order_shard__wm TABLE has encrypt columns
-#do not give privilege on the base table for encrypt columns
-#give privilege on the view for encrypt columns
-#dim.ndm_user has 2 encrypt columns, do not grant select privilege
-sentry_privileges[GroupLogin_3]="server=server1->db=ba_ups->action=select,server=server1->db=dim->action=select,server=server1->db=dw->action=select,server=server1->db=mart_waimai->action=all,server=server1->db=mart_waimai_crm->action=select,server=server1->db=mart_wmorg->action=select,server=server1->db=origin_waimai->action=select,server=server1->db=origindb->action=select,server=server1->db=origindb_delta->action=select,server=server1->db=origin_dianping->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select,server=server1->db=origin_waimai->table=waimai_safe_o£¢rder->column=recipient_phone->action=select"
-
-#DB SELECT+CREATE+ALTER+INSERT + DB SELECT
-#dim.ndm_user has 2 encrypt columns, grant select privilege
-sentry_privileges[GroupLogin_4]="server=server1->db=ba_ups->action=select,server=server1->db=dim->action=select,server=server1->db=dw->action=select,server=server1->db=mart_waimai->action=select,server=server1->db=mart_waimai->action=create,server=server1->db=mart_waimai->action=alter,server=server1->db=mart_waimai->action=insert,server=server1->db=mart_waimai_crm->action=select,server=server1->db=mart_wmorg->action=select,server=server1->db=origin_waimai->action=select,server=server1->db=origindb->action=select,server=server1->db=origindb_delta->action=select,server=server1->db=origin_dianping->action=select,server=server1->db=dim->table=ndm_user->column=username->action=select,server=server1->db=dim->table=ndm_user->column=mobile->action=select"
-
-
-### grant encrypt column privilege
-#origin_dianping_group="server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->column=reviewbody->action=select"
-#
-#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
-#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
-#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select"
-#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select"
-#origindb_group="server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
-#
-#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=email->action=select"
-#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=mobile->action=select"
-#
-#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select"
-#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select"
-#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select"
-#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select"
-#origin_waimai_group="server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_phone->action=select"
-#
-#dw_group="server=server1->db=dw->table=dim_employee->column=birthday->action=select"
-#dw_group="server=server1->db=dw->table=dim_employee->column=mobile_phone_no->action=select"
-#dim_group="server=server1->db=dim->table=ndm_user->column=username->action=select"
-#dim_group="server=server1->db=dim->table=ndm_user->column=mobile->action=select"
-#
-#ba_ups_group="server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->column=mobile->action=select"
-
-
-
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r ba_ups_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r ba_ups_group -g ba_ups_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename ba_ups_group --privilege "server=server1->db=ba_ups->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r dw_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r dw_group -g dw_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dim->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r dw_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r dw_group -g dw_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dw->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r mart_waimai_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r mart_waimai_group -g mart_waimai_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mart_waimai_group --privilege "server=server1->db=mart_waimai->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r mart_waimai_crm_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r mart_waimai_crm_group -g mart_waimai_crm_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mart_waimai_crm_group --privilege "server=server1->db=mart_waimai_crm->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r mart_wmorg_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r mart_wmorg_group -g mart_wmorg_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename mart_wmorg_group --privilege "server=server1->db=mart_wmorg->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r origin_waimai_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r origin_waimai_group -g origin_waimai_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r origindb_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r origindb_group -g origindb_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origindb_group --privilege "server=server1->db=origindb->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r origindb_delta_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r origindb_delta_group -g origindb_delta_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origindb_delta_group --privilege "server=server1->db=origindb_delta->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r origin_dianping_group
-#/opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_group -r origin_dianping_group -g origin_dianping_group
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_dianping_group --privilege "server=server1->db=origin_dianping->action=select"
-#
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_dianping_group --privilege "server=server1->db=origin_dianping->table=dpmid_ugcreview_basereview->column=reviewbody->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origindb_group --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origindb_group --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origindb_group --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origindb_group --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origindb_group --privilege "server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=email->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->table=waimai_cos__wm_employ->column=mobile->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename origin_waimai_group --privilege "server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_phone->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dw->table=dim_employee->column=birthday->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dw->table=dim_employee->column=mobile_phone_no->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dim->table=ndm_user->column=username->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename dw_group --privilege "server=server1->db=dim->table=ndm_user->column=mobile->action=select"
-#/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename ba_ups_group --privilege "server=server1->db=ba_ups->table=mt_dp_uid_mapping_new->column=mobile->action=select"
-##============
 
 ##============
 # Sentry Flag
@@ -312,16 +142,6 @@ elif [[ "$2" == "DBAllWithEncryptedColumns_2" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAllWithEncryptedColumns_2]}"`
 elif [[ "$2" == "DBAllWithEncryptedColumns_3" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAllWithEncryptedColumns_3]}"`
-
-# Proxy user group Privilege
-elif [[ "$2" == "GroupLogin" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[GroupLogin]}"`
-elif [[ "$2" == "GroupLogin_2" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[GroupLogin_2]}"`
-elif [[ "$2" == "GroupLogin_3" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[GroupLogin_3]}"`
-elif [[ "$2" == "GroupLogin_4" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[GroupLogin_4]}"`
 
 # For show privilege to specify $2 with List
 elif [[ "$2" == "List" ]]; then

@@ -1,13 +1,30 @@
 OK
 OK
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4change>
+FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'encrypt_col1': (possible column names are: encrypted_name_61152_encrypt_col1, encrypted_name_12233_encrypt_col2, encrypted_name_79981_encrypt_col3) or Column insufficient privileges to access: encrypt_col1
+Query ID = sankuai_20171025125058_a3197e59-6880-496a-854e-539696e3fd90
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2470, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2470/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2470
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2470
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/.hive-staging_hive_2017-10-25_12-50-58_663_8988360968983879688-1/-ext-10000
+Loading data to table encrypt_db4alter.tbl4change
+1 Rows loaded to encrypt_db4alter.tbl4change
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.07 sec   HDFS Read: 4867 HDFS Write: 12 SUCCESS
 OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Invalid column reference encrypt_col1
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Invalid column reference encrypt_col3
 OK
-OK
-OK
-OK
-col3to1             	int                 	put last column to position 1st
-encrypt_col2        	bigint              	                    
-col1to2             	int                 	put column1 to position 2nd
-OK
-OK
+ENCRYPTED_NAME_75247_encrypt_col1	tinyint             	ENCRYPTED_COMMENT_85726
+ENCRYPTED_NAME_79291_encrypt_col2	bigint              	ENCRYPTED_COMMENT_54872
+ENCRYPTED_NAME_22551_encrypt_col3	string              	ENCRYPTED_COMMENT_31523
+FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'encrypt_col2': (possible column names are: encrypted_name_59073_encrypt_col1, encrypted_name_29481_encrypt_col2, encrypted_name_86771_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4change>
 OK

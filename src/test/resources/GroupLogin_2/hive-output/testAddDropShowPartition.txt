@@ -1,0 +1,17 @@
+OK
+OK
+OK
+OK
+OK
+dt=20110102
+dt=20110103
+dt=20110104
+FAILED: SemanticException [Error 10001]: Line 2:70 Table not found 'supply'
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+OK
+partition
+dt=20110102
+dt=20110103
+dt=20110104

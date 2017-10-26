@@ -1,9 +1,12 @@
 OK
 OK
-FAILED: ParseException line 2:15 extraneous input 'encrypt_view4drop' expecting AS near '<EOF>'
 OK
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'encrypt_view4drop'
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4drop_cascade>.<encrypt_tbl4drop>
+FAILED: SemanticException Line 1:26 Invalid column reference 'encrypted_name_10540_encrypt_id' in definition of VIEW encrypt_view4drop [
+SELECT `encrypt_tbl4drop`.`encrypted_name_10540_encrypt_id`, `encrypt_tbl4drop`.`encrypted_name_57320_encrypt_val` FROM `encrypt_db4drop_cascade`.`encrypt_tbl4drop`
+] used as encrypt_view4drop at Line 2:14
 OK
 encrypt_tbl4drop
+encrypt_view4drop
 OK
 OK

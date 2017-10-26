@@ -1,13 +1,14 @@
 OK
 OK
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table log_messages is protected from being dropped
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable is protected from being dropped
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<test_enable_disable>
+FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'encrypt_hms': (possible column names are: encrypted_name_85711_encrypt_hms, encrypted_name_42684_encrypt_severity, encrypted_name_1616_encrypt_server, encrypted_name_39782_encrypt_process_id, encrypted_name_53117_encrypt_message, year, month, day) or Column insufficient privileges to access: encrypt_hms
 OK
 OK
 OK
-OK
-OK
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table log_messages is protected from being dropped
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable is protected from being dropped
+FAILED: SemanticException [Error 10113]: Query against an offline table or partition Table encrypt_db4alter.test_enable_disable
+FAILED: SemanticException [Error 10113]: Query against an offline table or partition Table encrypt_db4alter.test_enable_disable
 OK
 OK

@@ -3,9 +3,9 @@ OK
 OK
 OK
 CREATE TABLE `encrypt_db4data.test_serde`(
-  `encrypt_c0` string COMMENT 'from deserializer', 
-  `encrypt_c1` string COMMENT 'from deserializer', 
-  `encrypt_c2` string COMMENT 'from deserializer')
+  `encrypted_name_70080_encrypt_c0` string COMMENT 'from deserializer', 
+  `encrypted_name_75691_encrypt_c1` string COMMENT 'from deserializer', 
+  `encrypted_name_87320_encrypt_c2` string COMMENT 'from deserializer')
 ROW FORMAT SERDE 
   'org.apache.hadoop.hive.contrib.serde2.RegexSerDe' 
 WITH SERDEPROPERTIES ( 
@@ -25,4 +25,4 @@ TBLPROPERTIES (
   'numRows'='-1', 
   'rawDataSize'='-1', 
   'totalSize'='0', 
-OK
+FAILED: ParseException line 5:5 missing EOF at 'TABLE' near 'DROP'

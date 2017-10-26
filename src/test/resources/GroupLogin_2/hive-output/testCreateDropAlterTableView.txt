@@ -1,0 +1,43 @@
+OK
+OK
+cis_mappoi_in_aor
+dim_ad_cpc_activity
+dim_ad_cpc_activity_poi
+partition_table001
+partition_table002
+table001
+table002
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATETABLE)
+OK
+cis_mappoi_in_aor
+dim_ad_cpc_activity
+dim_ad_cpc_activity_poi
+partition_table001
+partition_table002
+table001
+table002
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.tbl2create
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.view2create_non_encrypt_columns
+OK
+OK
+OK
+OK
+OK
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.tbl2create
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.tbl2create
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.view2create_non_encrypt_columns
+OK
+cis_mappoi_in_aor
+dim_ad_cpc_activity
+dim_ad_cpc_activity_poi
+partition_table001
+partition_table002
+table001
+table002
+OK
+OK
+OK
+OK

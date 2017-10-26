@@ -1,0 +1,12 @@
+OK
+FAILED: SemanticException [Error 10001]: Table not found log_messages
+FAILED: SemanticException [Error 10001]: Table not found log_messages
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages
+FAILED: SemanticException [Error 10001]: Table not found log_messages
+FAILED: SemanticException [Error 10001]: Table not found log_messages
+FAILED: SemanticException [Error 10001]: Table not found log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages_external
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages_external
+rm: Failed to move to trash: hdfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=WRITE, inode="/user/hive/warehouse/mart_waimai.db/log_messages_external":hive:hive:drwxrwx--x
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
