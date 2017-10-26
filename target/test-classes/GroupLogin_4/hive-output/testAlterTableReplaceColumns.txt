@@ -1,0 +1,47 @@
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. add columns failed, rollback failed. java.sql.SQLException: Connection is closed!
+	at com.jolbox.bonecp.ConnectionHandle.checkClosed(ConnectionHandle.java:459)
+	at com.jolbox.bonecp.ConnectionHandle.rollback(ConnectionHandle.java:1270)
+	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.updatePartitionsColumns(MetaStoreDirectSql.java:1790)
+	at org.apache.hadoop.hive.metastore.ObjectStore.alterTableCascade(ObjectStore.java:2844)
+	at sun.reflect.GeneratedMethodAccessor106.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.hive.metastore.RawStoreProxy.invoke(RawStoreProxy.java:114)
+	at com.sun.proxy.$Proxy7.alterTableCascade(Unknown Source)
+	at org.apache.hadoop.hive.metastore.HiveAlterHandler.alterTable(HiveAlterHandler.java:141)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.alter_table_core(HiveMetaStore.java:3473)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.alter_table_with_cascade(HiveMetaStore.java:3441)
+	at sun.reflect.GeneratedMethodAccessor75.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.hive.metastore.RetryingHMSHandler.invoke(RetryingHMSHandler.java:107)
+	at com.sun.proxy.$Proxy9.alter_table_with_cascade(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor75.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$MetricHMSProxy.invoke(HiveMetaStore.java:6049)
+	at com.sun.proxy.$Proxy9.alter_table_with_cascade(Unknown Source)
+	at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$Processor$alter_table_with_cascade.getResult(ThriftHiveMetastore.java:9480)
+	at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$Processor$alter_table_with_cascade.getResult(ThriftHiveMetastore.java:9464)
+	at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+	at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+	at org.apache.hadoop.hive.thrift.HadoopThriftAuthBridge$Server$TUGIAssumingProcessor$1.run(HadoopThriftAuthBridge.java:732)
+	at org.apache.hadoop.hive.thrift.HadoopThriftAuthBridge$Server$TUGIAssumingProcessor$1.run(HadoopThriftAuthBridge.java:727)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
+	at org.apache.hadoop.hive.thrift.HadoopThriftAuthBridge$Server$TUGIAssumingProcessor.process(HadoopThriftAuthBridge.java:727)
+	at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:286)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+col3                	int                 	                    
+col4                	bigint              	                    
+col5                	boolean             	                    
+col6                	float               	                    
+col7                	double              	                    
+col8                	string              	                    

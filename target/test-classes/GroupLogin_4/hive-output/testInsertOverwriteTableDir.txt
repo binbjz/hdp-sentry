@@ -1,0 +1,249 @@
+OK
+OK
+OK
+OK
+Loading data to table mart_waimai.src_employees_insert_overwrite partition (country=US, state=CA)
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@444f36fa
+OK
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@4ef86287
+Query ID = sankuai_20171026163949_2e232c4d-85d6-4685-a91f-f35adcf7299b
+Total jobs = 7
+Launching Job 1 out of 7
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2662, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2662/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2662
+Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_2662
+Stage-10 is selected by condition resolver.
+Stage-5 is selected by condition resolver.
+Stage-15 is filtered out by condition resolver.
+Stage-9 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Stage-11 is filtered out by condition resolver.
+Stage-14 is selected by condition resolver.
+Stage-6 is filtered out by condition resolver.
+Stage-16 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/.hive-staging_hive_2017-10-26_16-39-49_539_8805220549259123152-1/-ext-10001
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@4438487f
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/.hive-staging_hive_2017-10-26_16-39-49_539_8805220549259123152-1/-ext-10000
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@4abfe29d
+Launching Job 7 out of 7
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=IL)
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2663, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2663/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2663
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=IL' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@5deb31e2
+Hadoop job information for Stage-14: number of mappers: 1; number of reducers: 0
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=OR)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=OR' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@4304170b
+Ended Job = job_1505297521386_2663
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@bfa1331
+4 Rows loaded to mart_waimai.employees_insert_overwrite
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 2   Cumulative CPU: 3.37 sec   HDFS Read: 23920 HDFS Write: 427 SUCCESS
+Stage-Stage-14: Map: 1   Cumulative CPU: 1.13 sec   HDFS Read: 4688 HDFS Write: 427 SUCCESS
+OK
+OK
+employees_insert_overwrite.name	employees_insert_overwrite.salary	employees_insert_overwrite.subordinates	employees_insert_overwrite.deductions	employees_insert_overwrite.address	employees_insert_overwrite.country	employees_insert_overwrite.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@7a21d6d1
+Query ID = sankuai_20171026164118_181d30e7-6759-4a70-8944-4c42c79f5471
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2664, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2664/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2664
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2664
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/.hive-staging_hive_2017-10-26_16-41-18_030_1959589116501283856-1/-ext-10000
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@4e975982
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@5dfc855f
+4 Rows loaded to mart_waimai.employees_insert_overwrite
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.18 sec   HDFS Read: 7001 HDFS Write: 427 SUCCESS
+OK
+name	salary	subordinates	deductions	address
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@61ed5e82
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@2433ab1d
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@7a9b0ccb
+OK
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@6da15838
+Query ID = sankuai_20171026164221_f406860b-d20d-4892-9c15-b5ba9c7a273a
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2665, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2665/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2665
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_2665
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/.hive-staging_hive_2017-10-26_16-42-21_839_6018192932367269370-1/-ext-10000
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@282e4840
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@6aa8a880
+	Loading partition {country=US, state=CA}
+4 Rows loaded to mart_waimai.employees_insert_overwrite
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2   Cumulative CPU: 2.28 sec   HDFS Read: 16238 HDFS Write: 427 SUCCESS
+OK
+se.name	se.salary	se.subordinates	se.deductions	se.address	se.state
+OK
+employees_insert_overwrite.name	employees_insert_overwrite.salary	employees_insert_overwrite.subordinates	employees_insert_overwrite.deductions	employees_insert_overwrite.address	employees_insert_overwrite.country	employees_insert_overwrite.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Query ID = sankuai_20171026164303_9130d94a-024b-41c4-9d75-ea6d26a97c54
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2666, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2666/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2666
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2666
+Copying data to local directory /tmp/ca_employees
+Copying data to local directory /tmp/ca_employees
+4 Rows loaded to /tmp/ca_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.23 sec   HDFS Read: 6384 HDFS Write: 451 SUCCESS
+OK
+se.name	se.salary	se.subordinates	se.deductions	se.address	se.country	se.state
+total 4
+-rw-r----- 1 sankuai sankuai 451 Oct 26 16:43 000000_0
+Query ID = sankuai_20171026164324_e35d23dd-f1df-43e6-90c8-46b52c799116
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2667, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2667/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2667
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_2667
+Stage-3 is filtered out by condition resolver.
+Stage-2 is selected by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Launching Job 3 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2668, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2668/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2668
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2668
+Moving data to: /tmp/union.out
+8 Rows loaded to /tmp/union.out
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2   Cumulative CPU: 3.8 sec   HDFS Read: 15958 HDFS Write: 74 SUCCESS
+Stage-Stage-2: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 1844 HDFS Write: 74 SUCCESS
+OK
+unioninput.name	unioninput.salary
+John Doe100000.0
+Mary Smith80000.0
+Todd Jones70000.0
+Bill King60000.0
+Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Query ID = sankuai_20171026164407_2b65091c-774e-4564-86b3-dbfbb2549a51
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_2669, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2669/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2669
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 1
+Ended Job = job_1505297521386_2669
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2  Reduce: 1   Cumulative CPU: 6.6 sec   HDFS Read: 25459 HDFS Write: 53 SUCCESS
+OK
+_c0	_c1	country	state
+Query ID = sankuai_20171026164436_f65b5eb4-36ee-4e39-882c-d0f9ddc6cfa2
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2670, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2670/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2670
+Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2670
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 1   Cumulative CPU: 1.04 sec   HDFS Read: 4872 HDFS Write: 0 SUCCESS
+OK
+mart_waimai.src_employees_insert_overwrite.name	mart_waimai.src_employees_insert_overwrite.salary	mart_waimai.src_employees_insert_overwrite.subordinates	mart_waimai.src_employees_insert_overwrite.deductions	mart_waimai.src_employees_insert_overwrite.address	mart_waimai.src_employees_insert_overwrite.country	mart_waimai.src_employees_insert_overwrite.state
+Query ID = sankuai_20171026164510_224205e6-75da-40fb-af08-1eefa6f9a75d
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2671, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2671/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2671
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_2671
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.06 sec   HDFS Read: 11568 HDFS Write: 0 SUCCESS
+OK
+mart_waimai.src_employees_insert_overwrite.name	mart_waimai.src_employees_insert_overwrite.salary	mart_waimai.src_employees_insert_overwrite.subordinates	mart_waimai.src_employees_insert_overwrite.deductions	mart_waimai.src_employees_insert_overwrite.address	mart_waimai.src_employees_insert_overwrite.country	mart_waimai.src_employees_insert_overwrite.state
+Query ID = sankuai_20171026164559_dbfd095a-8116-4834-9f95-badae29ef886
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2672, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2672/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2672
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_2672
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.04 sec   HDFS Read: 11912 HDFS Write: 0 SUCCESS
+OK
+mart_waimai.src_employees_insert_overwrite.name	mart_waimai.src_employees_insert_overwrite.salary	mart_waimai.src_employees_insert_overwrite.subordinates	mart_waimai.src_employees_insert_overwrite.deductions	mart_waimai.src_employees_insert_overwrite.address	mart_waimai.src_employees_insert_overwrite.country	mart_waimai.src_employees_insert_overwrite.state
+OK
+col_name	data_type	comment
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+OK
+col_name	data_type	comment
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
