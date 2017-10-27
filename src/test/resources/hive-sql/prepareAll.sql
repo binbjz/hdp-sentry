@@ -37,27 +37,6 @@ ALTER TABLE testdb.test_serde_partition ADD PARTITION (col10='abc', col20='123')
 CREATE TABLE testdb.test_serde (c0 string, c1 string, c2 string) ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 
-
-
-
-DROP TABLE testdb.tbl4addfile;
-DROP TABLE testdb.tbl4jarfile;
-DROP TABLE testdb.tbl4partition;
-DROP TABLE testdb.tbl4setlocation;
-DROP TABLE testdb.test_serde_partition;
-DROP TABLE testdb.test_serde;
-DROP TABLE testdb.tbl4addcolumns;
-DROP TABLE testdb.tbl4change;
---DROP TABLE testdb.tbl4fileformat;
---DROP TABLE testdb.tbl4fileformat_external;
---DROP TABLE testdb.test_enable_disable_partition;
-DROP TABLE testdb.test_enable_disable1;
-DROP TABLE testdb.test_enable_disable2;
-DROP DATABASE testdb CASCADE;
-DROP DATABASE unaccessibledb CASCADE;
-
-
-
 --testAlterTableAddColumns.sql
 CREATE TABLE testdb.tbl4addcolumns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
 

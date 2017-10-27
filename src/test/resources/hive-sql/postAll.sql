@@ -16,12 +16,9 @@ DROP TABLE testdb.session_test;
 
 DROP TABLE testdb.src_insert_overwrite_tbl;
 DROP TABLE testdb.insert_overwrite_tb;
-
 DROP TABLE testdb.test_insert_overwrite_dir;
-
 DROP TABLE testdb.src_insert_overwrite_tbl_partition;
 DROP TABLE testdb.insert_overwrite_tbl_partition;
-
 
 DROP TABLE testdb.load_data_local_into_table;
 DROP TABLE testdb.load_data_local_into_partition;
@@ -35,7 +32,22 @@ DROP VIEW default.view4drop;
 DROP TABLE default.tbl4drop_no_r;
 DROP VIEW default.view4drop_no_r;
 
+DROP TABLE testdb.tbl4addfile;
+DROP TABLE testdb.tbl4jarfile;
+DROP TABLE testdb.tbl4partition;
+DROP TABLE testdb.tbl4setlocation;
+DROP TABLE testdb.test_serde_partition;
+DROP TABLE testdb.test_serde;
+DROP TABLE testdb.tbl4addcolumns;
+DROP TABLE testdb.tbl4change;
+DROP TABLE testdb.tbl4fileformat;
+DROP TABLE testdb.tbl4fileformat_external;
+DROP TABLE testdb.test_enable_disable_partition;
+DROP TABLE testdb.test_enable_disable1;
+DROP TABLE testdb.test_enable_disable2;
+
 DROP DATABASE testdb CASCADE;
+DROP DATABASE unaccessibledb;
 
 DROP DATABASE db4create CASCADE;
 DROP DATABASE db4create_no_privilege CASCADE;
