@@ -2,7 +2,12 @@ DROP DATABASE db4drop;
 
 DROP TABLE testdb.view4drop;
 DROP TABLE testdb.tbl4drop;
-DROP TABLE testdb.tbl4alter;
+DROP TABLE testdb.tbl4addcolumns;
+DROP TABLE testdb.tbl4replacecolumns;
+DROP TABLE testdb.tbl4change;
+DROP TABLE testdb.tbl4rename;
+
+
 DROP TABLE testdb.log_messages;
 DROP TABLE testdb.log_messages_external
 DROP TABLE testdb.log_messages02;

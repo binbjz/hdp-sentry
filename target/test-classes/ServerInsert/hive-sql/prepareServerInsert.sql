@@ -5,7 +5,10 @@ CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '201
 CREATE TABLE testdb.tbl4drop (col1 TINYINT);
 CREATE VIEW testdb.view4drop AS SELECT * FROM testdb.tbl4drop;
 CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
-CREATE TABLE testdb.tbl4alter (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4addcolumns (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4replacecolumns (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4change (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4rename (col1 TINYINT, col2 INT);
 
 CREATE TABLE IF NOT EXISTS testdb.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';

@@ -1,3 +1,4 @@
+USE testdb;
 -- 创建两个分区目录
 dfs -mkdir /user/hive/warehouse/testdb.db/test_msck/month=201603;
 dfs -mkdir /user/hive/warehouse/testdb.db/test_msck/month=201604;

@@ -31,6 +31,34 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
 CREATE TABLE IF NOT EXISTS testdb.partition_table002 LIKE testdb.partition_table001;
 
+CREATE TABLE testdb.src_employees_dir (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE testdb.src_employees_analyze (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'IL');
+
 CREATE TABLE testdb.src_employees (
  name STRING
 ,salary FLOAT
@@ -50,7 +78,7 @@ CREATE TABLE testdb.employees (
 ,deductions MAP<STRING, FLOAT>
 ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
@@ -112,9 +140,10 @@ PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMIN
 ALTER TABLE testdb.log_messages02 ADD PARTITION (year = 2011, month = 1, day = 1);
 ALTER TABLE testdb.log_messages02 ADD PARTITION (year = 2011, month = 1, day = 2);
 
-CREATE TABLE testdb.teacher (name STRING);
+CREATE TABLE testdb.tbl4jarfile (name STRING);
+INSERT INTO tbl4jarfile VALUES ('TEACHER QA');
 
-CREATE TABLE testdb.whoyouare(who string);
+CREATE TABLE testdb.tbl4addfile(who string);
 
 CREATE TABLE testdb.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
 ALTER TABLE testdb.supply ADD PARTITION (day = 20110102);
@@ -133,10 +162,11 @@ CREATE VIEW db4tbl.view4show AS SELECT col1, col2 FROM db4tbl.tbl4show;
 
 CREATE DATABASE db4alter WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 
-CREATE TABLE IF NOT EXISTS db4alter.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE IF NOT EXISTS db4alter.tbl4fileformat (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
-CREATE EXTERNAL TABLE IF NOT EXISTS db4alter.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+CREATE EXTERNAL TABLE IF NOT EXISTS db4alter.tbl4fileformat_external (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 CREATE TABLE testdb.test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
 ALTER TABLE testdb.src_employees02 ADD PARTITION (country = 'US', state = 'CA');
