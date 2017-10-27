@@ -45,32 +45,77 @@
     ]
   },
   {
-    "id": "testAlterDescribeTable01",
+    "id": "testAlterDescribeTableAddColumns",
     "tag": "Server",
-    "desc": "The case will test AlterDescribeTable01.",
+    "desc": "The case will test AlterDescribeTableAddColumns.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.sql"
+        "name": "testAlterDescribeTableAddColumns.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.txt"
+        "name": "testAlterDescribeTableAddColumns.txt"
       }
     ]
   },
   {
-    "id": "testAlterDescribeTable02",
+    "id": "testAlterDescribeTableChange",
     "tag": "Server",
-    "desc": "The case will test AlterDescribeTable02.",
+    "desc": "The case will test AlterDescribeTableChange.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable02.sql"
+        "name": "testAlterDescribeTableChange.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable02.txt"
+        "name": "testAlterDescribeTableChange.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableRename",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableRename.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableRename.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableRename.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableReplaceColumns",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableReplaceColumns.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableReplaceColumns.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableReplaceColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableSetFileformat",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableSetFileformat.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableSetFileformat.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableSetFileformat.txt"
       }
     ]
   },
@@ -240,47 +285,47 @@
     ]
   },
   {
-    "id": "testInsertOverwriteTable01",
+    "id": "testInsertOverwriteTable",
     "tag": "Server",
-    "desc": "The case will test InsertOverwriteTable01.",
+    "desc": "The case will test InsertOverwriteTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTable01.sql"
+        "name": "testInsertOverwriteTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTable01.txt"
+        "name": "testInsertOverwriteTable.txt"
       }
     ]
   },
   {
-    "id": "testInsertOverwriteTable02",
+    "id": "testInsertOverwriteTablePartition01",
     "tag": "Server",
-    "desc": "The case will test InsertOverwriteTable02.",
+    "desc": "The case will test InsertOverwriteTablePartition01.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTable02.sql"
+        "name": "testInsertOverwriteTablePartition01.sql"
       },
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTable02.txt"
+        "name": "testInsertOverwriteTablePartition01.txt"
       }
     ]
   },
   {
-    "id": "testInsertOverwriteTablePartition",
+    "id": "testInsertOverwriteTablePartition02",
     "tag": "Server",
-    "desc": "The case will test InsertOverwriteTablePartition.",
+    "desc": "The case will test InsertOverwriteTablePartition02.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTablePartition.sql"
+        "name": "testInsertOverwriteTablePartition02.sql"
       },
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTablePartition.txt"
+        "name": "testInsertOverwriteTablePartition02.txt"
       }
     ]
   },

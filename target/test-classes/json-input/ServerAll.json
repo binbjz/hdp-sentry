@@ -75,32 +75,77 @@
     ]
   },
   {
-    "id": "testAlterDescribeTable01",
+    "id": "testAlterDescribeTableAddColumns",
     "tag": "Server",
-    "desc": "The case will test AlterDescribeTable01.",
+    "desc": "The case will test AlterDescribeTableAddColumns.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.sql"
+        "name": "testAlterDescribeTableAddColumns.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable01.txt"
+        "name": "testAlterDescribeTableAddColumns.txt"
       }
     ]
   },
   {
-    "id": "testAlterDescribeTable02",
+    "id": "testAlterDescribeTableChangeColumns",
     "tag": "Server",
-    "desc": "The case will test AlterDescribeTable02.",
+    "desc": "The case will test AlterDescribeTableChangeColumns.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable02.sql"
+        "name": "testAlterDescribeTableChangeColumns.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAlterDescribeTable02.txt"
+        "name": "testAlterDescribeTableChangeColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableRenameTable",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableRenameTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableRenameTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableRenameTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableReplaceColumns",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableReplaceColumns.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableReplaceColumns.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableReplaceColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableSetFileformat",
+    "tag": "Server",
+    "desc": "The case will test testAlterDescribeTableSetFileformat.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableSetFileformat.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeTableSetFileformat.txt"
       }
     ]
   },

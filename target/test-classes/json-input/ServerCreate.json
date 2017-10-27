@@ -75,17 +75,17 @@
     ]
   },
   {
-    "id": "testShowExistingTable",
+    "id": "testShowExistingTableView",
     "tag": "Server",
-    "desc": "The case will test ShowExistingTable.",
+    "desc": "The case will test ShowExistingTableView.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testShowExistingTable.sql"
+        "name": "testShowExistingTableView.sql"
       },
       {
         "type": "file/sql",
-        "name": "testShowExistingTable.txt"
+        "name": "testShowExistingTableView.txt"
       }
     ]
   }
