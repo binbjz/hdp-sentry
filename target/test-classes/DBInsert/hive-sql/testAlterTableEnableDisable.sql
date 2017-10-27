@@ -1,10 +1,10 @@
 USE testdb;
-ALTER TABLE testdb.log_messages ENABLE NO_DROP;
-DROP TABLE testdb.log_messages;
-ALTER TABLE testdb.log_messages DISABLE NO_DROP;
-DROP TABLE testdb.log_messages;
+ALTER TABLE testdb.test_enable_disable ENABLE NO_DROP;
+DROP TABLE testdb.test_enable_disable;
+ALTER TABLE testdb.test_enable_disable DISABLE NO_DROP;
+DROP TABLE testdb.test_enable_disable;
 
-ALTER TABLE testdb.log_messages ENABLE OFFLINE;
-DROP TABLE testdb.log_messages;
-ALTER TABLE testdb.log_messages DISABLE OFFLINE;
-DROP TABLE testdb.log_messages;
+ALTER TABLE testdb.test_enable_disable ENABLE OFFLINE;
+DROP TABLE testdb.test_enable_disable;
+ALTER TABLE testdb.test_enable_disable DISABLE OFFLINE;
+DROP TABLE testdb.test_enable_disable;

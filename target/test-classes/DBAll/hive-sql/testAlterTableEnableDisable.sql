@@ -1,16 +1,10 @@
 USE testdb;
-CREATE TABLE IF NOT EXISTS testdb.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
-PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+ALTER TABLE testdb.test_enable_disable1 ENABLE NO_DROP;
+DROP TABLE testdb.test_enable_disable1;
+ALTER TABLE testdb.test_enable_disable1 DISABLE NO_DROP;
+DROP TABLE testdb.test_enable_disable1;
 
-ALTER TABLE testdb.log_messages ENABLE NO_DROP;
-DROP TABLE testdb.log_messages;
-ALTER TABLE testdb.log_messages DISABLE NO_DROP;
-DROP TABLE testdb.log_messages;
-
-CREATE TABLE IF NOT EXISTS testdb.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
-PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
-
-ALTER TABLE testdb.log_messages ENABLE OFFLINE;
-DROP TABLE testdb.log_messages;
-ALTER TABLE testdb.log_messages DISABLE OFFLINE;
-DROP TABLE testdb.log_messages;
+ALTER TABLE testdb.test_enable_disable2 ENABLE OFFLINE;
+DROP TABLE testdb.test_enable_disable2;
+ALTER TABLE testdb.test_enable_disable2 DISABLE OFFLINE;
+DROP TABLE testdb.test_enable_disable2;

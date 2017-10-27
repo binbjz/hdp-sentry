@@ -1,3 +1,5 @@
+USE default;
+
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 SET hive.cli.print.header=true;
 SET hive.exec.dynamic.partition=true;

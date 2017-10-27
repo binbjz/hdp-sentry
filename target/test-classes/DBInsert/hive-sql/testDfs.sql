@@ -1,3 +1,4 @@
+USE default;
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 !cp ${hiveconf:FILEPATH}/california-employees.csv ${hiveconf:FILEPATH}/california-employees.csv_new;
 dfs -moveFromLocal ${hiveconf:FILEPATH}/california-employees.csv_new  /tmp;
