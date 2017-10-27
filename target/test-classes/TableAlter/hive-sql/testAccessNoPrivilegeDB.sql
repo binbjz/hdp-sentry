@@ -1,3 +1,3 @@
---Execution:
+USE default;
+
 SHOW DATABASES LIKE 'unaccessdb';
-SHOW DATABASES;

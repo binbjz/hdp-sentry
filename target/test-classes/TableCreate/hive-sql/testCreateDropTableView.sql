@@ -14,6 +14,5 @@ DROP TABLE testdb.tbl4drop_no_r;
 DROP VIEW testdb.view4drop;
 DROP TABLE testdb.tbl4drop;
 
-USE testdb;
 SHOW TABLES LIKE '*4drop*';
 SHOW TABLES LIKE '*2create';

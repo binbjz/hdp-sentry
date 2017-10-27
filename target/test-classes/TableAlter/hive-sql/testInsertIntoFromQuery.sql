@@ -1,6 +1,5 @@
-INSERT INTO testdb.session_test VALUES ('100', '101', '102', 'HTTP://WWW.MEITUAN.COM', 10000);
+USE testdb;
 
-SET hive.cli.print.header=true;
 INSERT INTO testdb.sessionization_step_one_origins
 SELECT c.c_user_id as ssoo_user_id
       ,c.c_pageview_id as ssoo_pageview_id
@@ -21,7 +20,4 @@ FROM (SELECT a.a_user_id as c_user_id
               ,a.a_pageview_id
               ,a.a_timestamp) c;
 
-DESCRIBE testdb.sessionization_step_one_origins;
 SELECT * FROM testdb.sessionization_step_one_origins;
-DROP TABLE testdb.session_test;
-DROP TABLE testdb.sessionization_step_one_origins;

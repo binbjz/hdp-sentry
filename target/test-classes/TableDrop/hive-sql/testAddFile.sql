@@ -1,14 +1,14 @@
---Execution:
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+USE testdb;
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.whoyouare;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
 SET hive.cli.print.header=true;
-SELECT * FROM testdb.whoyouare;
+SELECT * FROM testdb.tbl4addfile;
 ADD FILE ${hiveconf:FILEPATH}/test_who.sh;
 LIST FILES;
 SET hive.cli.print.header=true;
-SELECT TRANSFORM (who) USING 'sh test_who.sh' AS (who) FROM testdb.whoyouare;
+SELECT TRANSFORM (who) USING 'sh test_who.sh' AS (who) FROM testdb.tbl4addfile;
 DELETE FILE ${hiveconf:FILEPATH}/test_who.sh;
 LIST FILE;
-DROP TABLE testdb.whoyouare;
+DROP TABLE testdb.tbl4addfile;
 

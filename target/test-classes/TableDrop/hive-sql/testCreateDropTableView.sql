@@ -1,3 +1,4 @@
+USE testdb;
 DESCRIBE testdb.tbl4drop;
 SHOW CREATE TABLE testdb.view4drop;
 SHOW TABLES LIKE '*4drop*';
@@ -14,6 +15,5 @@ DROP TABLE testdb.tbl4drop_no_r;
 DROP VIEW testdb.view4drop;
 DROP TABLE testdb.tbl4drop;
 
-USE testdb;
 SHOW TABLES LIKE '*4drop*';
 SHOW TABLES LIKE '*2create';
