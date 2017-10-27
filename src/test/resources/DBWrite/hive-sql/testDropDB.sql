@@ -1,7 +1,0 @@
---DROP DATABASE db4drop;
---DROP DATABASE db2drop;
-
-SHOW DATABASES LIKE 'db*drop';
-DROP DATABASE db4drop;
-DROP DATABASE db2drop;
-SHOW DATABASES LIKE 'db*drop';

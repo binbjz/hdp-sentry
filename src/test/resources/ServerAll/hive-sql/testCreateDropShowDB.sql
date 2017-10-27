@@ -1,5 +1,0 @@
-DROP DATABASE IF EXISTS testdb CASCADE;
-CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
-SHOW DATABASES LIKE 'testdb';
-DROP DATABASE testdb;
-SHOW DATABASES LIKE 'testdb';
