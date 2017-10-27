@@ -3,25 +3,23 @@ USE testdb;
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE testdb.src_employees02
+INTO TABLE testdb.src_import_export
 PARTITION (country = 'US', state = 'CA');
 
-EXPORT TABLE testdb.src_employees02 PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
+EXPORT TABLE testdb.src_import_export PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
 dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
 
-ALTER TABLE testdb.employees02 DROP PARTITION (country = 'US', state = 'CA');
-IMPORT TABLE testdb.employees02 PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
-SHOW PARTITIONS testdb.employees02;
+ALTER TABLE testdb.import_export DROP PARTITION (country = 'US', state = 'CA');
+IMPORT TABLE testdb.import_export PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+SHOW PARTITIONS testdb.import_export;
 
-ALTER TABLE testdb.employees02 TOUCH;
+ALTER TABLE testdb.import_export TOUCH;
 
-ALTER TABLE testdb.src_employees02 TOUCH PARTITION (country = 'US', state = 'CA') ;
-ALTER TABLE testdb.employees02 TOUCH PARTITION (country = 'US', state = 'CA') ;
+ALTER TABLE testdb.src_import_export TOUCH PARTITION (country = 'US', state = 'CA') ;
+ALTER TABLE testdb.import_export TOUCH PARTITION (country = 'US', state = 'CA') ;
 
-ALTER TABLE testdb.employees02 TOUCH PARTITION (country = 'CHN', state = 'BJ') ;
+DESCRIBE testdb.import_export PARTITION (country='US', state='CA');
+DESCRIBE EXTENDED testdb.import_export PARTITION (country='US', state='CA');
 
-DESCRIBE testdb.employees02 PARTITION (country='US', state='CA');
-DESCRIBE EXTENDED testdb.employees02 PARTITION (country='US', state='CA');
-
-ALTER TABLE testdb.employees02 CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
+ALTER TABLE testdb.import_export CLUSTERED BY (name, address) SORTED BY (salary) INTO 48 BUCKETS;
 dfs -rm -r /tmp/employee;

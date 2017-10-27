@@ -3,8 +3,8 @@
 --server=server1->db=test_db->table=test_partition->action=create
 --server=server1->db=test_db->table=test_partition->action=insert
 
+USE testdb;
 
---Execution:
 ALTER TABLE testdb.test_partition ADD PARTITION (day = 20110102);
 ALTER TABLE testdb.test_partition ADD PARTITION (day = 20110103);
 SHOW PARTITIONS testdb.test_partition;
@@ -13,4 +13,3 @@ SELECT id, part, quantity FROM testdb.test_partition WHERE day >= 20110102 AND d
 ALTER TABLE testdb.test_partition DROP PARTITION (day = 20110102);
 ALTER TABLE testdb.test_partition DROP PARTITION (day = 20110103);
 SHOW PARTITIONS testdb.test_partition;
-DROP TABLE testdb.test_partition;

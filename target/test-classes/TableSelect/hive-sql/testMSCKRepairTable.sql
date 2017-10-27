@@ -1,3 +1,5 @@
+USE testdb;
+
 SHOW PARTITIONS testdb.test_msck;
 dfs -mkdir /user/hive/warehouse/testdb.db/test_msck/month=201603;
 dfs -mkdir /user/hive/warehouse/testdb.db/test_msck/month=201604;

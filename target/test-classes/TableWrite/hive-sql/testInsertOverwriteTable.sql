@@ -1,6 +1,4 @@
---DROP TABLE testdb.table001;
---DROP TABLE testdb.table002;
-
+USE testdb;
 INSERT INTO testdb.table001 VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3');
 SET hive.cli.print.header=true;
 

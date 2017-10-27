@@ -1,6 +1,3 @@
---DROP TABLE testdb.test_enable_disable1;
---DROP TABLE testdb.test_enable_disable2;
-
 USE testdb;
 ALTER TABLE testdb.test_enable_disable1 ENABLE NO_DROP;
 DROP TABLE testdb.test_enable_disable1;
