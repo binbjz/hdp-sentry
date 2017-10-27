@@ -2,7 +2,12 @@ DROP DATABASE db4drop;
 
 DROP TABLE testdb.view4drop;
 DROP TABLE testdb.tbl4drop;
-DROP TABLE testdb.tbl4alter;
+DROP TABLE testdb.tbl4addcolumns;
+DROP TABLE testdb.tbl4replacecolumns;
+DROP TABLE testdb.tbl4change;
+DROP TABLE testdb.tbl4rename;
+
+
 DROP TABLE testdb.log_messages;
 DROP TABLE testdb.log_messages_external
 DROP TABLE testdb.log_messages02;
@@ -17,19 +22,26 @@ DROP TABLE testdb.partition_table001;
 DROP TABLE testdb.partition_table002;
 DROP TABLE testdb.table001;
 DROP TABLE testdb.table002;
-DROP TABLE testdb.teacher;
-DROP TABLE testdb.whoyouare;
+DROP TABLE testdb.tbl4jarfile;
+DROP TABLE testdb.tbl4addfile;
 DROP TABLE testdb.test_serde_partition;
 DROP TABLE testdb.src_employees;
 DROP TABLE testdb.employees;
 DROP TABLE testdb.employees02;
-DROP TABLE testdb.test_enable_disable;
+
 DROP TABLE testdb.employees_props;
+DROP TABLE testdb.test_msck;
+
+DROP TABLE testdb.tbl4query;
+
+DROP TABLE testdb.test_enable_disable1;
+DROP TABLE testdb.test_enable_disable2;
+DROP TABLE testdb.test_enable_disable_partition;
+
+
 DROP DATABASE testdb CASCADE;
 
 
-DROP TABLE db4msck.test_msck;
-DROP DATABASE db4msck CASCADE;
 
 ALTER TABLE db4alter.log_messages PARTITION(year = 2017, month = 8, day = 2) DISABLE NO_DROP;
 ALTER TABLE db4alter.log_messages DROP PARTITION (year = 2017, month = 8, day = 1);

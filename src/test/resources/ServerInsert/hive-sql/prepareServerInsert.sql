@@ -1,3 +1,8 @@
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+CREATE TABLE testdb.tbl4query (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query;
+
+
 CREATE DATABASE db4drop WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 CREATE DATABASE db4alter WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
@@ -5,7 +10,10 @@ CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '201
 CREATE TABLE testdb.tbl4drop (col1 TINYINT);
 CREATE VIEW testdb.view4drop AS SELECT * FROM testdb.tbl4drop;
 CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
-CREATE TABLE testdb.tbl4alter (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4addcolumns (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4replacecolumns (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4change (col1 TINYINT, col2 INT);
+CREATE TABLE testdb.tbl4rename (col1 TINYINT, col2 INT);
 
 CREATE TABLE IF NOT EXISTS testdb.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
@@ -17,12 +25,14 @@ CREATE TABLE IF NOT EXISTS testdb.log_messages02 (hms INT, severity STRING, serv
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 ALTER TABLE testdb.log_messages02 ADD PARTITION (year = 2011, month = 1, day = 1);
 
-CREATE TABLE IF NOT EXISTS testdb.test_enable_disable (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE IF NOT EXISTS testdb.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
-CREATE TABLE testdb.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
-ALTER TABLE testdb.supply ADD PARTITION (day = 20110102);
-ALTER TABLE testdb.supply ADD PARTITION (day = 20110103);
+CREATE TABLE IF NOT EXISTS testdb.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+CREATE TABLE testdb.tbl4partition (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
+ALTER TABLE testdb.tbl4partition ADD PARTITION (day = 20110102);
 
 CREATE TABLE testdb.collecttest (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
@@ -50,9 +60,12 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
 CREATE TABLE IF NOT EXISTS testdb.table002 LIKE testdb.table001;
 
-CREATE TABLE testdb.teacher (name STRING);
+CREATE TABLE testdb.tbl4jarfile (name STRING);
+INSERT INTO testdb.tbl4jarfile VALUES ('TEACHER QA');
 
-CREATE TABLE testdb.whoyouare(who string);
+CREATE TABLE testdb.tbl4addfile(who string);
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
 
 CREATE TABLE testdb.test_serde (c0 string, c1 string, c2 string) ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
@@ -61,6 +74,39 @@ CREATE TABLE testdb.test_serde_partition(c0 string, c1 string, c2 string) PARTIT
 ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 ALTER TABLE testdb.test_serde_partition ADD PARTITION (col10='abc', col20='123');
+
+CREATE TABLE testdb.src_employees_dir (
+   name STRING
+  ,salary FLOAT
+  ,subordinates ARRAY<STRING>
+  ,deductions MAP<STRING, FLOAT>
+  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+ALTER TABLE testdb.src_employees_dir ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees_dir ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_employees_dir ADD PARTITION (country = 'US', state = 'IL');
+
+
+CREATE TABLE testdb.src_employees_analyze (
+   name STRING
+  ,salary FLOAT
+  ,subordinates ARRAY<STRING>
+  ,deductions MAP<STRING, FLOAT>
+  ,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'IL');
 
 CREATE TABLE testdb.src_employees (
  name STRING
@@ -124,12 +170,15 @@ PARTITIONED BY (country STRING, state STRING)
 LOCATION '/user/hive/warehouse/testdb.db/employees_props'
 TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');
 
-CREATE TABLE IF NOT EXISTS db4alter.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+
+CREATE TABLE IF NOT EXISTS testdb.test_enable_disable_partition (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
-ALTER TABLE db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 1);
-ALTER TABLE db4alter.log_messages ADD PARTITION (year = 2017, month = 8, day = 2);
-CREATE DATABASE db4msck;
-CREATE TABLE db4msck.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
+ALTER TABLE testdb.test_enable_disable_partition ADD PARTITION (year = 2017, month = 8, day = 1);
+ALTER TABLE testdb.test_enable_disable_partition ADD PARTITION (year = 2017, month = 8, day = 2);
+
+
+
+CREATE TABLE testdb.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
 
 ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.src_employees ADD PARTITION (country = 'US', state = 'OR');

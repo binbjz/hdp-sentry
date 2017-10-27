@@ -12,17 +12,24 @@ DROP TABLE testdb.src_employees02;
 
 DROP TABLE testdb.tbl4drop;
 DROP VIEW testdb.view4drop;
-DROP TABLE testdb.test_enable_disable;
 DROP TABLE testdb.test_serde;
 DROP TABLE testdb.test_serde_partition;
-DROP TABLE testdb.test_enable_disable_partition;
+
 DROP TABLE testdb.log_messages02;
 DROP TABLE testdb.log_messages;
 DROP TABLE testdb.test_tbl;
 
 DROP TABLE testdb.supply;
-DROP TABLE testdb.whoyouare;
+DROP TABLE testdb.tbl4addfile;
 DROP TABLE testdb.teacher;
+
+DROP TABLE testdb.test_enable_disable1;
+DROP TABLE testdb.test_enable_disable2;
+DROP TABLE testdb.test_enable_disable_partition;
+
+DROP TABLE testdb.src_employees_analyze;
+
+DROP TABLE testdb.tbl4query;
 
 DROP DATABASE testdb CASCADE;
 DROP DATABASE db4drop_cascade CASCADE;
