@@ -1,8 +1,0 @@
-DROP DATABASE IF EXISTS testdb CASCADE;
-CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
-USE testdb;
-CREATE TABLE test_tbl (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
-SHOW TABLES;
-SHOW TABLES LIKE 'test*';
-DROP TABLE test_tbl;
-DROP DATABASE testdb;

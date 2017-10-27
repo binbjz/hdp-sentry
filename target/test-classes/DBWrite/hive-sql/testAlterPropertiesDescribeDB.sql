@@ -1,3 +1,0 @@
-DESCRIBE DATABASE EXTENDED db4alter;
-ALTER DATABASE db4alter SET DBPROPERTIES ('edited-by' = 'hadoop-new-qa');
-DESCRIBE DATABASE EXTENDED db4alter;
