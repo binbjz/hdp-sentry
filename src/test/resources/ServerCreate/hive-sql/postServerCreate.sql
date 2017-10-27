@@ -7,3 +7,5 @@ DROP TABLE teacher;
 DROP TABLE whoyouare;
 DROP TABLE default.test_msck;
 
+DROP TABLE tbl4addfile;
+
