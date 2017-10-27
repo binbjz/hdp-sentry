@@ -40,6 +40,10 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
+ALTER TABLE tbl4rename SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
+SHOW TBLPROPERTIES tbl4rename;
+ALTER TABLE tbl4rename RENAME TO tbl4rename_new;
+
 CREATE TABLE testdb.employees (
  name STRING
 ,salary FLOAT
@@ -108,7 +112,11 @@ CREATE EXTERNAL TABLE IF NOT EXISTS testdb.log_messages_external (hms INT, sever
 ALTER TABLE testdb.log_messages_external ADD PARTITION(year = 2011, month = 1, day = 1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages_external/2011/01/01';
 ALTER TABLE testdb.log_messages ADD PARTITION(year = 2011, month = 1, day = 1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/log_messages/2011/01/01';
 
-CREATE TABLE testdb.test_tbl (col1 TINYINT, col2 SMALLINT);
+CREATE TABLE testdb.tbl4addcolumns (col1 TINYINT, col2 SMALLINT);
+CREATE TABLE testdb.tbl4replacecolumns (col1 TINYINT, col2 SMALLINT);
+CREATE TABLE testdb.tbl4change (col1 TINYINT, col2 SMALLINT);
+CREATE TABLE testdb.tbl4rename (col1 TINYINT, col2 SMALLINT);
+
 CREATE TABLE testdb.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
 ALTER TABLE testdb.supply ADD PARTITION (day = 20110102);
 ALTER TABLE testdb.supply ADD PARTITION (day = 20110103);
