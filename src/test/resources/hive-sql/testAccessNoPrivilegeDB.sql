@@ -1,3 +1,3 @@
 USE default;
 
-SHOW DATABASES LIKE 'unaccessdb';
+SHOW DATABASES LIKE 'unaccessibledb';

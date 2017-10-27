@@ -18,10 +18,6 @@ CREATE TABLE ctas AS SELECT * FROM testdb.tbl4drop;
 CREATE VIEW view4create AS SELECT col1, col2 FROM view4drop;
 CREATE VIEW view4create_no_privilege AS SELECT col1, col2 FROM view4drop;
 
-SELECT * FROM tbl4drop_no_r;
-SELECT * FROM view4drop_no_r;
-
-
 DROP VIEW view4create;
 DROP TABLE tbl4create;
 

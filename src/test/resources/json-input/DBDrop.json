@@ -1,23 +1,82 @@
-[
+[ {
+  "id": "testAccessNoPrivilegeDB",
+  "tag": "DB",
+  "desc": "The case will test AccessNoPrivilegeDB.",
+  "cases": [
+    {
+      "type": "file/sql",
+      "name": "testAccessNoPrivilegeDB.sql"
+    },
+    {
+      "type": "file/sql",
+      "name": "testAccessNoPrivilegeDB.txt"
+    }
+  ]
+},
   {
-    "id": "testShowDB_Negative",
+    "id": "testAddFileWithoutTable",
     "tag": "DB",
-    "desc": "The case will test ShowDB_Negative.",
+    "desc": "The case will test AddFileWithoutTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testShowDB_Negative.sql"
+        "name": "testAddFileWithoutTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testShowDB_Negative.txt"
+        "name": "testAddFileWithoutTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFuncAndTmpFuncWithoutTable",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateFuncAndTmpFuncWithoutTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFuncAndTmpFuncWithoutTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddJarCreateFuncAndTmpFuncWithoutTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeDB",
+    "tag": "DB",
+    "desc": "The case will test AlterDescribeDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterDescribeDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateAlterDropTableViewUnderDefaultDB",
+    "tag": "DB",
+    "desc": "The case will test CreateAlterDropTableViewUnderDefaultDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.txt"
       }
     ]
   },
   {
     "id": "testCreateDB",
     "tag": "DB",
-    "desc": "The case will test CreateDB.",
+    "desc": "The case will test CreateDB.sql.",
     "cases": [
       {
         "type": "file/sql",
@@ -26,6 +85,21 @@
       {
         "type": "file/sql",
         "name": "testCreateDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "DB",
+    "desc": "The case will test Dfs command.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDfs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDfs.txt"
       }
     ]
   },
@@ -45,79 +119,33 @@
     ]
   },
   {
-    "id": "testDropDBCascade",
+    "id": "testQueryConstant",
     "tag": "DB",
-    "desc": "The case will test DropDBCascade.",
+    "desc": "The case will test QueryConstant.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testDropDBCascade.sql"
+        "name": "testQueryConstant.sql"
       },
       {
         "type": "file/sql",
-        "name": "testDropDBCascade.txt"
+        "name": "testQueryConstant.txt"
       }
     ]
   },
   {
-    "id": "testCreateDropShowTableView",
+    "id": "testSET",
     "tag": "DB",
-    "desc": "The case will test CreateDropShowTableView.",
+    "desc": "The case will test SET.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDropShowTableView.sql"
+        "name": "testSET.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDropShowTableView.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddJarCreateFuncAndTmpFunc",
-    "tag": "DB",
-    "desc": "The case will test AddJarCreateFuncAndTmpFunc.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFuncAndTmpFunc.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddJarCreateFuncAndTmpFunc.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddFile",
-    "tag": "DB",
-    "desc": "The case will test AddFile.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAddFile.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAddFile.txt"
-      }
-    ]
-  },
-  {
-    "id": "testDfs",
-    "tag": "DB",
-    "desc": "The case will test Dfs.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testDfs.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testDfs.txt"
+        "name": "testSET.txt"
       }
     ]
   }
 ]
-
