@@ -5,12 +5,11 @@ CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '201
 
 --testAccessNoPrivilegeDB.sql
 DROP DATABASE IF EXISTS unaccessibledb CASCADE;
-CREATE DATABASES unaccessibledb;
+CREATE DATABASE unaccessibledb;
 
 USE testdb;
 --testAddFile.sql
 CREATE TABLE testdb.tbl4addfile(who string);
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tble4addfile;
 
 --testAddJarCreateFuncAndTmpFunc.sql
@@ -45,17 +44,17 @@ CREATE TABLE testdb.tbl4change (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGI
 
 --testAlterTableAddPartitionLocation.sql
 --testAlterTableSetFileformat.sql
-CREATE TABLE db4alter.tbl4fileformat (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE testdb.tbl4fileformat (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
-CREATE EXTERNAL TABLE db4alter.tbl4fileformat_external (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE EXTERNAL TABLE testdb.tbl4fileformat_external (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 --testAlterTableEnableDisable.sql
-CREATE TABLE IF NOT EXISTS testdb.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE testdb.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
-CREATE TABLE IF NOT EXISTS testdb.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE testdb.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 --testAlterTableEnableDisablePartition.sql
@@ -97,11 +96,6 @@ CREATE VIEW testdb.view4drop AS SELECT col1, col2 FROM testdb.tbl4drop;
 CREATE TABLE testdb.tbl4drop_no_r (col1 TINYINT, col2 SMALLINT);
 CREATE VIEW testdb.view4drop_no_r AS SELECT col1, col2 FROM testdb.tbl4drop_no_r;
 
-CREATE TABLE default.tbl4drop (col1 TINYINT, col2 SMALLINT);
-CREATE VIEW default.view4drop AS SELECT col1, col2 FROM default.tbl4drop;
-CREATE TABLE default.tbl4drop_no_r (col1 TINYINT, col2 SMALLINT);
-CREATE VIEW default.view4drop_no_r AS SELECT col1, col2 FROM default.tbl4drop_no_r;
-
 --testCreateDB.sql
 DROP DATABASE IF EXISTS db4create CASCADE;
 DROP DATABASE IF EXISTS db4create_no_privilege CASCADE;
@@ -111,6 +105,7 @@ DROP DATABASE IF EXISTS db4drop CASCADE;
 DROP DATABASE IF EXISTS db4drop_cascade CASCADE;
 CREATE DATABASE db4drop WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 CREATE DATABASE db4drop_cascade WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
+CREATE TABLE db4drop_cascade.tbl4drop (col1 TINYINT, col2 SMALLINT);
 
 --testImportExportPartition.sql
 CREATE TABLE testdb.import_export (
@@ -184,7 +179,7 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 ALTER TABLE testdb.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'CA');
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE db4alter.test_insert_overwrite_dir
+INTO TABLE testdb.test_insert_overwrite_dir
 PARTITION (country = 'US', state = 'CA');
 
 --testInsertIntoTablePartition.sql
