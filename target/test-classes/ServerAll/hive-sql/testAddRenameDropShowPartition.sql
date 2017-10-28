@@ -1,7 +1,8 @@
 USE testdb;
 
 SET hive.cli.print.header=true;
-ALTER TABLE testdb.tbl4partition ADD PARTITION (day = 20110103);
+ALTER TABLE testdb.tbl4partition ADD PARTITION (day = 20110104);
+ALTER TABLE testdb.tbl4partition PARTITION (day = 20110104) RENAME TO PARTITION (day = 20110107);
 SHOW PARTITIONS testdb.tbl4partition;
 
 SELECT id, part, quantity FROM testdb.tbl4partition WHERE day >= 20110102 AND day < 20110104 AND quantity < 4 ;
