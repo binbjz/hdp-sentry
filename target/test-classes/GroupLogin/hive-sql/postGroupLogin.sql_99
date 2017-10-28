@@ -19,7 +19,7 @@ DROP TABLE mart_waimai.table002;
 DROP TABLE mart_waimai.collecttest;
 DROP TABLE mart_waimai.test_replace_columns;
 
-DROP TABLE mart_waimai.test_rename;
+DROP TABLE mart_waimai.test_rename_new;
 
 CREATE TABLE IF NOT EXISTS mart_waimai.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';

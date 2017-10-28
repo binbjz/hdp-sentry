@@ -17,19 +17,32 @@ DROP TABLE testdb.table002;
 DROP TABLE testdb.employees02;
 DROP TABLE testdb.src_employees02;
 
-DROP TABLE testdb.test_disable_enable_partition;
+DROP TABLE testdb.test_enable_disable_partition;
+DROP TABLE testdb.test_enable_disable1;
+DROP TABLE testdb.test_enable_disable2;
 
 DROP TABLE testdb.log_messages02;
 DROP TABLE testdb.tbl4jarfile;
 DROP TABLE testdb.tbl4addfile;
-DROP TABLE testdb.supply;
+DROP TABLE testdb.tbl4partition;
 DROP TABLE testdb.test_disable_enable01;
 DROP TABLE testdb.test_disable_enable02;
 DROP TABLE testdb.test_serde;
 DROP TABLE testdb.test_serde_partition;
 
-DROP TABLE testdb.src_employees_dir;
+DROP TABLE testdb.test_insert_overwrite_dir;
 DROP TABLE testdb.src_employees_analyze;
+
+DROP TABLE testdb.src_import_export;
+DROP TABLE testdb.import_export;
+
+
+DROP TABLE db4alter.tbl4addcolumns;
+DROP TABLE db4alter.tbl4change;
+DROP TABLE db4alter.tbl4replacecolumns;
+DROP TABLE db4alter.tbl4rename;
+
+DROP TABLE testdb.tbl4query;
 
 DROP DATABASE testdb;
 

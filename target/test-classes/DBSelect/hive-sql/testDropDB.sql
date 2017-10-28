@@ -1,2 +1,0 @@
-DROP DATABASE db4drop;
-SHOW DATABASES LIKE 'db*drop';
