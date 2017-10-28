@@ -1,3 +1,5 @@
+DROP TABLE testdb.tbl4query;
+
 DROP TABLE testdb.tbl4partiton;
 DROP TABLE testdb.tbl4addfile;
 

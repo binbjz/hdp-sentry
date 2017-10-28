@@ -1,3 +1,5 @@
+DROP TABLE testdb.tbl4query;
+
 DROP TABLE testdb.tbl4partition;
 DROP TABLE testdb.tbl4fileformat;
 DROP TABLE testdb.tbl4fileformat_external;

@@ -1,3 +1,6 @@
+
+DROP TABLE testdb.tbl4query;
+
 DROP TABLE testdb.tbl4alter_new;
 DROP TABLE testdb.test_msck;
 DROP TABLE testdb.tbl4jarfile;

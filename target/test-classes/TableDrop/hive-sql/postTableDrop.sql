@@ -1,3 +1,6 @@
+DROP TABLE testdb.tbl4query;
+
+
 DROP TABLE testdb.tbl4alter_new;
 DROP TABLE testdb.test_msck;
 DROP TABLE testdb.tbl4jarfile;
@@ -47,6 +50,8 @@ DROP TABLE testdb.test_msck;
 DROP TABLE testdb.employees_props;
 
 DROP TABLE testdb.collecttest;
+
+DROP TABLE testdb.tbl4addfile;
 
 DROP DATABASE unaccessdb;
 DROP DATABASE testdb CASCADE;

@@ -1,3 +1,8 @@
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+CREATE TABLE testdb.tbl4query (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query;
+
+
 CREATE DATABASE unaccessdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 
 CREATE DATABASE db4drop_cascade WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
@@ -29,8 +34,8 @@ PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMIN
 ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 1);
 ALTER TABLE testdb.log_messages2 ADD PARTITION (year = 2011, month = 1, day = 2);
 
-CREATE TABLE testdb.tbl4partiton (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
-ALTER TABLE testdb.tbl4partiton ADD PARTITION (day = 20110101);
+CREATE TABLE testdb.tbl4partition (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
+ALTER TABLE testdb.tbl4partition ADD PARTITION (day = 20110102);
 
 CREATE TABLE testdb.collecttest (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
 
@@ -59,6 +64,8 @@ CREATE TABLE testdb.tbl4jarfile (name STRING);
 INSERT INTO testdb.tbl4jarfile VALUES ('TEACHER QA');
 
 CREATE TABLE testdb.tbl4addfile(who string);
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
 
 CREATE TABLE testdb.test_serde (c0 string, c1 string, c2 string) ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
