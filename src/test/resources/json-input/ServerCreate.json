@@ -1,6 +1,6 @@
 [ {
   "id": "testAccessNoPrivilegeDB",
-  "tag": "DB",
+  "tag": "Server",
   "desc": "The case will test AccessNoPrivilegeDB.",
   "cases": [
     {
@@ -15,7 +15,7 @@
 },
   {
     "id": "testAddFileWithoutTable",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test AddFileWithoutTable.",
     "cases": [
       {
@@ -30,7 +30,7 @@
   },
   {
     "id": "testAddJarCreateFuncAndTmpFuncWithoutTable",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test AddJarCreateFuncAndTmpFuncWithoutTable.",
     "cases": [
       {
@@ -45,7 +45,7 @@
   },
   {
     "id": "testAlterDescribeDefaultDB",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test AlterDescribeDefaultDB.",
     "cases": [
       {
@@ -60,7 +60,7 @@
   },
   {
     "id": "testCreateAlterDropTableViewUnderDefaultDB",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test CreateAlterDropTableViewUnderDefaultDB.",
     "cases": [
       {
@@ -75,7 +75,7 @@
   },
   {
     "id": "testCreateDB",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test CreateDB.sql.",
     "cases": [
       {
@@ -90,7 +90,7 @@
   },
   {
     "id": "testDfs",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test Dfs command.",
     "cases": [
       {
@@ -105,7 +105,7 @@
   },
   {
     "id": "testDropDB",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test DropDB.",
     "cases": [
       {
@@ -120,7 +120,7 @@
   },
   {
     "id": "testQueryConstant",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test QueryConstant.",
     "cases": [
       {
@@ -135,7 +135,7 @@
   },
   {
     "id": "testSET",
-    "tag": "DB",
+    "tag": "Server",
     "desc": "The case will test SET.",
     "cases": [
       {

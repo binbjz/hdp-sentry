@@ -1,2 +1,3 @@
 USE default;
+
 SHOW DATABASES;

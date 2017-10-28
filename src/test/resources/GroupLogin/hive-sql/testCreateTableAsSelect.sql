@@ -1,7 +1,7 @@
 SET hive.cli.print.header=true;
 
 USE dim;
-CREATE  TABLE dim.ndm_user_new(
+CREATE  TABLE dim.ndm_user_ctas
 AS
 SELECT
   userid --用户ID
@@ -17,10 +17,10 @@ SELECT
  ,acctattr --用户账户属性值
 FROM dim.ndm_user;
 
-SELECT * FROM dim.ndm_user_new;
+SELECT * FROM dim.ndm_user_ctas;
 
 USE mart_waimai;
-CREATE  TABLE mart_waimai.ndm_user_new(
+CREATE  TABLE mart_waimai.ndm_user_ctas
 AS
 SELECT
   userid --用户ID
@@ -36,7 +36,7 @@ SELECT
  ,acctattr --用户账户属性值
 FROM dim.ndm_user;
 
-SELECT * FROM mart_waimai.ndm_user_new;
+SELECT * FROM mart_waimai.ndm_user_ctas;
 
-DROP TABLE dim.ndm_user_new;
-DROP TABLE mart_waimai.ndm_user_new;
+DROP TABLE dim.ndm_user_ctas;
+DROP TABLE mart_waimai.ndm_user_ctas;

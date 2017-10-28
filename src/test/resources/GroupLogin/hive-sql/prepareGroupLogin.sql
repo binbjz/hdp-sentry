@@ -456,19 +456,6 @@ TBLPROPERTIES (
  'numRows'='-1',
  'rawDataSize'='-1');
 
-/*
- 用户维度表
- userid 用户ID
- cityid   城市ID
- username   用户昵称
- email  验证后的主邮箱
- mobile   验证后的主手机号
- regdate   注册日期
- isemailverified  是否认证Email
- ismobilesignup   是否来自手机注册
- ismobileverified 是否认证手机
- isappuser  是否连接过第三方平台
- acctattr 用户账户属性值*/
 INSERT INTO dim.ndm_user( userid, cityid, username, email, mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr)
 VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1);
 
@@ -528,6 +515,12 @@ TBLPROPERTIES (
  'rawDataSize'='-1');
 
 -- DATABASE : mart_waimai -----------------------------------
+CREATE TABLE mart_waimai.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+CREATE TABLE mart_waimai.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
 CREATE  TABLE `mart_waimai.dim_ad_cpc_activity_poi`(
  `ad_activity_key` string COMMENT '维度代理键',
  `ad_activity_id` bigint COMMENT '活动id',
@@ -550,6 +543,14 @@ LOCATION
  'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1482166667');
+
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20110122);
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20110123);
+
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20210102);
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20210103);
+
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20190104);
 
 CREATE  TABLE `mart_waimai.dim_ad_cpc_activity`(
  `ad_activity_key` string COMMENT '维度代理键',
@@ -612,7 +613,7 @@ CREATE TABLE mart_waimai.partition_table001 (name STRING, ip STRING)
 PARTITIONED BY (dt STRING, ht STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
-CREATE TABLE IF NOT EXISTS mart_waimai.partition_table002 LIKE mart_waimai.partition_table001;
+CREATE TABLE mart_waimai.partition_table002 LIKE mart_waimai.partition_table001;
 
 CREATE TABLE mart_waimai.collecttest (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
@@ -625,10 +626,13 @@ CREATE TABLE mart_waimai.test_change (col1 TINYINT, col2 SMALLINT, col3 INT, col
 
 CREATE TABLE mart_waimai.test_add_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
 
-CREATE TABLE IF NOT EXISTS mart_waimai.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+CREATE TABLE mart_waimai.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 CREATE EXTERNAL TABLE IF NOT EXISTS mart_waimai.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+ALTER TABLE mart_waimai.log_messages ADD PARTITION(year = 2011, month = 1, day = 1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages/2011/01/01';
+ALTER TABLE mart_waimai.log_messages_external ADD PARTITION(year = 2011, month = 1, day = 2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external/2011/01/02';
 
 CREATE TABLE mart_waimai.employees_import_export (
  name STRING
@@ -654,6 +658,13 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
+ALTER TABLE mart_waimai.src_employees_import_export ADD PARTITION (country = 'US', state = 'CA');
+
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE mart_waimai.src_employees_import_export
+PARTITION (country = 'US', state = 'CA');
+
 CREATE TABLE mart_waimai.src_employees_insert_overwrite (
  name STRING
 ,salary FLOAT
@@ -665,6 +676,17 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country = 'US', state = 'IL');
+
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE mart_waimai.src_employees_insert_overwrite
+PARTITION (country = 'US', state = 'CA');
+
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20190104);
 
 CREATE TABLE mart_waimai.employees_insert_overwrite (
  name STRING

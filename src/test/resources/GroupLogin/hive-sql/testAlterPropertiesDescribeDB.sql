@@ -1,3 +1,5 @@
+USE default;
+
 DESCRIBE DATABASE EXTENDED mar_waimai;
 ALTER DATABASE mar_waimai SET DBPROPERTIES ('edited-by' = 'hadoop-new-qa');
 DESCRIBE DATABASE EXTENDED mar_waimai;

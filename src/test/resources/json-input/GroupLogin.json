@@ -60,36 +60,6 @@
     ]
   },
   {
-    "id": "testAlterDescribeTableWithDFS",
-    "tag": "DB",
-    "desc": "The case will test AlterDescribeTableWithDFS.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAlterDescribeTableWithDFS.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAlterDescribeTableWithDFS.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAlterPartitionEnableDisable",
-    "tag": "DB",
-    "desc": "The case will test AlterPartitionEnableDisable.",
-    "cases": [
-      {
-        "type": "file/sql",
-        "name": "testAlterPartitionEnableDisable.sql"
-      },
-      {
-        "type": "file/sql",
-        "name": "testAlterPartitionEnableDisable.txt"
-      }
-    ]
-  },
-  {
     "id": "testAlterPropertiesDescribeDB",
     "tag": "DB",
     "desc": "The case will test AlterPropertiesDescribeDB.",
@@ -165,6 +135,21 @@
     ]
   },
   {
+    "id": "testAlterTableClusteredBySortedBy",
+    "tag": "DB",
+    "desc": "The case will test AlterTableClusteredBySortedBy.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableClusteredBySortedBy.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableClusteredBySortedBy.txt"
+      }
+    ]
+  },
+  {
     "id": "testAlterTableEnableDisable",
     "tag": "DB",
     "desc": "The case will test AlterTableEnableDisable.",
@@ -176,6 +161,36 @@
       {
         "type": "file/sql",
         "name": "testAlterTableEnableDisable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableEnableDisablePartition",
+    "tag": "DB",
+    "desc": "The case will test AlterTableEnableDisablePartition.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableEnableDisablePartition.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableEnableDisablePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTablePartitionSetLocation",
+    "tag": "DB",
+    "desc": "The case will test AlterTablePartitionSetLocation.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTablePartitionSetLocation.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTablePartitionSetLocation.txt"
       }
     ]
   },
@@ -206,6 +221,36 @@
       {
         "type": "file/sql",
         "name": "testAlterTableReplaceColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableSetProperties",
+    "tag": "DB",
+    "desc": "The case will test AlterTableSetProperties.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableSetProperties.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableSetProperties.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableTouch",
+    "tag": "DB",
+    "desc": "The case will test AlterTableTouch.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableTouch.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableTouch.txt"
       }
     ]
   },
@@ -315,17 +360,32 @@
     ]
   },
   {
-    "id": "testImportExportAlterTableClusteredBySortedBy",
+    "id": "testImportExportTablePartition",
     "tag": "DB",
-    "desc": "The case will test ImportExportAlterTableClusteredBySortedBy.",
+    "desc": "The case will test ImportExportTablePartition.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testImportExportAlterTableClusteredBySortedBy.sql"
+        "name": "testImportExportTablePartition.sql"
       },
       {
         "type": "file/sql",
-        "name": "testImportExportAlterTableClusteredBySortedBy.txt"
+        "name": "testImportExportTablePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteDir",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteDir.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteDir.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteDir.txt"
       }
     ]
   },
@@ -345,32 +405,32 @@
     ]
   },
   {
-    "id": "testInsertOverwriteTableDir",
+    "id": "testInsertOverwriteTablePartition01",
     "tag": "DB",
-    "desc": "The case will test InsertOverwriteTableDir.",
+    "desc": "The case will test InsertOverwriteTablePartition01.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTableDir.sql"
+        "name": "testInsertOverwriteTablePartition01.sql"
       },
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTableDir.txt"
+        "name": "testInsertOverwriteTablePartition01.txt"
       }
     ]
   },
   {
-    "id": "testInsertOverwriteTablePartition",
+    "id": "testInsertOverwriteTablePartition02",
     "tag": "DB",
-    "desc": "The case will test InsertOverwriteTablePartition.",
+    "desc": "The case will test InsertOverwriteTablePartition02.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTablePartition.sql"
+        "name": "testInsertOverwriteTablePartition02.sql"
       },
       {
         "type": "file/sql",
-        "name": "testInsertOverwriteTablePartition.txt"
+        "name": "testInsertOverwriteTablePartition02.txt"
       }
     ]
   },
@@ -446,6 +506,21 @@
       {
         "type": "file/sql",
         "name": "testShowTables.txt"
+      }
+    ]
+  },
+  {
+    "id": "testTableAnalyze",
+    "tag": "DB",
+    "desc": "The case will test TableAnalyze.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testTableAnalyze.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testTableAnalyze.txt"
       }
     ]
   }
