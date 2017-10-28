@@ -1,52 +1,96 @@
-[
+[ {
+  "id": "testAccessNoPrivilegeDB",
+  "tag": "DB",
+  "desc": "The case will test AccessNoPrivilegeDB.",
+  "cases": [
+    {
+      "type": "file/sql",
+      "name": "testAccessNoPrivilegeDB.sql"
+    },
+    {
+      "type": "file/sql",
+      "name": "testAccessNoPrivilegeDB.txt"
+    }
+  ]
+},
   {
-    "id": "testAddFile",
-    "tag": "Server",
-    "desc": "The case will test AddFile.",
+    "id": "testAddFileWithoutTable",
+    "tag": "DB",
+    "desc": "The case will test AddFileWithoutTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddFile.sql"
+        "name": "testAddFileWithoutTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddFile.txt"
+        "name": "testAddFileWithoutTable.txt"
       }
     ]
   },
   {
-    "id": "testAddJarCreateFuncAndTmpFunc",
-    "tag": "Server",
-    "desc": "The case will test AddJarCreateFuncAndTmpFunc.",
+    "id": "testAddJarCreateFuncAndTmpFuncWithoutTable",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateFuncAndTmpFuncWithoutTable.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testAddJarCreateFuncAndTmpFunc.sql"
+        "name": "testAddJarCreateFuncAndTmpFuncWithoutTable.sql"
       },
       {
         "type": "file/sql",
-        "name": "testAddJarCreateFuncAndTmpFunc.txt"
+        "name": "testAddJarCreateFuncAndTmpFuncWithoutTable.txt"
       }
     ]
   },
   {
-    "id": "testCreateDropDBAndTable",
-    "tag": "Server",
-    "desc": "The case will test CreateDropDBAndTable.",
+    "id": "testAlterDescribeDefaultDB",
+    "tag": "DB",
+    "desc": "The case will test AlterDescribeDefaultDB.",
     "cases": [
       {
         "type": "file/sql",
-        "name": "testCreateDropDBAndTable.sql"
+        "name": "testAlterDescribeDefaultDB.sql"
       },
       {
         "type": "file/sql",
-        "name": "testCreateDropDBAndTable.txt"
+        "name": "testAlterDescribeDefaultDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateAlterDropTableViewUnderDefaultDB",
+    "tag": "DB",
+    "desc": "The case will test CreateAlterDropTableViewUnderDefaultDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDB",
+    "tag": "DB",
+    "desc": "The case will test CreateDB.sql.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDB.txt"
       }
     ]
   },
   {
     "id": "testDfs",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test Dfs command.",
     "cases": [
       {
@@ -56,6 +100,51 @@
       {
         "type": "file/sql",
         "name": "testDfs.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDB",
+    "tag": "DB",
+    "desc": "The case will test DropDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testQueryConstant",
+    "tag": "DB",
+    "desc": "The case will test QueryConstant.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testQueryConstant.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testQueryConstant.txt"
+      }
+    ]
+  },
+  {
+    "id": "testSET",
+    "tag": "DB",
+    "desc": "The case will test SET.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testSET.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testSET.txt"
       }
     ]
   }

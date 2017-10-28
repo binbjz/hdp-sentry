@@ -1,3 +1,5 @@
+DROP TABLE testdb.tbl4query;
+
 DROP TABLE testdb.tbl4alter_new;
 DROP TABLE testdb.test_msck;
 DROP TABLE testdb.teacher;
@@ -11,7 +13,7 @@ DROP TABLE testdb.src_import_export;
 DROP TABLE testdb.tbl4alter_new;
 
 DROP TABLE testdb.src_employees_analyze;
-DROP TABLE testdb.src_employees_dir;
+DROP TABLE testdb.test_insert_overwrite_dir;
 
 DROP TABLE testdb.table001;
 DROP TABLE testdb.table002;
@@ -20,7 +22,8 @@ DROP TABLE testdb.employees_props;
 
 DROP TABLE testdb.test_msck;
 
-DROP TABLE testdb.collecttest;
+DROP TABLE testdb.tbl4loaddata;
+DROP TABLE testdb.tbl4query;
 
 DROP TABLE testdb.src_employees;
 DROP TABLE testdb.employees;
