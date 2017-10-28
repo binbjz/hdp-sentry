@@ -139,6 +139,11 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 ALTER TABLE testdb.src_import_export ADD PARTITION (country = 'US', state = 'CA');
 
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE testdb.src_import_export
+PARTITION (country = 'US', state = 'CA');
+
+
 --testInsertIntoFromQuery.sql
 CREATE TABLE testdb.sessionization_step_one_origins (
   ssoo_user_id STRING
@@ -177,8 +182,10 @@ MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 ALTER TABLE testdb.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE testdb.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE testdb.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'IL');
+
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE db4alter.test_insert_overwrite_dir
+PARTITION (country = 'US', state = 'CA');
 
 --testInsertIntoTablePartition.sql
 --testInsertOverwriteTablePartition.sql
@@ -225,3 +232,36 @@ COMMENT 'Description of the table'
 PARTITIONED BY (country STRING, state STRING)
 LOCATION '/user/hive/warehouse/testdb.db/employees_props'
 TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties');
+
+--testInsertOverwriteTablePartition02.sql
+CREATE TABLE testdb.test_insert_overwrite_tbl_partition (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE testdb.src_test_insert_overwrite_tbl_partition (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL');
+
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE testdb.src_test_insert_overwrite_tbl_partition
+PARTITION (country = 'US', state = 'CA');

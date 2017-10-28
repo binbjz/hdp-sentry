@@ -6,7 +6,7 @@ DROP TABLE testdb.test_msck;
 
 DROP TABLE testdb.collecttest;
 
-DROP TABLE testdb.src_employees_dir;
+DROP TABLE testdb.test_insert_overwrite_dir;
 
 DROP TABLE testdb.tble4partition;
 DROP TABLE testdb.tble4addfile;
@@ -14,11 +14,13 @@ DROP TABLE testdb.tbl4addjar;
 DROP TABLE testdb.session_test;
 DROP TABLE testdb.sessionization_step_one_origins;
 
-DROP TABLE db4alter.tbl4addcolumns;
-DROP TABLE db4alter.tbl4change;
-DROP TABLE db4alter.tbl4replacecolumns;
-DROP TABLE db4alter.tbl4rename_new;
+DROP TABLE testdb.tbl4addcolumns;
+DROP TABLE testdb.tbl4change;
+DROP TABLE testdb.tbl4replacecolumns;
+DROP TABLE testdb.tbl4rename_new;
 
+DROP TABLE testdb.test_enable_disable1;
+DROP TABLE testdb.test_enable_disable2;
 DROP TABLE testdb.test_enable_disable_partition;
 
 DROP TABLE testdb.partition_table001;
@@ -38,6 +40,8 @@ DROP TABLE db4alter.tbl4fileformat_external;
 
 DROP TABLE testdb.import_export;
 DROP TABLE testdb.src_import_export;
+
+DROP TABLE testdb.tbl4query;
 
 DROP DATABASE unaccessibledb;
 DROP DATABASE db2drop;
