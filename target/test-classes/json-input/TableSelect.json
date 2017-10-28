@@ -465,6 +465,21 @@
     ]
   },
   {
+    "id": "testInsertOverwriteTablePartition02",
+    "tag": "Table",
+    "desc": "The case will test InsertOverwriteTablePartition02.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartition02.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartition02.txt"
+      }
+    ]
+  },
+  {
     "id": "testLoadDataLocalTable",
     "tag": "Table",
     "desc": "The case will test LoadDataLocalTable.",

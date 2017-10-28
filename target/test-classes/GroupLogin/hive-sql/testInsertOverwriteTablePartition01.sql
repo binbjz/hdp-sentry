@@ -1,4 +1,5 @@
 USE mart_waimai;
+
 INSERT INTO mart_waimai.partition_table001 PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3');
 
 SET hive.exec.dynamic.partition=true;

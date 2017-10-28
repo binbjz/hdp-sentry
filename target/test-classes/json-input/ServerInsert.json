@@ -1,7 +1,7 @@
 [
   {
     "id": "testAccessNoPrivilegeDB",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AccessNoPrivilegeDB.",
     "cases": [
       {
@@ -16,7 +16,7 @@
   },
   {
     "id": "testAddFile",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AddFile.",
     "cases": [
       {
@@ -31,7 +31,7 @@
   },
   {
     "id": "testAddJarCreateFuncAndTmpFunc",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AddJarCreateFuncAndTmpFunc.",
     "cases": [
       {
@@ -46,7 +46,7 @@
   },
   {
     "id": "testAddRenameDropShowPartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AddRenameDropShowPartition.",
     "cases": [
       {
@@ -61,7 +61,7 @@
   },
   {
     "id": "testAlterDescribeDB",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterDescribeDB.",
     "cases": [
       {
@@ -76,7 +76,7 @@
   },
   {
     "id": "testAlterDescribeTableSetLocation",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterDescribeTableSetLocation.",
     "cases": [
       {
@@ -91,7 +91,7 @@
   },
   {
     "id": "testAlterDescribeTableSetLocationPartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterDescribeTableSetLocationPartition.",
     "cases": [
       {
@@ -106,7 +106,7 @@
   },
   {
     "id": "testAlterSerDePartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterSerDePartition.",
     "cases": [
       {
@@ -121,7 +121,7 @@
   },
   {
     "id": "testAlterSerDeTable",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterSerDeTable.",
     "cases": [
       {
@@ -136,7 +136,7 @@
   },
   {
     "id": "testAlterTableAddColumns",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableAddColumns.",
     "cases": [
       {
@@ -151,7 +151,7 @@
   },
   {
     "id": "testAlterTableAddPartitionLocation",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableAddPartitionLocation.",
     "cases": [
       {
@@ -166,7 +166,7 @@
   },
   {
     "id": "testAlterTableChange",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableChange.",
     "cases": [
       {
@@ -181,7 +181,7 @@
   },
   {
     "id": "testAlterTableClusteredBySortedBy",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableClusteredBySortedBy.",
     "cases": [
       {
@@ -196,7 +196,7 @@
   },
   {
     "id": "testAlterTableEnableDisable",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableEnableDisable.",
     "cases": [
       {
@@ -211,7 +211,7 @@
   },
   {
     "id": "testAlterTableEnableDisablePartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableEnableDisablePartition.",
     "cases": [
       {
@@ -226,7 +226,7 @@
   },
   {
     "id": "testAlterTableRename",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableRename.",
     "cases": [
       {
@@ -241,7 +241,7 @@
   },
   {
     "id": "testAlterTableReplaceColumns",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableReplaceColumns.",
     "cases": [
       {
@@ -256,7 +256,7 @@
   },
   {
     "id": "testAlterTableSetFileformat",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableSetFileformat.",
     "cases": [
       {
@@ -271,7 +271,7 @@
   },
   {
     "id": "testAlterTableTouch",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableTouch.",
     "cases": [
       {
@@ -286,7 +286,7 @@
   },
   {
     "id": "testAlterTableTouchPartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test AlterTableTouchPartition.",
     "cases": [
       {
@@ -301,7 +301,7 @@
   },
   {
     "id": "testCreateAlterDropTableView",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test CreateAlterDropTableView.",
     "cases": [
       {
@@ -316,7 +316,7 @@
   },
   {
     "id": "testCreateDB",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test CreateDB.",
     "cases": [
       {
@@ -331,7 +331,7 @@
   },
   {
     "id": "testDfs",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test Dfs.",
     "cases": [
       {
@@ -346,7 +346,7 @@
   },
   {
     "id": "testDropDB",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test DropDB.",
     "cases": [
       {
@@ -361,7 +361,7 @@
   },
   {
     "id": "testImportExportPartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test ImportExportPartition.",
     "cases": [
       {
@@ -376,7 +376,7 @@
   },
   {
     "id": "testInsertIntoFromQuery",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test InsertIntoFromQuery.",
     "cases": [
       {
@@ -391,7 +391,7 @@
   },
   {
     "id": "testInsertIntoTable",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test InsertIntoTable.",
     "cases": [
       {
@@ -406,7 +406,7 @@
   },
   {
     "id": "testInsertIntoTablePartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test InsertIntoTablePartition.",
     "cases": [
       {
@@ -421,7 +421,7 @@
   },
   {
     "id": "testInsertOverwriteDir",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test InsertOverwriteDir.",
     "cases": [
       {
@@ -436,7 +436,7 @@
   },
   {
     "id": "testInsertOverwriteTable",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test InsertOverwriteTable.",
     "cases": [
       {
@@ -451,7 +451,7 @@
   },
   {
     "id": "testInsertOverwriteTablePartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test InsertOverwriteTablePartition.",
     "cases": [
       {
@@ -465,8 +465,23 @@
     ]
   },
   {
+    "id": "testInsertOverwriteTablePartition02",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTablePartition02.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartition02.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartition02.txt"
+      }
+    ]
+  },
+  {
     "id": "testLoadDataLocalTable",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test LoadDataLocalTable.",
     "cases": [
       {
@@ -481,7 +496,7 @@
   },
   {
     "id": "testLoadDataLocalTablePartition",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test LoadDataLocalTablePartition.",
     "cases": [
       {
@@ -496,7 +511,7 @@
   },
   {
     "id": "testMSCKRepairTable",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test MSCKRepairTable.",
     "cases": [
       {
@@ -511,7 +526,7 @@
   },
   {
     "id": "testQuery",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test Query.",
     "cases": [
       {
@@ -526,7 +541,7 @@
   },
   {
     "id": "testSET",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test SET.",
     "cases": [
       {
@@ -541,7 +556,7 @@
   },
   {
     "id": "testShowColumnsAndTblProperties",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test ShowColumnsAndTblProperties.",
     "cases": [
       {
@@ -556,7 +571,7 @@
   },
   {
     "id": "testTableAnalyze",
-    "tag": "Table",
+    "tag": "Server",
     "desc": "The case will test TableAnalyze.",
     "cases": [
       {

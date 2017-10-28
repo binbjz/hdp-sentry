@@ -16,7 +16,7 @@
   },
   {
     "id": "testAlterPartitionEnableDisable",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterPartitionEnableDisable.",
     "cases": [
       {
@@ -31,7 +31,7 @@
   },
   {
     "id": "testAlterSerDePartition",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterSerDePartition.",
     "cases": [
       {
@@ -46,7 +46,7 @@
   },
   {
     "id": "testAlterSerDeTable",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterSerDeTable.",
     "cases": [
       {
@@ -61,7 +61,7 @@
   },
   {
     "id": "testAlterTableAddColumns",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterTableAddColumns.",
     "cases": [
       {
@@ -76,7 +76,7 @@
   },
   {
     "id": "testAlterTableChange",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterTableChange.",
     "cases": [
       {
@@ -91,7 +91,7 @@
   },
   {
     "id": "testAlterTableChange",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterTableChange.",
     "cases": [
       {
@@ -106,7 +106,7 @@
   },
   {
     "id": "testAlterTableEnableDisable",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterTableEnableDisable.",
     "cases": [
       {
@@ -121,7 +121,7 @@
   },
   {
     "id": "testAlterTableRename",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterTableRename.",
     "cases": [
       {
@@ -151,7 +151,7 @@
   },
   {
     "id": "testAlterTableSetFormat",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterTableSetFormat.",
     "cases": [
       {
@@ -166,7 +166,7 @@
   },
   {
     "id": "testAlterTableTouchClusteredBy",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AlterTableTouchClusteredBy.",
     "cases": [
       {
@@ -181,7 +181,7 @@
   },
   {
     "id": "testAnalyzeTable",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test AnalyzeTable.",
     "cases": [
       {
@@ -196,7 +196,7 @@
   },
   {
     "id": "testBuiltInFuncs",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test BuiltInFuncs.",
     "cases": [
       {
@@ -211,7 +211,7 @@
   },
   {
     "id": "testCreateDropAlterTableView",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test CreateDropAlterTableView.",
     "cases": [
       {
@@ -226,7 +226,7 @@
   },
   {
     "id": "testCreateTableAsSelectSourceEncrypted",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test CreateTableAsSelectSourceEncrypted.",
     "cases": [
       {
@@ -241,7 +241,7 @@
   },
   {
     "id": "testCreateTableAsSelectTargetEncrypted",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test CreateTableAsSelectTargetEncrypted.",
     "cases": [
       {
@@ -256,7 +256,7 @@
   },
   {
     "id": "testDescribeFormattedTable",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test DescribeFormattedTable.",
     "cases": [
       {
@@ -271,7 +271,7 @@
   },
   {
     "id": "testDropDBCascade",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test DropDBCascade.",
     "cases": [
       {
@@ -286,7 +286,7 @@
   },
   {
     "id": "testImportExportEncryptTable",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test ImportExportEncryptTable.",
     "cases": [
       {
@@ -316,7 +316,7 @@
   },
   {
     "id": "testInsertOverwriteTablePartitionSrcEncrypt",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test InsertOverwriteTablePartitionSrcEncrypt.",
     "cases": [
       {
@@ -331,7 +331,7 @@
   },
   {
     "id": "testInsertOverwriteTablePartitionTgtEncrypt",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test InsertOverwriteTablePartitionTgtEncrypt.",
     "cases": [
       {
@@ -346,7 +346,7 @@
   },
   {
     "id": "testInsertOverwriteTableSrcEncrypt",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test InsertOverwriteTableSrcEncrypt.",
     "cases": [
       {
@@ -361,7 +361,7 @@
   },
   {
     "id": "testInsertOverwriteTableTgtEncrypt",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test InsertOverwriteTableTgtEncrypt.",
     "cases": [
       {
@@ -376,7 +376,7 @@
   },
   {
     "id": "testLoadDataLocal",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test LoadDataLocal.",
     "cases": [
       {
@@ -391,7 +391,7 @@
   },
   {
     "id": "testMSCKRepairTable",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test MSCKRepairTable.",
     "cases": [
       {
@@ -406,7 +406,7 @@
   },
   {
     "id": "testQueryUserDefinedFunction",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test QueryUserDefinedFunction.",
     "cases": [
       {
@@ -421,7 +421,7 @@
   },
   {
     "id": "testShowColumnsAndTblProperties",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test ShowColumnsAndTblProperties.",
     "cases": [
       {
@@ -436,7 +436,7 @@
   },
   {
     "id": "testTransform",
-    "tag": "Server",
+    "tag": "DB",
     "desc": "The case will test Transform.",
     "cases": [
       {

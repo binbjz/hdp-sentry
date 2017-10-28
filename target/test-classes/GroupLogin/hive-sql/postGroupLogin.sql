@@ -21,12 +21,6 @@ DROP TABLE mart_waimai.test_replace_columns;
 
 DROP TABLE mart_waimai.test_rename;
 
-CREATE TABLE IF NOT EXISTS mart_waimai.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
-PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
-
-CREATE TABLE IF NOT EXISTS mart_waimai.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
-PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
-
 DROP TABLE mart_waimai.test_enable_disable1;
 DROP TABLE mart_waimai.test_enable_disable2;
 
@@ -44,7 +38,6 @@ DROP TABLE mart_waimai.src_employees_insert_overwrite;
 DROP TABLE mart_waimai.employees_inser
 
 DROP DATABASE mart_waimai CASCADE;
-
 
 DROP TABLE mart_wmorg.employ_encrypted;
 DROP DATABASE mart_wmorg CASCADE;
