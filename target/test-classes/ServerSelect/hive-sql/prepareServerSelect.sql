@@ -1,3 +1,8 @@
+
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+CREATE TABLE testdb.tbl4query (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query;
+
 CREATE DATABASE testdb;
 CREATE TABLE IF NOT EXISTS testdb.employees_props (
 name  STRING COMMENT 'Employee name'
@@ -39,6 +44,23 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE testdb.src_employees_analyze (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'OR');
+ALTER TABLE testdb.src_employees_analyze ADD PARTITION (country = 'US', state = 'IL');
+
 
 ALTER TABLE tbl4rename SET TBLPROPERTIES ('notes' = 'Test for set tblproperties');
 SHOW TBLPROPERTIES tbl4rename;
@@ -88,8 +110,15 @@ CREATE DATABASE db4drop WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '20
 CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 CREATE TABLE testdb.tbl4drop (col1 TINYINT, col2 SMALLINT);
 CREATE VIEW testdb.view4drop AS SELECT col1, col2 FROM tbl4drop;
-CREATE TABLE IF NOT EXISTS testdb.test_enable_disable (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+
+
+CREATE TABLE IF NOT EXISTS testdb.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+CREATE TABLE IF NOT EXISTS testdb.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+
 CREATE TABLE testdb.test_serde (c0 string, c1 string, c2 string) ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 CREATE TABLE testdb.test_serde_partition(c0 string, c1 string, c2 string) PARTITIONED BY (col10 STRING, col20 STRING)
@@ -100,6 +129,9 @@ ALTER TABLE testdb.test_serde_partition ADD PARTITION (col10='abc', col20='123')
 CREATE TABLE IF NOT EXISTS testdb.test_enable_disable_partition (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 ALTER TABLE testdb.test_enable_disable_partition ADD PARTITION (year = 2017, month = 8, day = 1);
+ALTER TABLE testdb.test_enable_disable_partition ADD PARTITION (year = 2017, month = 8, day = 2);
+
+
 CREATE TABLE IF NOT EXISTS testdb.log_messages02 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 -- 命令行结合SQL执行ALTER TABLE ..SET LOCATION
@@ -117,9 +149,12 @@ CREATE TABLE testdb.tbl4replacecolumns (col1 TINYINT, col2 SMALLINT);
 CREATE TABLE testdb.tbl4change (col1 TINYINT, col2 SMALLINT);
 CREATE TABLE testdb.tbl4rename (col1 TINYINT, col2 SMALLINT);
 
-CREATE TABLE testdb.supply (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
-ALTER TABLE testdb.supply ADD PARTITION (day = 20110102);
-ALTER TABLE testdb.supply ADD PARTITION (day = 20110103);
-CREATE TABLE testdb.whoyouare(who string);
+CREATE TABLE testdb.tbl4partition (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
+ALTER TABLE testdb.tbl4partition ADD PARTITION (day = 20110102);
+
+CREATE TABLE testdb.tbl4addfile(who string);
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
+
 CREATE TABLE testdb.teacher (name STRING);
 INSERT INTO teacher VALUES ('TEACHER QA');
