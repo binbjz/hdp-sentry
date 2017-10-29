@@ -1,4 +1,4 @@
---encrypt_db4data.partition_table_src=name,ip
+--encrypt_db4data.partition_table_src=ip
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 

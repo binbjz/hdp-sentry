@@ -1,14 +1,14 @@
---encrypt_db4data.encrypt_test_analyze=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
+--encrypt_db4data.encrypt_test_analyze=encrypt_salary
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
 USE encrypt_db4data;
 CREATE TABLE encrypt_db4data.encrypt_test_analyze (
- encrypt_name STRING
+ name STRING
 ,encrypt_salary FLOAT
-,encrypt_subordinates ARRAY<STRING>
-,encrypt_deductions MAP<STRING, FLOAT>
-,encrypt_address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
@@ -26,7 +26,7 @@ PARTITION (country = 'US', state = 'CA');
 
 SET hive.cli.print.header=true;
 
-ANALYZE TABLE encrypt_db4data.encrypt_test_analyze COMPUTE STATISTICS FOR COLUMNS encrypt_name, encrypt_salary;
+ANALYZE TABLE encrypt_db4data.encrypt_test_analyze COMPUTE STATISTICS FOR COLUMNS name, encrypt_salary;
 -- 只搜集分区
 ANALYZE TABLE encrypt_db4data.encrypt_test_analyze PARTITION (country = 'US', state = 'CA') COMPUTE STATISTICS;
 -- 如果执行,则同时搜集分区间OR/CA/IL

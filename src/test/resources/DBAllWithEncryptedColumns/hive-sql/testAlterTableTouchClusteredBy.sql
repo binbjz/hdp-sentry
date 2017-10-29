@@ -1,14 +1,14 @@
---encrypt_db4data.test_clusteredby=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
+--encrypt_db4data.test_clusteredby=encrypt_salary,encrypt_address
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
 USE encrypt_db4data;
 
 CREATE TABLE encrypt_db4data.test_clusteredby (
- encrypt_name STRING
+ name STRING
 ,encrypt_salary FLOAT
-,encrypt_subordinates ARRAY<STRING>
-,encrypt_deductions MAP<STRING, FLOAT>
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
 ,encrypt_address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
@@ -28,7 +28,7 @@ SHOW PARTITIONS encrypt_db4data.test_clusteredby;
 ALTER TABLE encrypt_db4data.test_clusteredby TOUCH;
 ALTER TABLE encrypt_db4data.test_clusteredby TOUCH PARTITION (country = 'US', state = 'CA');
 
-ALTER TABLE encrypt_db4data.test_clusteredby CLUSTERED BY (encrypt_name, encrypt_address) SORTED BY (encrypt_salary) INTO 48 BUCKETS;
+ALTER TABLE encrypt_db4data.test_clusteredby CLUSTERED BY (name, encrypt_address) SORTED BY (encrypt_salary) INTO 48 BUCKETS;
 
 DROP TABLE encrypt_db4data.test_clusteredby;
 

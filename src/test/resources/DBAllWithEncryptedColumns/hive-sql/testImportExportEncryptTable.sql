@@ -1,5 +1,5 @@
---encrypt_db4data.encrypt_import_export=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
---encrypt_db4data.encrypt_tgt_import_export=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
+--encrypt_db4data.encrypt_import_export=encrypt_name,encrypt_salary
+--encrypt_db4data.encrypt_tgt_import_export=encrypt_name,encrypt_salary
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
@@ -8,9 +8,9 @@ USE encrypt_db4data;
 CREATE TABLE encrypt_db4data.encrypt_import_export (
  encrypt_name STRING
 ,encrypt_salary FLOAT
-,encrypt_subordinates ARRAY<STRING>
-,encrypt_deductions MAP<STRING, FLOAT>
-,encrypt_address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
@@ -20,9 +20,9 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 CREATE TABLE encrypt_db4data.encrypt_tgt_import_export (
  encrypt_name STRING
 ,encrypt_salary FLOAT
-,encrypt_subordinates ARRAY<STRING>
-,encrypt_deductions MAP<STRING, FLOAT>
-,encrypt_address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'

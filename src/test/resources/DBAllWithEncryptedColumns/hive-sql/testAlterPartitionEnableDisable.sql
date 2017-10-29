@@ -1,9 +1,9 @@
---encrypt_db4alter.test_enable_disable_partition=encrypt_hms,encrypt_severity,encrypt_server,encrypt_process_id,encrypt_message
+--encrypt_db4alter.test_enable_disable_partition=encrypt_message
 --CREATE DATABASE encrypt_db4alter;
 --DROP DATABASE encrypt_db4alter;
 
 USE encrypt_db4alter;
-CREATE TABLE IF NOT EXISTS encrypt_db4alter.test_enable_disable_partition (encrypt_hms INT, encrypt_severity STRING, encrypt_server STRING, encrypt_process_id INT, encrypt_message STRING)
+CREATE TABLE IF NOT EXISTS encrypt_db4alter.test_enable_disable_partition (hms INT, severity STRING, server STRING, process_id INT, encrypt_message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
 ALTER TABLE encrypt_db4alter.test_enable_disable_partition ADD PARTITION (year = 2017, month = 8, day = 1);

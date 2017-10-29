@@ -1,5 +1,5 @@
---encrypt_db4data.encrypt_employees=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
---encrypt_db4data.encrypt_tgt_employees=encrypt_name,encrypt_salary,encrypt_subordinates,encrypt_deductions,encrypt_address
+--encrypt_db4data.encrypt_employees=encrypt_name,encrypt_salary
+--encrypt_db4data.encrypt_tgt_employees=encrypt_name,encrypt_salary
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
@@ -8,9 +8,9 @@ USE encrypt_db4data;
 CREATE TABLE encrypt_db4data.encrypt_employees (
  encrypt_name STRING
 ,encrypt_salary FLOAT
-,encrypt_subordinates ARRAY<STRING>
-,encrypt_deductions MAP<STRING, FLOAT>
-,encrypt_address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
@@ -21,9 +21,9 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 CREATE TABLE encrypt_db4data.encrypt_tgt_employees (
  encrypt_name STRING
 ,encrypt_salary FLOAT
-,encrypt_subordinates ARRAY<STRING>
-,encrypt_deductions MAP<STRING, FLOAT>
-,encrypt_address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
 ) PARTITIONED BY (country STRING, state STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
@@ -49,17 +49,17 @@ SELECT * ;
 
 --FROM encrypt_db4data.encrypt_employees se
 --INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'OR')
---SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'OR'
+--SELECT encrypt_name, encrypt_salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'OR'
 --INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'IL')
---SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'IL'
+--SELECT encrypt_name, encrypt_salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'IL'
 --INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'CA')
---SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address WHERE se.country = 'US' AND se.state = 'CA';
+--SELECT encrypt_name, encrypt_salary, subordinates, deductions, address WHERE se.country = 'US' AND se.state = 'CA';
 
 SET hive.cli.print.header=true;
 SELECT * FROM encrypt_db4data.encrypt_tgt_employees;
 
 INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state = 'CA')
-SELECT encrypt_name, encrypt_salary, encrypt_subordinates, encrypt_deductions, encrypt_address FROM encrypt_db4data.encrypt_employees se WHERE se.country = 'US' AND se.state = 'CA';
+SELECT encrypt_name, encrypt_salary, subordinates, deductions, address FROM encrypt_db4data.encrypt_employees se WHERE se.country = 'US' AND se.state = 'CA';
 
 SELECT * FROM encrypt_db4data.encrypt_tgt_employees;
 SELECT COUNT(*) FROM encrypt_db4data.encrypt_tgt_employees;
@@ -70,7 +70,7 @@ SET hive.exec.dynamic.partition=true;
 SET hive.vectorized.execution.enabled = true;
 SET hive.vectorized.execution.reduce.enabled = true;
 INSERT OVERWRITE TABLE encrypt_db4data.encrypt_tgt_employees PARTITION (country = 'US', state)
-SELECT se.encrypt_name, se.encrypt_salary, se.encrypt_subordinates, se.encrypt_deductions, se.encrypt_address, se.state FROM encrypt_db4data.encrypt_employees se WHERE se.country = 'US';
+SELECT se.encrypt_name, se.encrypt_salary, se.subordinates, se.deductions, se.address, se.state FROM encrypt_db4data.encrypt_employees se WHERE se.country = 'US';
 SELECT * FROM encrypt_db4data.encrypt_employees;
 
 INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'

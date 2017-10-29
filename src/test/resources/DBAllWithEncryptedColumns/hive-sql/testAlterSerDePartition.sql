@@ -1,9 +1,9 @@
---encrypt_db4data.test_serde_partition=encrypt_c0,encrypt_c1,encrypt_c2
+--encrypt_db4data.test_serde_partition=encrypt_c0
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
 USE encrypt_db4data;
-CREATE TABLE encrypt_db4data.test_serde_partition(encrypt_c0 string, encrypt_c1 string, encrypt_c2 string) PARTITIONED BY (col10 STRING, col20 STRING)
+CREATE TABLE encrypt_db4data.test_serde_partition(encrypt_c0 string, c1 string, c2 string) PARTITIONED BY (col10 STRING, col20 STRING)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE;
 

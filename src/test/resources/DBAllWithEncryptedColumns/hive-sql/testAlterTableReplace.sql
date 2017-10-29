@@ -1,9 +1,9 @@
---encrypt_db4alter.tbl4replace=encrypt_col1,encrypt_col2,encrypt_col3
+--encrypt_db4alter.tbl4replace=encrypt_col2,encrypt_col3
 --CREATE DATABASE encrypt_db4alter;
 --DROP DATABASE encrypt_db4alter;
 
 USE encrypt_db4alter;
-CREATE TABLE tbl4replace (encrypt_col1 TINYINT, encrypt_col2 BIGINT, encrypt_col3 STRING);
+CREATE TABLE tbl4replace (col1 TINYINT, encrypt_col2 BIGINT, encrypt_col3 STRING);
 INSERT INTO tbl4replace VALUES (1, 2, 'column 3');
 SELECT * FROM tbl4replace;
 

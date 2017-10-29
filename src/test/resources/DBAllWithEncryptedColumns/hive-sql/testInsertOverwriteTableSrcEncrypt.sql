@@ -1,4 +1,4 @@
---encrypt_db4data.table_src=name,ip
+--encrypt_db4data.table_src=name
 --CREATE DATABASE encrypt_db4data;
 --DROP DATABASE encrypt_db4data;
 
