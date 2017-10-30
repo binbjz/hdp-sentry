@@ -1,8 +1,5 @@
 package utilitytool;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -10,9 +7,6 @@ import java.util.regex.*;
 
 
 public class UtilTool {
-    private static final String className = TraceHandler.getSTElement(0, "className");
-    private static final Logger logger = LoggerFactory.getLogger(className);
-
     public static void main(String[] args) {
         //Just for debug
         String cmds = "ifconfig";
@@ -20,6 +14,23 @@ public class UtilTool {
         System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
         System.out.println();
         System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
+
+        System.out.println(SentryConstant.hiveSqlSrc);
+        String sqlOutputPath = SentryConstant.tSrc + File.separator + SentryConstant.hiveOutput + File.separator + "DBAll" + File.separator + SentryConstant.sqlOutput;
+        System.out.println(sqlOutputPath);
+
+        String hiveSql = SentryConstant.commonSqlSrc + File.separator + "testCreateDB.sql";
+        System.out.println(hiveSql);
+
+        String output = sqlOutputPath + File.separator + "testCreateDB.txt";
+        System.out.println(output);
+
+        String hiveSql2 = SentryConstant.encryptColumnSqlSrc + File.separator;
+        System.out.println(hiveSql2);
+
+        String hiveSql3 = SentryConstant.groupLoginSqlSrc + File.separator;
+        System.out.println(hiveSql3);
+
 
         /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
         String fileName = filterTmpPath + "filterTmp.txt";
@@ -39,8 +50,8 @@ public class UtilTool {
             e.printStackTrace();
         }*/
 
-        String str = "Loading data to table encrypt_db4alter.supply partition (day=2011-01-02)";
-        System.out.println(filterResults(str));
+//        String str = "Loading data to table encrypt_db4alter.supply partition (day=2011-01-02)";
+//        System.out.println(filterResults(str));
 
         /** //execute script
          //String[] callScript = {"/bin/bash", scripts};
@@ -200,31 +211,5 @@ public class UtilTool {
             str = REPLACE;
         }
         return str;
-    }
-
-    /**
-     * This method will pre-execute or post-execute sql for each object with highest privilege
-     */
-    public static void privilHandler(String clsName, String sqlFile, String action) {
-        String privilAction = String.format(" %s ", action);
-
-        String sentrySh = SentryConstant.jSrc + File.separator + SentryConstant.sentry_sh + privilAction + SentryConstant.prePri;
-        String[] sentryCmd = {"/bin/bash", "-c", "source " + sentrySh};
-        logger.info(UtilTool.arrToStr(sentryCmd));
-        logger.info("exit code:\n" + UtilTool.execCommand(sentryCmd).get(0));
-
-        String hiveSh = SentryConstant.jSrc + File.separator + SentryConstant.hive_sh + " proxy_user " + "super";
-        String[] hiveCmd = {"/bin/bash", "-c", "source " + hiveSh};
-        logger.info(UtilTool.arrToStr(hiveCmd));
-        logger.info("exit code:\n" + UtilTool.execCommand(hiveCmd).get(0));
-
-        String hiveSqlPath = SentryConstant.tSrc + File.separator + clsName + File.separator + SentryConstant.hiveSqlSrc;
-        String hiveSql = SentryConstant.hiveExec + " -f " + hiveSqlPath + File.separator + sqlFile;
-        String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
-        logger.info(UtilTool.arrToStr(sqlCmd));
-
-        Map map = UtilTool.execCommand(sqlCmd);
-        logger.info("exit code:\n" + map.get(0).toString());
-        logger.info("command result:\n" + map.get(1).toString());
     }
 }

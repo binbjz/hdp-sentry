@@ -1,3 +1,0 @@
---server=server1->db=testdb->table=tbl4addfile->action=alter
---server=server1->db=testdb->table=tbl4addfile->action=create
---server=server1->db=testdb->table=tbl4addfile->action=insert

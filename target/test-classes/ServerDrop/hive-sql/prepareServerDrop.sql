@@ -1,4 +1,0 @@
-CREATE DATABASE db4add;
-CREATE DATABASE db4func;
-CREATE DATABASE db4show WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
-CREATE TABLE tbl4show (ID INT);
