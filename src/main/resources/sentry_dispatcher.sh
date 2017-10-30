@@ -15,7 +15,6 @@ common_sql_src=$projectdir/src/test/resources/hive-sql/common-sql
 encryptColumn_sql_src=$projectdir/src/test/resources/hive-sql/DBAllWithEncryptedColumns-sql
 groupLogin_sql_src=$projectdir/src/test/resources/hive-sql/GroupLogin-sql
 
-exclude_patt="ServerAll|ServerWrite"
 include_patt="DBAllWithEncryptedColumns|DBAllWithEncryptedColumns_2|DBAllWithEncryptedColumns_3|GroupLogin|GroupLogin_2|GroupLogin_3|GroupLogin_4"
 include_patt2="DBAllWithEncryptedColumns"
 include_patt3="GroupLogin"
@@ -36,6 +35,7 @@ source $projectdir/src/main/resources/sentry_flag.sh
 
 # Run sentry test for standard authorization approach
 sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3 GroupLogin_4"
+#sentry_tcs="DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3 GroupLogin_4"
 
 for tc in $sentry_tcs; do
     # It will be used to set multiple permissions for the same test case
@@ -48,21 +48,19 @@ for tc in $sentry_tcs; do
         sentry_sh=sentry_env.sh
     fi
 
-    # Exclude the test case that does not contain preppare sql
+    # Execute preppare sql
     source $projectdir/src/main/resources/$sentry_sh setup ${tc}
-    if ! echo "$tc" | egrep -qi "'$exclude_patt'"; then
-        # Grant role super privilege
-        source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    # Grant role super privilege
+    source $projectdir/src/main/resources/hive_env.sh $privil_type super
 
-        if echo "$tc" | egrep -qi "$include_patt2"; then
-            tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/prepare${tc_tmp}.sql
-        elif echo "$tc" | egrep -qi "$include_patt3"; then
-            tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/prepare${tc_tmp}.sql
-        else
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/prepareAll.sql
-        fi
+    if echo "$tc" | egrep -qi "$include_patt2"; then
+        tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/prepare${tc_tmp}.sql
+    elif echo "$tc" | egrep -qi "$include_patt3"; then
+        tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/prepare${tc_tmp}.sql
+    else
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/prepareAll.sql
     fi
 
     # Grant role normal privilege
@@ -79,30 +77,19 @@ for tc in $sentry_tcs; do
         java -Djava.ext.dirs=${libdir} -cp ${projectdir}/target/classes:${projectdir}/target/test-classes org.junit.runner.JUnitCore ${tc}
     fi
 
-    # Exclude the test case that does not contain post sql
-    if ! echo "$tc" | egrep -qi "'$exclude_patt'"; then
-        source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    # Execute post sql
+    source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    # Revoke role super privilege
+    source $projectdir/src/main/resources/hive_env.sh $privil_type super
 
-        if echo "$tc" | egrep -qi "'$include_patt'"; then
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $projectdir/src/test/resources/${tc_tmp}/hive-sql/post${tc_tmp}.sql
-        else
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $projectdir/src/test/resources/${tc}/hive-sql/post${tc}.sql
-        fi
-    fi
-
-    if ! echo "$tc" | egrep -qi "'$exclude_patt'"; then
-        # Revoke role super privilege
-        source $projectdir/src/main/resources/hive_env.sh $privil_type super
-
-        if echo "$tc" | egrep -qi "$include_patt2"; then
-            tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/prepare${tc_tmp}.sql
-        elif echo "$tc" | egrep -qi "$include_patt3"; then
-            tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/prepare${tc_tmp}.sql
-        else
-            $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/prepareAll.sql
-        fi
+    if echo "$tc" | egrep -qi "$include_patt2"; then
+        tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/post${tc_tmp}.sql
+    elif echo "$tc" | egrep -qi "$include_patt3"; then
+        tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/post${tc_tmp}.sql
+    else
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/postAll.sql
     fi
 
 
@@ -115,3 +102,4 @@ done
 
 # Cleanup super privilege
 source $projectdir/src/main/resources/sentry_env.sh clean SuperPrivil
+

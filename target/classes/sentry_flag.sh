@@ -47,7 +47,7 @@ check_sentry_flag_status(){
 
     source $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
     # Clean sentry flag temp env
-    rm -rf $$_${2}.sql $$_${2}.txt
+    cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt
 }
 
 check_sentry_flag_status ${sentry_priv[table]} ${sentry_f[table]}
