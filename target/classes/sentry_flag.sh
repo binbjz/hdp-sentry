@@ -4,7 +4,7 @@
 #The script will check sentry flag status (true|false)
 #
 
-privil_type=proxy_user
+privil_type=keytab_auth # proxy_user|keytab_auth
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd $resource_dir/../../.. && pwd )"
 
@@ -23,8 +23,8 @@ sentry_f[alter_table]="alter_table"
 cat <<- EOF > $$_drop_table.sql
 CREATE DATABASE IF NOT EXISTS testdroptbl;
 USE testdroptbl;
-CREATE TABLE test_sentry_flag(id STRING);
-DROP TABLE test_sentry_flag;
+CREATE TABLE tbldrop(id STRING);
+DROP TABLE tbldrop;
 EOF
 
 # 2. Check server all with drop db
@@ -38,18 +38,29 @@ EOF
 # 3. Check server all with alter db
 # Check sentry flag with temp sql
 cat <<- EOF > $$_alter_table.sql
-CREATE DATABASE IF NOT EXISTS testalter;
-USE testalter;
+CREATE DATABASE IF NOT EXISTS testaltertbl;
+USE testaltertbl;
 CREATE TABLE tbl4alter (id INT);
 ALTER TABLE tbl4alter RENAME TO tbl4alter2;
 EOF
 
+# Clean db env
+cat <<- EOF > clean_db_env.sql
+DROP DATABASE testdroptbl CASCADE;
+DROP DATABASE testdropdb CASCADE;
+DROP DATABASE testaltertbl CASCADE;
+EOF
+
 # Check sentry flag status
 check_sentry_flag_status(){
+    # Grant privilege to role
     source $projectdir/src/main/resources/sentry_env.sh setup ${1}
+
+    # Grant user with super privilege
     source $projectdir/src/main/resources/hive_env.sh $privil_type super
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${2}.sql
 
+    # In proxy env, if we need to revoke privileges otherwise it will throw exception
     if [[ $privil_type = "proxy_user" ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
@@ -65,9 +76,20 @@ check_sentry_flag_status(){
     [[ -n $result ]] && sentry_flag=flase || sentry_flag=true
     echo -e "`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag: $sentry_flag\n"
 
+    # Grant user with super privilege and clean db env
+    source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f clean_db_env.sql
+
+    # In proxy env, if we need to revoke privileges otherwise it will throw exception
+    if [[ $privil_type = "proxy_user" ]]; then
+        source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
+    fi
+
+    # Revoke privileges for role
     source $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
+
     # Clean sentry flag temp env
-    cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt
+    cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt clean_db_env.sql
 }
 
 check_sentry_flag_status ${sentry_priv[drop_table]} ${sentry_f[drop_table]}
