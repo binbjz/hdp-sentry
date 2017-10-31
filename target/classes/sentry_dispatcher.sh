@@ -2,7 +2,7 @@
 #filename: sentry_dispatcher.sh
 #
 #The script will run sentry test, include standard and user+group authorization approach
-#/usr/bin/time -f "Time: %U" bash run_sentry_tcs.sh
+#/usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
 #
 
 
