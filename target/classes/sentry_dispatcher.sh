@@ -1,14 +1,19 @@
 #!/bin/bash
-#filename: run_sentry_tcs.sh
+#filename: sentry_dispatcher.sh
 #
 #The script will run sentry test, include standard and user+group authorization approach
 #/usr/bin/time -f "Time: %U" bash run_sentry_tcs.sh
 #
 
+
+# Set env parm
 E_BADDIR=65
 privil_type=proxy_user  # proxy_user|keytab_auth
 privil_type_ug=proxy_user_group
-projectdir=/opt/meituan/qa_test/sentry-test
+resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+projectdir="$( cd $resource_dir/../../.. && pwd )"
+
+# Temporary env for dependent libraries
 libdir=/opt/meituan/qa_test/data_bin
 
 common_sql_src=$projectdir/src/test/resources/hive-sql/common-sql

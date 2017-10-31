@@ -12,7 +12,6 @@ NOPRI=62
 LOGIN_USER=hive
 DB_NAME=testdb
 
-JSRC=/opt/meituan/qa_test/sentry-test/src/main/resources
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
 source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
@@ -22,7 +21,8 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 [ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` (setup|clean|check) (privilege)" && exit $BAD_PARAMS
 
 # Load sentry privileges template
-source ${JSRC}/sentry_privil_tmpl.sh
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${DIR}/sentry_privil_tmpl.sh
 
 # Just verify if this is correct
 if [[ "$2" = "GroupLogin" ]]; then
