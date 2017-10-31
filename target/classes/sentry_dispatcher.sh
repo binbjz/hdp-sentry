@@ -5,7 +5,6 @@
 #/usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
 #
 
-
 # Set env parm
 E_BADDIR=65
 privil_type=proxy_user  # proxy_user|keytab_auth
