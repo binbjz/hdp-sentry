@@ -26,10 +26,14 @@ source ${DIR}/sentry_privil_tmpl.sh
 
 ##============
 # Sentry Flag Privilege
-if [[ "$2" == "SentryFlagTable" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagTable]}"`
-elif [[ "$2" == "SentryFlagDB" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagDB]}"`
+if [[ "$2" == "SentryFlagDropTable" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagDropTable]}"`
+elif [[ "$2" == "SentryFlagDropDB" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagDropDB]}"`
+elif [[ "$2" == "SentryFlagAlterTable" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagAlterTable]}"`
+elif [[ "$2" == "SentryFlagAlterTable2" ]]; then
+    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagAlterTable2]}"`
 
 # Super Privilege
 elif [[ "$2" == "SuperPrivil" ]]; then

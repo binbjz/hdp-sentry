@@ -10,8 +10,10 @@ declare -A sentry_privileges
 
 
 # It will be used to check sentry flag value with true or false
-sentry_privileges[SentryFlagTable]="server=server1->db=testdb->table=test_sentry_flag->action=select"
-sentry_privileges[SentryFlagDB]="server=server1->db=testdb->action=select"
+sentry_privileges[SentryFlagDropTable]="server=server1->db=testdb->table=test_sentry_flag->action=select"
+sentry_privileges[SentryFlagdDropDB]="server=server1->db=testdb->action=select"
+sentry_privileges[SentryFlagAlterTable]="server=server1->db=testalter->table=tbl4alter->action=select"
+sentry_privileges[SentryFlagAlterTable2]="server=server1->db=testalter->table=tbl4alter2->action=select"
 
 
 # Super privilege
