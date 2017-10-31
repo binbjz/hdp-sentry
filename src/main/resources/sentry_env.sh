@@ -22,12 +22,7 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 
 
 ##============
-# set the corresponding privilege
-declare -A sentry_privileges
-
-
-##============
-# Sentry Flag
+# Sentry Flag Privilege
 if [[ "$2" == "SentryFlagTable" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagTable]}"`
 elif [[ "$2" == "SentryFlagDB" ]]; then
