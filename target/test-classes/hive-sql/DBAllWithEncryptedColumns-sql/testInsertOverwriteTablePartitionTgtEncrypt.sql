@@ -9,8 +9,6 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
 INSERT INTO encrypt_db4data.partition_table001 PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3');
 
-dfs -cat /user/warehouse/hive/encrypt_db4data.db/partition_table001;
-
 SET hive.exec.dynamic.partition=true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
 SET hive.cli.print.header=true;
