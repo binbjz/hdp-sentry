@@ -1,0 +1,10 @@
+-rw-rw-r-- 1 sankuai sankuai  143 Oct 30 23:31 testSET.txt
+-rw-rw-r-- 1 sankuai sankuai   82 Oct 30 23:31 testQueryConstant.txt
+-rw-rw-r-- 1 sankuai sankuai  165 Oct 30 23:30 testDropDB.txt
+-rw-rw-r-- 1 sankuai sankuai  647 Oct 30 23:30 testDfs.txt
+-rw-rw-r-- 1 sankuai sankuai  332 Oct 30 23:30 testCreateDB.txt
+-rw-rw-r-- 1 sankuai sankuai 1419 Oct 30 23:30 testCreateAlterDropTableViewUnderDefaultDB.txt
+-rw-rw-r-- 1 sankuai sankuai  104 Oct 30 23:30 testAlterDescribeDefaultDB.txt
+-rw-rw-r-- 1 sankuai sankuai  440 Oct 30 23:30 testAddJarCreateFuncAndTmpFuncWithoutTable.txt
+-rw-rw-r-- 1 sankuai sankuai  170 Oct 30 23:30 testAddFileWithoutTable.txt
+-rw-rw-r-- 1 sankuai sankuai    6 Oct 30 23:30 testAccessNoPrivilegeDB.txt
