@@ -1,3 +1,0 @@
-OK
-OK
-testdb		viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db	mt_qa	USER	{edited-by=hadoop-new-qa, date=2017-10-02, creator=hadoop-QA}

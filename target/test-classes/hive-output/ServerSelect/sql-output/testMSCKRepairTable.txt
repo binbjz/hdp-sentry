@@ -1,5 +1,0 @@
-OK
-OK
-Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
-OK
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_msck' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

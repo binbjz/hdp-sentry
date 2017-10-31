@@ -1,3 +1,0 @@
-OK
-Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
-OK

@@ -1,2 +1,0 @@
-FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.InvalidTableException: Table not found session_test
-FAILED: SemanticException [Error 10001]: Line 12:17 Table not found 'session_test'

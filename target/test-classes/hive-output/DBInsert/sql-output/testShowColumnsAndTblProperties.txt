@@ -1,3 +1,0 @@
-FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
-FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props
-FAILED: SemanticException [Error 10001]: Table not found testdb.employees_props

@@ -1,4 +1,0 @@
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
-FAILED: SemanticException [Error 10001]: Table not found testdb.test_msck
-Found 2 items

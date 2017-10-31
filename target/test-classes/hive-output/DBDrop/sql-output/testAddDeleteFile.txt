@@ -1,1 +1,0 @@
-Could not open input file for reading. (File file:/opt/meituan/qa_test/sentry-test/src/test/resources/DBDrop/hive-sql/testAddDeleteFile.sql does not exist)

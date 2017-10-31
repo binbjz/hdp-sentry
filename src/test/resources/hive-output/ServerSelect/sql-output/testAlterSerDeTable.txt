@@ -1,2 +1,0 @@
-OK
-FAILED: ParseException line 3:0 missing EOF at 'SHOW' near ')'

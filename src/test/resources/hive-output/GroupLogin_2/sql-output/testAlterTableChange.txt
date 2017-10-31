@@ -1,4 +1,0 @@
-OK
-FAILED: SemanticException [Error 10001]: Table not found test_change
-FAILED: SemanticException [Error 10001]: Table not found test_change
-FAILED: SemanticException [Error 10001]: Table not found test_change

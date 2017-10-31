@@ -1,8 +1,0 @@
-OK
-db2drop
-db4drop
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPDATABASE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPDATABASE)
-OK
-db2drop
-db4drop

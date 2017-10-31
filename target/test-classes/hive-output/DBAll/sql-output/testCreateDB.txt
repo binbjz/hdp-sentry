@@ -1,2 +1,0 @@
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hive/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATEDATABASE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database db4create already exists

@@ -1,5 +1,0 @@
-OK
-FAILED: SemanticException [Error 10001]: Line 4:5 Table not found 'waimai_safe_order'
-FAILED: SemanticException [Error 10001]: Line 8:5 Table not found 'waimai_safe_order'
-OK
-FAILED: SemanticException Column insufficient privileges to access: <origindb>.<waimai_order_shard__wm>

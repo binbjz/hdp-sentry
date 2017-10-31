@@ -1,6 +1,0 @@
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
-FAILED: SemanticException [Error 10006]: Partition not found {col10=abc, col20=123}
-FAILED: SemanticException [Error 10006]: Partition not found {col10=abc, col20=123}
-FAILED: SemanticException [Error 10006]: Partition not found {col10=abc, col20=123}
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

@@ -1,6 +1,0 @@
-OK
-FAILED: SemanticException [Error 10072]: Database does not exist: db4show
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for CREATEDATABASE)
-FAILED: SemanticException [Error 10072]: Database does not exist: db4show
-FAILED: SemanticException [Error 10072]: Database does not exist: db4show
-FAILED: SemanticException [Error 10072]: Database does not exist: db4show

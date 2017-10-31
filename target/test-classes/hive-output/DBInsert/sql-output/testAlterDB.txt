@@ -1,2 +1,0 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: db4show
-FAILED: SemanticException [Error 10072]: Database does not exist: db4show

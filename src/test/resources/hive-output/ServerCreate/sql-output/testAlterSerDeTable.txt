@@ -1,3 +1,0 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: testdb
-FAILED: ParseException line 4:0 missing EOF at 'SHOW' near ')'
-OK

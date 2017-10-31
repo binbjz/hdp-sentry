@@ -5,7 +5,8 @@
 #
 
 privil_type=proxy_user
-projectdir=/opt/meituan/qa_test/sentry-test
+resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+projectdir="$( cd $resource_dir/../../.. && pwd )"
 
 declare -A sentry_priv sentry_f
 sentry_priv[table]="SentryFlagTable"

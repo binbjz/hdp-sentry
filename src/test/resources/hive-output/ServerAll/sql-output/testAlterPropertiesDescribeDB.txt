@@ -1,9 +1,0 @@
-OK
-OK
-OK
-OK
-db2alter		viewfs://hadoop-meituan-test/user/hive/warehouse/db2alter.db	hdp_qa	USER	{date=2017-10-02, creator=hadoop-QA}
-OK
-OK
-db2alter		viewfs://hadoop-meituan-test/user/hive/warehouse/db2alter.db	hdp_qa	USER	{edited-by=hadoop-new-qa, date=2017-10-02, creator=hadoop-QA}
-OK
