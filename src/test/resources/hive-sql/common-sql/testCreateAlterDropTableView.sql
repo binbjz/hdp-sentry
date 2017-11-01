@@ -5,7 +5,7 @@ SHOW CREATE TABLE testdb.tbl4drop;
 SHOW CREATE TABLE testdb.view4drop;
 SHOW TABLES LIKE '*4drop*';
 
-ALTER VIEW testdb.tbl4drop SET TBLPROPERTIES ('test_table_properties' = 'qa_setting_this_value');
+ALTER TABLE testdb.tbl4drop SET TBLPROPERTIES ('test_table_properties' = 'qa_setting_this_value');
 ALTER VIEW testdb.view4drop SET TBLPROPERTIES ('test_view_properties' = 'qa_setting_this_value');
 SHOW TBLPROPERTIES testdb.tbl4drop;
 SHOW TBLPROPERTIES testdb.view4drop;
