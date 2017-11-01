@@ -31,8 +31,6 @@ elif [[ "$2" = "GroupLogin_2" ]]; then
     :
 elif [[ "$2" = "GroupLogin_3" ]]; then
     :
-elif [[ "$2" = "GroupLogin_4" ]]; then
-    :
 else
     echo "Please specify valid sentry user group privilege"
     exit $NOPRI
