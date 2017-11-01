@@ -1,0 +1,17 @@
+OK
+OK
+tbl4addfile.who
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+Query ID = sankuai_20171031171202_a9e21eeb-9bd0-43b1-82bf-f008e2da0174
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3219, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3219/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3219
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3219
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.04 sec   HDFS Read: 3612 HDFS Write: 0 SUCCESS
+OK
+who

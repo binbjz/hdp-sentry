@@ -1,0 +1,6 @@
+OK
+OK
+OK
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: SemanticException [Error 10001]: Table not found dim.ndm_user_new

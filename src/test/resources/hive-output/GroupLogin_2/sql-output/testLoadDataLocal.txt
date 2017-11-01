@@ -1,0 +1,43 @@
+OK
+FAILED: SemanticException [Error 10001]: Line 3:112 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 3:69 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 3:33 Table not found 'collecttest'
+FAILED: SemanticException [Error 10001]: Line 3:21 Table not found 'collecttest'
+OK
+FAILED: SemanticException Line 0:-1 Expression not in GROUP BY key 'countVal'
+Query ID = sankuai_20171031222743_c628bf5f-d462-4a08-a71f-560d79ad0756
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_3464, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3464/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3464
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+Ended Job = job_1505297521386_3464
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.49 sec   HDFS Read: 7213 HDFS Write: 18 SUCCESS
+OK
+eleven	2
+twelve	2
+Query ID = sankuai_20171031222812_81c7f50b-6c3d-41f3-b958-9e7d745bb5ab
+Total jobs = 1
+Launching Job 1 out of 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_3465, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3465/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3465
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+Ended Job = job_1505297521386_3465
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.25 sec   HDFS Read: 6889 HDFS Write: 2 SUCCESS
+OK
+4

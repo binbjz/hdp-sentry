@@ -1,0 +1,21 @@
+OK
+OK
+Query ID = sankuai_20171031195618_dba613ee-3724-418f-89fd-63ff9e2aabb5
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3344, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3344/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3344
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3344
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-31_19-56-18_689_7387407217898322581-1/-ext-10000
+Loading data to table encrypt_db4data.session_src_encrypted
+2 Rows loaded to encrypt_db4data.session_src_encrypted
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.83 sec   HDFS Read: 5182 HDFS Write: 150 SUCCESS
+OK
+FAILED: SemanticException org.apache.hadoop.hive.ql.parse.SemanticException: Table already exists: encrypt_db4data.sessionization_step_one_origins
+OK

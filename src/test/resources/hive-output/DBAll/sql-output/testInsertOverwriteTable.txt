@@ -1,0 +1,63 @@
+OK
+Query ID = sankuai_20171031162829_139b0de7-cc82-42c9-8122-eba81a86d77c
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3181, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3181/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3181
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3181
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-31_16-28-29_846_7467197053325331625-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+0 Rows loaded to testdb.insert_overwrite_tbl
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.47 sec   HDFS Read: 4182 HDFS Write: 0 SUCCESS
+OK
+name	ip
+OK
+insert_overwrite_tbl.name	insert_overwrite_tbl.ip
+Query ID = sankuai_20171031162854_da546b9f-dda7-45a4-961a-096cc20bee72
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3182, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3182/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3182
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3182
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-31_16-28-54_528_675315738236801710-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+1 Rows loaded to testdb.insert_overwrite_tbl
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.14 sec   HDFS Read: 4034 HDFS Write: 17 SUCCESS
+OK
+src_insert_overwrite_tbl.name	src_insert_overwrite_tbl.ip
+OK
+insert_overwrite_tbl.name	insert_overwrite_tbl.ip
+alibaba	10.0.0.3
+Query ID = sankuai_20171031162915_f425f8e1-3d21-47ee-a158-fdc40322bb14
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_3183, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3183/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3183
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+Ended Job = job_1505297521386_3183
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.39 sec   HDFS Read: 8764 HDFS Write: 19 SUCCESS
+OK
+id	name	ip
+1	alibaba	10.0.0.3

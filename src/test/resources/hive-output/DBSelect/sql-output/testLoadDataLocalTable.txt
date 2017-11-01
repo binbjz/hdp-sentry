@@ -1,0 +1,5 @@
+OK
+Loading data to table testdb.load_data_local_into_table
+Failed with exception Unable to move source file:/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_file.txt to destination viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/load_data_local_into_table/test_file.txt
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK

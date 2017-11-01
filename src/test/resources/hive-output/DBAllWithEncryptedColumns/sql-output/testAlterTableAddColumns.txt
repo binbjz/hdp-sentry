@@ -1,0 +1,64 @@
+OK
+OK
+Query ID = sankuai_20171031191923_396d4874-0a76-41dd-82fc-18bdddc99a11
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3301, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3301/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3301
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3301
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/.hive-staging_hive_2017-10-31_19-19-23_000_4819557557673054279-1/-ext-10000
+Loading data to table encrypt_db4alter.tbl4addcolumn
+2 Rows loaded to encrypt_db4alter.tbl4addcolumn
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.94 sec   HDFS Read: 4652 HDFS Write: 12 SUCCESS
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. add columns failed, rollback failed. java.sql.SQLException: Connection is closed!
+	at com.jolbox.bonecp.ConnectionHandle.checkClosed(ConnectionHandle.java:459)
+	at com.jolbox.bonecp.ConnectionHandle.rollback(ConnectionHandle.java:1270)
+	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.updatePartitionsColumns(MetaStoreDirectSql.java:1790)
+	at org.apache.hadoop.hive.metastore.ObjectStore.alterTableCascade(ObjectStore.java:2844)
+	at sun.reflect.GeneratedMethodAccessor103.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.hive.metastore.RawStoreProxy.invoke(RawStoreProxy.java:114)
+	at com.sun.proxy.$Proxy7.alterTableCascade(Unknown Source)
+	at org.apache.hadoop.hive.metastore.HiveAlterHandler.alterTable(HiveAlterHandler.java:141)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.alter_table_core(HiveMetaStore.java:3473)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.alter_table_with_cascade(HiveMetaStore.java:3441)
+	at sun.reflect.GeneratedMethodAccessor73.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.hive.metastore.RetryingHMSHandler.invoke(RetryingHMSHandler.java:107)
+	at com.sun.proxy.$Proxy9.alter_table_with_cascade(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor73.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$MetricHMSProxy.invoke(HiveMetaStore.java:6049)
+	at com.sun.proxy.$Proxy9.alter_table_with_cascade(Unknown Source)
+	at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$Processor$alter_table_with_cascade.getResult(ThriftHiveMetastore.java:9480)
+	at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$Processor$alter_table_with_cascade.getResult(ThriftHiveMetastore.java:9464)
+	at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+	at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+	at org.apache.hadoop.hive.thrift.HadoopThriftAuthBridge$Server$TUGIAssumingProcessor$1.run(HadoopThriftAuthBridge.java:732)
+	at org.apache.hadoop.hive.thrift.HadoopThriftAuthBridge$Server$TUGIAssumingProcessor$1.run(HadoopThriftAuthBridge.java:727)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
+	at org.apache.hadoop.hive.thrift.HadoopThriftAuthBridge$Server$TUGIAssumingProcessor.process(HadoopThriftAuthBridge.java:727)
+	at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:286)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+OK
+col1                	tinyint             	                    
+ENCRYPTED_NAME_2444_encrypt_col2	bigint              	ENCRYPTED_COMMENT_62150
+col3                	string              	                    
+FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'id': (possible column names are: col1, encrypted_name_76780_encrypt_col2, col3) or Column insufficient privileges to access: id
+FAILED: SemanticException [Error 10004]: Line 2:13 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_74655_encrypt_col2, col3) or Column insufficient privileges to access: encrypt_col2
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4addcolumn>
+OK

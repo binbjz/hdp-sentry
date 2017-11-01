@@ -1,0 +1,89 @@
+OK
+Query ID = sankuai_20171031212933_89896957-d56e-4bbc-a0fa-29b9b3266162
+Total jobs = 7
+Launching Job 1 out of 7
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3444, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3444/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3444
+Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_3444
+Stage-5 is selected by condition resolver.
+Stage-10 is selected by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Stage-9 is filtered out by condition resolver.
+Stage-6 is filtered out by condition resolver.
+Stage-11 is filtered out by condition resolver.
+Stage-15 is filtered out by condition resolver.
+Stage-14 is selected by condition resolver.
+Stage-16 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/.hive-staging_hive_2017-10-31_21-29-33_609_1746995663667622153-1/-ext-10000
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/.hive-staging_hive_2017-10-31_21-29-33_609_1746995663667622153-1/-ext-10001
+Launching Job 7 out of 7
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=OR)
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3445, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3445/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3445
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=OR' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Hadoop job information for Stage-14: number of mappers: 1; number of reducers: 0
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=IL)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=IL' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Ended Job = job_1505297521386_3445
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to mart_waimai.employees_insert_overwrite
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 2   Cumulative CPU: 3.32 sec   HDFS Read: 23902 HDFS Write: 427 SUCCESS
+Stage-Stage-14: Map: 1   Cumulative CPU: 1.14 sec   HDFS Read: 4688 HDFS Write: 427 SUCCESS
+OK
+OK
+employees_insert_overwrite.name	employees_insert_overwrite.salary	employees_insert_overwrite.subordinates	employees_insert_overwrite.deductions	employees_insert_overwrite.address	employees_insert_overwrite.country	employees_insert_overwrite.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Query ID = sankuai_20171031213103_86e0f55a-c133-4951-a0d7-8899ba684149
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3446, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3446/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3446
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3446
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/.hive-staging_hive_2017-10-31_21-31-03_292_2677393503772638877-1/-ext-10000
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to mart_waimai.employees_insert_overwrite
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.21 sec   HDFS Read: 7001 HDFS Write: 427 SUCCESS
+OK
+name	salary	subordinates	deductions	address
+OK
+Query ID = sankuai_20171031213208_14645464-0a2c-4869-a55d-3b5428e85dc9
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3447, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3447/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3447
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_3447
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/.hive-staging_hive_2017-10-31_21-32-08_450_5758491112389040955-1/-ext-10000
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/employees_insert_overwrite/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+	Loading partition {country=US, state=CA}
+4 Rows loaded to mart_waimai.employees_insert_overwrite
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2   Cumulative CPU: 2.27 sec   HDFS Read: 16220 HDFS Write: 427 SUCCESS
+OK
+se.name	se.salary	se.subordinates	se.deductions	se.address	se.state
+OK
+employees_insert_overwrite.name	employees_insert_overwrite.salary	employees_insert_overwrite.subordinates	employees_insert_overwrite.deductions	employees_insert_overwrite.address	employees_insert_overwrite.country	employees_insert_overwrite.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA

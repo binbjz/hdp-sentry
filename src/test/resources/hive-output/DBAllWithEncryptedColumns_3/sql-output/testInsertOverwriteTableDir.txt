@@ -1,0 +1,146 @@
+OK
+OK
+OK
+Loading data to table encrypt_db4data.encrypt_employees partition (country=US, state=CA)
+OK
+OK
+OK
+OK
+Query ID = sankuai_20171031204334_3b4e3ef7-4f59-4109-ac3f-1e5bbf2d6483
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3398, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3398/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3398
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3398
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-31_20-43-34_356_4185438410356784677-1/-ext-10000
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=null, state=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+	Loading partition {country=US, state=CA}
+4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.25 sec   HDFS Read: 7307 HDFS Write: 427 SUCCESS
+OK
+OK
+encrypt_tgt_employees.encrypt_name	encrypt_tgt_employees.encrypt_salary	encrypt_tgt_employees.subordinates	encrypt_tgt_employees.deductions	encrypt_tgt_employees.address	encrypt_tgt_employees.country	encrypt_tgt_employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Query ID = sankuai_20171031204401_923da019-654b-4388-9da8-8b337a76622c
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3399, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3399/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3399
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3399
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/.hive-staging_hive_2017-10-31_20-44-01_882_7814203065092285858-1/-ext-10000
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.2 sec   HDFS Read: 6949 HDFS Write: 427 SUCCESS
+OK
+encrypt_name	encrypt_salary	subordinates	deductions	address
+OK
+encrypt_tgt_employees.encrypt_name	encrypt_tgt_employees.encrypt_salary	encrypt_tgt_employees.subordinates	encrypt_tgt_employees.deductions	encrypt_tgt_employees.address	encrypt_tgt_employees.country	encrypt_tgt_employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Query ID = sankuai_20171031204428_af53358d-cf21-42fe-831b-ddc89c1d0576
+Total jobs = 1
+Launching Job 1 out of 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_3400, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3400/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3400
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+Ended Job = job_1505297521386_3400
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 6.07 sec   HDFS Read: 16941 HDFS Write: 2 SUCCESS
+OK
+c0
+4
+OK
+Query ID = sankuai_20171031204457_0e0a0d9d-c742-4ce0-8819-309f167bf6d0
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3401, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3401/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3401
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3401
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/.hive-staging_hive_2017-10-31_20-44-57_025_112849134798726866-1/-ext-10000
+Loading data to table encrypt_db4data.encrypt_tgt_employees partition (country=US, state=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_tgt_employees/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+	Loading partition {country=US, state=CA}
+4 Rows loaded to encrypt_db4data.encrypt_tgt_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.21 sec   HDFS Read: 7319 HDFS Write: 427 SUCCESS
+OK
+se.encrypt_name	se.encrypt_salary	se.subordinates	se.deductions	se.address	se.state
+OK
+encrypt_employees.encrypt_name	encrypt_employees.encrypt_salary	encrypt_employees.subordinates	encrypt_employees.deductions	encrypt_employees.address	encrypt_employees.country	encrypt_employees.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Query ID = sankuai_20171031204521_46264847-d836-4782-962b-39658cb9630c
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3402, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3402/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3402
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3402
+Copying data to local directory /tmp/ca_employees
+Copying data to local directory /tmp/ca_employees
+4 Rows loaded to /tmp/ca_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.22 sec   HDFS Read: 6326 HDFS Write: 451 SUCCESS
+OK
+se.encrypt_name	se.encrypt_salary	se.subordinates	se.deductions	se.address	se.country	se.state
+total 4
+-rw-r----- 1 sankuai sankuai 451 Oct 31 20:45 000000_0
+000000_0
+Query ID = sankuai_20171031204539_33ffd628-a53c-4e06-98ae-81d7b9d0dea0
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3403, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3403/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3403
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3403
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/tmp/.hive-staging_hive_2017-10-31_20-45-39_872_447247794787923635-1/-ext-10000
+Moving data to: /tmp/union.out
+8 Rows loaded to /tmp/union.out
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.28 sec   HDFS Read: 6786 HDFS Write: 74 SUCCESS
+OK
+unioninput.encrypt_name	unioninput.encrypt_salary
+John Doe100000.0
+Mary Smith80000.0
+Todd Jones70000.0
+Bill King60000.0
+Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK
+OK

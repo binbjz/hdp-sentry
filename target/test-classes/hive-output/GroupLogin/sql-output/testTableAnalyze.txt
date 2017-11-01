@@ -1,0 +1,88 @@
+OK
+Query ID = sankuai_20171031213704_79487203-1358-4de4-9cc6-cb5a67605b69
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_3452, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3452/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3452
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 1
+Ended Job = job_1505297521386_3452
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2  Reduce: 1   Cumulative CPU: 7.47 sec   HDFS Read: 25441 HDFS Write: 53 SUCCESS
+OK
+Query ID = sankuai_20171031213737_c9440bba-7bdb-4373-9eac-bc1e5735de36
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3453, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3453/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3453
+Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3453
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 1   Cumulative CPU: 1.05 sec   HDFS Read: 4872 HDFS Write: 0 SUCCESS
+OK
+Query ID = sankuai_20171031213812_b939074a-28d0-4eaf-bc58-4ec57d75dc76
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3454, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3454/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3454
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_3454
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.07 sec   HDFS Read: 11542 HDFS Write: 0 SUCCESS
+OK
+Query ID = sankuai_20171031213903_4f322a12-b7fb-4c84-8b7e-704da09c1da8
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3455, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3455/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3455
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_3455
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.08 sec   HDFS Read: 11906 HDFS Write: 0 SUCCESS
+OK
+OK
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+OK
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 

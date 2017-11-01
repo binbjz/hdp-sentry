@@ -1,0 +1,27 @@
+OK
+OK
+Query ID = sankuai_20171031193308_490fa659-3153-4a24-9b85-25d40ce8862d
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3322, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3322/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3322
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3322
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-31_19-33-08_604_7161589618699943934-1/-ext-10000
+Loading data to table encrypt_db4data.table_src
+3 Rows loaded to encrypt_db4data.table_src
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.18 sec   HDFS Read: 4209 HDFS Write: 49 SUCCESS
+OK
+OK
+FAILED: SemanticException [Error 10004]: Line 2:101 Invalid table alias or column reference 'name': (possible column names are: encrypted_name_91061_name, ip) or Column insufficient privileges to access: name
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table002>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table_src>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table002>
+FAILED: SemanticException [Error 10004]: Line 3:63 Invalid table alias or column reference 'name': (possible column names are: table002.encrypted_name_13945_name, table002.ip) or Column insufficient privileges to access: name
+OK
+OK

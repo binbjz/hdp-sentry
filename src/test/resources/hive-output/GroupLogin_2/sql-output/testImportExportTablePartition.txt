@@ -1,0 +1,10 @@
+OK
+FAILED: SemanticException [Error 10001]: Line 3:13 Table not found 'src_employees_import_export'
+cat: `/tmp/employee/country=US/state=CA/california-employees.csv': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+FAILED: SemanticException [Error 10027]: Invalid path
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.employees_import_export
+rm: `/tmp/employee': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null

@@ -1,0 +1,85 @@
+OK
+ls: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=1":hive:hive:drwxrwx--x
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+ls: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=2":hive:hive:drwxrwx--x
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+mkdir: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4setlocation_new/year=2011/month=1/day=1":hive:hive:drwxrwx--x
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
+OK
+# col_name            	data_type           	comment             
+	 	 
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Detailed Partition Information	 	 
+Partition Value:    	[2011, 1, 1]        	 
+Database:           	testdb              	 
+Table:              	tbl4setlocation     	 
+Protect Mode:       	None                	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=1	 
+Partition Parameters:	 	 
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	\t                  
+	serialization.format	\t                  
+OK
+# col_name            	data_type           	comment             
+	 	 
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Detailed Partition Information	 	 
+Partition Value:    	[2011, 1, 2]        	 
+Database:           	testdb              	 
+Table:              	tbl4setlocation     	 
+Protect Mode:       	None                	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=2	 
+Partition Parameters:	 	 
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	\t                  
+	serialization.format	\t                  
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+rm: `/user/hive/warehouse/testdb.db/tbl4setlocation_new': No such file or directory
+Command failed with exit code = 1
+Query returned non-zero code: 1, cause: null

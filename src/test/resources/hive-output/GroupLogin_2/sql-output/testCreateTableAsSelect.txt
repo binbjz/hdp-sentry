@@ -1,0 +1,8 @@
+OK
+FAILED: SemanticException 0:0 Error creating temporary folder on: viewfs://hadoop-meituan-test/user/hive/warehouse/dim.db. Error encountered near token 'TOK_TMP_FILE'
+FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
+OK
+FAILED: SemanticException 0:0 Error creating temporary folder on: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db. Error encountered near token 'TOK_TMP_FILE'
+FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
+OK
+OK

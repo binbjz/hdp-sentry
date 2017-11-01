@@ -1,0 +1,30 @@
+OK
+OK
+OK
+OK
+Query ID = sankuai_20171031195048_40eb5a92-33a9-42a7-9fda-b192d1c86aed
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3337, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3337/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3337
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3337
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/.hive-staging_hive_2017-10-31_19-50-48_093_5830361058769713568-1/-ext-10000
+Loading data to table encrypt_db4alter.tbl4change
+1 Rows loaded to encrypt_db4alter.tbl4change
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.7 sec   HDFS Read: 4555 HDFS Write: 12 SUCCESS
+OK
+OK
+OK
+OK
+col3to1             	int                 	put last column to position 1st
+col2                	bigint              	                    
+col1to2             	int                 	put column1 to position 2nd
+OK
+1	2	NULL
+OK

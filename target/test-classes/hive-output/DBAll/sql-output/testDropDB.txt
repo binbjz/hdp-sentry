@@ -1,0 +1,6 @@
+OK
+OK
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. InvalidOperationException(message:Database db4drop_cascade is not empty. One or more tables exist.)
+OK
+db4drop_cascade

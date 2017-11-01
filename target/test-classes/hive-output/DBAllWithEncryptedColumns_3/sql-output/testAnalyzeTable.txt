@@ -1,0 +1,102 @@
+OK
+OK
+OK
+OK
+OK
+Loading data to table encrypt_db4data.encrypt_test_analyze partition (country=US, state=CA)
+OK
+Query ID = sankuai_20171031203724_c544d7b2-1d9f-43d1-b394-baa8dfd2e923
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_3389, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3389/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3389
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 1
+Ended Job = job_1505297521386_3389
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2  Reduce: 1   Cumulative CPU: 6.66 sec   HDFS Read: 25457 HDFS Write: 53 SUCCESS
+OK
+_c0	_c1	country	state
+Query ID = sankuai_20171031203752_b5e10cbb-1b14-4816-a0f9-8e14ea4486d9
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3390, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3390/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3390
+Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3390
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 1   Cumulative CPU: 1.06 sec   HDFS Read: 4844 HDFS Write: 0 SUCCESS
+OK
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+Query ID = sankuai_20171031203815_d60fed0b-b54a-408a-b5d1-e2528814ea63
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3391, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3391/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3391
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_3391
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.07 sec   HDFS Read: 11482 HDFS Write: 0 SUCCESS
+OK
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+Query ID = sankuai_20171031203841_ff2fef2f-36f8-4c59-b19d-acfcbd07c7bf
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3392, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3392/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3392
+Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_3392
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 2   Cumulative CPU: 2.07 sec   HDFS Read: 11812 HDFS Write: 0 SUCCESS
+OK
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+OK
+col_name	data_type	comment
+name                	string              	                    
+encrypt_salary      	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+OK
+col_name	data_type	comment
+name                	string              	                    
+encrypt_salary      	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_test_analyze/country=US/state=CA/california-employees.csv' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+OK

@@ -1,0 +1,39 @@
+OK
+Query ID = sankuai_20171031174551_61fb4f4a-a88b-4ab4-85b2-fc487d83f36b
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3245, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3245/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3245
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3245
+Copying data to local directory /tmp/ca_employees
+Copying data to local directory /tmp/ca_employees
+4 Rows loaded to /tmp/ca_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.24 sec   HDFS Read: 6314 HDFS Write: 451 SUCCESS
+OK
+total 4
+-rw-r----- 1 sankuai sankuai 451 Oct 31 17:46 000000_0
+Query ID = sankuai_20171031174613_48376f15-a44f-415b-b66b-6caa38078278
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3246, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3246/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3246
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3246
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/tmp/.hive-staging_hive_2017-10-31_17-46-13_306_8688271094040090246-1/-ext-10000
+Moving data to: /tmp/union.out
+8 Rows loaded to /tmp/union.out
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.04 sec   HDFS Read: 6825 HDFS Write: 74 SUCCESS
+OK
+John Doe100000.0
+Mary Smith80000.0
+Todd Jones70000.0
+Bill King60000.0
+Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

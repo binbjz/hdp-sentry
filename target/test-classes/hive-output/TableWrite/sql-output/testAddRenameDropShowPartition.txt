@@ -1,0 +1,12 @@
+OK
+OK
+OK
+OK
+partition
+day=20110107
+OK
+id	part	quantity
+OK
+OK
+partition
+day=20110107

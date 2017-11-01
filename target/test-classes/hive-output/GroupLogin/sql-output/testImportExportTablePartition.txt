@@ -1,0 +1,13 @@
+OK
+Copying data from file:/tmp/sankuai/eeb96ab8-08e5-4027-aefa-8f1d38605ee2/hive_2017-10-31_21-24-47_645_5654962254274471163-1/-local-10000/_metadata
+Copying file: file:/tmp/sankuai/eeb96ab8-08e5-4027-aefa-8f1d38605ee2/hive_2017-10-31_21-24-47_645_5654962254274471163-1/-local-10000/_metadata
+Copying data from viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/src_employees_import_export/country=US/state=CA
+Copying file: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/src_employees_import_export/country=US/state=CA/california-employees.csv
+OK
+John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Michigan Ave.|Chicago|IL|60600
+Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Ontario St.|Chicago|IL|60601
+Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Ave.|Oak Park|IL|60700
+Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
+FAILED: SemanticException [Error 10120]: The existing table is not compatible with the import spec.   Table bucketing spec does not match
+OK
+Moved: 'viewfs://hadoop-meituan-test/tmp/employee' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

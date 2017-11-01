@@ -1,0 +1,39 @@
+OK
+Query ID = sankuai_20171031171554_d42a199e-4d3a-43ef-8e52-ebdc9a52a13f
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3220, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3220/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3220
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3220
+Copying data to local directory /tmp/ca_employees
+Copying data to local directory /tmp/ca_employees
+4 Rows loaded to /tmp/ca_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.21 sec   HDFS Read: 6314 HDFS Write: 451 SUCCESS
+OK
+total 4
+-rw-r----- 1 sankuai sankuai 451 Oct 31 17:16 000000_0
+Query ID = sankuai_20171031171616_35f88112-470b-4147-a6e1-351179f6e069
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3221, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3221/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3221
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3221
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/tmp/.hive-staging_hive_2017-10-31_17-16-16_723_2203895309457589884-1/-ext-10000
+Moving data to: /tmp/union.out
+8 Rows loaded to /tmp/union.out
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.0 sec   HDFS Read: 6825 HDFS Write: 74 SUCCESS
+OK
+John Doe100000.0
+Mary Smith80000.0
+Todd Jones70000.0
+Bill King60000.0
+Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

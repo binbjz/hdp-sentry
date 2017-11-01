@@ -1,0 +1,30 @@
+OK
+'/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar' does not exist
+Query returned non-zero code: 1, cause: '/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar' does not exist
+Failed to register testdb.qa_lower using class com.example.hive.udf.LowerCase
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.FunctionTask
+Query ID = sankuai_20171012131403_2981d05f-0ba7-4638-9af7-70e3f5b94a89
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_0660, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0660/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0660
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+MapReduce Total cumulative CPU time: 1 seconds 150 msec
+Ended Job = job_1505297521386_0660
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-12_13-14-03_837_7415872741839709550-1/-ext-10000
+Loading data to table testdb.teacher
+1 Rows loaded to testdb.teacher
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 3763 HDFS Write: 11 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 150 msec
+OK
+FAILED: SemanticException [Error 10011]: Line 2:7 Invalid function 'qa_lower'
+OK
+testdb.qa_lower
+OK
+OK
+testdb.qa_lower

@@ -1,0 +1,51 @@
+OK
+OK
+OK
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+col3                	int                 	                    
+col4                	bigint              	                    
+col5                	boolean             	                    
+col6                	float               	                    
+col7                	double              	                    
+col8                	string              	                    
+id                  	string              	                    
+OK
+OK
+CREATE TABLE `test_tbl`(
+  `new_col1` int COMMENT 'new column 1', 
+  `new_col2` string COMMENT 'new column 2', 
+  `new_col3` string COMMENT 'new column3')
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/test_tbl'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'last_modified_by'='hdp_qa', 
+  'numFiles'='0', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'totalSize'='0', 
+OK
+OK
+OK
+new_col3to1         	int                 	put last column to position 1st
+new_col2            	string              	new column 2        
+new_col1to2         	int                 	put column1 to position 2nd
+OK
+OK
+OK
+COLUMN_STATS_ACCURATE	false
+last_modified_by	hdp_qa
+notes	Test for set tblproperties
+numFiles	0
+numRows	-1
+rawDataSize	-1
+totalSize	0
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

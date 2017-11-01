@@ -1,0 +1,31 @@
+OK
+OK
+Query ID = sankuai_20171031192919_5dbf870a-c2a1-4baf-9177-639726f07923
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3314, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3314/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3314
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3314
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/partition_table_src/dt=20150617/.hive-staging_hive_2017-10-31_19-29-19_243_739384047090281459-1/-ext-10000
+Loading data to table encrypt_db4data.partition_table_src partition (dt=20150617, ht=00)
+3 Rows loaded to encrypt_db4data.partition_table_src
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 4362 HDFS Write: 49 SUCCESS
+OK
+meituan	10.0.0.1
+baidu	10.0.0.2
+alibaba	10.0.0.3
+OK
+FAILED: SemanticException [Error 10004]: Line 3:106 Invalid table alias or column reference 'ip': (possible column names are: name, encrypted_name_74568_ip, dt, ht) or Column insufficient privileges to access: ip
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table002>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table_src>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table002>
+FAILED: SemanticException [Error 10004]: Line 3:101 Invalid table alias or column reference 'ip': (possible column names are: name, encrypted_name_94041_ip, dt, ht) or Column insufficient privileges to access: ip
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table002>
+OK
+OK

@@ -1,0 +1,35 @@
+OK
+Added [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] to class path
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar
+OK
+OK
+OK
+Query ID = sankuai_20171031201453_2a57c5c4-70b8-4b50-a60c-8690b1d63547
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3382, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3382/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3382
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3382
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4func.db/.hive-staging_hive_2017-10-31_20-14-53_969_3674246524226872238-1/-ext-10000
+Loading data to table encrypt_db4func.teacher
+1 Rows loaded to encrypt_db4func.teacher
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.16 sec   HDFS Read: 3820 HDFS Write: 11 SUCCESS
+OK
+OK
+TEACHER QA
+OK
+teacher qa
+OK
+teacher qa
+OK
+encrypt_db4func.qa_lower
+tmp_qa_lower
+OK
+Deleted [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] from class path

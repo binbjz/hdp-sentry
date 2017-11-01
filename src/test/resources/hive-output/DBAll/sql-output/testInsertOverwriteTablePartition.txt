@@ -1,0 +1,65 @@
+OK
+Query ID = sankuai_20171031162945_8927b6b0-4e09-4f2e-8641-8cef8f8f261e
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3184, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3184/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3184
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3184
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl_partition/dt=20150617/.hive-staging_hive_2017-10-31_16-29-45_921_3323362895645411152-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=20150617, ht=00)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl_partition/dt=20150617/ht=00' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+0 Rows loaded to testdb.insert_overwrite_tbl_partition
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.45 sec   HDFS Read: 4854 HDFS Write: 0 SUCCESS
+OK
+name	ip
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
+Query ID = sankuai_20171031163013_a382ac5c-69cf-43ee-af34-d902c72ada19
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3185, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3185/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3185
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3185
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-31_16-30-13_325_3007366426210244404-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=null, ht=null)
+0 Rows loaded to testdb.insert_overwrite_tbl_partition
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.47 sec   HDFS Read: 5274 HDFS Write: 0 SUCCESS
+OK
+src_insert_overwrite_tbl_partition.name	src_insert_overwrite_tbl_partition.ip	src_insert_overwrite_tbl_partition.dt	src_insert_overwrite_tbl_partition.ht
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
+Query ID = sankuai_20171031163034_2357a47b-414d-4d4b-93dc-bdea8629307e
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3186, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3186/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3186
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3186
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl_partition/.hive-staging_hive_2017-10-31_16-30-34_905_2986372617547603349-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=20150617, ht=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl_partition/dt=20150617/ht=00' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+	Loading partition {dt=20150617, ht=00}
+1 Rows loaded to testdb.insert_overwrite_tbl_partition
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.23 sec   HDFS Read: 4788 HDFS Write: 17 SUCCESS
+OK
+name	ip	ht
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
+alibaba	10.0.0.3	20150617	00

@@ -1,0 +1,27 @@
+OK
+OK
+OK
+OK
+OK
+dt=20110102
+dt=20110103
+dt=20110104
+dt=20110122
+dt=20110123
+dt=20190104
+dt=20210102
+dt=20210103
+FAILED: SemanticException Line 0:-1 Invalid table alias or column reference 'day': (possible column names are: ad_activity_key, ad_activity_id, ad_activity_type, poi_id, dt) or Column insufficient privileges to access: day
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa does not have privileges for ALTERTABLE_DROPPARTS
+OK
+partition
+dt=20110102
+dt=20110103
+dt=20110104
+dt=20110122
+dt=20110123
+dt=20190104
+dt=20210102
+dt=20210103

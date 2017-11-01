@@ -1,0 +1,31 @@
+OK
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@54659bf8
+Query ID = sankuai_20171026161427_4fff1958-a32c-49b2-a635-efa260c33d7d
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_2653, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2653/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2653
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_2653
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/partition_table001/dt=20150617/.hive-staging_hive_2017-10-26_16-14-27_037_4100519312039638017-1/-ext-10000
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@6bd924f7
+Loading data to table mart_waimai.partition_table001 partition (dt=20150617, ht=00)
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@2df4e72e
+setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@24867d92
+3 Rows loaded to mart_waimai.partition_table001
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 4248 HDFS Write: 49 SUCCESS
+OK
+FAILED: SemanticException [Error 10001]: Line 3:110 Table not found 'partition_table001'
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+FAILED: SemanticException [Error 10001]: Line 3:87 Table not found 'partition_table001'
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
+FAILED: SemanticException [Error 10001]: Line 3:109 Table not found 'partition_table001'
+OK
+partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht

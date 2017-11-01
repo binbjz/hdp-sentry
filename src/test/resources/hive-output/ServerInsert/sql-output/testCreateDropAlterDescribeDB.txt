@@ -1,0 +1,18 @@
+OK
+db4alter
+db4create
+db4create
+db4drop
+db4func
+db4msck
+default
+testdb
+OK
+db4drop
+FAILED: ParseException line 3:0 missing EOF at 'CREATE' near 'db4drop'
+OK
+OK
+OK
+db4alter		viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db	mt_qa	USER	
+OK
+db4alter		viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db	mt_qa	USER	{edited-by=hadoop-new-qa, date=2017-10-02, creator=hadoop-QA}

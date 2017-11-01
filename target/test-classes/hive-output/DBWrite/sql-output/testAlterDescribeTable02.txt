@@ -1,0 +1,62 @@
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
+OK
+year=2011/month=1/day=1
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/db4alter.db/log_messages_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

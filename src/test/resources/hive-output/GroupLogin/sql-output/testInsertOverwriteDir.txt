@@ -1,0 +1,45 @@
+OK
+Query ID = sankuai_20171031212506_b2898b2c-8947-440c-b51b-ec85e301a041
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3436, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3436/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3436
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3436
+Copying data to local directory /tmp/ca_employees
+Copying data to local directory /tmp/ca_employees
+4 Rows loaded to /tmp/ca_employees
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.24 sec   HDFS Read: 6384 HDFS Write: 451 SUCCESS
+OK
+total 4
+-rw-r----- 1 sankuai sankuai 451 Oct 31 21:25 000000_0
+Query ID = sankuai_20171031212531_0175cca5-1adc-4d26-88b3-0f7ccf0489fd
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3437, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3437/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3437
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
+Ended Job = job_1505297521386_3437
+Stage-3 is filtered out by condition resolver.
+Stage-2 is selected by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Launching Job 3 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3438, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3438/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3438
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3438
+Moving data to: /tmp/union.out
+8 Rows loaded to /tmp/union.out
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 2   Cumulative CPU: 3.7 sec   HDFS Read: 15952 HDFS Write: 74 SUCCESS
+Stage-Stage-2: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 1848 HDFS Write: 74 SUCCESS
+OK
+John Doe100000.0
+Mary Smith80000.0
+Todd Jones70000.0
+Bill King60000.0
+Moved: 'viewfs://hadoop-meituan-test/tmp/union.out' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

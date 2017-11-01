@@ -1,0 +1,7 @@
+OK
+FAILED: SemanticException [Error 10001]: Line 3:5 Table not found 'src_employees_insert_overwrite'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees_insert_overwrite'
+FAILED: SemanticException [Error 10001]: Line 4:60 Table not found 'src_employees_insert_overwrite'
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.employees_insert_overwrite
+FAILED: SemanticException [Error 10001]: Line 3:85 Table not found 'src_employees_insert_overwrite'
+FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'employees_insert_overwrite'

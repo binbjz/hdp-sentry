@@ -1,0 +1,27 @@
+Query ID = sankuai_20171012131616_823bce43-6c88-4adb-b5b4-1c7234434584
+Total jobs = 1
+Execution log at: /var/sankuai/logs/hive1.2/sankuai/hive.log
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1505297521386_0662, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_0662/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_0662
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+MapReduce Total cumulative CPU time: 5 seconds 390 msec
+Ended Job = job_1505297521386_0662
+Loading data to table testdb.sessionization_step_one_origins
+MapReduce Jobs Launched: 
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 5.39 sec   HDFS Read: 16972 HDFS Write: 0 SUCCESS
+Total MapReduce CPU Time Spent: 5 seconds 390 msec
+OK
+OK
+st_user_id          	string              	                    
+st_pageview_id      	string              	                    
+st_timestamp        	double              	                    

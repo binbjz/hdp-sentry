@@ -1,0 +1,57 @@
+OK
+Added [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] to class path
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar
+OK
+OK
+FAILED: SemanticException Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4jarfile":hive:hive:drwxrwx--x
+	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkAccessAcl(MTSentryINodeAttributesProvider.java:362)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:308)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkTraverse(FSPermissionChecker.java:259)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:205)
+	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkPermission(MTSentryINodeAttributesProvider.java:282)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1706)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1690)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirStatAndListingOp.getContentSummary(FSDirStatAndListingOp.java:137)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getContentSummary(FSNamesystem.java:4078)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.getContentSummary(NameNodeRpcServer.java:1216)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.getContentSummary(ClientNamenodeProtocolServerSideTranslatorPB.java:881)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:969)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2049)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2045)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2045)
+FAILED: SemanticException Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4jarfile":hive:hive:drwxrwx--x
+	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkAccessAcl(MTSentryINodeAttributesProvider.java:362)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:308)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkTraverse(FSPermissionChecker.java:259)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:205)
+	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkPermission(MTSentryINodeAttributesProvider.java:282)
+	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1706)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1690)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirStatAndListingOp.getContentSummary(FSDirStatAndListingOp.java:137)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getContentSummary(FSNamesystem.java:4078)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.getContentSummary(NameNodeRpcServer.java:1216)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.getContentSummary(ClientNamenodeProtocolServerSideTranslatorPB.java:881)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:969)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2049)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2045)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2045)
+OK
+testdb.qa_lower
+tmp_qa_lower
+OK
+OK
+tmp_qa_lower
+Deleted [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] from class path

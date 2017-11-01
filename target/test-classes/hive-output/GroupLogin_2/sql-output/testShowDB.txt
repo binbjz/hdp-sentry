@@ -1,0 +1,12 @@
+OK
+OK
+ba_ups
+default
+dim
+dw
+mart_waimai
+mart_wmorg
+origin_dianping
+origin_waimai
+origindb
+origindb_delta

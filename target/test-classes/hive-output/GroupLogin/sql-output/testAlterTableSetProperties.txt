@@ -1,0 +1,20 @@
+OK
+OK
+OK
+COLUMN_STATS_ACCURATE	false
+last_modified_by	hdp_qa
+notes	Test for set tblproperties
+numFiles	0
+numRows	-1
+rawDataSize	-1
+totalSize	0
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+OK
+COLUMN_STATS_ACCURATE	false
+comment	用户维度表
+last_modified_by	hadoop-data
+numFiles	163
+numRows	-1
+rawDataSize	-1
+totalSize	65292873192

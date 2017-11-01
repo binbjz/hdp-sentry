@@ -1,0 +1,5 @@
+OK
+Loading data to table testdb.load_data_local_into_partition partition (country=US, state=CA)
+Failed with exception copyFiles: error while checking/creating destination directory!!!
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK

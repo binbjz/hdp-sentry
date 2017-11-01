@@ -1,0 +1,27 @@
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+tbl2create
+view2create
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+	 	 
+OK
+CREATE VIEW `db4tbl.view2create` AS SELECT `tbl4show`.`col1`, `tbl4show`.`col2` FROM `db4tbl`.`tbl4show`
+OK
+tbl2create
+tbl4show
+view2create
+view4show
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)

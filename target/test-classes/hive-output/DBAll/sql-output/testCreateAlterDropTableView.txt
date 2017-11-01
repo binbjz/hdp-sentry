@@ -1,0 +1,66 @@
+OK
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+OK
+CREATE TABLE `testdb.tbl4drop`(
+  `col1` tinyint, 
+  `col2` smallint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4drop'
+TBLPROPERTIES (
+OK
+CREATE VIEW `testdb.view4drop` AS SELECT `tbl4drop`.`col1`, `tbl4drop`.`col2` FROM `testdb`.`tbl4drop`
+OK
+tbl4drop
+tbl4drop_no_r
+view4drop
+view4drop_no_r
+FAILED: SemanticException [Error 10132]: To alter a base table you need to use the ALTER TABLE command.
+OK
+OK
+OK
+last_modified_by	hdp_qa
+test_view_properties	qa_setting_this_value
+OK
+OK
+OK
+Query ID = sankuai_20171031162444_06a82a70-eebe-48d2-9c55-fd3e3a053609
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3175, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3175/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3175
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3175
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-31_16-24-44_774_9013701721269767282-1/-ext-10002
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/ctas
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.02 sec   HDFS Read: 3472 HDFS Write: 0 SUCCESS
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+tbl4drop_no_r
+view4drop_no_r
+OK
+OK

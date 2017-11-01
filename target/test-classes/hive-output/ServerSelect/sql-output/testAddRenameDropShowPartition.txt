@@ -1,0 +1,10 @@
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Rename partition: source partition [day=20110104] does not exist.
+OK
+partition
+OK
+id	part	quantity
+OK
+OK
+partition

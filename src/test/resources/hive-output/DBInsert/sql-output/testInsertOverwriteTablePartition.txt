@@ -1,0 +1,59 @@
+OK
+Query ID = sankuai_20171031170524_9759eb05-e581-4980-aa31-f2b0cc7fbe13
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3212, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3212/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3212
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3212
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl_partition/dt=20150617/.hive-staging_hive_2017-10-31_17-05-24_669_3982766851159552089-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=20150617, ht=00)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl_partition/dt=20150617/ht=00' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.46 sec   HDFS Read: 4492 HDFS Write: 0 SUCCESS
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
+Query ID = sankuai_20171031170551_e90a6c22-ddd6-4007-a2d6-495e3d7aa255
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3213, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3213/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3213
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3213
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-31_17-05-51_154_3733570304886877332-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=null, ht=null)
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.43 sec   HDFS Read: 4836 HDFS Write: 0 SUCCESS
+OK
+src_insert_overwrite_tbl_partition.name	src_insert_overwrite_tbl_partition.ip	src_insert_overwrite_tbl_partition.dt	src_insert_overwrite_tbl_partition.ht
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
+Query ID = sankuai_20171031170612_43bb7817-9f8b-4359-a975-6c1f600a3865
+Total jobs = 3
+Launching Job 1 out of 3
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1505297521386_3214, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3214/
+Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3214
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+Ended Job = job_1505297521386_3214
+Stage-3 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+Stage-4 is filtered out by condition resolver.
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl_partition/.hive-staging_hive_2017-10-31_17-06-12_676_5108211518099657364-1/-ext-10000
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=20150617, ht=null)
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.4 sec   HDFS Read: 4750 HDFS Write: 0 SUCCESS
+OK
+name	ip	ht
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
