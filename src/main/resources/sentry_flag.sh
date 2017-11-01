@@ -45,10 +45,10 @@ ALTER TABLE tbl4alter RENAME TO tbl4alter2;
 EOF
 
 # Clean db env
-cat <<- EOF > clean_db_env.sql
-DROP DATABASE testdroptbl CASCADE;
-DROP DATABASE testdropdb CASCADE;
-DROP DATABASE testaltertbl CASCADE;
+cat <<- EOF > $$_clean_db_env.sql
+DROP DATABASE IF EXISTS testdroptbl;
+DROP DATABASE IF EXISTS testdropdb;
+DROP DATABASE IF EXISTS testaltertbl;
 EOF
 
 # Check sentry flag status
@@ -78,7 +78,7 @@ check_sentry_flag_status(){
 
     # Grant user with super privilege and clean db env
     source $projectdir/src/main/resources/hive_env.sh $privil_type super
-    $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f clean_db_env.sql
+    $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_clean_db_env.sql
 
     # In proxy env, if we need to revoke privileges otherwise it will throw exception
     if [[ $privil_type = "proxy_user" ]]; then
@@ -88,10 +88,13 @@ check_sentry_flag_status(){
     # Revoke privileges for role
     source $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
 
-    # Clean sentry flag temp env
-    cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt clean_db_env.sql
+    # Remove temp files
+    cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt
 }
 
 check_sentry_flag_status ${sentry_priv[drop_table]} ${sentry_f[drop_table]}
 check_sentry_flag_status ${sentry_priv[drop_db]} ${sentry_f[drop_db]}
 check_sentry_flag_status ${sentry_priv[alter_table]} ${sentry_f[alter_table]} ${sentry_priv[alter_table2]}
+
+# Remove temp file
+cd $projectdir && $$_clean_db_env.sql

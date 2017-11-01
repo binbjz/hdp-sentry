@@ -18,6 +18,8 @@ INSERT INTO testdb.tbl4jarfile VALUES ('TEACHER QA');
 
 --testAddRenameDropShowPartition.sql
 CREATE TABLE testdb.tbl4partition (id INT, part STRING, quantity INT)  PARTITIONED BY (day INT);
+ALTER TABLE testdb.tbl4partition ADD PARTITION (day=20110102);
+ALTER TABLE testdb.tbl4partition ADD PARTITION (day=20110103);
 
 --testAlterDescribeTableSetLocation.sql
 --testAlterDescribeTableSetLocationPartition.sql
@@ -49,6 +51,9 @@ PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMIN
 
 CREATE EXTERNAL TABLE testdb.tbl4fileformat_external (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+
+ALTER TABLE testdb.tbl4fileformat ADD PARTITION (year=2012, month=1, day=1);
+ALTER TABLE testdb.tbl4fileformat_external ADD PARTITION (year=2012, month=1, day=1);
 
 --testAlterTableEnableDisable.sql
 CREATE TABLE testdb.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
@@ -188,6 +193,7 @@ PARTITION (country = 'US', state = 'CA');
 CREATE TABLE testdb.src_insert_overwrite_tbl_partition (name STRING, ip STRING)
 PARTITIONED BY (dt STRING, ht STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
+ALTER TABLE testdb.src_insert_overwrite_tbl_partition ADD PARTITION (dt='20150617', ht='01');
 
 CREATE TABLE testdb.insert_overwrite_tbl_partition LIKE testdb.src_insert_overwrite_tbl_partition;
 
