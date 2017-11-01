@@ -658,12 +658,12 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE mart_waimai.src_employees_import_export ADD PARTITION (country = 'US', state = 'CA');
+ALTER TABLE mart_waimai.src_employees_import_export ADD PARTITION (country='US', state='CA');
 
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_import_export
-PARTITION (country = 'US', state = 'CA');
+PARTITION (country='US', state='CA');
 
 CREATE TABLE mart_waimai.src_employees_insert_overwrite (
  name STRING
