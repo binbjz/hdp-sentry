@@ -12,7 +12,6 @@ declare -A sentry_priv sentry_f
 sentry_priv[drop_table]="SentryFlagDropTable"
 sentry_priv[drop_db]="SentryFlagDropDB"
 sentry_priv[alter_table]="SentryFlagAlterTable"
-sentry_priv[alter_table2]="SentryFlagAlterTable2"
 
 sentry_f[drop_table]="drop_table"
 sentry_f[drop_db]="drop_db"
@@ -46,9 +45,9 @@ EOF
 
 # Clean db env
 cat <<- EOF > $$_clean_db_env.sql
-DROP DATABASE IF EXISTS testdroptbl;
-DROP DATABASE IF EXISTS testdropdb;
-DROP DATABASE IF EXISTS testaltertbl;
+DROP DATABASE IF EXISTS testdroptbl CASCADE;
+DROP DATABASE IF EXISTS testdropdb CASCADE;
+DROP DATABASE IF EXISTS testaltertbl CASCADE;
 EOF
 
 # Check sentry flag status
@@ -65,15 +64,11 @@ check_sentry_flag_status(){
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
-    if [[ -n "$3" ]] && [[ "$3" == "SentryFlagAlterTable2" ]]; then
-        source $projectdir/src/main/resources/sentry_env.sh check ${3} > $$_${2}.txt 2>&1
-        result=`grep "${sentry_privileges[$3]}" $$_${2}.txt`
-    else
-        source $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
-        result=`grep "${sentry_privileges[$1]}" $$_${2}.txt`
-    fi
 
-    [[ -n $result ]] && sentry_flag=flase || sentry_flag=true
+    source $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
+    result=`grep "${sentry_privileges[$1]}" $$_${2}.txt`
+
+    [[ "$result" = "" ]] && sentry_flag=true || sentry_flag=false
     echo -e "`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag: $sentry_flag\n"
 
     # Grant user with super privilege and clean db env
@@ -94,7 +89,7 @@ check_sentry_flag_status(){
 
 check_sentry_flag_status ${sentry_priv[drop_table]} ${sentry_f[drop_table]}
 check_sentry_flag_status ${sentry_priv[drop_db]} ${sentry_f[drop_db]}
-check_sentry_flag_status ${sentry_priv[alter_table]} ${sentry_f[alter_table]} ${sentry_priv[alter_table2]}
+check_sentry_flag_status ${sentry_priv[alter_table]} ${sentry_f[alter_table]}
 
 # Remove temp file
-cd $projectdir && $$_clean_db_env.sql
+cd $projectdir && rm $$_clean_db_env.sql
