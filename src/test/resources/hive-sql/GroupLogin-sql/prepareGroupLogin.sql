@@ -11,7 +11,7 @@ CREATE DATABASE origindb_delta;
 CREATE DATABASE origin_dianping;
 
 -- DATABASE : mart_wmorg -----------------------------------
-CREATE  TABLE `mart_wmorg.employ_encrypted`(
+CREATE  TABLE mart_wmorg.employ_encrypted (
  `uid` bigint COMMENT '',
  `mis_id` string COMMENT '',
  `name` string COMMENT '',
@@ -49,7 +49,7 @@ TBLPROPERTIES (
  'rawDataSize'='-1');
 
 -- DATABASE : origindb -----------------------------------
-CREATE  TABLE `origindb.gis__admin_division`(
+CREATE  TABLE origindb.gis__admin_division (
  `id` bigint COMMENT '自增主键',
  `chinese_name` string COMMENT '中文简称',
  `chinese_full_name` string COMMENT '原语种简称',
@@ -97,7 +97,7 @@ TBLPROPERTIES (
  'totalSize'='841911',
  'rawDataSize'='-1');
 
- CREATE  TABLE `origindb.waimai_order_shard__wm`(
+ CREATE  TABLE origindb.waimai_order_shard__wm (
  `id` bigint COMMENT 'ID',
  `wm_order_id_hash` string COMMENT 'orderid的hash值',
  `wm_order_id_view` bigint COMMENT '订单的展示id',
@@ -203,7 +203,7 @@ TBLPROPERTIES (
  'rawDataSize'='-1');
 
 -- DATABASE : origin_waimai -----------------------------------
-CREATE VIEW `origin_waimai.waimai_cos__wm_employ` AS select `employ_encrypted`.`uid`,
+CREATE VIEW origin_waimai.waimai_cos__wm_employ AS SELECT employ_encrypted.uid,
       `employ_encrypted`.`mis_id`,
       `employ_encrypted`.`name`,
       `employ_encrypted`.`email`,
@@ -222,9 +222,9 @@ CREATE VIEW `origin_waimai.waimai_cos__wm_employ` AS select `employ_encrypted`.`
       `employ_encrypted`.`res_ids`,
       `employ_encrypted`.`hq_types`,
       `employ_encrypted`.`_update_timestamp`
- from `mart_wmorg`.`employ_encrypted`;
+ FROM `mart_wmorg`.`employ_encrypted`;
 
-CREATE VIEW `origin_waimai.waimai_safe_order` AS select
+CREATE VIEW origin_waimai.waimai_safe_order AS SELECT
    `waimai_order_shard__wm`.`wm_order_id_hash`,
    `waimai_order_shard__wm`.`wm_order_id_view`,
    `waimai_order_shard__wm`.`wm_poi_order_dayseq`,
@@ -307,7 +307,7 @@ CREATE VIEW `origin_waimai.waimai_safe_order` AS select
 from `origindb`.`waimai_order_shard__wm`;
 
 -- DATABASE : origindb_delta -----------------------------------
-CREATE  TABLE `origindb_delta.waimai_money_exchange__wm_exchange_flow`(
+CREATE  TABLE  origindb_delta.waimai_money_exchange__wm_exchange_flow (
  `id` bigint COMMENT '自增主键',
  `parent_id` bigint COMMENT 'wm_exchange表id',
  `partner_id` bigint COMMENT '商家id',
@@ -345,7 +345,7 @@ TBLPROPERTIES (
  'transient_lastDdlTime'='1507688631');
 
 -- DATABASE : origin_dianping -----------------------------------
-CREATE  TABLE `origin_dianping.dpmid_ugcreview_basereview`(
+CREATE  TABLE origin_dianping.dpmid_ugcreview_basereview (
  `reviewid` string COMMENT 'from deserializer',
  `userid` string COMMENT 'from deserializer',
  `shopid` bigint COMMENT 'from deserializer',
@@ -393,7 +393,7 @@ TBLPROPERTIES (
  'rawDataSize'='0');
 
 -- DATABASE : ba_ups -----------------------------------
-CREATE  TABLE `ba_ups.mt_dp_uid_mapping_new`(
+CREATE  TABLE ba_ups.mt_dp_uid_mapping_new (
  `mt_uid` bigint COMMENT '美团userid',
  `dp_uid` bigint COMMENT '点评userid',
  `mobile` bigint COMMENT '对应手机号')
@@ -421,7 +421,7 @@ TBLPROPERTIES (
  'rawDataSize'='-1');
 
 -- DATABASE : dim -----------------------------------
-CREATE  TABLE `dim.ndm_user`(
+CREATE  TABLE dim.ndm_user (
  `userid` int COMMENT '用户ID',
  `cityid` smallint COMMENT '城市ID',
  `username` string COMMENT '用户昵称',
@@ -456,8 +456,7 @@ TBLPROPERTIES (
  'numRows'='-1',
  'rawDataSize'='-1');
 
-INSERT INTO dim.ndm_user( userid, cityid, username, email, mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr)
-VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1);
+INSERT INTO dim.ndm_user VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1);
 
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 
@@ -467,7 +466,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
 
 -- DATABASE : dw -----------------------------------
-CREATE  TABLE `dw.dim_employee`(
+CREATE  TABLE dw.dim_employee(
  `employee_id` bigint COMMENT '员工第一次入职时给员工分配的ID，离职后再次入职保持不变',
  `employee_name` string COMMENT '员工的中文名',
  `mis_name` string COMMENT '员工的mis账号名',
@@ -521,14 +520,14 @@ PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMIN
 CREATE TABLE mart_waimai.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
-CREATE  TABLE `mart_waimai.dim_ad_cpc_activity_poi`(
- `ad_activity_key` string COMMENT '维度代理键',
- `ad_activity_id` bigint COMMENT '活动id',
- `ad_activity_type` int COMMENT '活动类型代码',
- `poi_id` int COMMENT '活动目标门店')
+CREATE  TABLE mart_waimai.dim_ad_cpc_activity_poi (
+ ad_activity_key string COMMENT '维度代理键',
+ ad_activity_id bigint COMMENT '活动id',
+ ad_activity_type int COMMENT '活动类型代码',
+ poi_id int COMMENT '活动目标门店')
 COMMENT 'CPC广告城市目标商家数'
 PARTITIONED BY (
- `dt` string COMMENT '状态归属时间：etl每日保存上日券状态没有终结的券的信息')
+ dt string COMMENT '状态归属时间：etl每日保存上日券状态没有终结的券的信息')
 ROW FORMAT SERDE
  'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
 WITH SERDEPROPERTIES (
@@ -544,32 +543,32 @@ LOCATION
 TBLPROPERTIES (
  'transient_lastDdlTime'='1482166667');
 
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20110122);
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20110123);
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20110122);
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20110123);
 
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20210102);
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20210103);
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20210102);
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20210103);
 
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20190104);
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20190104);
 
-CREATE  TABLE `mart_waimai.dim_ad_cpc_activity`(
- `ad_activity_key` string COMMENT '维度代理键',
- `ad_activity_id` bigint COMMENT '活动id',
- `ad_activity_name` string COMMENT '活动名称',
- `ad_activity_type` int COMMENT '活动类型代码',
- `ad_activity_type_name` string COMMENT '活动类型',
- `ad_activity_status` int COMMENT '活动状态代码 1：上线 2：下线',
- `ad_activity_status_name` string COMMENT '活动状态',
- `direction` int COMMENT '商家定向 1：城市 2：具体门店',
- `city_id` int COMMENT '城市定向ID，direction值如果为1，则该值为城市定向所指定的城市，direction为2时，该值应为0，无业务含义',
- `send_status` int COMMENT '发券状态：发券状态 1：已发 0：未发 .该字段在充赠活动置空，在运营活动固定为0.仅在补贴活动中有标记性含义',
- `start_time` bigint COMMENT '活动开始时间',
- `end_time` bigint COMMENT '活动结束时间',
- `start_dt` int COMMENT '活动开始日期',
- `end_dt` int COMMENT '活动结束日期')
+CREATE  TABLE mart_waimai.dim_ad_cpc_activity(
+ ad_activity_key string COMMENT '维度代理键',
+ ad_activity_id bigint COMMENT '活动id',
+ ad_activity_name string COMMENT '活动名称',
+ ad_activity_type int COMMENT '活动类型代码',
+ ad_activity_type_name string COMMENT '活动类型',
+ ad_activity_status int COMMENT '活动状态代码 1：上线 2：下线',
+ ad_activity_status_name string COMMENT '活动状态',
+ direction int COMMENT '商家定向 1：城市 2：具体门店',
+ city_id int COMMENT '城市定向ID，direction值如果为1，则该值为城市定向所指定的城市，direction为2时，该值应为0，无业务含义',
+ send_status int COMMENT '发券状态：发券状态 1：已发 0：未发 .该字段在充赠活动置空，在运营活动固定为0.仅在补贴活动中有标记性含义',
+ start_time bigint COMMENT '活动开始时间',
+ end_time bigint COMMENT '活动结束时间',
+ start_dt int COMMENT '活动开始日期',
+ end_dt int COMMENT '活动结束日期')
 COMMENT 'CPC广告券活动维度表'
 PARTITIONED BY (
- `dt` string)
+ dt string)
 ROW FORMAT SERDE
  'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
 WITH SERDEPROPERTIES (
@@ -587,7 +586,7 @@ TBLPROPERTIES (
  'last_modified_time'='1484568134',
  'transient_lastDdlTime'='1484568134');
 
-CREATE  TABLE `mart_waimai.cis_mappoi_in_aor`(
+CREATE  TABLE mart_waimai.cis_mappoi_in_aor (
  `poi_id` string,
  `aor_id` int,
  `city_id` int)
@@ -631,8 +630,8 @@ PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMIN
 
 CREATE EXTERNAL TABLE IF NOT EXISTS mart_waimai.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
 
-ALTER TABLE mart_waimai.log_messages ADD PARTITION(year = 2011, month = 1, day = 1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages/2011/01/01';
-ALTER TABLE mart_waimai.log_messages_external ADD PARTITION(year = 2011, month = 1, day = 2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external/2011/01/02';
+ALTER TABLE mart_waimai.log_messages ADD PARTITION(year=2011, month=1, day=1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages/2011/01/01';
+ALTER TABLE mart_waimai.log_messages_external ADD PARTITION(year=2011, month=1, day=2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external/2011/01/02';
 
 CREATE TABLE mart_waimai.employees_import_export (
  name STRING
@@ -660,6 +659,8 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 ALTER TABLE mart_waimai.src_employees_import_export ADD PARTITION (country='US', state='CA');
 
+ALTER TABLE mart_waimai.employees_import_export ADD PARTITION (country='US', state='CA') ;
+
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_import_export
@@ -677,16 +678,14 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country = 'US', state = 'CA');
-ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country = 'US', state = 'OR');
-ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country = 'US', state = 'IL');
+ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='CA');
+ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='OR');
+ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='IL');
 
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_insert_overwrite
-PARTITION (country = 'US', state = 'CA');
-
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt = 20190104);
+PARTITION (country='US', state='CA');
 
 CREATE TABLE mart_waimai.employees_insert_overwrite (
  name STRING
@@ -701,11 +700,11 @@ MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 -- DATABASE : mart_waimai_crm -----------------------------------
-CREATE  TABLE `mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit`(
- `aor_id` int COMMENT '蜂窝id',
- `aor_type` int COMMENT '蜂窝类型',
- `food_check_num` int COMMENT '菜品覆盖考核总商家数',
- `food_qualified_num` int COMMENT '菜品覆盖合格商家数')
+CREATE  TABLE mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit (
+ aor_id int COMMENT '蜂窝id',
+ aor_type int COMMENT '蜂窝类型',
+ food_check_num int COMMENT '菜品覆盖考核总商家数',
+ food_qualified_num int COMMENT '菜品覆盖合格商家数')
 COMMENT '蜂窝图片覆盖率日考核列表——用于绩效图片覆盖率考核'
 PARTITIONED BY (
  `dt` string)

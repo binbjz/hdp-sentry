@@ -10,13 +10,11 @@ SHOW TABLES;
 ALTER TABLE mart_waimai.tbl2create SET TBLPROPERTIES ('qa comments' = 'test add table properties');
 ALTER VIEW mart_waimai.view2create_non_encrypt_columns SET TBLPROPERTIES ('qa comments' = 'test add table properties');
 
-SHOW TABLES LIKE '*2create*';
-DROP VIEW mart_waimai.view2create_star;
-DROP VIEW mart_waimai.view2create_non_encrypt_columns;
-DROP VIEW mart_waimai.view2create_encrypt_columns;
+SHOW TBLPROPERTIES mart_waimai.tbl2create;
+SHOW TBLPROPERTIES mart_waimai.view2create_non_encrypt_columns;
 
-DROP TABLE mart_waimai.tbl2create;
-DESCRIBE EXTENDED mart_waimai.tbl2create;
+SHOW TABLES LIKE '*2create*';
+
 SHOW CREATE TABLE mart_waimai.tbl2create;
 SHOW CREATE TABLE mart_waimai.view2create_non_encrypt_columns;
 
