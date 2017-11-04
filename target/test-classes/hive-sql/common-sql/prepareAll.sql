@@ -197,7 +197,7 @@ ALTER TABLE testdb.src_insert_overwrite_tbl_partition ADD PARTITION (dt='2015061
 
 CREATE TABLE testdb.insert_overwrite_tbl_partition LIKE testdb.src_insert_overwrite_tbl_partition;
 
-INSERT INTO testdb.insert_overwrite_tbl_partition PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2');
+INSERT INTO testdb.src_insert_overwrite_tbl_partition PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2');
 
 --testLoadDataLocalTable.sql
 CREATE TABLE testdb.load_data_local_into_table (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';

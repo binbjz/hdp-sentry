@@ -34,5 +34,6 @@ SHOW TBLPROPERTIES encrypt_db4tbl.view4serde_1;
 SHOW CREATE TABLE encrypt_db4tbl.tbl4view;
 
 DROP TABLE encrypt_db4tbl.tbl4view;
+DROP VIEW encrypt_db4tbl.view4serde_0;
 DROP VIEW encrypt_db4tbl.view4serde_1;
 SHOW TABLES LIKE '*4view*';

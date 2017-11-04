@@ -17,3 +17,4 @@ CREATE TABLE encrypt_db4data.sessionization_step_one_origins
 AS SELECT * FROM encrypt_db4data.session_src_encrypted;
 
 DROP TABLE encrypt_db4data.session_src_encrypted;
+DROP TABLE encrypt_db4data.sessionization_step_one_origins;
