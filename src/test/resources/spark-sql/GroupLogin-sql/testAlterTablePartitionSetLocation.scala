@@ -1,0 +1,24 @@
+USE mart_waimai;
+
+dfs -ls /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20210102;
+dfs -ls /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20210103;
+dfs -mkdir -p /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi_new/dt=20210103;
+
+ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi PARTITION (dt=20210103) SET LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi_new/dt=20210103';
+--获取partition的真实hdfs路径
+DESC FORMATTED mart_waimai.dim_ad_cpc_activity_poi PARTITION (dt=20210102);
+DESC FORMATTED mart_waimai.dim_ad_cpc_activity_poi PARTITION (dt=20210103);
+--使用hadoop fs -rmr 命令删除分区的HDFS副本
+dfs -rm -r /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi;
+dfs -rm -r /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi_new;
+
+val test_sql="USE mart_waimai";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TBLPROPERTIES mart_waimai.dim_ad_cpc_activity";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW COLUMNS IN mart_waimai.dim_ad_cpc_activity";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
+spark.sql(test_sql).collect().foreach(println);
+
+:q
