@@ -2,7 +2,7 @@
 #filename: sentry_dispatcher.sh
 #
 #The script will run sentry test, include standard and user+group authorization approach
-#/usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
+#/usr/bin/time -f "Time: %U" bash sentry_dispatcher_spark.sh
 #
 
 # Set env parm
@@ -15,9 +15,9 @@ projectdir="$( cd $resource_dir/../../.. && pwd )"
 # Temporary env for dependent libraries
 libdir=/opt/meituan/qa_test/data_bin
 
-common_sql_src=$projectdir/src/test/resources/hive-sql/common-sql
-encryptColumn_sql_src=$projectdir/src/test/resources/hive-sql/DBAllWithEncryptedColumns-sql
-groupLogin_sql_src=$projectdir/src/test/resources/hive-sql/GroupLogin-sql
+common_sql_src=$projectdir/src/test/resources/spark-sql/common-sql
+encryptColumn_sql_src=$projectdir/src/test/resources/spark-sql/DBAllWithEncryptedColumns-sql
+groupLogin_sql_src=$projectdir/src/test/resources/spark-sql/GroupLogin-sql
 
 include_patt="DBAllWithEncryptedColumns|DBAllWithEncryptedColumns_2|DBAllWithEncryptedColumns_3|GroupLogin|GroupLogin_2|GroupLogin_3"
 include_patt2="DBAllWithEncryptedColumns"
@@ -61,12 +61,12 @@ for tc in $sentry_tcs; do
     # Execute preppare sql
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/prepare${tc_tmp}.sql
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/prepare${tc_tmp}.scala
     elif echo "$tc" | egrep -qi "$include_patt3"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/prepare${tc_tmp}.sql
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/prepare${tc_tmp}.scala
     else
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/prepareAll.sql
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/prepareAll.scala
     fi
 
     # Grant user with group privilege while running in group test
@@ -88,12 +88,12 @@ for tc in $sentry_tcs; do
     # Execute post sql
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/post${tc_tmp}.sql
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/post${tc_tmp}.scala
     elif echo "$tc" | egrep -qi "$include_patt3"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/post${tc_tmp}.sql
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/post${tc_tmp}.scala
     else
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/postAll.sql
+        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/postAll.scala
     fi
 
 
