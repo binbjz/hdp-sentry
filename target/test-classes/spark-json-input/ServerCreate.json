@@ -1,0 +1,151 @@
+[ {
+  "id": "testAccessNoPrivilegeDB",
+  "tag": "Server",
+  "desc": "The case will test AccessNoPrivilegeDB.",
+  "cases": [
+    {
+      "type": "file/scala",
+      "name": "testAccessNoPrivilegeDB.scala"
+    },
+    {
+      "type": "file/scala",
+      "name": "testAccessNoPrivilegeDB.txt"
+    }
+  ]
+},
+  {
+    "id": "testAddFileWithoutTable",
+    "tag": "Server",
+    "desc": "The case will test AddFileWithoutTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddFileWithoutTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddFileWithoutTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFuncAndTmpFuncWithoutTable",
+    "tag": "Server",
+    "desc": "The case will test AddJarCreateFuncAndTmpFuncWithoutTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddJarCreateFuncAndTmpFuncWithoutTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddJarCreateFuncAndTmpFuncWithoutTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeDefaultDB",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeDefaultDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeDefaultDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeDefaultDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateAlterDropTableViewUnderDefaultDB",
+    "tag": "Server",
+    "desc": "The case will test CreateAlterDropTableViewUnderDefaultDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDB",
+    "tag": "Server",
+    "desc": "The case will test CreateDB.scala.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "Server",
+    "desc": "The case will test Dfs command.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDfs.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDfs.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDB",
+    "tag": "Server",
+    "desc": "The case will test DropDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDropDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDropDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testQueryConstant",
+    "tag": "Server",
+    "desc": "The case will test QueryConstant.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testQueryConstant.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testQueryConstant.txt"
+      }
+    ]
+  },
+  {
+    "id": "testSET",
+    "tag": "Server",
+    "desc": "The case will test SET.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testSET.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testSET.txt"
+      }
+    ]
+  }
+]

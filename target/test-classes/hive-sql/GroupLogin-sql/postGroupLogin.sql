@@ -35,7 +35,7 @@ DROP TABLE mart_waimai.employees_import_export;
 DROP TABLE mart_waimai.src_employees_import_export;
 
 DROP TABLE mart_waimai.src_employees_insert_overwrite;
-DROP TABLE mart_waimai.employees_inser
+DROP TABLE mart_waimai.employees_insert_overwrite;
 
 DROP DATABASE mart_waimai CASCADE;
 

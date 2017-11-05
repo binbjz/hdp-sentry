@@ -1,0 +1,587 @@
+[
+  {
+    "id": "testAccessNoPrivilegeDB",
+    "tag": "Server",
+    "desc": "The case will test AccessNoPrivilegeDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAccessNoPrivilegeDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAccessNoPrivilegeDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddFile",
+    "tag": "Server",
+    "desc": "The case will test AddFile.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddFile.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddFile.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddJarCreateFuncAndTmpFunc",
+    "tag": "Server",
+    "desc": "The case will test AddJarCreateFuncAndTmpFunc.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddJarCreateFuncAndTmpFunc.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddJarCreateFuncAndTmpFunc.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddRenameDropShowPartition",
+    "tag": "Server",
+    "desc": "The case will test AddRenameDropShowPartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddRenameDropShowPartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddRenameDropShowPartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeDB",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableSetLocation",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableSetLocation.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeTableSetLocation.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeTableSetLocation.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterDescribeTableSetLocationPartition",
+    "tag": "Server",
+    "desc": "The case will test AlterDescribeTableSetLocationPartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeTableSetLocationPartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterDescribeTableSetLocationPartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterSerDePartition",
+    "tag": "Server",
+    "desc": "The case will test AlterSerDePartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDePartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterSerDeTable",
+    "tag": "Server",
+    "desc": "The case will test AlterSerDeTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDeTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDeTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableAddColumns",
+    "tag": "Server",
+    "desc": "The case will test AlterTableAddColumns.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableAddColumns.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableAddColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableAddPartitionLocation",
+    "tag": "Server",
+    "desc": "The case will test AlterTableAddPartitionLocation.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableAddPartitionLocation.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableAddPartitionLocation.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableChange",
+    "tag": "Server",
+    "desc": "The case will test AlterTableChange.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableChange.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableChange.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableClusteredBySortedBy",
+    "tag": "Server",
+    "desc": "The case will test AlterTableClusteredBySortedBy.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableClusteredBySortedBy.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableClusteredBySortedBy.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableEnableDisable",
+    "tag": "Server",
+    "desc": "The case will test AlterTableEnableDisable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableEnableDisable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableEnableDisable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableEnableDisablePartition",
+    "tag": "Server",
+    "desc": "The case will test AlterTableEnableDisablePartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableEnableDisablePartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableEnableDisablePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableRename",
+    "tag": "Server",
+    "desc": "The case will test AlterTableRename.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableRename.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableRename.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableReplaceColumns",
+    "tag": "Server",
+    "desc": "The case will test AlterTableReplaceColumns.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplaceColumns.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplaceColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableSetFileformat",
+    "tag": "Server",
+    "desc": "The case will test AlterTableSetFileformat.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableSetFileformat.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableSetFileformat.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableTouch",
+    "tag": "Server",
+    "desc": "The case will test AlterTableTouch.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableTouch.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableTouch.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableTouchPartition",
+    "tag": "Server",
+    "desc": "The case will test AlterTableTouchPartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableTouchPartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableTouchPartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateAlterDropTableView",
+    "tag": "Server",
+    "desc": "The case will test CreateAlterDropTableView.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateAlterDropTableView.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateAlterDropTableView.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDB",
+    "tag": "Server",
+    "desc": "The case will test CreateDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDfs",
+    "tag": "Server",
+    "desc": "The case will test Dfs.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDfs.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDfs.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDB",
+    "tag": "Server",
+    "desc": "The case will test DropDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDropDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDropDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testImportExportPartition",
+    "tag": "Server",
+    "desc": "The case will test ImportExportPartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testImportExportPartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testImportExportPartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertIntoFromQuery",
+    "tag": "Server",
+    "desc": "The case will test InsertIntoFromQuery.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertIntoFromQuery.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertIntoFromQuery.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertIntoTable",
+    "tag": "Server",
+    "desc": "The case will test InsertIntoTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertIntoTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertIntoTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertIntoTablePartition",
+    "tag": "Server",
+    "desc": "The case will test InsertIntoTablePartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertIntoTablePartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertIntoTablePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteDir",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteDir.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteDir.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteDir.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTable",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTablePartition",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTablePartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTablePartition02",
+    "tag": "Server",
+    "desc": "The case will test InsertOverwriteTablePartition02.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartition02.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartition02.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoadDataLocalTable",
+    "tag": "Server",
+    "desc": "The case will test LoadDataLocalTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoadDataLocalTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoadDataLocalTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoadDataLocalTablePartition",
+    "tag": "Server",
+    "desc": "The case will test LoadDataLocalTablePartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoadDataLocalTablePartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoadDataLocalTablePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testMSCKRepairTable",
+    "tag": "Server",
+    "desc": "The case will test MSCKRepairTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testMSCKRepairTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testMSCKRepairTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testQuery",
+    "tag": "Server",
+    "desc": "The case will test Query.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testQuery.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testQuery.txt"
+      }
+    ]
+  },
+  {
+    "id": "testSET",
+    "tag": "Server",
+    "desc": "The case will test SET.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testSET.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testSET.txt"
+      }
+    ]
+  },
+  {
+    "id": "testShowColumnsAndTblProperties",
+    "tag": "Server",
+    "desc": "The case will test ShowColumnsAndTblProperties.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testShowColumnsAndTblProperties.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testShowColumnsAndTblProperties.txt"
+      }
+    ]
+  },
+  {
+    "id": "testTableAnalyze",
+    "tag": "Server",
+    "desc": "The case will test TableAnalyze.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testTableAnalyze.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testTableAnalyze.txt"
+      }
+    ]
+  }
+]
