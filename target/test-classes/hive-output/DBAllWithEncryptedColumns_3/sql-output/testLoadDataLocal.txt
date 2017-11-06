@@ -2,99 +2,21 @@ OK
 OK
 Loading data to table encrypt_db4data.collecttest
 OK
-Query ID = sankuai_20171031205535_9c685360-143b-4567-b2ac-6e003d6a27d9
-Total jobs = 1
-Launching Job 1 out of 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3425, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3425/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3425
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3425
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.05 sec   HDFS Read: 8040 HDFS Write: 11 SUCCESS
 OK
 12,1,11,10
-Query ID = sankuai_20171031205603_d7ec147b-1153-45a7-b0dd-df34dca30f28
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3426, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3426/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3426
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3426
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.97 sec   HDFS Read: 8479 HDFS Write: 39 SUCCESS
 OK
 1	twelve
 10	eleven
 11	eleven
 12	twelve
-Query ID = sankuai_20171031205630_bf2babae-d816-49a1-bb57-408f4d1209a5
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3427, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3427/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3427
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3427
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.44 sec   HDFS Read: 7466 HDFS Write: 18 SUCCESS
 OK
 eleven	2
 twelve	2
-Query ID = sankuai_20171031205656_29e522e2-85a2-40fe-85fa-29a2c4326be8
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3428, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3428/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3428
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3428
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.52 sec   HDFS Read: 7484 HDFS Write: 19 SUCCESS
 OK
 1	1
 10	1
 11	1
 12	1
-Query ID = sankuai_20171031205720_1aca9511-668f-4935-bf6d-f2a7e87be995
-Total jobs = 1
-Launching Job 1 out of 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3429, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3429/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3429
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3429
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.5 sec   HDFS Read: 6961 HDFS Write: 2 SUCCESS
 OK
 4
 twelve&12

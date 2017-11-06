@@ -1,7 +1,4 @@
 OK
-mkdir: `/user/hive/warehouse/testdb.db/tbl4setlocation': File exists
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 OK
 # col_name            	data_type           	comment             
 	 	 
@@ -60,7 +57,7 @@ Database:           	testdb
 Owner:              	mt_qa               	 
 Protect Mode:       	None                	 
 Retention:          	0                   	 
-Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation_new	 
 Table Type:         	MANAGED_TABLE       	 
 Table Parameters:	 	 
 	last_modified_by    	hdp_qa              

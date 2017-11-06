@@ -1,69 +1,18 @@
 OK
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@602b9bb0
-Query ID = sankuai_20171026160417_284c5119-21ca-43e7-a87a-7aeaa2911fbd
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_2638, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2638/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2638
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_2638
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/.hive-staging_hive_2017-10-26_16-04-17_203_6205310582393844183-1/-ext-10000
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@4836f6c4
 Loading data to table mart_waimai.table001
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@410fb550
 3 Rows loaded to mart_waimai.table001
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 4097 HDFS Write: 49 SUCCESS
 OK
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@57b0ae60
-Query ID = sankuai_20171026160445_bdb6cc4c-b63d-49f1-bd00-cecfd747619d
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_2639, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2639/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2639
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_2639
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/.hive-staging_hive_2017-10-26_16-04-45_830_2501201753197721873-1/-ext-10000
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@3f6e07c1
 Loading data to table mart_waimai.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@62f6e4cb
 1 Rows loaded to mart_waimai.table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.96 sec   HDFS Read: 4177 HDFS Write: 17 SUCCESS
 OK
 name	ip
 OK
 table002.name	table002.ip
 meituan	10.0.0.1
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@4a004388
-Query ID = sankuai_20171026160514_74db53e3-4306-4f2c-aac6-2a0c41ef60e2
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_2640, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2640/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2640
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_2640
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/.hive-staging_hive_2017-10-26_16-05-14_424_2315763957652089683-1/-ext-10000
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@5be8bb3d
 Loading data to table mart_waimai.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-setfacl: Permission denied. user=hdp_qa is not the owner of inode=org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryINodeAttributes@5b3e08ae
 3 Rows loaded to mart_waimai.table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.14 sec   HDFS Read: 3802 HDFS Write: 49 SUCCESS
 OK
 table001.name	table001.ip
 OK
@@ -71,22 +20,6 @@ table002.name	table002.ip
 meituan	10.0.0.1
 baidu	10.0.0.2
 alibaba	10.0.0.3
-Query ID = sankuai_20171026160542_f0c9d991-7be1-4ae9-af91-89a477bcb425
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_2641, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_2641/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_2641
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_2641
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.45 sec   HDFS Read: 8470 HDFS Write: 55 SUCCESS
 OK
 id	name	ip
 1	alibaba	10.0.0.3

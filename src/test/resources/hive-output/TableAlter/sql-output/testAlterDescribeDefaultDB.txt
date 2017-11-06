@@ -1,4 +1,4 @@
 OK
 OK
 OK
-default		viewfs://hadoop-meituan-test/user/hive/warehouse	mt_qa	USER	{edited-by=hadoop-new-qa}
+default	Default Hive database	viewfs://hadoop-meituan-test/user/hive/warehouse	public	ROLE	{edited-by=hadoop-new-qa}

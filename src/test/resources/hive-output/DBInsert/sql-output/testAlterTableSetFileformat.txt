@@ -1,7 +1,5 @@
 OK
-FAILED: SemanticException [Error 10006]: Partition not found {year=2012, month=1, day=1}
-FAILED: SemanticException [Error 10006]: Partition not found {year=2012, month=1, day=1}
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -18,9 +16,8 @@ day                 	int
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
-FAILED: SemanticException [Error 10006]: Partition not found {year=2012, month=1, day=1}
-FAILED: SemanticException [Error 10006]: Partition not found {year=2012, month=1, day=1}
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+	 	 
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -37,3 +34,40 @@ day                 	int
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
+	 	 
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 

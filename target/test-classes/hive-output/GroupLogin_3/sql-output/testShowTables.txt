@@ -26,10 +26,16 @@ src_employees_import_export
 src_employees_insert_overwrite
 table001
 table002
+tbl2create
 test_add_columns
 test_change
-test_rename_new
+test_enable_disable1
+test_enable_disable2
+test_rename
 test_replace_columns
+view2create_encrypt_columns
+view2create_non_encrypt_columns
+view2create_star
 OK
 OK
 topic_dt_check_list__poiaor_aortype_audit

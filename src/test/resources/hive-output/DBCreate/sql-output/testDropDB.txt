@@ -3,3 +3,5 @@ FAILED: SemanticException [Error 10072]: Database does not exist: db4drop
 OK
 FAILED: SemanticException [Error 10072]: Database does not exist: db4drop_cascade
 OK
+FAILED: SemanticException [Error 10072]: Database does not exist: db4drop_cascade
+OK

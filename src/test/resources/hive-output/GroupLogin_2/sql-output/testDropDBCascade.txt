@@ -2,8 +2,8 @@ OK
 OK
 origin_waimai
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa does not have privileges for DROPTABLE)
-FAILED: SemanticException [Error 10072]: Database does not exist: origin_waimai_crm
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
+FAILED: SemanticException [Error 10072]: Database does not exist: mart_waimai_crm
 OK
 origin_waimai
 OK

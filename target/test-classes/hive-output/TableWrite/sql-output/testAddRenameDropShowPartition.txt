@@ -2,11 +2,16 @@ OK
 OK
 OK
 OK
-partition
-day=20110107
-OK
 id	part	quantity
 OK
 OK
 partition
+day=20110103
 day=20110107
+day=20110109
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_DROPPARTS
+OK
+partition
+day=20110103
+day=20110107
+day=20110109

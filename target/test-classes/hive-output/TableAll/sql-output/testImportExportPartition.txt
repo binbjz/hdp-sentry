@@ -1,6 +1,4 @@
 OK
-Copying data from file:/tmp/sankuai/2c962da6-a282-4097-b983-3497892b4a6e/hive_2017-10-31_17-44-51_145_3084610811080678482-1/-local-10000/_metadata
-Copying file: file:/tmp/sankuai/2c962da6-a282-4097-b983-3497892b4a6e/hive_2017-10-31_17-44-51_145_3084610811080678482-1/-local-10000/_metadata
 Copying data from viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/src_import_export/country=US/state=CA
 Copying file: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/src_import_export/country=US/state=CA/california-employees.csv
 OK

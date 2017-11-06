@@ -1,6 +1,6 @@
 OK
-FAILED: SemanticException [Error 10001]: Line 4:5 Table not found 'waimai_safe_order'
-FAILED: SemanticException [Error 10001]: Line 8:5 Table not found 'waimai_safe_order'
+OK
+OK
 OK
 OK
 OK

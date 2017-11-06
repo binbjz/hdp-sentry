@@ -1,6 +1,9 @@
-FAILED: SemanticException [Error 10072]: Database does not exist: mar_waimai
-FAILED: SemanticException [Error 10072]: Database does not exist: mar_waimai
-FAILED: SemanticException [Error 10072]: Database does not exist: mar_waimai
+OK
+OK
+mart_waimai		viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db	mt_qa	USER	
+OK
+OK
+mart_waimai		viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db	mt_qa	USER	{edited-by=hadoop-new-qa}
 OK
 dim		viewfs://hadoop-meituan-test/user/hive/warehouse/dim.db	mt_qa	USER	
 OK

@@ -3,8 +3,8 @@ OK
 OK
 OK
 c0                  	string              	from deserializer   
-encrypted_name_77474_encrypt_c1	string              	from deserializer   
-encrypted_name_98960_encrypt_c2	string              	from deserializer   
+encrypted_name_8207_encrypt_c1	string              	from deserializer   
+encrypted_name_92188_encrypt_c2	string              	from deserializer   
 col10               	string              	                    
 col20               	string              	                    
 	 	 
@@ -17,8 +17,8 @@ col20               	string
 OK
 OK
 c0                  	string              	from deserializer   
-encrypted_name_77474_encrypt_c1	string              	from deserializer   
-encrypted_name_98960_encrypt_c2	string              	from deserializer   
+encrypted_name_8207_encrypt_c1	string              	from deserializer   
+encrypted_name_92188_encrypt_c2	string              	from deserializer   
 col10               	string              	                    
 col20               	string              	                    
 	 	 
@@ -28,19 +28,19 @@ col20               	string
 col10               	string              	                    
 col20               	string              	                    
 	 	 
-FAILED: SemanticException [Error 10004]: Line 3:54 Invalid table alias or column reference 'encrypt_c1': (possible column names are: c0, encrypted_name_65751_encrypt_c1, encrypted_name_32835_encrypt_c2, col10, col20) or Column insufficient privileges to access: encrypt_c1
+FAILED: SemanticException [Error 10004]: Line 3:54 Invalid table alias or column reference 'encrypt_c1': (possible column names are: c0, encrypted_name_71906_encrypt_c1, encrypted_name_75430_encrypt_c2, col10, col20) or Column insufficient privileges to access: encrypt_c1
 OK
 OK
 tbl4view
 OK
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4tbl>.<tbl4view>
-FAILED: SemanticException Line 1:35 Invalid column reference 'encrypted_name_97988_encrypt_c1' in definition of VIEW view4serde_1 [
-SELECT `tbl4view`.`c0`, `tbl4view`.`encrypted_name_97988_encrypt_c1`, `tbl4view`.`encrypted_name_53875_encrypt_c2`, `tbl4view`.`col10`, `tbl4view`.`col20` FROM `encrypt_db4tbl`.`tbl4view`
+FAILED: SemanticException Line 1:35 Invalid column reference 'encrypted_name_48066_encrypt_c1' in definition of VIEW view4serde_1 [
+SELECT `tbl4view`.`c0`, `tbl4view`.`encrypted_name_48066_encrypt_c1`, `tbl4view`.`encrypted_name_45148_encrypt_c2`, `tbl4view`.`col10`, `tbl4view`.`col20` FROM `encrypt_db4tbl`.`tbl4view`
 ] used as view4serde_1 at Line 2:14
-FAILED: SemanticException [Error 10004]: Line 2:11 Invalid table alias or column reference 'encrypt_c1': (possible column names are: c0, encrypted_name_81335_encrypt_c1, encrypted_name_73821_encrypt_c2, col10, col20) or Column insufficient privileges to access: encrypt_c1
-FAILED: SemanticException Line 1:35 Invalid column reference 'encrypted_name_97988_encrypt_c1' in definition of VIEW view4serde_1 [
-SELECT `tbl4view`.`c0`, `tbl4view`.`encrypted_name_97988_encrypt_c1`, `tbl4view`.`encrypted_name_53875_encrypt_c2`, `tbl4view`.`col10`, `tbl4view`.`col20` FROM `encrypt_db4tbl`.`tbl4view`
+FAILED: SemanticException [Error 10004]: Line 2:11 Invalid table alias or column reference 'encrypt_c1': (possible column names are: c0, encrypted_name_41898_encrypt_c1, encrypted_name_26385_encrypt_c2, col10, col20) or Column insufficient privileges to access: encrypt_c1
+FAILED: SemanticException Line 1:35 Invalid column reference 'encrypted_name_48066_encrypt_c1' in definition of VIEW view4serde_1 [
+SELECT `tbl4view`.`c0`, `tbl4view`.`encrypted_name_48066_encrypt_c1`, `tbl4view`.`encrypted_name_45148_encrypt_c2`, `tbl4view`.`col10`, `tbl4view`.`col20` FROM `encrypt_db4tbl`.`tbl4view`
 ] used as view4serde_1 at Line 2:39
 OK
 tbl4view
@@ -53,8 +53,8 @@ qa comments	test add view properties
 OK
 CREATE TABLE `encrypt_db4tbl.tbl4view`(
   `c0` string COMMENT 'from deserializer', 
-  `encrypted_name_81335_encrypt_c1` string COMMENT 'from deserializer', 
-  `encrypted_name_73821_encrypt_c2` string COMMENT 'from deserializer')
+  `encrypted_name_41898_encrypt_c1` string COMMENT 'from deserializer', 
+  `encrypted_name_26385_encrypt_c2` string COMMENT 'from deserializer')
 PARTITIONED BY ( 
   `col10` string, 
   `col20` string)
@@ -72,6 +72,7 @@ LOCATION
 TBLPROPERTIES (
   'last_modified_by'='hdp_qa', 
   'qa comments'='test add table properties', 
+OK
 OK
 OK
 OK

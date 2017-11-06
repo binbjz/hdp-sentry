@@ -1,23 +1,28 @@
 OK
-, field.delim=	, input.regex=bduid\[(.*)\]uid\[(\d+)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:null))
-, field.delim=	, input.regex=bduid\[(.*)\]uid\[(\d+)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:null))
-, field.delim=	, input.regex=bduid\[(.*)\]uid\[(\d+)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:null))
+OK
+OK
+OK
 OK
 dt=20110102
 dt=20110103
 dt=20110104
+dt=20110122
+dt=20110123
 dt=20190104
 dt=20210102
 dt=20210103
-FAILED: SemanticException [Error 10001]: Line 2:70 Table not found 'supply'
-FAILED: SemanticException [Error 30011]: Partition protected from being dropped mart_waimai@dim_ad_cpc_activity_poi@dt=20110102
-Dropped the partition dt=20110103
 OK
-Dropped the partition dt=20110104
-OK
+ad_activity_key	ad_activity_id	ad_activity_type	poi_id
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_DROPPARTS
 OK
 partition
 dt=20110102
+dt=20110103
+dt=20110104
+dt=20110122
+dt=20110123
 dt=20190104
 dt=20210102
 dt=20210103

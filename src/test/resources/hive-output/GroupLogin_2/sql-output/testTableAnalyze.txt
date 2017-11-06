@@ -1,7 +1,42 @@
 OK
-FAILED: SemanticException [Error 10001]: Table not found src_employees_insert_overwrite
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.src_employees_insert_overwrite
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.src_employees_insert_overwrite
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.src_employees_insert_overwrite
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.src_employees_insert_overwrite
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.src_employees_insert_overwrite
+OK
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+OK
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+OK
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+OK
+OK
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 
+OK
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 

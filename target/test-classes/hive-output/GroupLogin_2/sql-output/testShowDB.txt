@@ -6,7 +6,7 @@ dim
 dw
 mart_waimai
 mart_wmorg
-origin_dianping
-origin_waimai
 origindb
 origindb_delta
+origin_dianping
+origin_waimai

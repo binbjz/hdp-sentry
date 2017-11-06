@@ -1,9 +1,9 @@
 OK
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.test_enable_disable1
 OK
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.test_enable_disable1
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable1 is protected from being dropped
 OK
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.test_enable_disable2
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
 OK
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.test_enable_disable2
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable2 is protected from being dropped
 OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)

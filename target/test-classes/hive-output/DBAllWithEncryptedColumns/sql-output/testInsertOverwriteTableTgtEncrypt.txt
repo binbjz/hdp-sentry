@@ -1,99 +1,27 @@
 OK
 OK
-Query ID = sankuai_20171031193344_4d3108cf-e385-4443-b10b-b5ac1ad2744c
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3323, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3323/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3323
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3323
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-31_19-33-44_871_8353810216463057051-1/-ext-10000
 Loading data to table encrypt_db4data.table001
 3 Rows loaded to encrypt_db4data.table001
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.17 sec   HDFS Read: 4121 HDFS Write: 49 SUCCESS
 OK
 OK
-Query ID = sankuai_20171031193409_8fb0d73f-f5b3-4344-9b2b-d98614754f1f
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3324, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3324/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3324
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3324
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-31_19-34-09_876_175863928317102160-1/-ext-10000
 Loading data to table encrypt_db4data.table_tgt
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/table_tgt' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 1 Rows loaded to encrypt_db4data.table_tgt
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.84 sec   HDFS Read: 4305 HDFS Write: 17 SUCCESS
 OK
 name	ip
-Query ID = sankuai_20171031193431_d66ed82a-f8e1-4c91-8208-16c1870d96fe
-Total jobs = 1
-Launching Job 1 out of 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3325, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3325/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3325
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3325
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.42 sec   HDFS Read: 6946 HDFS Write: 2 SUCCESS
 OK
 row_count
 1
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table_tgt>
-Query ID = sankuai_20171031193456_54a3bb3c-c373-4f7e-98d2-a9ffbd483dd4
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3326, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3326/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3326
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3326
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-31_19-34-56_152_8947871226262408752-1/-ext-10000
 Loading data to table encrypt_db4data.table_tgt
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/table_tgt' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 3 Rows loaded to encrypt_db4data.table_tgt
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.13 sec   HDFS Read: 3936 HDFS Write: 49 SUCCESS
 OK
 table001.name	table001.ip
-Query ID = sankuai_20171031193517_55170699-ca29-4608-9c62-6717a0eff060
-Total jobs = 1
-Launching Job 1 out of 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3327, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3327/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3327
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3327
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.34 sec   HDFS Read: 7066 HDFS Write: 2 SUCCESS
 OK
 row_count
 3
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table_tgt>
-FAILED: SemanticException [Error 10004]: Line 3:63 Invalid table alias or column reference 'name': (possible column names are: table_tgt.encrypted_name_10556_name, table_tgt.ip) or Column insufficient privileges to access: name
+FAILED: SemanticException [Error 10004]: Line 3:63 Invalid table alias or column reference 'name': (possible column names are: table_tgt.encrypted_name_52813_name, table_tgt.ip) or Column insufficient privileges to access: name
 OK
 OK

@@ -1,20 +1,6 @@
 OK
-Query ID = sankuai_20171031162636_239f4899-13b4-45e6-a852-a7e16a9334bf
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3177, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3177/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3177
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3177
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/.hive-staging_hive_2017-10-31_16-26-36_188_8334345769537865787-1/-ext-10000
 Loading data to table testdb.src_insert_overwrite_tbl
 1 Rows loaded to testdb.src_insert_overwrite_tbl
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.17 sec   HDFS Read: 4083 HDFS Write: 17 SUCCESS
 OK
 OK
 src_insert_overwrite_tbl.name	src_insert_overwrite_tbl.ip

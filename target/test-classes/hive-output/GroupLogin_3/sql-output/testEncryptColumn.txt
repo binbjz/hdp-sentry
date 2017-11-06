@@ -1,6 +1,5 @@
 OK
-FAILED: SemanticException Line 72:43 Invalid column reference 'common_ext' in definition of VIEW waimai_safe_order [
-select
+SELECT
    `waimai_order_shard__wm`.`wm_order_id_hash`,
    `waimai_order_shard__wm`.`wm_order_id_view`,
    `waimai_order_shard__wm`.`wm_poi_order_dayseq`,
@@ -44,7 +43,6 @@ select
    `waimai_order_shard__wm`.`courier_name`,
    `waimai_order_shard__wm`.`courier_phone`,
    `waimai_order_shard__wm`.`source_id`,
-   `waimai_order_shard__wm`.`fst5coupon_reduce`,
    `waimai_order_shard__wm`.`fst5coupon_coupon`,
    `waimai_order_shard__wm`.`fst5coupon_id`,
    `waimai_order_shard__wm`.`suspect_status`,
@@ -72,8 +70,7 @@ select
    `waimai_order_shard__wm`.`apply_part_refund`
 from `origindb`.`waimai_order_shard__wm`
 ] used as waimai_safe_order at Line 4:5
-FAILED: SemanticException Line 72:43 Invalid column reference 'common_ext' in definition of VIEW waimai_safe_order [
-select
+SELECT
    `waimai_order_shard__wm`.`wm_order_id_hash`,
    `waimai_order_shard__wm`.`wm_order_id_view`,
    `waimai_order_shard__wm`.`wm_poi_order_dayseq`,
@@ -117,7 +114,6 @@ select
    `waimai_order_shard__wm`.`courier_name`,
    `waimai_order_shard__wm`.`courier_phone`,
    `waimai_order_shard__wm`.`source_id`,
-   `waimai_order_shard__wm`.`fst5coupon_reduce`,
    `waimai_order_shard__wm`.`fst5coupon_coupon`,
    `waimai_order_shard__wm`.`fst5coupon_id`,
    `waimai_order_shard__wm`.`suspect_status`,

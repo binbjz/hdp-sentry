@@ -11,7 +11,8 @@ dt=20110123
 dt=20190104
 dt=20210102
 dt=20210103
-FAILED: SemanticException Line 0:-1 Invalid table alias or column reference 'day': (possible column names are: ad_activity_key, ad_activity_id, ad_activity_type, poi_id, dt) or Column insufficient privileges to access: day
+OK
+ad_activity_key	ad_activity_id	ad_activity_type	poi_id
 Dropped the partition dt=20110102
 OK
 Dropped the partition dt=20110103

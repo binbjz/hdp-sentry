@@ -1,9 +1,33 @@
 OK
-FAILED: SemanticException [Error 10001]: Table not found employees_import_export
-FAILED: SemanticException [Error 10001]: Table not found src_employees_import_export
-FAILED: SemanticException [Error 10001]: Table not found employees_import_export
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.employees_import_export
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.employees_import_export
-rm: `/tmp/employee': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
+OK
+OK
+OK
+OK
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+OK
+name                	string              	                    
+salary              	float               	                    
+subordinates        	array<string>       	                    
+deductions          	map<string,float>   	                    
+address             	struct<street:string,city:string,state:string,zip:int>	                    
+country             	string              	                    
+state               	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+country             	string              	                    
+state               	string              	                    
+	 	 

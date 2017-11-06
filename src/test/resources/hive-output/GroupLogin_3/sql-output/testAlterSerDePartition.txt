@@ -1,5 +1,4 @@
 OK
-, field.delim=	, input.regex=bduid\[(.*)\]uid\[(\d+)\]}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), parameters:null))
 OK
 ad_activity_key     	string              	维度代理键               
 ad_activity_id      	bigint              	活动id                

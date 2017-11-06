@@ -8,9 +8,6 @@ Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,On
 Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Ave.|Oak Park|IL|60700
 Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
            0            1                427 /user/hive/warehouse/encrypt_db4data.db/encrypt_import_export/country=US/state=CA/california-employees.csv
--rw-r----- 1 sankuai sankuai 427 Oct 31 19:58 /tmp/california-employees.csv
-Copying data from file:/tmp/sankuai/7de8ac6c-9091-4fd1-b06a-70fec8bd2ee0/hive_2017-10-31_19-58-57_025_3409628138608032440-1/-local-10000/_metadata
-Copying file: file:/tmp/sankuai/7de8ac6c-9091-4fd1-b06a-70fec8bd2ee0/hive_2017-10-31_19-58-57_025_3409628138608032440-1/-local-10000/_metadata
 Copying data from viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_import_export/country=US/state=CA
 Copying file: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_import_export/country=US/state=CA/california-employees.csv
 OK

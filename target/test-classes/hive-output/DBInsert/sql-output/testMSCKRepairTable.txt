@@ -1,4 +1,5 @@
 OK
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask
+OK
+Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
 OK

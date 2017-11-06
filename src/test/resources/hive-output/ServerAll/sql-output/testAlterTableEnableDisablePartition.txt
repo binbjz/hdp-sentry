@@ -2,8 +2,10 @@ OK
 OK
 FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@test_enable_disable_partition@year=2017/month=8/day=1
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table partition not deleted since viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_enable_disable_partition/year=2017/month=8 is not writable by hdp_qa
+Dropped the partition year=2017/month=8/day=1
+OK
 OK
 FAILED: SemanticException [Error 30011]: Partition protected from being dropped testdb@test_enable_disable_partition@year=2017/month=8/day=2
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table partition not deleted since viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_enable_disable_partition/year=2017/month=8 is not writable by hdp_qa
+Dropped the partition year=2017/month=8/day=2
+OK

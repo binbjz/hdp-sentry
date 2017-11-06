@@ -18,7 +18,22 @@ day                 	int
 	 	 
 OK
 OK
-year=2011/month=1/day=1
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -54,5 +69,4 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-OK
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

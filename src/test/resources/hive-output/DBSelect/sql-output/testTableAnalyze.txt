@@ -1,63 +1,17 @@
 OK
-Query ID = sankuai_20171031171937_a43661b1-3da8-44c1-a737-ff81d6012727
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3226, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3226/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3226
-Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3226
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 1  Reduce: 1   Cumulative CPU: 4.46 sec   HDFS Read: 16289 HDFS Write: 0 SUCCESS
 OK
-Query ID = sankuai_20171031172004_cc2bccd8-8f0b-4ac6-a34a-284398a7115e
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3227, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3227/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3227
-Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3227
 Partition testdb.tbl4analyze{country=US, state=CA} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 [Warning] could not update stats.
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 1   Cumulative CPU: 1.01 sec   HDFS Read: 4278 HDFS Write: 0 SUCCESS
 OK
-Query ID = sankuai_20171031172024_de1d4a99-86f0-44bb-8744-a3b15695f4e7
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3228, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3228/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3228
-Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3228
 Partition testdb.tbl4analyze{country=US, state=CA} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition testdb.tbl4analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition testdb.tbl4analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 [Warning] could not update stats.
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 1   Cumulative CPU: 1.03 sec   HDFS Read: 5599 HDFS Write: 0 SUCCESS
 OK
-Query ID = sankuai_20171031172045_6ba6e052-5ed4-40fb-8909-433502881dd1
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3229, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3229/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3229
-Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3229
 Partition testdb.tbl4analyze{country=US, state=CA} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition testdb.tbl4analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition testdb.tbl4analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 [Warning] could not update stats.
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 1   Cumulative CPU: 1.03 sec   HDFS Read: 5599 HDFS Write: 0 SUCCESS
 OK
 OK
 name                	string              	                    

@@ -8,28 +8,5 @@ numFiles	0
 numRows	-1
 rawDataSize	-1
 totalSize	0
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Alter Table operation for testdb.tbl4rename failed to move data due to: 'Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=WRITE, inode="/user/hive/warehouse/testdb.db/tbl4rename":hive:hive:drwxrwx--x
-	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkAccessAcl(MTSentryINodeAttributesProvider.java:362)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:308)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:292)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:216)
-	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkPermission(MTSentryINodeAttributesProvider.java:282)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1706)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirRenameOp.renameTo(FSDirRenameOp.java:459)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirRenameOp.renameToInt(FSDirRenameOp.java:73)
-	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.renameTo(FSNamesystem.java:3802)
-	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.rename(NameNodeRpcServer.java:884)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.rename(ClientNamenodeProtocolServerSideTranslatorPB.java:579)
-	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
-	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:969)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2049)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2045)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:415)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
-	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2045)
-' See hive log file for details.
 OK
-tbl4rename
+OK

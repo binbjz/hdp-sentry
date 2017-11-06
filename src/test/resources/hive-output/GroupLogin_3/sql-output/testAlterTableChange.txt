@@ -1,10 +1,10 @@
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Invalid column reference new_col1
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Invalid column reference new_col3
 OK
-col1                	tinyint             	                    
+OK
+OK
+col3to1             	int                 	put last column to position 1st
 col2                	smallint            	                    
-col3                	int                 	                    
+col1to2             	int                 	put column1 to position 2nd
 col4                	bigint              	                    
 col5                	boolean             	                    
 col6                	float               	                    

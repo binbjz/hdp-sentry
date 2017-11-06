@@ -5,65 +5,19 @@ OK
 OK
 Loading data to table encrypt_db4data.encrypt_test_analyze partition (country=US, state=CA)
 OK
-Query ID = sankuai_20171031195324_54b3ab52-9b78-4c1e-9ff4-b2e655638896
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3339, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3339/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3339
-Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 1
-Ended Job = job_1505297521386_3339
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 2  Reduce: 1   Cumulative CPU: 7.28 sec   HDFS Read: 25457 HDFS Write: 53 SUCCESS
 OK
 _c0	_c1	country	state
-Query ID = sankuai_20171031195351_664fe6a4-5e2f-43d8-969d-413a5dda87cc
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3340, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3340/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3340
-Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3340
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 1   Cumulative CPU: 1.05 sec   HDFS Read: 4844 HDFS Write: 0 SUCCESS
 OK
 encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
-Query ID = sankuai_20171031195415_7bb358dd-d2dc-42a0-8dcd-c040d50bb430
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3341, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3341/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3341
-Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
-Ended Job = job_1505297521386_3341
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 2   Cumulative CPU: 2.06 sec   HDFS Read: 11528 HDFS Write: 0 SUCCESS
 OK
 encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
-Query ID = sankuai_20171031195440_a5f6b461-3496-4f3c-86f1-8e47b6ac5c35
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3342, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3342/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3342
-Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
-Ended Job = job_1505297521386_3342
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 2   Cumulative CPU: 2.07 sec   HDFS Read: 11812 HDFS Write: 0 SUCCESS
 OK
 encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 OK

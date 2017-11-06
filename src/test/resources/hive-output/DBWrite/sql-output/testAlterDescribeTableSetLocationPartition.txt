@@ -1,10 +1,4 @@
 OK
-ls: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=READ_EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=1":hive:hive:drwxrwx--x
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-ls: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=READ_EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=2":hive:hive:drwxrwx--x
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 OK
 OK
 # col_name            	data_type           	comment             

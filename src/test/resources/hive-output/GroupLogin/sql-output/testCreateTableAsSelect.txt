@@ -1,25 +1,8 @@
 OK
-FAILED: SemanticException 0:0 Error creating temporary folder on: viewfs://hadoop-meituan-test/user/hive/warehouse/dim.db. Error encountered near token 'TOK_TMP_FILE'
+FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_4788_username, email, encrypted_name_55963_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
 FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
 OK
-Query ID = sankuai_20171031212235_6c6917ab-39a3-4045-b292-437e273b8ac5
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3435, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3435/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3435
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3435
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/.hive-staging_hive_2017-10-31_21-22-35_252_9187397125337848405-1/-ext-10002
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/ndm_user_ctas
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.01 sec   HDFS Read: 5903 HDFS Write: 0 SUCCESS
-OK
-userid	cityid	username	email	mobile	regdate	isemailverified	ismobilesignup	ismobileverified	isappuser	acctattr
-OK
-ndm_user_ctas.userid	ndm_user_ctas.cityid	ndm_user_ctas.username	ndm_user_ctas.email	ndm_user_ctas.mobile	ndm_user_ctas.regdate	ndm_user_ctas.isemailverified	ndm_user_ctas.ismobilesignup	ndm_user_ctas.ismobileverified	ndm_user_ctas.isappuser	ndm_user_ctas.acctattr
+FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_4788_username, email, encrypted_name_55963_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
+FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
 OK
 OK

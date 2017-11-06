@@ -1,16 +1,5 @@
 OK
 OK
-mkdir: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=WRITE, inode="/user/hive/warehouse/testdb.db/test_msck/month=201603":hive:hive:drwxrwx--x
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-mkdir: Permission denied: user=hdp_qa, groups=[origin_dianping_group, mart_wmorg_group, mart_waimai_crm_group, dim_group, origin_waimai_group, ba_ups_group, origindb_delta_group, hdp_qa, origindb_group, mart_waimai_group, dw_group], access=WRITE, inode="/user/hive/warehouse/testdb.db/test_msck/month=201604":hive:hive:drwxrwx--x
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
 OK
+Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
 OK
-ls: `/user/hive/warehouse/testdb.db/test_msck/month=201603': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null
-ls: `/user/hive/warehouse/testdb.db/test_msck/month=201604': No such file or directory
-Command failed with exit code = 1
-Query returned non-zero code: 1, cause: null

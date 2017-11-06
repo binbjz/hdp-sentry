@@ -10,22 +10,11 @@ Miss.B
 Dr.C
 Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
 /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
-Query ID = sankuai_20171031201542_1437bea3-0c30-4a99-8e71-c9eeafe5b631
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3383, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3383/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3383
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3383 with errors
-Error during job, obtaining debugging information...
-Examining task ID: task_1505297521386_3383_m_000000 (and more) from job job_1505297521386_3383
 Task with the most failures(4): 
 -----
 Task ID:
-  task_1505297521386_3383_m_000000
+  task_1505297521386_5556_m_000000
 URL:
-  http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3383/jobhistory/task/task_1505297521386_3383_m_000000
 -----
 Diagnostic Messages for this Task:
 	at org.apache.hadoop.hive.ql.exec.mr.ExecMapper.close(ExecMapper.java:210)
@@ -45,7 +34,5 @@ Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20003]: An e
 	at org.apache.hadoop.hive.ql.exec.mr.ExecMapper.close(ExecMapper.java:192)
 	... 8 more
 FAILED: Execution Error, return code 20003 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask. An error occurred when trying to close the Operator running your custom script.
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   HDFS Read: 0 HDFS Write: 0 FAIL
 /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
 OK

@@ -1,5 +1,5 @@
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
 OK
 CREATE TABLE `testdb.test_serde`(
   `c0` string COMMENT 'from deserializer', 

@@ -1,71 +1,19 @@
 OK
-	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkAccessAcl(MTSentryINodeAttributesProvider.java:362)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:308)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:292)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:213)
-	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkPermission(MTSentryINodeAttributesProvider.java:282)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1706)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1690)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkAncestorAccess(FSDirectory.java:1673)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirMkdirOp.mkdirs(FSDirMkdirOp.java:71)
-	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4046)
-	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1000)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:626)
-	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
-	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:969)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2049)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2045)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:415)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
-	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2045)
+Loading data to table testdb.insert_overwrite_tbl
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+0 Rows loaded to testdb.insert_overwrite_tbl
+OK
+name	ip
 OK
 insert_overwrite_tbl.name	insert_overwrite_tbl.ip
-meituan	10.0.0.1
-baidu	10.0.0.2
-	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkAccessAcl(MTSentryINodeAttributesProvider.java:362)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:308)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:292)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:213)
-	at org.apache.sentry.hdfs.MTSentryINodeAttributesProvider$MTSentryPermissionEnforcer.checkPermission(MTSentryINodeAttributesProvider.java:282)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1706)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1690)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkAncestorAccess(FSDirectory.java:1673)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirMkdirOp.mkdirs(FSDirMkdirOp.java:71)
-	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4046)
-	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1000)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:626)
-	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
-	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:969)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2049)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2045)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:415)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1690)
-	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2045)
+Loading data to table testdb.insert_overwrite_tbl
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+1 Rows loaded to testdb.insert_overwrite_tbl
+OK
+src_insert_overwrite_tbl.name	src_insert_overwrite_tbl.ip
 OK
 insert_overwrite_tbl.name	insert_overwrite_tbl.ip
-meituan	10.0.0.1
-baidu	10.0.0.2
-Query ID = sankuai_20171031174645_6f19a5ad-37a5-469f-b884-969fa1f45aab
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3247, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3247/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3247
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3247
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.01 sec   HDFS Read: 8632 HDFS Write: 0 SUCCESS
+alibaba	10.0.0.3
 OK
 id	name	ip
+1	alibaba	10.0.0.3

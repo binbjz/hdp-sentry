@@ -2,8 +2,8 @@ OK
 OK
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable1 is protected from being dropped
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:Table metadata not deleted since viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db is not writable by hdp_qa)
+OK
 OK
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable2 is protected from being dropped
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:Table metadata not deleted since viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db is not writable by hdp_qa)
+OK

@@ -5,54 +5,24 @@ OK
 OK
 Loading data to table encrypt_db4data.encrypt_test_analyze partition (country=US, state=CA)
 OK
-FAILED: SemanticException [Error 10002]: Invalid column reference 'encrypt_salary' (possible columns are [name, ENCRYPTED_NAME_28858_encrypt_salary, subordinates, deductions, address])
-Query ID = sankuai_20171031192305_00b0588e-5093-44f8-aacb-44878d7e6ce8
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3305, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3305/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3305
-Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3305
+FAILED: SemanticException [Error 10002]: Invalid column reference 'encrypt_salary' (possible columns are [name, ENCRYPTED_NAME_10598_encrypt_salary, subordinates, deductions, address])
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 1   Cumulative CPU: 1.08 sec   HDFS Read: 4998 HDFS Write: 0 SUCCESS
 OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_31722_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
-Query ID = sankuai_20171031192328_c1941d5d-6695-4b41-9a68-b42553567724
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3306, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3306/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3306
-Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
-Ended Job = job_1505297521386_3306
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_34308_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 2   Cumulative CPU: 2.07 sec   HDFS Read: 13026 HDFS Write: 0 SUCCESS
 OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_91021_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
-Query ID = sankuai_20171031192352_b27731da-8d73-4e26-8f84-812b4e2b7b36
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3307, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3307/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3307
-Hadoop job information for Stage-0: number of mappers: 2; number of reducers: 0
-Ended Job = job_1505297521386_3307
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_48166_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-MapReduce Jobs Launched: 
-Stage-Stage-0: Map: 2   Cumulative CPU: 2.06 sec   HDFS Read: 13354 HDFS Write: 0 SUCCESS
 OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_98732_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_20889_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 OK
 col_name	data_type	comment
 name                	string              	                    
-ENCRYPTED_NAME_52616_encrypt_salary	float               	ENCRYPTED_COMMENT_81772
+ENCRYPTED_NAME_6568_encrypt_salary	float               	ENCRYPTED_COMMENT_71314
 subordinates        	array<string>       	                    
 deductions          	map<string,float>   	                    
 address             	struct<street:string,city:string,state:string,zip:int>	                    
@@ -68,7 +38,7 @@ state               	string
 OK
 col_name	data_type	comment
 name                	string              	                    
-encrypted_name_78727_encrypt_salary	float               	ENCRYPTED_COMMENT_40716
+encrypted_name_47875_encrypt_salary	float               	ENCRYPTED_COMMENT_95085
 subordinates        	array<string>       	                    
 deductions          	map<string,float>   	                    
 address             	struct<street:string,city:string,state:string,zip:int>	                    

@@ -1,88 +1,32 @@
 OK
 OK
-Query ID = sankuai_20171031200201_197984ee-76df-4732-8d88-54dbba3f0c80
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3354, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3354/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3354
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3354
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/partition_table_src/dt=20150617/.hive-staging_hive_2017-10-31_20-02-01_014_2918492007229191119-1/-ext-10000
 Loading data to table encrypt_db4data.partition_table_src partition (dt=20150617, ht=00)
 3 Rows loaded to encrypt_db4data.partition_table_src
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.16 sec   HDFS Read: 4277 HDFS Write: 49 SUCCESS
 OK
 meituan	10.0.0.1
 baidu	10.0.0.2
 alibaba	10.0.0.3
 OK
-Query ID = sankuai_20171031200229_6449d6d7-a0cb-4e4b-bb7f-42b35295c02e
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3355, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3355/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3355
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3355
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/partition_table002/dt=20150617/.hive-staging_hive_2017-10-31_20-02-29_708_1573912947561929899-1/-ext-10000
 Loading data to table encrypt_db4data.partition_table002 partition (dt=20150617, ht=00)
 1 Rows loaded to encrypt_db4data.partition_table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.76 sec   HDFS Read: 4777 HDFS Write: 17 SUCCESS
 OK
 name	ip
 OK
 partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
 meituan	10.0.0.1	20150617	00
-Query ID = sankuai_20171031200258_b28a3eb5-e2f9-496b-9c3e-5303493e198e
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3356, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3356/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3356
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3356
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/.hive-staging_hive_2017-10-31_20-02-58_193_8226360364824827219-1/-ext-10000
 Loading data to table encrypt_db4data.partition_table002 partition (dt=null, ht=null)
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/partition_table002/dt=20150617/ht=00' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 	Loading partition {dt=20150617, ht=00}
 1 Rows loaded to encrypt_db4data.partition_table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 2.08 sec   HDFS Read: 5170 HDFS Write: 15 SUCCESS
 OK
 partition_table_src.name	partition_table_src.ip	partition_table_src.dt	partition_table_src.ht
 OK
 partition_table002.name	partition_table002.ip	partition_table002.dt	partition_table002.ht
 baidu	10.0.0.2	20150617	00
-Query ID = sankuai_20171031200321_d1b36da6-3dbb-46d4-a447-541eadd2362e
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3357, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3357/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3357
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3357
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/partition_table002/.hive-staging_hive_2017-10-31_20-03-21_498_2121716557362668142-1/-ext-10000
 Loading data to table encrypt_db4data.partition_table002 partition (dt=20150617, ht=null)
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/partition_table002/dt=20150617/ht=00' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 	Loading partition {dt=20150617, ht=00}
 1 Rows loaded to encrypt_db4data.partition_table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.81 sec   HDFS Read: 5104 HDFS Write: 17 SUCCESS
 OK
 name	ip	ht
 OK

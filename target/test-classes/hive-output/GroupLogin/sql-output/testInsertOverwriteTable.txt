@@ -1,60 +1,18 @@
 OK
-Query ID = sankuai_20171031212625_282d4e44-7a47-477a-a156-d6dfc025d2a6
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3439, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3439/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3439
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3439
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/.hive-staging_hive_2017-10-31_21-26-25_523_6002070935920408932-1/-ext-10000
 Loading data to table mart_waimai.table001
 3 Rows loaded to mart_waimai.table001
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 4097 HDFS Write: 49 SUCCESS
 OK
-Query ID = sankuai_20171031212653_d6c3ec57-5571-4f25-a334-d244091fdaf2
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3440, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3440/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3440
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3440
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/.hive-staging_hive_2017-10-31_21-26-53_764_9213594354387138483-1/-ext-10000
 Loading data to table mart_waimai.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 1 Rows loaded to mart_waimai.table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.79 sec   HDFS Read: 4177 HDFS Write: 17 SUCCESS
 OK
 name	ip
 OK
 table002.name	table002.ip
 meituan	10.0.0.1
-Query ID = sankuai_20171031212722_56184ae8-635c-4878-9d2d-71863624658f
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3441, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3441/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3441
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3441
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/.hive-staging_hive_2017-10-31_21-27-22_392_7637061855494348356-1/-ext-10000
 Loading data to table mart_waimai.table002
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/table002' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 3 Rows loaded to mart_waimai.table002
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.15 sec   HDFS Read: 3802 HDFS Write: 49 SUCCESS
 OK
 table001.name	table001.ip
 OK
@@ -62,22 +20,6 @@ table002.name	table002.ip
 meituan	10.0.0.1
 baidu	10.0.0.2
 alibaba	10.0.0.3
-Query ID = sankuai_20171031212750_f1d3bedd-f853-49f4-a8e4-395d4c9bedb7
-Total jobs = 1
-Launching Job 1 out of 1
-Number of reduce tasks not specified. Estimated from input data size: 1
-In order to change the average load for a reducer (in bytes):
-  set hive.exec.reducers.bytes.per.reducer=<number>
-In order to limit the maximum number of reducers:
-  set hive.exec.reducers.max=<number>
-In order to set a constant number of reducers:
-  set mapreduce.job.reduces=<number>
-Starting Job = job_1505297521386_3442, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3442/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3442
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-Ended Job = job_1505297521386_3442
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.52 sec   HDFS Read: 8480 HDFS Write: 55 SUCCESS
 OK
 id	name	ip
 1	alibaba	10.0.0.3

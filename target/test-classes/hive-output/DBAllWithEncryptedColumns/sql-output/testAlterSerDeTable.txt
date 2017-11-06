@@ -1,9 +1,9 @@
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table test_serde already exists)
+OK
 OK
 OK
 CREATE TABLE `encrypt_db4data.test_serde`(
-  `encrypted_name_61263_encrypt_c0` string COMMENT 'from deserializer', 
+  `encrypted_name_82476_encrypt_c0` string COMMENT 'from deserializer', 
   `c1` string COMMENT 'from deserializer', 
   `c2` string COMMENT 'from deserializer')
 ROW FORMAT SERDE 

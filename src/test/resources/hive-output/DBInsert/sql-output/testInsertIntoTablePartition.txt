@@ -1,20 +1,13 @@
 OK
-Query ID = sankuai_20171031170424_9c749084-4caa-4461-aab4-762a27c9e6c1
-Total jobs = 3
-Launching Job 1 out of 3
-Number of reduce tasks is set to 0 since there's no reduce operator
-Starting Job = job_1505297521386_3211, Tracking URL = http://gh-data-hdp-qa04.corp.sankuai.com:8088/proxy/application_1505297521386_3211/
-Kill Command = /opt/meituan/hadoop-sentry-qa/bin/hadoop job  -kill job_1505297521386_3211
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-Ended Job = job_1505297521386_3211
-Stage-3 is selected by condition resolver.
-Stage-2 is filtered out by condition resolver.
-Stage-4 is filtered out by condition resolver.
-Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/src_insert_overwrite_tbl_partition/dt=20150617/.hive-staging_hive_2017-10-31_17-04-24_762_7080673267968182808-1/-ext-10000
 Loading data to table testdb.src_insert_overwrite_tbl_partition partition (dt=20150617, ht=00)
-Failed with exception MetaException(message:User hdp_qa does not have privileges for ALTERTABLE_ADDPARTS)
+Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
-MapReduce Jobs Launched: 
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.16 sec   HDFS Read: 4268 HDFS Write: 17 SUCCESS
+Loading data to table testdb.src_insert_overwrite_tbl_partition partition (dt=20150617, ht=01)
+Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 OK
 name	ip
+alibaba	10.0.0.3
+OK
+name	ip
+alibaba	10.0.0.3
