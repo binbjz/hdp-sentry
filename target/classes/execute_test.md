@@ -1,4 +1,4 @@
-login 
+#login 
 ssh gh-data-hdp-qa03.corp.sankuai.com
 sudo -iusankuai
 
@@ -56,38 +56,36 @@ echo $HADOOP_PROXY_USER
 /usr/bin/time -f "Time: %U" java -Djava.ext.dirs=/opt/meituan/qa_test/data_bin/ -cp /opt/meituan/qa_test/sentry-test/target/classes:/opt/meituan/qa_test/sentry-test/target/test-classes/ org.junit.runner.JUnitCore ServerAlter
 
 
-##==revoke sentry privilege
+#revoke sentry privilege
 source /opt/meituan/qa_test/sentry-test/src/main/resources/hive_env.sh clean_proxy_user hive
 
 
-##======all log
+#all log
 less src/test/log/sentry-test.log
-/opt/meituan/qa_test/sentry-test/src/test/resources/ServerAlter/hive-output/*
+/opt/meituan/qa_test/sentry-test/src/test/log
 
-##=====run script
-cd /opt/meituan/qa_test/sentry-test/
-bash run_sentry_tcs.sh
+#run script
+cd /opt/meituan/qa_test/sentry-test/src/main/resources
+bash sentry_dispatcher.sh
 
 
 update external ini files
 copy new ini file to sentry server by misid
-[lijinxin02@gh-data-hdp-qa03 resources]$ scp external.ini lijinxin02@gh-data-hdp-qa03.corp.sankuai.com:/tmp
-lijinxin02@gh-data-hdp-qa03.corp.sankuai.com's password:
+$ scp external.ini <userName>@gh-data-hdp-qa03.corp.sankuai.com:/tmp
+<userName>@gh-data-hdp-qa03.corp.sankuai.com's password:
 external.ini                                                                  100% 3454     3.4KB/s   00:00
-[lijinxin02@gh-data-hdp-qa03 resources]$ scp external.ini lijinxin02@gh-data-hdp-qa04.corp.sankuai.com:/tmp
-lijinxin02@gh-data-hdp-qa04.corp.sankuai.com's password:
+$ scp external.ini <userName>@gh-data-hdp-qa04.corp.sankuai.com:/tmp
+<userName>@gh-data-hdp-qa04.corp.sankuai.com's password:
 external.ini                                                                  100% 3454     3.4KB/s   00:00
-[lijinxin02@gh-data-hdp-qa03 resources]$ scp external.ini lijinxin02@gh-data-hdp-qa05.corp.sankuai.com:/tmp
+$ scp external.ini <userName>@gh-data-hdp-qa05.corp.sankuai.com:/tmp
 
 update ini file
-[sankuai@gh-data-hdp-qa04.corp.sankuai.com:/opt/meituan/sentry/conf]$ cp /tmp/external.ini external.ini
+$ cp /tmp/external.ini external.ini
 cp: overwrite `external.ini'? yes
 
 restart hms and sentry service
 sentry服务的重启：在dx-data-hive-metastore01切到sankuai用户，执行sudo svc -t /service/meituan.data.hadoop.sentry
 跟sentry类似，重启HMS：sudo svc -t /service/meituan.data.hive.hive/
-
-
 
 
 ---HIVE CLIENT
@@ -98,8 +96,6 @@ export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keyta
 export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
 export HADOOP_PROXY_USER=server_all
 /opt/meituan/hive-1.2/bin/hive
-
-
 
 
 sudo -iusankuai
@@ -114,10 +110,7 @@ hdp_qa=hdp_qa,ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_
 
 
 
-
-
 java -cp .:./junit.jar:./sentry_test.jar:./hamcrest-core-1.3.jar org.junit.runner.JUnitCore TestServerAll
-
 
 
 hadoop-launcher.keytab
@@ -133,11 +126,11 @@ export HADOOP_PROXY_USER=server_all
 
 
 ---SENTRY SHELL
+
 sudo -iusankuai
 export HADOOP_HOME=/opt/meituan/hadoop
 export HIVE_HOME=/opt/meituan/hive-1.2
 source /opt/meituan/hadoop/bin/hadoop_user_login.sh hive
-
 
   
 Add role, group and privilege
