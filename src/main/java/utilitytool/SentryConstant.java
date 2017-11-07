@@ -15,6 +15,6 @@ public class SentryConstant {
     public static final String groupLoginSqlSrc = tSrc + File.separator + "hive-sql" + File.separator + "GroupLogin-sql";
     public static final String hiveOutput = "hive-output";
     public static final String sqlOutput = "sql-output";
-    public static final String jsonInput = "json-input";
+    public static final String jsonInput = "hive-json-input";
     public static final String suffix_json = ".json";
 }
