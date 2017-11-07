@@ -3,7 +3,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="SET hive.cli.print.header=true";
 spark.sql(test_sql).collect().foreach(println);
--- test collect
+/* test collect*/
 val test_sql="SELECT str, concat_ws( ',' , collect_set(cast(countVal AS STRING))) FROM testdb.tbl4query GROUP BY str";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT str, count(*) as val FROM testdb.tbl4query GROUP BY str";

@@ -95,6 +95,11 @@ ALTER TABLE testdb.tbl4analyze ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.tbl4analyze ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE testdb.tbl4analyze ADD PARTITION (country = 'US', state = 'IL');
 
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE testdb.tbl4analyze
+PARTITION (country = 'US', state = 'CA');
+
+
 --testCreateAlterDropTableView.sql
 CREATE TABLE testdb.tbl4drop (col1 TINYINT, col2 SMALLINT);
 CREATE VIEW testdb.view4drop AS SELECT col1, col2 FROM testdb.tbl4drop;
