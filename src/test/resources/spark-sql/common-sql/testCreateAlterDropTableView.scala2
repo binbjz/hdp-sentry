@@ -1,0 +1,68 @@
+val test_sql="USE testdb_spark";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DESCRIBE testdb_spark.tbl4drop";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW CREATE TABLE testdb_spark.tbl4drop";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW CREATE TABLE testdb_spark.view4drop";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TABLES LIKE '*4drop*'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="ALTER TABLE testdb_spark.tbl4drop SET TBLPROPERTIES ('test_table_properties' = 'qa_setting_this_value')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="ALTER VIEW testdb_spark.view4drop SET TBLPROPERTIES ('test_view_properties' = 'qa_setting_this_value')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TBLPROPERTIES testdb_spark.tbl4drop";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TBLPROPERTIES testdb_spark.view4drop";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="CREATE TABLE testdb_spark.tbl4create (col1 TINYINT, col2 SMALLINT)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="CREATE EXTERNAL TABLE testdb_spark.tbl4create_external (col1 TINYINT, col2 SMALLINT)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="CREATE TABLE testdb_spark.tbl4create_no_privilege (col1 TINYINT, col2 SMALLINT)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="CREATE TABLE testdb_spark.ctas AS SELECT * FROM testdb_spark.tbl4drop";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="CREATE VIEW testdb_spark.view4create AS SELECT col1, col2 FROM testdb_spark.view4drop";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="CREATE VIEW testdb_spark.view4create_no_privilege AS SELECT col1, col2 FROM testdb_spark.view4drop";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SELECT * FROM testdb_spark.tbl4drop_no_r";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SELECT * FROM testdb_spark.view4drop_no_r";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP VIEW testdb_spark.view4create";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb_spark.tbl4create";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP VIEW testdb_spark.view4create_no_privilege";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb_spark.tbl4create_no_privilege";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP VIEW testdb_spark.view4drop";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb_spark.tbl4drop";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP TABLE testdb_spark.tbl4create_external";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb_spark.ctas";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SHOW TABLES LIKE '*drop*'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TABLES LIKE '*create*'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TABLES LIKE '*ctas'";
+spark.sql(test_sql).collect().foreach(println);
+
+:q

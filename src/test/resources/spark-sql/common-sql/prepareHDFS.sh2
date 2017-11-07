@@ -1,0 +1,6 @@
+dfs -mkdir /user/hive/warehouse/testdb_spark.db/tbl4setlocation_new;
+
+dfs -ls /user/hive/warehouse/testdb_spark.db/tbl4setlocation/year=2011/month=1/day=1;
+dfs -ls /user/hive/warehouse/testdb_spark.db/tbl4setlocation/year=2011/month=1/day=2;
+
+dfs -mkdir -p /user/hive/warehouse/testdb_spark.db/tbl4setlocation_new/year=2011/month=1/day=1;

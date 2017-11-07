@@ -1,0 +1,55 @@
+val test_sql="USE testdb_spark";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SET hive.cli.print.header=true";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SELECT * FROM testdb_spark.tbl4addfile";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="ADD FILE ${hiveconf:FILEPATH}/test_who.sh";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="LIST FILES";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SET hive.cli.print.header=true";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SELECT TRANSFORM (who) USING 'sh test_who.sh' AS (who) FROM testdb_spark.tbl4addfile";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DELETE FILE ${hiveconf:FILEPATH}/test_who.sh";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="LIST FILE";
+spark.sql(test_sql).collect().foreach(println);
+
+:q
+
+
+
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="ADD FILE ${hiveconf:FILEPATH}/test_who.sh";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DELETE FILE ${hiveconf:FILEPATH}/test_who.sh";
+spark.sql(test_sql).collect().foreach(println);
+
+scala> spark.sql(test_sql).collect().foreach(println);
+org.apache.spark.sql.catalyst.parser.ParseException:
+missing 'FROM' at 'FILE'(line 1, pos 7)
+
+== SQL ==
+DELETE FILE /opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+-------^^^
+
+  at org.apache.spark.sql.catalyst.parser.ParseException.withCommand(ParseDriver.scala:197)
+  at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parse(ParseDriver.scala:99)
+  at org.apache.spark.sql.execution.SparkSqlParser.parse(SparkSqlParser.scala:45)
+  at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parsePlan(ParseDriver.scala:53)
+  at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:592)
+  ... 48 elided
