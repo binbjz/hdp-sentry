@@ -14,4 +14,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="ALTER TABLE ndm_user_new RENAME TO ndm_user";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

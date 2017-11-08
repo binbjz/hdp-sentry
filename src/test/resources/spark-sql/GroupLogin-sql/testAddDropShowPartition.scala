@@ -23,4 +23,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW PARTITIONS mart_waimai.dim_ad_cpc_activity_poi";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

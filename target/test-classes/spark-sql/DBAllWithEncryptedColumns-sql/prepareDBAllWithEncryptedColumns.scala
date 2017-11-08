@@ -13,4 +13,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="CREATE DATABASE encrypt_db4tbl";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

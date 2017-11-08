@@ -9,4 +9,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DESCRIBE EXTENDED mart_waimai.dim_ad_cpc_activity_poi PARTITION (dt=20190104)";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

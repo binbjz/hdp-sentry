@@ -102,4 +102,4 @@ spark.sql(test_sql).collect().foreach(println);
 DROP DATABASE mart_waimai_crm CASCADE;
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

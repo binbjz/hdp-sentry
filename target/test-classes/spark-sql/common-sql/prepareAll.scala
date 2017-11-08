@@ -415,4 +415,4 @@ INTO TABLE testdb.src_test_insert_overwrite_tbl_partition
 PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

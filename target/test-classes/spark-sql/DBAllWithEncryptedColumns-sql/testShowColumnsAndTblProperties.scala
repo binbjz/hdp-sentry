@@ -31,4 +31,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4props.employees_props";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

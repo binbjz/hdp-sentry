@@ -36,4 +36,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT name, ip FROM testdb.src_insert_overwrite_tbl_partition WHERE dt='20150617' and ht='01' AND name='alibaba'";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

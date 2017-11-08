@@ -36,4 +36,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4alter.test_enable_disable_partition";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

@@ -8,4 +8,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DESCRIBE test_change";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

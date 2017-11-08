@@ -21,4 +21,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW DATABASES LIKE 'encrypt_db4drop_cascade'";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

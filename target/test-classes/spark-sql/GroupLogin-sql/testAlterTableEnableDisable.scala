@@ -19,4 +19,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE mart_waimai.test_enable_disable2";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

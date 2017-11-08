@@ -60,4 +60,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW TABLES LIKE '*4view*'";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

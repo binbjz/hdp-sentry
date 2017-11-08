@@ -24,4 +24,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DELETE JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar";
 spark.sql(test_sql).collect().foreach(println);
 
-System.exit(0)
+System.exit(0);

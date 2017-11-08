@@ -9,4 +9,4 @@ SHOW PARTITIONS mart_waimai.employees_import_export;
 
 dfs -rm -r /tmp/employee;
 
-System.exit(0)
+System.exit(0);
