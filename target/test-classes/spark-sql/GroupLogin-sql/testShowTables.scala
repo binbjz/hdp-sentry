@@ -53,4 +53,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW TABLES";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

@@ -26,4 +26,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM mart_waimai.partition_table002";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

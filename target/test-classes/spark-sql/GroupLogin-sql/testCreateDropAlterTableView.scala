@@ -43,4 +43,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP VIEW mart_waimai.view2create_encrypt_columns";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

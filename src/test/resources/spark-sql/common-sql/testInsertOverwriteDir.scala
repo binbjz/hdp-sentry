@@ -27,4 +27,4 @@ spark.sql(test_sql).collect().foreach(println);
 /*dfs -cat /tmp/union.out/*;
 dfs -rm -r /tmp/union.out;*/
 
-:q
+System.exit(0)

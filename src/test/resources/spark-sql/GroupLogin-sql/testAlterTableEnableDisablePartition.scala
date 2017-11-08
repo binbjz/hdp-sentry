@@ -21,4 +21,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi DROP PARTITION (dt = 20110123)";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

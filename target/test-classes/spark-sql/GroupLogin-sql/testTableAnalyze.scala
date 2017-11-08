@@ -23,4 +23,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DESCRIBE EXTENDED mart_waimai.src_employees_insert_overwrite PARTITION (country='US', state='CA')";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

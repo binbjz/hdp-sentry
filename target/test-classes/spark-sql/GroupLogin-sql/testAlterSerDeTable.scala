@@ -6,4 +6,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW CREATE TABLE mart_waimai.dim_ad_cpc_activity_poi";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

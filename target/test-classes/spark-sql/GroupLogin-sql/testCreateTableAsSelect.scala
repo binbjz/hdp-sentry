@@ -51,4 +51,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE mart_waimai.ndm_user_ctas";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

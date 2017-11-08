@@ -34,4 +34,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM mart_waimai.employees_insert_overwrite";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

@@ -39,4 +39,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DESCRIBE EXTENDED testdb.tbl4fileformat_external PARTITION (year=2022, month=1, day=1)";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

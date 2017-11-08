@@ -26,4 +26,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4data.test_serde_partition";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

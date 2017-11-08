@@ -25,4 +25,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="CREATE DATABASE origin_dianping";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

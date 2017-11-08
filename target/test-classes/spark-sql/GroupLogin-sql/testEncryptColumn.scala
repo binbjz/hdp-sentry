@@ -30,4 +30,4 @@ val test_sql="""SELECT binded_phone
 FROM origindb.waimai_order_shard__wm""";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

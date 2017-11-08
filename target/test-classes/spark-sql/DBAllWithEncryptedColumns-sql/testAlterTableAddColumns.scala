@@ -23,4 +23,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE tbl4addcolumn";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

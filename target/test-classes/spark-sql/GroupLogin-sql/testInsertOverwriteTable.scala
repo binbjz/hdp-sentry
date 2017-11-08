@@ -20,4 +20,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT ROW_NUMBER() OVER(PARTITION BY ip ORDER BY ip DESC) ID, name, ip FROM mart_waimai.table002";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

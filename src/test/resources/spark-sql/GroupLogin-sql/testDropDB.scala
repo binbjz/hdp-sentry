@@ -10,4 +10,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW DATABASES LIKE 'origin_waimai'";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)

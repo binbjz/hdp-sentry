@@ -66,4 +66,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM testdb.load_data_local_into_partition";
 spark.sql(test_sql).collect().foreach(println);
 
-:q
+System.exit(0)
