@@ -22,7 +22,7 @@ COMMENTBLOCK
 
 # Set spark env. If run spark sql please comment hive env statements.
 SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
-cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest"
+cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest -i"
 sql_src=spark-sql
 file_suffix=scala
 
