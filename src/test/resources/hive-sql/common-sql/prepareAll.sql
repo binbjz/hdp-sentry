@@ -169,6 +169,8 @@ INSERT INTO testdb.session_test VALUES ('100', '101', '102', 'HTTP://WWW.MEITUAN
 CREATE TABLE testdb.src_insert_overwrite_tbl (name STRING, ip STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
 
+INSERT INTO testdb.src_insert_overwrite_tbl VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2');
+
 CREATE TABLE testdb.insert_overwrite_tbl LIKE testdb.src_insert_overwrite_tbl;
 
 INSERT INTO testdb.insert_overwrite_tbl VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2');

@@ -176,6 +176,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP DATABASE IF EXISTS db4create_no_privilege CASCADE";
 spark.sql(test_sql).collect().foreach(println);
 
+
 /*testDropDB.scala*/
 
 val test_sql="DROP DATABASE IF EXISTS db4drop CASCADE";
@@ -226,6 +227,7 @@ val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employee
 INTO TABLE testdb.src_import_export PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
+
 /*testInsertIntoFromQuery.scala*/
 
 val test_sql="""CREATE TABLE testdb.sessionization_step_one_origins (
@@ -245,10 +247,14 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="INSERT INTO testdb.session_test VALUES ('100', '101', '102', 'HTTP://WWW.MEITUAN.COM', 10000)";
 spark.sql(test_sql).collect().foreach(println);
 
+
 /*testInsertIntoTable.scala
   testInsertOverwriteTable.scala*/
 
 val test_sql="CREATE TABLE testdb.src_insert_overwrite_tbl (name STRING, ip STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="INSERT INTO testdb.src_insert_overwrite_tbl VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2')";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="CREATE TABLE testdb.insert_overwrite_tbl LIKE testdb.src_insert_overwrite_tbl";
@@ -256,6 +262,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="INSERT INTO testdb.insert_overwrite_tbl VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2')";
 spark.sql(test_sql).collect().foreach(println);
+
 
 /*testInsertOverwriteDir.scala*/
 
@@ -280,6 +287,7 @@ INTO TABLE testdb.test_insert_overwrite_dir
 PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
+
 /*testInsertIntoTablePartition.scala
   testInsertOverwriteTablePartition.scala
   testInsertIntoTable.scala tetInsertOverwriteTable.scala*/
@@ -298,8 +306,6 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="INSERT INTO testdb.src_insert_overwrite_tbl_partition PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2')";
 spark.sql(test_sql).collect().foreach(println);
 
-
-
 val test_sql="""CREATE TABLE testdb.test_insert_overwrite_tbl_partition (
  name STRING
 ,salary FLOAT
@@ -315,10 +321,9 @@ spark.sql(test_sql).collect().foreach(println);
 
 
 /*testLoadDataLocalTable.scala*/
-\?????????????????????????
 val test_sql="""CREATE TABLE testdb.load_data_local_into_table (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&'
-LINES TERMINATED BY '10'""";
+LINES TERMINATED BY '\n'""";
 spark.sql(test_sql).collect().foreach(println);
 
 
@@ -342,18 +347,17 @@ MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
 
+
 /*testMSCKRepairTable.scala*/
 
 val test_sql="CREATE TABLE testdb.test_msck (id INT, val STRING) PARTITIONED BY(month INT)";
 spark.sql(test_sql).collect().foreach(println);
 
 /*testQuery.scala*/
-????????????????
-val test_sql="CREATE TABLE testdb.tbl4query (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'";
+val test_sql="CREATE TABLE testdb.tbl4query (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '\n'";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query";
 spark.sql(test_sql).collect().foreach(println);
-
 
 
 /*testShowColumnsAndTblProperties.scala*/
@@ -369,6 +373,7 @@ PARTITIONED BY (country STRING, state STRING)
 LOCATION '/user/hive/warehouse/testdb.db/employees_props'
 TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties')""";
 spark.sql(test_sql).collect().foreach(println);
+
 
 /*testInsertOverwriteTablePartition02.scala*/
 
