@@ -39,7 +39,7 @@ public class DBAll {
         logger.info("===============================================");
         logger.info("DBAll--> running testcase: " + id);
         logger.info("===============================================");
-        String hiveSql = SentryConstant.cmdExec + " -f " + SentryConstant.commonSqlSrc + File.separator + sqlFile;
+        String hiveSql = SentryConstant.cmdExec + SentryConstant.commonSqlSrc + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         logger.info(UtilTool.arrToStr(sqlCmd));
 

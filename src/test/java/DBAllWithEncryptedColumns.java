@@ -40,7 +40,7 @@ public class DBAllWithEncryptedColumns {
         logger.info("===============================================");
         logger.info("DBAllWithEncryptedColumns--> running testcase: " + id);
         logger.info("===============================================");
-        String hiveSql = SentryConstant.cmdExec + " -f " + SentryConstant.encryptColumnSqlSrc + File.separator + sqlFile;
+        String hiveSql = SentryConstant.cmdExec + SentryConstant.encryptColumnSqlSrc + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         logger.info(UtilTool.arrToStr(sqlCmd));
 
