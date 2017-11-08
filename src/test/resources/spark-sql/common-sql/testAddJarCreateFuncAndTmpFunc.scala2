@@ -1,0 +1,68 @@
+val test_sql="USE testdb_spark";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="ADD JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="LIST JARS";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="CREATE TEMPORARY FUNCTION tmp_qa_lower AS 'com.example.hive.udf.LowerCase'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="CREATE FUNCTION qa_lower AS 'com.example.hive.udf.LowerCase'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SELECT tmp_qa_lower(name) as name FROM tbl4jarfile";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SELECT qa_lower(name) as name FROM tbl4jarfile";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SHOW FUNCTIONS LIKE '*qa_lower'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP FUNCTION qa_lower";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SHOW FUNCTIONS LIKE '*qa_lower'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DELETE JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="LIST JARS";
+spark.sql(test_sql).collect().foreach(println);
+
+:q
+
+
+scala> val test_sql="CREATE TEMPORARY FUNCTION tmp_qa_lower AS 'com.example.hive.udf.LowerCase'";
+test_sql: String = CREATE TEMPORARY FUNCTION tmp_qa_lower AS 'com.example.hive.udf.LowerCase'
+scala> spark.sql(test_sql).collect().foreach(println);
+java.lang.ClassNotFoundException: com.example.hive.udf.LowerCase
+  at scala.reflect.internal.util.AbstractFileClassLoader.findClass(AbstractFileClassLoader.scala:62)
+  at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+  at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+  at java.lang.Class.forName0(Native Method)
+  at java.lang.Class.forName(Class.java:274)
+  at org.apache.spark.util.Utils$.classForName(Utils.scala:229)
+  at org.apache.spark.sql.hive.HiveSessionCatalog.makeFunctionBuilder(HiveSessionCatalog.scala:112)
+  at org.apache.spark.sql.execution.command.CreateFunctionCommand.run(functions.scala:61)
+  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:58)
+  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:56)
+  at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:74)
+  at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:114)
+  at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:114)
+  at org.apache.spark.sql.execution.SparkPlan$$anonfun$executeQuery$1.apply(SparkPlan.scala:135)
+  at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+  at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:132)
+  at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:113)
+  at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:87)
+  at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:87)
+  at org.apache.spark.sql.Dataset.<init>(Dataset.scala:185)
+  at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:64)
+  at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:592)
+  ... 48 elided

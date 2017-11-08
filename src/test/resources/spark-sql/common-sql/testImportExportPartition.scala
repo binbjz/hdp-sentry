@@ -1,21 +1,33 @@
-USE testdb;
-
-EXPORT TABLE testdb.src_import_export PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
-dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
-
-IMPORT TABLE testdb.import_export PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
-SHOW PARTITIONS testdb.import_export;
-
-dfs -rm -r /tmp/employee;
-
-
-
-val test_sql="USE mart_waimai";
+val test_sql="USE testdb";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW TBLPROPERTIES mart_waimai.dim_ad_cpc_activity";
+
+val test_sql="EXPORT TABLE testdb.src_import_export PARTITION (country = 'US', state = 'CA') TO '/tmp/import_export_partition'";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW COLUMNS IN mart_waimai.dim_ad_cpc_activity";
+val test_sql="SELECT * FROM testdb.src_import_export";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
+
+val test_sql="IMPORT TABLE testdb.import_export PARTITION (country = 'US', state = 'CA') FROM '/tmp/import_export_partition'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW PARTITIONS testdb.import_export";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SELECT * FROM testdb.import_export";
+spark.sql(test_sql).collect().foreach(println);
+
+
+
+
+val test_sql="USE testdb_spark";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="EXPORT TABLE testdb_spark.src_import_export PARTITION (country = 'US', state = 'CA') TO '/tmp/import_export_partition'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SELECT * FROM testdb_spark.src_import_export";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="IMPORT TABLE testdb_spark.import_export PARTITION (country = 'US', state = 'CA') FROM '/tmp/import_export_partition'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW PARTITIONS testdb_spark.import_export";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SELECT * FROM testdb_spark.import_export";
 spark.sql(test_sql).collect().foreach(println);
 
