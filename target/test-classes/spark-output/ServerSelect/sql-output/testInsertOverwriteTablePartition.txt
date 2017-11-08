@@ -1,0 +1,15 @@
+OK
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=20150617, ht=00)
+Failed with exception MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=null, ht=null)
+Failed with exception MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht
+Loading data to table testdb.insert_overwrite_tbl_partition partition (dt=20150617, ht=null)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK
+insert_overwrite_tbl_partition.name	insert_overwrite_tbl_partition.ip	insert_overwrite_tbl_partition.dt	insert_overwrite_tbl_partition.ht

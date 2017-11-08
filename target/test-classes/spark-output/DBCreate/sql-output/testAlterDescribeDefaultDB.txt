@@ -1,0 +1,4 @@
+OK
+OK
+OK
+default	Default Hive database	viewfs://hadoop-meituan-test/user/hive/warehouse	public	ROLE	{edited-by=hadoop-new-qa}

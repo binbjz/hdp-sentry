@@ -1,0 +1,86 @@
+OK
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+encrypt_server      	string              	                    
+process_id          	int                 	                    
+encrypt_message     	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+year=2011/month=1/day=1
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+encrypt_server      	string              	                    
+process_id          	int                 	                    
+encrypt_message     	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+encrypt_server      	string              	                    
+process_id          	int                 	                    
+encrypt_message     	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+year=2011/month=1/day=2
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+encrypt_server      	string              	                    
+process_id          	int                 	                    
+encrypt_message     	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+OK
+OK
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

@@ -1,0 +1,19 @@
+OK
+Loading data to table testdb.insert_overwrite_tbl
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+0 Rows loaded to testdb.insert_overwrite_tbl
+OK
+name	ip
+OK
+insert_overwrite_tbl.name	insert_overwrite_tbl.ip
+Loading data to table testdb.insert_overwrite_tbl
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/insert_overwrite_tbl' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+1 Rows loaded to testdb.insert_overwrite_tbl
+OK
+src_insert_overwrite_tbl.name	src_insert_overwrite_tbl.ip
+OK
+insert_overwrite_tbl.name	insert_overwrite_tbl.ip
+alibaba	10.0.0.3
+OK
+id	name	ip
+1	alibaba	10.0.0.3

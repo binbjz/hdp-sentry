@@ -1,0 +1,9 @@
+OK
+Execution log at: /var/sankuai/logs/hive1.2/sankuai/hive.log
+Execution completed successfully
+MapredLocal task succeeded
+Loading data to table testdb.sessionization_step_one_origins
+1 Rows loaded to testdb.sessionization_step_one_origins
+OK
+OK
+100	101	10000.0

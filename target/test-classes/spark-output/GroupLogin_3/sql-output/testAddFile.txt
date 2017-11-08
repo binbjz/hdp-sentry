@@ -1,0 +1,5 @@
+OK
+FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_50870_username, email, encrypted_name_49914_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+FAILED: SemanticException [Error 10004]: Line 2:18 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_50870_username, email, encrypted_name_49914_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username

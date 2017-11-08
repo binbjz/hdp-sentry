@@ -75,7 +75,7 @@ check_sentry_flag_status(){
     source $projectdir/src/main/resources/hive_env.sh $privil_type super
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_clean_db_env.sql
 
-    # In proxy env, if we need to revoke privileges otherwise it will throw exception
+    # In proxy env, we need to revoke privileges otherwise it will throw exception
     if [[ $privil_type = "proxy_user" ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi

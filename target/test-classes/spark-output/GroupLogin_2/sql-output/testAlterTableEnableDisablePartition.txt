@@ -1,0 +1,9 @@
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped mart_waimai@dim_ad_cpc_activity_poi@dt=20110122
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_DROPPARTS
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped mart_waimai@dim_ad_cpc_activity_poi@dt=20110123
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_DROPPARTS

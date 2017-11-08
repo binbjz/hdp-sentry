@@ -1,0 +1,21 @@
+OK
+OK
+Loading data to table encrypt_db4alter.tbl4addcolumn
+2 Rows loaded to encrypt_db4alter.tbl4addcolumn
+OK
+OK
+OK
+col1                	tinyint             	                    
+encrypt_col2        	bigint              	                    
+col3                	string              	                    
+id                  	string              	                    
+OK
+NULL
+NULL
+OK
+1	2	3
+2	4	6
+OK
+1	2	3	NULL
+2	4	6	NULL
+OK

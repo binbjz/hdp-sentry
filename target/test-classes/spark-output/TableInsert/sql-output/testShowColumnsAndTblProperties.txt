@@ -1,0 +1,21 @@
+OK
+OK
+comment	Description of the table
+creator	HADOOP-QA
+notes	test show tblproperties
+OK
+name                
+salary              
+subordinates        
+deductions          
+address             
+country             
+state               
+OK
+name                
+salary              
+subordinates        
+deductions          
+address             
+country             
+state               

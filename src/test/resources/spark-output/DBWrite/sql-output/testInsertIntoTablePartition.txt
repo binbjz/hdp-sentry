@@ -1,0 +1,13 @@
+OK
+Loading data to table testdb.src_insert_overwrite_tbl_partition partition (dt=20150617, ht=00)
+1 Rows loaded to testdb.src_insert_overwrite_tbl_partition
+OK
+Loading data to table testdb.src_insert_overwrite_tbl_partition partition (dt=20150617, ht=01)
+1 Rows loaded to testdb.src_insert_overwrite_tbl_partition
+OK
+OK
+name	ip
+alibaba	10.0.0.3
+OK
+name	ip
+alibaba	10.0.0.3

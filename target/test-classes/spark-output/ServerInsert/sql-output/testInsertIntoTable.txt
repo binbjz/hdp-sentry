@@ -1,0 +1,7 @@
+OK
+Loading data to table testdb.src_insert_overwrite_tbl
+1 Rows loaded to testdb.src_insert_overwrite_tbl
+OK
+OK
+src_insert_overwrite_tbl.name	src_insert_overwrite_tbl.ip
+alibaba	10.0.0.3

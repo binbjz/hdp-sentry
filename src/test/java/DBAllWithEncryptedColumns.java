@@ -24,7 +24,7 @@ public class DBAllWithEncryptedColumns {
     private static final String className = TraceHandler.getSTElement(0, "className");
     private static final String jsonPath = SentryConstant.tSrc + File.separator + SentryConstant.jsonInput;
     private static final String jsonFile = jsonPath + File.separator + className + SentryConstant.suffix_json;
-    private static final String sqlOutputPath = SentryConstant.tSrc + File.separator + SentryConstant.hiveOutput + File.separator + caseName + File.separator + SentryConstant.sqlOutput;
+    private static final String sqlOutputPath = SentryConstant.tSrc + File.separator + SentryConstant.stdOutput + File.separator + caseName + File.separator + SentryConstant.sqlOutput;
     private static final Logger logger = LoggerFactory.getLogger(className);
 
     @BeforeClass
@@ -40,7 +40,7 @@ public class DBAllWithEncryptedColumns {
         logger.info("===============================================");
         logger.info("DBAllWithEncryptedColumns--> running testcase: " + id);
         logger.info("===============================================");
-        String hiveSql = SentryConstant.hiveExec + " -f " + SentryConstant.encryptColumnSqlSrc + File.separator + sqlFile;
+        String hiveSql = SentryConstant.cmdExec + " -f " + SentryConstant.encryptColumnSqlSrc + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
         logger.info(UtilTool.arrToStr(sqlCmd));
 

@@ -1,0 +1,113 @@
+OK
+OK
+cis_mappoi_in_aor
+collecttest
+dim_ad_cpc_activity
+dim_ad_cpc_activity_poi
+employees_import_export
+employees_insert_overwrite
+log_messages
+log_messages_external
+partition_table001
+partition_table002
+src_employees_import_export
+src_employees_insert_overwrite
+table001
+table002
+test_add_columns
+test_change
+test_rename
+test_replace_columns
+OK
+OK
+OK
+OK
+OK
+cis_mappoi_in_aor
+collecttest
+dim_ad_cpc_activity
+dim_ad_cpc_activity_poi
+employees_import_export
+employees_insert_overwrite
+log_messages
+log_messages_external
+partition_table001
+partition_table002
+src_employees_import_export
+src_employees_insert_overwrite
+table001
+table002
+tbl2create
+test_add_columns
+test_change
+test_rename
+test_replace_columns
+view2create_encrypt_columns
+view2create_non_encrypt_columns
+view2create_star
+OK
+OK
+OK
+COLUMN_STATS_ACCURATE	false
+last_modified_by	hdp_qa
+numFiles	0
+numRows	-1
+qa comments	test add table properties
+rawDataSize	-1
+totalSize	0
+OK
+last_modified_by	hdp_qa
+qa comments	test add table properties
+OK
+tbl2create
+view2create_encrypt_columns
+view2create_non_encrypt_columns
+view2create_star
+OK
+CREATE TABLE `mart_waimai.tbl2create`(
+  `col1` tinyint, 
+  `col2` smallint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/tbl2create'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'last_modified_by'='hdp_qa', 
+  'numFiles'='0', 
+  'numRows'='-1', 
+  'qa comments'='test add table properties', 
+  'rawDataSize'='-1', 
+  'totalSize'='0', 
+OK
+OK
+cis_mappoi_in_aor
+collecttest
+dim_ad_cpc_activity
+dim_ad_cpc_activity_poi
+employees_import_export
+employees_insert_overwrite
+log_messages
+log_messages_external
+partition_table001
+partition_table002
+src_employees_import_export
+src_employees_insert_overwrite
+table001
+table002
+tbl2create
+test_add_columns
+test_change
+test_rename
+test_replace_columns
+view2create_encrypt_columns
+view2create_non_encrypt_columns
+view2create_star
+OK
+OK
+OK
+OK

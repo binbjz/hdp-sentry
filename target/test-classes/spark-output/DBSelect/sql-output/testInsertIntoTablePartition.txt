@@ -1,0 +1,13 @@
+OK
+Loading data to table testdb.src_insert_overwrite_tbl_partition partition (dt=20150617, ht=00)
+Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+Loading data to table testdb.src_insert_overwrite_tbl_partition partition (dt=20150617, ht=01)
+Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK
+name	ip
+alibaba	10.0.0.3
+OK
+name	ip
+alibaba	10.0.0.3

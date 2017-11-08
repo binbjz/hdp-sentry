@@ -1,0 +1,7 @@
+OK
+OK
+tbl4addfile.who
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+OK
+who

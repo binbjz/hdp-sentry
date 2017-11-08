@@ -1,0 +1,26 @@
+OK
+OK
+ad_activity_key     	string              	维度代理键               
+ad_activity_id      	bigint              	活动id                
+ad_activity_type    	int                 	活动类型代码              
+poi_id              	int                 	活动目标门店              
+dt                  	string              	状态归属时间：etl每日保存上日券状态没有终结的券的信息
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+dt                  	string              	状态归属时间：etl每日保存上日券状态没有终结的券的信息
+	 	 
+OK
+OK
+ad_activity_key     	string              	维度代理键               
+ad_activity_id      	bigint              	活动id                
+ad_activity_type    	int                 	活动类型代码              
+poi_id              	int                 	活动目标门店              
+dt                  	string              	状态归属时间：etl每日保存上日券状态没有终结的券的信息
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+dt                  	string              	状态归属时间：etl每日保存上日券状态没有终结的券的信息
+	 	 

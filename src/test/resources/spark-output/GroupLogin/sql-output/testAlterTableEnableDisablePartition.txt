@@ -1,0 +1,11 @@
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped mart_waimai@dim_ad_cpc_activity_poi@dt=20110122
+OK
+Dropped the partition dt=20110122
+OK
+OK
+FAILED: SemanticException [Error 30011]: Partition protected from being dropped mart_waimai@dim_ad_cpc_activity_poi@dt=20110123
+OK
+Dropped the partition dt=20110123
+OK

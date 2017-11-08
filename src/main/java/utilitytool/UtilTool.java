@@ -15,8 +15,8 @@ public class UtilTool {
         System.out.println();
         System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
 
-        System.out.println(SentryConstant.hiveSqlSrc);
-        String sqlOutputPath = SentryConstant.tSrc + File.separator + SentryConstant.hiveOutput + File.separator + "DBAll" + File.separator + SentryConstant.sqlOutput;
+        System.out.println(SentryConstant.sqlSrc);
+        String sqlOutputPath = SentryConstant.tSrc + File.separator + SentryConstant.stdOutput + File.separator + "DBAll" + File.separator + SentryConstant.sqlOutput;
         System.out.println(sqlOutputPath);
 
         String hiveSql = SentryConstant.commonSqlSrc + File.separator + "testCreateDB.sql";
@@ -30,6 +30,12 @@ public class UtilTool {
 
         String hiveSql3 = SentryConstant.groupLoginSqlSrc + File.separator;
         System.out.println(hiveSql3);
+
+        String sparkT = SentryConstant.cmdExec;
+        System.out.println(sparkT);
+
+        System.out.println(SentryConstant.sqlSrc);
+        System.out.println(SentryConstant.commonSqlSrc);
 
 
         /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;

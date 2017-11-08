@@ -10,14 +10,28 @@ E_BADDIR=65
 privil_type=keytab_auth  # proxy_user|keytab_auth
 privil_type_ug=proxy_user_group
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-projectdir="$( cd $resource_dir/../../.. && pwd )"
+projectdir="$( cd ${resource_dir}/../../.. && pwd )"
+
+# Set hive env. If run hive sql please comment spark env statements
+HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
+cmd_exec="${HIVE_HOME}/bin/hive --hiveconf hive.cli.errors.ignore=true -f"
+sql_src=hive-sql
+file_suffix=sql
+
+# Set spark env. If run spark sql please comment hive env statements.
+: <<COMMENTBLOCK
+SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
+cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest"
+sql_src=spark-sql
+file_suffix=scala
+COMMENTBLOCK
 
 # Temporary env for dependent libraries
 libdir=/opt/meituan/qa_test/data_bin
 
-common_sql_src=$projectdir/src/test/resources/hive-sql/common-sql
-encryptColumn_sql_src=$projectdir/src/test/resources/hive-sql/DBAllWithEncryptedColumns-sql
-groupLogin_sql_src=$projectdir/src/test/resources/hive-sql/GroupLogin-sql
+common_sql_src=$projectdir/src/test/resources/$sql_src/common-sql
+encryptColumn_sql_src=$projectdir/src/test/resources/$sql_src/DBAllWithEncryptedColumns-sql
+groupLogin_sql_src=$projectdir/src/test/resources/$sql_src/GroupLogin-sql
 
 include_patt="DBAllWithEncryptedColumns|DBAllWithEncryptedColumns_2|DBAllWithEncryptedColumns_3|GroupLogin|GroupLogin_2|GroupLogin_3"
 include_patt2="DBAllWithEncryptedColumns"
@@ -61,12 +75,12 @@ for tc in $sentry_tcs; do
     # Execute preppare sql
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/prepare${tc_tmp}.sql
+        $cmd_exec ${encryptColumn_sql_src}/prepare${tc_tmp}.${file_suffix}
     elif echo "$tc" | egrep -qi "$include_patt3"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/prepare${tc_tmp}.sql
+        $cmd_exec ${groupLogin_sql_src}/prepare${tc_tmp}.${file_suffix}
     else
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/prepareAll.sql
+        $cmd_exec ${common_sql_src}/prepareAll.${file_suffix}
     fi
 
     # Grant user with group privilege while running in group test
@@ -88,17 +102,17 @@ for tc in $sentry_tcs; do
     # Execute post sql
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${encryptColumn_sql_src}/post${tc_tmp}.sql
+        $cmd_exec ${encryptColumn_sql_src}/post${tc_tmp}.${file_suffix}
     elif echo "$tc" | egrep -qi "$include_patt3"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${groupLogin_sql_src}/post${tc_tmp}.sql
+        $cmd_exec ${groupLogin_sql_src}/post${tc_tmp}.${file_suffix}
     else
-        $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f ${common_sql_src}/postAll.sql
+        $cmd_exec ${common_sql_src}/postAll.${file_suffix}
     fi
 
 
     if [[ $privil_type = "proxy_user" ]]; then
-        # In proxy env, if we need to revoke privileges otherwise it will throw exception
+        # In proxy env, we need to revoke privileges otherwise it will throw exception
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
     source $projectdir/src/main/resources/$sentry_sh clean ${tc}

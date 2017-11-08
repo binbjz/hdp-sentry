@@ -1,0 +1,15 @@
+OK
+OK
+str	c1
+eleven	11,10
+twelve	12,1
+OK
+str	val
+eleven	2
+twelve	2
+OK
+c0
+4
+OK
+_c0
+1

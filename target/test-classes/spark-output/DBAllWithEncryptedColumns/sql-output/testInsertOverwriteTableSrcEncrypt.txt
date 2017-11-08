@@ -1,0 +1,13 @@
+OK
+OK
+Loading data to table encrypt_db4data.table_src
+3 Rows loaded to encrypt_db4data.table_src
+OK
+OK
+FAILED: SemanticException [Error 10004]: Line 2:101 Invalid table alias or column reference 'name': (possible column names are: encrypted_name_50876_name, ip) or Column insufficient privileges to access: name
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table002>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table_src>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table002>
+FAILED: SemanticException [Error 10004]: Line 3:63 Invalid table alias or column reference 'name': (possible column names are: table002.encrypted_name_50876_name, table002.ip) or Column insufficient privileges to access: name
+OK
+OK
