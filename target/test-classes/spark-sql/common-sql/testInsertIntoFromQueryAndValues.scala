@@ -1,6 +1,8 @@
 val test_sql="USE testdb";
 spark.sql(test_sql).collect().foreach(println);
 
+/* testInsertIntoFromQuery */
+
 val test_sql="""INSERT INTO testdb.sessionization_step_one_origins
 SELECT c.c_user_id as ssoo_user_id
       ,c.c_pageview_id as ssoo_pageview_id
@@ -23,6 +25,16 @@ FROM (SELECT a.a_user_id as c_user_id
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="SELECT * FROM testdb.sessionization_step_one_origins";
+spark.sql(test_sql).collect().foreach(println);
+
+
+/* testInsertIntoTable*/
+
+val test_sql="INSERT INTO testdb.src_insert_overwrite_tbl VALUES ('alibaba', '10.0.0.3')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SET hive.cli.print.header=true";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SELECT * FROM testdb.src_insert_overwrite_tbl WHERE name = 'alibaba'";
 spark.sql(test_sql).collect().foreach(println);
 
 :q

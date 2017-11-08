@@ -1,6 +1,25 @@
 val test_sql="USE testdb";
 spark.sql(test_sql).collect().foreach(println);
 
+
+/*test Alter Table Add Columns*/
+
+val test_sql="ALTER TABLE tbl4addcolumns ADD COLUMNS (id STRING)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DESCRIBE tbl4addcolumns";
+spark.sql(test_sql).collect().foreach(println);
+
+
+/* test Alter Table Replace Columns*/
+
+val test_sql="ALTER TABLE tbl4replacecolumns REPLACE COLUMNS (new_col1 INT COMMENT 'new column 1')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DESCRIBE tbl4replacecolumns";
+spark.sql(test_sql).collect().foreach(println);
+
+
+/* test Alter Table Enable Disable */
+
 val test_sql="ALTER TABLE testdb.test_enable_disable1 ENABLE NO_DROP";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE testdb.test_enable_disable1";

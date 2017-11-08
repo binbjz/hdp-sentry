@@ -50,7 +50,7 @@ public class TableSelect {
         //debug stage: write test results into output file.
         String output = sqlOutputPath + File.separator + resultFile;
         logger.info(output);
-        //UtilTool.writeAllBytes(output, map.get(1).toString());
+        UtilTool.writeAllBytes(output, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(output);
         String actualResults = map.get(1).toString();

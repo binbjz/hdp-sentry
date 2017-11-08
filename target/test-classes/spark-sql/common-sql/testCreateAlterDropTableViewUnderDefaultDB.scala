@@ -1,6 +1,8 @@
 val test_sql="USE default";
 spark.sql(test_sql).collect().foreach(println);
 
+/* testCreateAlterDropTableViewUnderDefaultDB */
+
 val test_sql="DESCRIBE tbl4drop";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW CREATE TABLE tbl4drop";
