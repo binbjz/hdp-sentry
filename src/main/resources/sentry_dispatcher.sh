@@ -13,18 +13,18 @@ resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd ${resource_dir}/../../.. && pwd )"
 
 # Set hive env. If run hive sql please comment spark env statements
+: <<COMMENTBLOCK
 HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 cmd_exec="${HIVE_HOME}/bin/hive --hiveconf hive.cli.errors.ignore=true -f"
 sql_src=hive-sql
 file_suffix=sql
+COMMENTBLOCK
 
 # Set spark env. If run spark sql please comment hive env statements.
-: <<COMMENTBLOCK
 SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
 cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest -i"
 sql_src=spark-sql
 file_suffix=scala
-COMMENTBLOCK
 
 # Temporary env for dependent libraries
 libdir=/opt/meituan/qa_test/data_bin
