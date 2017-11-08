@@ -1,8 +1,0 @@
-OK
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages_external
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages_external
-FAILED: SemanticException [Error 10001]: Table not found mart_waimai.log_messages_external
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

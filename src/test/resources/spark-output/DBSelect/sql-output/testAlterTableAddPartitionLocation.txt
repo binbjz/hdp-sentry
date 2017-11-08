@@ -1,9 +1,0 @@
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDPARTS)
-OK
-year=2012/month=1/day=1
-FAILED: SemanticException [Error 10006]: Partition not found {year=2022, month=1, day=1}
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDPARTS)
-OK
-year=2012/month=1/day=1
-FAILED: SemanticException [Error 10006]: Partition not found {year=2022, month=1, day=1}

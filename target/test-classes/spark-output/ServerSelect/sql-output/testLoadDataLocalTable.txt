@@ -1,8 +1,0 @@
-OK
-Loading data to table testdb.load_data_local_into_table
-OK
-OK
-twelve	12
-twelve	1
-eleven	11
-eleven	10

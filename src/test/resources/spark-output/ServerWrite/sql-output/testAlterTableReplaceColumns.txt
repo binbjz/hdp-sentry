@@ -1,4 +1,0 @@
-OK
-OK
-OK
-new_col1            	int                 	new column 1        

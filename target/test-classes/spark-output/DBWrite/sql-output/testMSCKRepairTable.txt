@@ -1,9 +1,0 @@
-OK
-OK
-OK
-Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
-Repair: Added partition to metastore testdb.test_msck:month=201603
-Repair: Added partition to metastore testdb.test_msck:month=201604
-OK
-month=201603
-month=201604
