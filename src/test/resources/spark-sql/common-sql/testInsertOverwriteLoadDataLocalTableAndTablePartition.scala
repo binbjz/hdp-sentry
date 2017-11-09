@@ -45,7 +45,6 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
 spark.sql(test_sql).collect().foreach(println);
 
-
 /* testLoadDataLocalTable */
 
 val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt'

@@ -441,4 +441,19 @@ INTO TABLE testdb.src_test_insert_overwrite_tbl_partition
 PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
+/*testUDF*/
+val test_sql="CREATE TABLE testdb.tbl4udf (id int)";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="INSERT INTO testdb.tbl4udf VALUES (1), (2), (null)";
+spark.sql(test_sql).collect().foreach(println);
+
+
+/* testVacuum */
+val test_sql="CREATE TABLE testdb.tbl4vacuum (id int)";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="INSERT INTO testdb.tbl4vacuum VALUES (1), (2), (null)";
+spark.sql(test_sql).collect().foreach(println);
+
 System.exit(0);

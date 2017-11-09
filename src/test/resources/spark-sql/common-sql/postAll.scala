@@ -83,6 +83,11 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE testdb.test_enable_disable2";
 spark.sql(test_sql).collect().foreach(println);
 
+val test_sql="DROP TABLE testdb.tbl4udf";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.tbl4vacuum";
+spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP DATABASE testdb CASCADE";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP DATABASE unaccessibledb";
