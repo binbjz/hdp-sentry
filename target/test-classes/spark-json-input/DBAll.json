@@ -192,5 +192,35 @@
         "name": "testQuerySETShowColumnsAndTblProperties.txt"
       }
     ]
+  },
+  {
+    "id": "testUDF",
+    "tag": "DB",
+    "desc": "The case will test UDF.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testUDF.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testUDF.txt"
+      }
+    ]
+  },
+  {
+    "id": "testVacuum",
+    "tag": "DB",
+    "desc": "The case will testVacuum.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testVacuum.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testVacuum.txt"
+      }
+    ]
   }
 ]
