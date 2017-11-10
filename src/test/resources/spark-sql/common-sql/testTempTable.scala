@@ -1,107 +1,49 @@
-val test_sql="DROP TABLE testdb.tbl4rename";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4rename_new";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4replacecolumns";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4analyze";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.tbl4drop";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.view4drop";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4drop_no_r";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.view4drop_no_r";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.import_export";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.src_import_export";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.sessionization_step_one_origins";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.session_test";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.src_insert_overwrite_tbl";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.insert_overwrite_tb";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.test_insert_overwrite_dir";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.src_insert_overwrite_tbl_partition";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.insert_overwrite_tbl_partition";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.load_data_local_into_table";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.load_data_local_into_partition";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.test_msck";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4query";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.employees_props";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE default.tbl4drop";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE default.view4drop";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE default.tbl4drop_no_r";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE default.view4drop_no_r";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.tbl4addfile";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4jarfile";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4partition";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4setlocation";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.test_serde_partition";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.test_serde";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4addcolumns";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4fileformat";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4fileformat_external";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.test_enable_disable_partition";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.test_enable_disable1";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.test_enable_disable2";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP TABLE testdb.tbl4udf";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4vacuum";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP DATABASE testdb CASCADE";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP DATABASE unaccessibledb";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql="DROP DATABASE db4create CASCADE";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP DATABASE db4create_no_privilege CASCADE";
-spark.sql(test_sql).collect().foreach(println);
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+import sqlContext.implicits._
+case class Employee(name: String, age: Int, provinceId: Int)
+val employee = sc.parallelize(Employee("zhangsan",31,"beijing")::Employee("wangwu",28,"hubei")::Employee("lisi",44,"tianjin")::Employee("liping",23,"guangdong")::Nil).toDF()
+employee.registerTempTable("employee")
+val query = sqlContext.sql("select name, age from (select * from employee where province = 'beijing') a where a.age >= 20 and a.age < 40")
+query.map(_.getValuesMap[Any](List("name","age"))).collect().foreach(println)
 
 
-val test_sql="DROP DATABASE db4drop CASCADE";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP DATABASE db4drop_cascade CASCADE";
-spark.sql(test_sql).collect().foreach(println);
+case class Person(name:String, age:Int, state:String)
+sparkContext.parallelize(Person("Michael",29,"CA")::Person("Andy",30,"NY")::Person("Justin",19,"CA")::Person("Justin",25,"CA")::NIL).toDF().registerTempTable("people")
+val query = sql("SELECT * FROM people")
+query.printSchema
+query.collect()
+query.queryExecution.logical
+query.queryExecution.analyzed
+query.queryExecution.optimizedPlan
+query.quercdyExecution.sparkPlan
+query.show
 
-System.exit(0);
+
+
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+import sqlContext.implicits._
+case class Person(name: String, age: Int)
+val people = sc.textFile("").map(_.split(",")).map(p => Person(p(0), p(1).trime.toInt)).toDF()
+people.registerTempTable("people")
+
+val teenagers = sqlContext.sql("SELECT name, age FROM people WHERE age >= 13 AND age <= 19")
+teenagers.map(t => "Name: " + t(0)).collect().foreach(println)
+teenagers.map(t => "Name: " + t.getAs[String]("name")).collect().foreach(println)
+
+
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.types.{StructType, StructField, StringType}
+
+val people = sc.textFile("")
+val schemaString = "name age"
+val schema = StructureTy
+
+
+
+import org.apache.hadoop.fs.FileSystem
+import org.apache.hadoop.fs.Path
+val fs=FileSystem.get(sc.hadoopConfiguration)
+val outPutPath="/tmp/abc"
+if(fs.exists(new Path(outPutPath)))
+  fs.delete(new Path(outPutPath),true)
