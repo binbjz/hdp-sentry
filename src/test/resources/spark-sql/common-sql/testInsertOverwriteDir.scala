@@ -31,7 +31,7 @@ SELECT emp.name, emp.salary FROM testdb.test_insert_overwrite_dir emp WHERE emp.
 INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*;
 
 spark.sql(test_sql).collect().foreach(println);
-/*dfs -cat /tmp/union.out/*;
-dfs -rm -r /tmp/union.out;*/
+//dfs -cat /tmp/union.out/*;
+//dfs -rm -r /tmp/union.out;
 
 System.exit(0);

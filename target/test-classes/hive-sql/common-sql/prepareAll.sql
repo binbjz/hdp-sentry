@@ -10,7 +10,7 @@ CREATE DATABASE unaccessibledb;
 USE testdb;
 --testAddFile.sql
 CREATE TABLE testdb.tbl4addfile(who string);
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tble4addfile;
+LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
 
 --testAddJarCreateFuncAndTmpFunc.sql
 CREATE TABLE testdb.tbl4jarfile (name STRING);

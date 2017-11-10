@@ -1,7 +1,7 @@
 val test_sql="USE testdb";
 spark.sql(test_sql).collect().foreach(println);
 
-/* write to HDFS dir */
+/* testInsertOverwriteDir */
 
 val test_sql="SET hive.exec.dynamic.partition=true";
 spark.sql(test_sql).collect().foreach(println);
@@ -10,17 +10,36 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SET hive.vectorized.execution.reduce.enabled = true";
 spark.sql(test_sql).collect().foreach(println);
 
+scala> sqlContext.sql("select * from predict ").write.format("json").save("predictj")
+scala> sqlContext.sql("select * from predict ").write.format("parquet").save("predictp")
+scala> sqlContext.sql("select * from predict ").write.format("orc").save("predicto")
+
+txt和csv
+
 
 var test_sql="SELECT * FROM testdb.test_insert_overwrite_dir se WHERE se.country = 'US' and se.state = 'CA'";
-spark.sql(test_sql).write.format("json").save("/tmp/spark_ca_employees_json");
-spark.sql(test_sql).write.format("parquet").save("/tmp/spark_ca_employees_parquet");
-spark.sql(test_sql).write.format("orc").save("/tmp/spark_ca_employees_orc");
+spark.sql(test_sql).write.format("json").save("spark_ca_employees");
 
-/* testInsertOverwriteDir DOES NOT SUPPORT
+
+DataFrame peopleDF = spark.read().format("json").load("/tmp/spark_ca_employees/*");
+
+
+
+
+
+val diamonds = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/tmp/spark_ca_employees/*")
+display(diamonds)
+
+val diamonds = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/tmp/spark_ca_employees/part-00000-b338a2a5-d769-4304-96ef-a5643f90a3c0.json")
+display(diamonds)
+
+
+dfs -cat /tmp/spark_ca_employees/part-00000-b338a2a5-d769-4304-96ef-a5643f90a3c0.json
+
 var test_sql="""INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
 SELECT * FROM testdb.test_insert_overwrite_dir se WHERE se.country = 'US' and se.state = 'CA'""";
 spark.sql(test_sql).collect().foreach(println);
-!ls -l /tmp/ca_employees;
+/*!ls -l /tmp/ca_employees;
 !rm -r /tmp/ca_employees;*/
 
 FROM (
@@ -31,7 +50,7 @@ SELECT emp.name, emp.salary FROM testdb.test_insert_overwrite_dir emp WHERE emp.
 INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*;
 
 spark.sql(test_sql).collect().foreach(println);
-//dfs -cat /tmp/union.out/*;
-//dfs -rm -r /tmp/union.out;
+/*dfs -cat /tmp/union.out/*;
+dfs -rm -r /tmp/union.out;*/
 
 System.exit(0);

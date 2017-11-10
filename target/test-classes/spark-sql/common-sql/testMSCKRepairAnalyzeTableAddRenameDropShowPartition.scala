@@ -30,10 +30,12 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="ANALYZE TABLE testdb.tbl4analyze PARTITION (country = 'US', state)  COMPUTE STATISTICS";
 spark.sql(test_sql).collect().foreach(println);
 
+
 /* 如果执行 搜集所有分区*/
 
 val test_sql="ANALYZE TABLE testdb.tbl4analyze PARTITION (country, state) COMPUTE STATISTICS";
 spark.sql(test_sql).collect().foreach(println);
+
 
 /* 查看分区的统计信息*/
 
