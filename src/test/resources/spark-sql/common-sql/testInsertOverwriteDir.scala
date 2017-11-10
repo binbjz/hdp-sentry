@@ -12,9 +12,44 @@ spark.sql(test_sql).collect().foreach(println);
 
 
 var test_sql="SELECT * FROM testdb.test_insert_overwrite_dir se WHERE se.country = 'US' and se.state = 'CA'";
-spark.sql(test_sql).write.format("json").save("/tmp/spark_ca_employees_json");
-spark.sql(test_sql).write.format("parquet").save("/tmp/spark_ca_employees_parquet");
-spark.sql(test_sql).write.format("orc").save("/tmp/spark_ca_employees_orc");
+
+import org.apache.hadoop.fs.FileSystem
+import org.apache.hadoop.fs.Path
+val fs=FileSystem.get(sc.hadoopConfiguration)
+
+val jsonPath="/user/hive/warehouse/testdb.db/spark_ca_employees_json"
+if(fs.exists(new Path(jsonPath)))
+  fs.delete(new Path(jsonPath),true)
+spark.sql(test_sql).write.format("json").save("/user/hive/warehouse/testdb.db/spark_ca_employees_json");
+
+val parquetPath="/user/hive/warehouse/testdb.db/spark_ca_employees_parquet"
+if(fs.exists(new Path(parquetPath)))
+  fs.delete(new Path(parquetPath),true)
+spark.sql(test_sql).write.format("parquet").save("/user/hive/warehouse/testdb.db/spark_ca_employees_parquet");
+
+val orcPath="/user/hive/warehouse/testdb.db/spark_ca_employees_orc"
+if(fs.exists(new Path(orcPath)))
+  fs.delete(new Path(orcPath),true)
+spark.sql(test_sql).write.format("orc").save("/user/hive/warehouse/testdb.db/spark_ca_employees_orc");
+
+val df_parquet = spark.read.load(parquetPath);
+df_parquet.collect.foreach(println);
+val df_json = spark.read.format("json").load(jsonPath);
+df_json.collect.foreach(println);
+val df_orc = spark.read.format("orc").load(orcPath);
+df_json.collect.foreach(println);
+
+
+if(fs.exists(new Path(jsonPath)))
+  fs.delete(new Path(jsonPath),true)
+
+if(fs.exists(new Path(parquetPath)))
+  fs.delete(new Path(parquetPath),true)
+
+if(fs.exists(new Path(orcPath)))
+  fs.delete(new Path(orcPath),true)
+
+
 
 /* testInsertOverwriteDir DOES NOT SUPPORT
 var test_sql="""INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
