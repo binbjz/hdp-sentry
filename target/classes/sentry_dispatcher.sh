@@ -27,7 +27,7 @@ file_suffix=scala
 COMMENTBLOCK
 
 # Temporary env for dependent libraries
-libdir=/opt/meituan/qa_test/data_bin
+libdir=/opt/meituan/qa_test/data_bin/test-lib/
 
 common_sql_src=$projectdir/src/test/resources/$sql_src/common-sql
 encryptColumn_sql_src=$projectdir/src/test/resources/$sql_src/DBAllWithEncryptedColumns-sql
