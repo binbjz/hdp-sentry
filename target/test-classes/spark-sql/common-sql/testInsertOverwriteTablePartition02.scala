@@ -28,3 +28,5 @@ SELECT se.name, se.salary, se.subordinates, se.deductions, se.address, se.state 
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM testdb.test_insert_overwrite_tbl_partition";
 spark.sql(test_sql).collect().foreach(println);
+
+System.exit(0);

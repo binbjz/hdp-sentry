@@ -1,6 +1,9 @@
 val test_sql="USE mart_waimai";
 spark.sql(test_sql).collect().foreach(println);
 
+import org.apache.hadoop.fs.FileSystem
+import org.apache.hadoop.fs.Path
+val fs=FileSystem.get(sc.hadoopConfiguration)
 
 if(fs.exists(new Path("/tmp/ca_employees")))
   fs.delete(new Path("/tmp/ca_employees"),true)
