@@ -40,7 +40,7 @@ include_patt3="GroupLogin"
 
 # Check project directory
 if [ ! -d "$projectdir" ]; then
-    echo "$projectdir is not a directory."
+    echo "$projectdir does not exist."
     exit $E_BADDIR
 fi
 
