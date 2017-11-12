@@ -42,7 +42,7 @@ groups_login=${sentry_privileges[$2]} # Mark -- Need to modify GroupLogin to $2 
 for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
     ROLE_NAME=`awk -F'="' '{print $1}' <<< $i`
     ROLE_GROUP=$ROLE_NAME
-    PRIVILEGES=`awk -F'="' '{gsub(/"/, "", $2); print $2}' <<< $i`
+    PRIVILEGES=`awk -F'="' '{gsub(/"/,"", $2); print $2}' <<< $i`
     PRIVIL_SPLIT=`awk -F',' '{for(i=1;i<=NF;i++) print $i}' <<< "$PRIVILEGES"`
 
     case "$1" in

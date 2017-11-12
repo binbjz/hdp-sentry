@@ -44,6 +44,21 @@
     ]
   },
   {
+    "id": "testHdfsSchema",
+    "tag": "DB",
+    "desc": "The case will test QueryConstant and test HdfsSchema.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchema.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchema.txt"
+      }
+    ]
+  },
+  {
     "id": "testQueryConstantSET",
     "tag": "DB",
     "desc": "The case will test QueryConstant and test SET.",

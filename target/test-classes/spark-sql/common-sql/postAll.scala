@@ -88,8 +88,32 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE testdb.tbl4vacuum";
 spark.sql(test_sql).collect().foreach(println);
 
+val test_sql="DROP TABLE testdb.spark_case_employee";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_case_employee_partition";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_query_employee";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_query_employee_partition";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_insert_employee";
+spark.sql(test_sql).collect().foreach(println);
+
+var test_sql="DROP TABLE testdb.spark_df_parquet";
+spark.sql(test_sql).collect().foreach(println);
+var test_sql="DROP TABLE testdb.spark_df_json";
+spark.sql(test_sql).collect().foreach(println);
+var test_sql="DROP TABLE testdb.spark_df_orc";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP TABLE testdb.spark_merge_schema_true";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_merge_schema_false";
+spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP DATABASE testdb CASCADE";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP DATABASE unaccessibledb";
 spark.sql(test_sql).collect().foreach(println);
 

@@ -37,6 +37,8 @@ public class UtilTool {
         System.out.println(SentryConstant.sqlSrc);
         System.out.println(SentryConstant.commonSqlSrc);
 
+        System.out.println(SentryConstant.cmdExec);
+
 
         /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
         String fileName = filterTmpPath + "filterTmp.txt";

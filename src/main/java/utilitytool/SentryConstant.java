@@ -25,7 +25,8 @@ public class SentryConstant {
 
     // Define spark executor vars. If run spark sql please comment hive env statements.
     public static final String execSrc = File.separator + "opt" + File.separator + "meituan" + File.separator + "spark-2.1-sentry" + File.separator + "bin" + File.separator + "spark-shell";
-    public static final String cmdExec = String.format("%s --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest -i ", execSrc);
+    public static final String hiveDataSrc = tSrc + File.separator + "hive-data";
+    public static final String cmdExec = String.format("%s --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars %s -i ", execSrc, hiveDataSrc + File.separator + "hive_qa_udf.jar");
     public static final String sqlSrc = tSrc + File.separator + "spark-sql";
     public static final String commonSqlSrc = sqlSrc + File.separator + "common-sql";
     public static final String encryptColumnSqlSrc = sqlSrc + File.separator + "DBAllWithEncryptedColumns-sql";

@@ -1,17 +1,57 @@
--- CREATE DATABASE -----------------------------------
-CREATE DATABASE ba_ups;
-CREATE DATABASE dim;
-CREATE DATABASE dw;
-CREATE DATABASE mart_waimai;
-CREATE DATABASE mart_waimai_crm;
-CREATE DATABASE mart_wmorg;
-CREATE DATABASE origin_waimai;
-CREATE DATABASE origindb;
-CREATE DATABASE origindb_delta;
-CREATE DATABASE origin_dianping;
+/* CREATE DATABASE */
+val test_sql = "DROP DATABASE IF EXISTS ba_ups CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE ba_ups LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/ba_ups.db'";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : mart_wmorg -----------------------------------
-CREATE  TABLE mart_wmorg.employ_encrypted (
+val test_sql = "DROP DATABASE IF EXISTS dim CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE dim LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/dim.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS dw CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE dw LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/dw.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS mart_waimai CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE mart_waimai LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS mart_waimai_crm CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE mart_waimai_crm LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai_crm.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS mart_wmorg CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE mart_wmorg LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_wmorg.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS origin_waimai CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE origin_waimai LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/origin_waimai.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS origindb CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE origindb LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/origindb.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS origindb_delta CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE origindb_delta LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/origindb_delta.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS origin_dianping CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE origin_dianping LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/origin_dianping.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+
+/* DATABASE : mart_wmorg */
+val test_sql="""CREATE  TABLE mart_wmorg.employ_encrypted (
  `uid` bigint COMMENT '',
  `mis_id` string COMMENT '',
  `name` string COMMENT '',
@@ -46,10 +86,11 @@ TBLPROPERTIES (
  'transient_lastDdlTime'='1508690208',
  'numRows'='-1',
  'totalSize'='14713840',
- 'rawDataSize'='-1');
+ 'rawDataSize'='-1')""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : origindb -----------------------------------
-CREATE  TABLE origindb.gis__admin_division (
+/* DATABASE : origindb */
+val test_sql="""CREATE  TABLE origindb.gis__admin_division (
  `id` bigint COMMENT '自增主键',
  `chinese_name` string COMMENT '中文简称',
  `chinese_full_name` string COMMENT '原语种简称',
@@ -95,9 +136,10 @@ TBLPROPERTIES (
  'transient_lastDdlTime'='1508257734',
  'numRows'='-1',
  'totalSize'='841911',
- 'rawDataSize'='-1');
+ 'rawDataSize'='-1')""";
+spark.sql(test_sql).collect().foreach(println);
 
- CREATE  TABLE origindb.waimai_order_shard__wm (
+val test_sql="""CREATE  TABLE origindb.waimai_order_shard__wm (
  `id` bigint COMMENT 'ID',
  `wm_order_id_hash` string COMMENT 'orderid的hash值',
  `wm_order_id_view` bigint COMMENT '订单的展示id',
@@ -200,10 +242,11 @@ TBLPROPERTIES (
  'COLUMN_STATS_ACCURATE'='false',
  'totalSize'='4765984356901',
  'numRows'='-1',
- 'rawDataSize'='-1');
+ 'rawDataSize'='-1')""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : origin_waimai -----------------------------------
-CREATE VIEW origin_waimai.waimai_cos__wm_employ AS SELECT employ_encrypted.uid,
+/* DATABASE : origin_waimai */
+val test_sql="""CREATE VIEW origin_waimai.waimai_cos__wm_employ AS SELECT employ_encrypted.uid,
       `employ_encrypted`.`mis_id`,
       `employ_encrypted`.`name`,
       `employ_encrypted`.`email`,
@@ -222,9 +265,10 @@ CREATE VIEW origin_waimai.waimai_cos__wm_employ AS SELECT employ_encrypted.uid,
       `employ_encrypted`.`res_ids`,
       `employ_encrypted`.`hq_types`,
       `employ_encrypted`.`_update_timestamp`
- FROM `mart_wmorg`.`employ_encrypted`;
+ FROM `mart_wmorg`.`employ_encrypted`""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE VIEW origin_waimai.waimai_safe_order AS SELECT
+val test_sql="""CREATE VIEW origin_waimai.waimai_safe_order AS SELECT
    `waimai_order_shard__wm`.`wm_order_id_hash`,
    `waimai_order_shard__wm`.`wm_order_id_view`,
    `waimai_order_shard__wm`.`wm_poi_order_dayseq`,
@@ -304,10 +348,11 @@ CREATE VIEW origin_waimai.waimai_safe_order AS SELECT
    `waimai_order_shard__wm`.`category`,
    `waimai_order_shard__wm`.`config_id`,
    `waimai_order_shard__wm`.`apply_part_refund`
-from `origindb`.`waimai_order_shard__wm`;
+from `origindb`.`waimai_order_shard__wm`""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : origindb_delta -----------------------------------
-CREATE  TABLE  origindb_delta.waimai_money_exchange__wm_exchange_flow (
+/* DATABASE : origindb_delta */
+val test_sql="""CREATE  TABLE  origindb_delta.waimai_money_exchange__wm_exchange_flow (
  `id` bigint COMMENT '自增主键',
  `parent_id` bigint COMMENT 'wm_exchange表id',
  `partner_id` bigint COMMENT '商家id',
@@ -342,10 +387,11 @@ OUTPUTFORMAT
 LOCATION
  'viewfs://hadoop-meituan-test/user/hive/warehouse/origindb_delta.db/waimai_money_exchange__wm_exchange_flow'
 TBLPROPERTIES (
- 'transient_lastDdlTime'='1507688631');
+ 'transient_lastDdlTime'='1507688631')""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : origin_dianping -----------------------------------
-CREATE  TABLE origin_dianping.dpmid_ugcreview_basereview (
+/* DATABASE : origin_dianping */
+val test_sql="""CREATE  TABLE origin_dianping.dpmid_ugcreview_basereview (
  `reviewid` string COMMENT 'from deserializer',
  `userid` string COMMENT 'from deserializer',
  `shopid` bigint COMMENT 'from deserializer',
@@ -390,10 +436,11 @@ TBLPROPERTIES (
  'transient_lastDdlTime'='1477481200',
  'numRows'='0',
  'totalSize'='72366134400',
- 'rawDataSize'='0');
+ 'rawDataSize'='0')""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : ba_ups -----------------------------------
-CREATE  TABLE ba_ups.mt_dp_uid_mapping_new (
+/* DATABASE : ba_ups */
+val test_sql="""CREATE  TABLE ba_ups.mt_dp_uid_mapping_new (
  `mt_uid` bigint COMMENT '美团userid',
  `dp_uid` bigint COMMENT '点评userid',
  `mobile` bigint COMMENT '对应手机号')
@@ -418,10 +465,11 @@ TBLPROPERTIES (
  'COLUMN_STATS_ACCURATE'='false',
  'totalSize'='15686459084',
  'numRows'='-1',
- 'rawDataSize'='-1');
+ 'rawDataSize'='-1')""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : dim -----------------------------------
-CREATE  TABLE dim.ndm_user (
+/* DATABASE : dim */
+val test_sql="""CREATE  TABLE dim.ndm_user (
  `userid` int COMMENT '用户ID',
  `cityid` smallint COMMENT '城市ID',
  `username` string COMMENT '用户昵称',
@@ -454,19 +502,24 @@ TBLPROPERTIES (
  'COLUMN_STATS_ACCURATE'='false',
  'totalSize'='65292873192',
  'numRows'='-1',
- 'rawDataSize'='-1');
+ 'rawDataSize'='-1')""";
+spark.sql(test_sql).collect().foreach(println);
 
-INSERT INTO dim.ndm_user VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1);
+val test_sql="INSERT INTO dim.ndm_user VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1)";
+spark.sql(test_sql).collect().foreach(println);
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE dim.collecttest (str STRING, countVal INT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+val test_sql="""CREATE TABLE dim.collecttest (str STRING, countVal INT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'""";
+spark.sql(test_sql).collect().foreach(println);
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
+val test_sql="LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : dw -----------------------------------
-CREATE  TABLE dw.dim_employee(
+/* DATABASE : dw */
+val test_sql="""CREATE  TABLE dw.dim_employee(
  `employee_id` bigint COMMENT '员工第一次入职时给员工分配的ID，离职后再次入职保持不变',
  `employee_name` string COMMENT '员工的中文名',
  `mis_name` string COMMENT '员工的mis账号名',
@@ -511,16 +564,19 @@ TBLPROPERTIES (
  'COLUMN_STATS_ACCURATE'='false',
  'totalSize'='18934694',
  'numRows'='-1',
- 'rawDataSize'='-1');
+ 'rawDataSize'='-1')""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : mart_waimai -----------------------------------
-CREATE TABLE mart_waimai.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
-PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+/* DATABASE : mart_waimai */
+val test_sql="""CREATE TABLE mart_waimai.test_enable_disable1 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
-PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+val test_sql="""CREATE TABLE mart_waimai.test_enable_disable2 (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE  TABLE mart_waimai.dim_ad_cpc_activity_poi (
+val test_sql="""CREATE  TABLE mart_waimai.dim_ad_cpc_activity_poi (
  ad_activity_key string COMMENT '维度代理键',
  ad_activity_id bigint COMMENT '活动id',
  ad_activity_type int COMMENT '活动类型代码',
@@ -541,17 +597,23 @@ OUTPUTFORMAT
 LOCATION
  'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi'
 TBLPROPERTIES (
- 'transient_lastDdlTime'='1482166667');
+ 'transient_lastDdlTime'='1482166667')""";
+spark.sql(test_sql).collect().foreach(println);
 
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20110122);
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20110123);
+val test_sql="ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20110122)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20110123)";
+spark.sql(test_sql).collect().foreach(println);
 
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20210102);
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20210103);
+val test_sql="ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20210102)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20210103)";
+spark.sql(test_sql).collect().foreach(println);
 
-ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20190104);
+val test_sql="ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20190104)";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE  TABLE mart_waimai.dim_ad_cpc_activity(
+val test_sql="""CREATE  TABLE mart_waimai.dim_ad_cpc_activity(
  ad_activity_key string COMMENT '维度代理键',
  ad_activity_id bigint COMMENT '活动id',
  ad_activity_name string COMMENT '活动名称',
@@ -584,9 +646,10 @@ LOCATION
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimai',
  'last_modified_time'='1484568134',
- 'transient_lastDdlTime'='1484568134');
+ 'transient_lastDdlTime'='1484568134')""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE  TABLE mart_waimai.cis_mappoi_in_aor (
+val test_sql="""CREATE  TABLE mart_waimai.cis_mappoi_in_aor (
  `poi_id` string,
  `aor_id` int,
  `city_id` int)
@@ -601,39 +664,53 @@ OUTPUTFORMAT
 LOCATION
  'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/cis_mappoi_in_aor'
 TBLPROPERTIES (
- 'transient_lastDdlTime'='1437472165');
+ 'transient_lastDdlTime'='1437472165')""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.table001 (name STRING, ip STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
+val test_sql="""CREATE TABLE mart_waimai.table001 (name STRING, ip STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE IF NOT EXISTS mart_waimai.table002 LIKE mart_waimai.table001;
+val test_sql="CREATE TABLE IF NOT EXISTS mart_waimai.table002 LIKE mart_waimai.table001";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.partition_table001 (name STRING, ip STRING)
+val test_sql="""CREATE TABLE mart_waimai.partition_table001 (name STRING, ip STRING)
 PARTITIONED BY (dt STRING, ht STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t";
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.partition_table002 LIKE mart_waimai.partition_table001;
+val test_sql="CREATE TABLE mart_waimai.partition_table002 LIKE mart_waimai.partition_table001";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.collecttest (str STRING, countVal INT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
+val test_sql="""CREATE TABLE mart_waimai.collecttest (str STRING, countVal INT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.test_replace_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+val test_sql="CREATE TABLE mart_waimai.test_replace_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP)";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.test_rename (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+val test_sql="CREATE TABLE mart_waimai.test_rename (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP)";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.test_change (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+val test_sql="CREATE TABLE mart_waimai.test_change (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP)";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.test_add_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP);
+val test_sql="CREATE TABLE mart_waimai.test_add_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP)";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
-PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+val test_sql="""CREATE TABLE mart_waimai.log_messages (hms INT, severity STRING, server STRING, process_id INT, message STRING)
+PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE EXTERNAL TABLE IF NOT EXISTS mart_waimai.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+val test_sql="CREATE EXTERNAL TABLE IF NOT EXISTS mart_waimai.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
+spark.sql(test_sql).collect().foreach(println);
 
-ALTER TABLE mart_waimai.log_messages ADD PARTITION(year=2011, month=1, day=1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages/2011/01/01';
-ALTER TABLE mart_waimai.log_messages_external ADD PARTITION(year=2011, month=1, day=2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external/2011/01/02';
+val test_sql="ALTER TABLE mart_waimai.log_messages ADD PARTITION(year=2011, month=1, day=1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages/2011/01/01'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="ALTER TABLE mart_waimai.log_messages_external ADD PARTITION(year=2011, month=1, day=2) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external/2011/01/02'";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.employees_import_export (
+val test_sql="""CREATE TABLE mart_waimai.employees_import_export (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -643,9 +720,10 @@ CREATE TABLE mart_waimai.employees_import_export (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.src_employees_import_export (
+val test_sql="""CREATE TABLE mart_waimai.src_employees_import_export (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -655,18 +733,22 @@ CREATE TABLE mart_waimai.src_employees_import_export (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
 
-ALTER TABLE mart_waimai.src_employees_import_export ADD PARTITION (country='US', state='CA');
+val test_sql="ALTER TABLE mart_waimai.src_employees_import_export ADD PARTITION (country='US', state='CA')";
+spark.sql(test_sql).collect().foreach(println);
 
-ALTER TABLE mart_waimai.employees_import_export ADD PARTITION (country='US', state='CA') ;
+val test_sql="ALTER TABLE mart_waimai.employees_import_export ADD PARTITION (country='US', state='CA')";
+spark.sql(test_sql).collect().foreach(println);
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_import_export
-PARTITION (country='US', state='CA');
+PARTITION (country='US', state='CA')""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.src_employees_insert_overwrite (
+val test_sql="""CREATE TABLE mart_waimai.src_employees_insert_overwrite (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -676,18 +758,24 @@ CREATE TABLE mart_waimai.src_employees_insert_overwrite (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
 
-ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='CA');
-ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='OR');
-ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='IL');
+val test_sql="ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='CA')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='OR')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='IL')";
+spark.sql(test_sql).collect().foreach(println);
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_insert_overwrite
-PARTITION (country='US', state='CA');
+PARTITION (country='US', state='CA')""";
+spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE mart_waimai.employees_insert_overwrite (
+val test_sql="""CREATE TABLE mart_waimai.employees_insert_overwrite (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
@@ -697,10 +785,11 @@ CREATE TABLE mart_waimai.employees_insert_overwrite (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
 
--- DATABASE : mart_waimai_crm -----------------------------------
-CREATE  TABLE mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit (
+/* DATABASE : mart_waimai_crm */
+val test_sql="""CREATE  TABLE mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit (
  aor_id int COMMENT '蜂窝id',
  aor_type int COMMENT '蜂窝类型',
  food_check_num int COMMENT '菜品覆盖考核总商家数',
@@ -722,4 +811,53 @@ LOCATION
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimaiaudit',
  'last_modified_time'='1505294937',
- 'transient_lastDdlTime'='1505294944');
+ 'transient_lastDdlTime'='1505294944')""";
+spark.sql(test_sql).collect().foreach(println);
+
+
+val test_sql =
+  """CREATE TABLE mart_waimai.src_test_insert_overwrite_tbl_partition (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "ALTER TABLE mart_waimai.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'CA')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "ALTER TABLE mart_waimai.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'OR')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "ALTER TABLE mart_waimai.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL')";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE mart_waimai.src_test_insert_overwrite_tbl_partition
+PARTITION (country = 'US', state = 'CA')""";
+spark.sql(test_sql).collect().foreach(println);
+
+/*testUDF*/
+val test_sql="CREATE TABLE mart_waimai.tbl4udf (id int)";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="INSERT INTO mart_waimai.tbl4udf VALUES (1), (2), (null)";
+spark.sql(test_sql).collect().foreach(println);
+
+/* testVacuum */
+val test_sql="CREATE TABLE mart_waimai.tbl4vacuum (id int)";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="INSERT INTO mart_waimai.tbl4vacuum VALUES (1), (2), (null)";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql ="""CREATE TABLE mart_waimai.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/spark_insert_employee'""";
+spark.sql(test_sql).collect().foreach(println);
+
+System.exit(0);
+

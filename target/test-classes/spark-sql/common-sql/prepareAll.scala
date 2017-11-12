@@ -1,8 +1,6 @@
 val test_sql = "DROP DATABASE IF EXISTS testdb CASCADE";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql = "CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02')";
-
 val test_sql = "CREATE DATABASE testdb LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db' WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02')";
 spark.sql(test_sql).collect().foreach(println);
 
@@ -454,6 +452,10 @@ val test_sql="CREATE TABLE testdb.tbl4vacuum (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="INSERT INTO testdb.tbl4vacuum VALUES (1), (2), (null)";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql ="""CREATE TABLE testdb.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/spark_insert_employee'""";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);
