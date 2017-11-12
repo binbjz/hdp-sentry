@@ -21,14 +21,10 @@ val df_parquet_query = spark.sql("SELECT * FROM parquet.`/user/hive/warehouse/te
 df_parquet_query.collect.foreach(println);
 
 /* save df data to table */
-var test_sql="DROP TABLE IF EXISTS testdb.spark_df_parquet";
-spark.sql(test_sql).collect().foreach(println);
-df_parquet.write.saveAsTable("testdb.spark_df_parquet")
+df_parquet.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_df_parquet")
 df_parquet.write.insertInto("testdb.spark_df_parquet")
 
-var test_sql="DROP TABLE IF EXISTS testdb.spark_df_parquet_query";
-spark.sql(test_sql).collect().foreach(println);
-df_parquet_query.write.saveAsTable("testdb.spark_df_parquet_query")
+df_parquet_query.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_df_parquet_query")
 df_parquet_query.write.insertInto("testdb.spark_df_parquet_query")
 
 
@@ -59,14 +55,10 @@ val df_json_query = spark.sql("SELECT * FROM json.`/user/hive/warehouse/testdb.d
 df_json_query.collect.foreach(println);
 
 /* save df data to table */
-var test_sql="DROP TABLE IF EXISTS testdb.spark_df_json";
-spark.sql(test_sql).collect().foreach(println);
-df_json.write.saveAsTable("testdb.spark_df_json");
+df_json.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_df_json");
 df_json.write.insertInto("testdb.spark_df_json");
 
-var test_sql="DROP TABLE IF EXISTS testdb.spark_df_json_query";
-spark.sql(test_sql).collect().foreach(println);
-df_json_query.write.saveAsTable("testdb.spark_df_json_query");
+df_json_query.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_df_json_query");
 df_json_query.write.insertInto("testdb.spark_df_json_query");
 
 /* query and verify data */
@@ -96,14 +88,10 @@ val df_orc_query = spark.sql("SELECT * FROM orc.`/user/hive/warehouse/testdb.db/
 df_orc_query.collect.foreach(println);
 
 /* save df data to table */
-var test_sql="DROP TABLE IF EXISTS testdb.spark_df_orc";
-spark.sql(test_sql).collect().foreach(println);
-df_orc.write.saveAsTable("testdb.spark_df_orc")
+df_orc.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_df_orc")
 df_orc.write.insertInto("testdb.spark_df_orc")
 
-var test_sql="DROP TABLE IF EXISTS testdb.spark_df_orc_query";
-spark.sql(test_sql).collect().foreach(println);
-df_orc_query.write.saveAsTable("testdb.spark_df_orc_query")
+df_orc_query.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_df_orc_query")
 df_orc_query.write.insertInto("testdb.spark_df_orc_query")
 
 /* query and verify data */

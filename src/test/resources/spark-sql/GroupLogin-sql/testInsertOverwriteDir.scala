@@ -1,28 +1,32 @@
-USE mart_waimai;
+val test_sql="USE mart_waimai";
+spark.sql(test_sql).collect().foreach(println);
 
-INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
-SELECT * FROM mart_waimai.src_employees_insert_overwrite se WHERE se.country = 'US' and se.state = 'CA';
-!ls -l /tmp/ca_employees;
-!rm -r /tmp/ca_employees;
 
-FROM (
+if(fs.exists(new Path("/tmp/ca_employees")))
+  fs.delete(new Path("/tmp/ca_employees"),true)
+
+/* testInsertOverwriteDir DOES NOT SUPPORT */
+var test_sql="""INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
+SELECT * FROM mart_waimai.src_employees_insert_overwrite se WHERE se.country = 'US' and se.state = 'CA'""";
+spark.sql(test_sql).collect().foreach(println);
+
+if(fs.exists(new Path("/tmp/ca_employees")))
+  fs.delete(new Path("/tmp/ca_employees"),true)
+
+
+if(fs.exists(new Path("/tmp/union.out")))
+  fs.delete(new Path("/tmp/union.out"),true)
+
+var test_sql="""FROM (
 SELECT emp.name, emp.salary FROM mart_waimai.src_employees_insert_overwrite emp WHERE emp.salary < 6000
 UNION ALL
 SELECT emp.name, emp.salary FROM mart_waimai.src_employees_insert_overwrite emp WHERE emp.salary > 7000
 ) unioninput
-INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*;
-dfs -cat /tmp/union.out/* ;
-dfs -rm -r /tmp/union.out ;
+INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*""";
 
+spark.sql(test_sql).collect().foreach(println);
 
-
-val test_sql="USE mart_waimai";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW TBLPROPERTIES mart_waimai.dim_ad_cpc_activity";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW COLUMNS IN mart_waimai.dim_ad_cpc_activity";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
-spark.sql(test_sql).collect().foreach(println);
+if(fs.exists(new Path("/tmp/union.out")))
+  fs.delete(new Path("/tmp/union.out"),true)
 
 System.exit(0);

@@ -104,6 +104,36 @@
     ]
   },
   {
+    "id": "testDF2Table",
+    "tag": "Table",
+    "desc": "The case will test DF2Table.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDF2Table.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDF2Table.txt"
+      }
+    ]
+  },
+  {
+    "id": "testHdfsSchemaWithTable",
+    "tag": "Table",
+    "desc": "The case will test HdfsSchemaWithTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchemaWithTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchemaWithTable.txt"
+      }
+    ]
+  },
+  {
     "id": "testImportExportInsertIntoTablePartition",
     "tag": "Table",
     "desc": "The case will test ImportExportInsertIntoTablePartition.",
@@ -164,6 +194,21 @@
     ]
   },
   {
+    "id": "testInsertOverwriteTablePartition02",
+    "tag": "Table",
+    "desc": "The case will test InsertOverwriteTablePartition02.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartition02.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartition02.txt"
+      }
+    ]
+  },
+  {
     "id": "testMSCKRepairAnalyzeTableAddRenameDropShowPartition",
     "tag": "Table",
     "desc": "The case will test MSCKRepairAnalyzeTableAddRenameDropShowPartition.",
@@ -194,8 +239,23 @@
     ]
   },
   {
+    "id": "testTable2Hdfs2Df2Table",
+    "tag": "Table",
+    "desc": "The case will test Table2Hdfs2Df2Table.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testTable2Hdfs2Df2Table.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testTable2Hdfs2Df2Table.txt"
+      }
+    ]
+  },
+  {
     "id": "testUDF",
-    "tag": "DB",
+    "tag": "Table",
     "desc": "The case will test UDF.",
     "cases": [
       {
@@ -210,8 +270,8 @@
   },
   {
     "id": "testVacuum",
-    "tag": "DB",
-    "desc": "The case will test Vacuum.",
+    "tag": "Table",
+    "desc": "The case will testVacuum.",
     "cases": [
       {
         "type": "file/scala",

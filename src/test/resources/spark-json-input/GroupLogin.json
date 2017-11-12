@@ -300,6 +300,21 @@
     ]
   },
   {
+    "id": "testDF2Table",
+    "tag": "DB",
+    "desc": "The case will test DF2Table.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDF2Table.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDF2Table.txt"
+      }
+    ]
+  },
+  {
     "id": "testDfs",
     "tag": "DB",
     "desc": "The case will test Dfs.",
@@ -356,6 +371,21 @@
       {
         "type": "file/scala",
         "name": "testEncryptColumn.txt"
+      }
+    ]
+  },
+  {
+    "id": "testHdfsSchemaWithTable",
+    "tag": "DB",
+    "desc": "The case will test HdfsSchemaWithTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchemaWithTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchemaWithTable.txt"
       }
     ]
   },
@@ -510,6 +540,21 @@
     ]
   },
   {
+    "id": "testTable2Hdfs2Df2Table",
+    "tag": "DB",
+    "desc": "The case will test Table2Hdfs2Df2Table.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testTable2Hdfs2Df2Table.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testTable2Hdfs2Df2Table.txt"
+      }
+    ]
+  },
+  {
     "id": "testTableAnalyze",
     "tag": "DB",
     "desc": "The case will test TableAnalyze.",
@@ -521,6 +566,36 @@
       {
         "type": "file/scala",
         "name": "testTableAnalyze.txt"
+      }
+    ]
+  },
+  {
+    "id": "testUDF",
+    "tag": "DB",
+    "desc": "The case will test UDF.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testUDF.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testUDF.txt"
+      }
+    ]
+  },
+  {
+    "id": "testVacuum",
+    "tag": "DB",
+    "desc": "The case will test Vacuum.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testVacuum.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testVacuum.txt"
       }
     ]
   }
