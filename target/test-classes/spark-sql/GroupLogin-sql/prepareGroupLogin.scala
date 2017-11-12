@@ -860,4 +860,3 @@ LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/spark_
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);
-

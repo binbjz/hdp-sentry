@@ -1,7 +1,7 @@
---encrypt_db4alter.tbl4fileformat=encrypt_server,encrypt_message
---encrypt_db4alter.tbl4fileformat_external=encrypt_server,encrypt_message
---CREATE DATABASE encrypt_db4alter;
---DROP DATABASE encrypt_db4alter;
+//encrypt_db4alter.tbl4fileformat=encrypt_server,encrypt_message
+//encrypt_db4alter.tbl4fileformat_external=encrypt_server,encrypt_message
+//CREATE DATABASE encrypt_db4alter;
+//DROP DATABASE encrypt_db4alter;
 
 USE encrypt_db4alter;
 
@@ -44,3 +44,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
 spark.sql(test_sql).collect().foreach(println);
 
+System.exit(0);

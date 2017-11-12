@@ -1,6 +1,6 @@
---encrypt_db4alter.tbl4descformatted=encrypt_server,encrypt_message
---CREATE DATABASE encrypt_db4alter;
---DROP DATABASE encrypt_db4alter;
+//encrypt_db4alter.tbl4descformatted=encrypt_server,encrypt_message
+//CREATE DATABASE encrypt_db4alter;
+//DROP DATABASE encrypt_db4alter;
 
 USE encrypt_db4alter;
 CREATE TABLE IF NOT EXISTS encrypt_db4alter.tbl4descformatted (hms INT, severity STRING, encrypt_server STRING, process_id INT, encrypt_message STRING)
@@ -36,3 +36,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
 spark.sql(test_sql).collect().foreach(println);
 
+System.exit(0);

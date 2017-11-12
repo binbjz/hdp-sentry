@@ -1,6 +1,6 @@
---encrypt_db4data.test_serde_partition=encrypt_c0
---CREATE DATABASE encrypt_db4data;
---DROP DATABASE encrypt_db4data;
+//encrypt_db4data.test_serde_partition=encrypt_c0
+//CREATE DATABASE encrypt_db4data;
+//DROP DATABASE encrypt_db4data;
 
 val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);

@@ -8,3 +8,5 @@ dfs -cat /tmp/california-employees.csv_new;
 dfs -copyToLocal /tmp/california-employees.csv_new /tmp;
 dfs -rm /tmp/california-employees.csv_new;
 !rm /tmp/california-employees.csv_new;
+
+System.exit(0);

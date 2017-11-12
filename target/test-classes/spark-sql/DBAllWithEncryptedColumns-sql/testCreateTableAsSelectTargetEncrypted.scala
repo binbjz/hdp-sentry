@@ -1,6 +1,6 @@
---encrypt_db4data.sessionization_step_one_origins_tgt_encrypted=ssoo_user_id,ssoo_pageview_id
---CREATE DATABASE encrypt_db4data;
---DROP DATABASE encrypt_db4data;
+//encrypt_db4data.sessionization_step_one_origins_tgt_encrypted=ssoo_user_id,ssoo_pageview_id
+//CREATE DATABASE encrypt_db4data;
+//DROP DATABASE encrypt_db4data;
 
 val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);

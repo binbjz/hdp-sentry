@@ -1,7 +1,7 @@
---encrypt_db4data.encrypt_employees=encrypt_name,encrypt_salary
---encrypt_db4data.encrypt_tgt_employees=encrypt_name,encrypt_salary
---CREATE DATABASE encrypt_db4data;
---DROP DATABASE encrypt_db4data;
+//encrypt_db4data.encrypt_employees=encrypt_name,encrypt_salary
+//encrypt_db4data.encrypt_tgt_employees=encrypt_name,encrypt_salary
+//CREATE DATABASE encrypt_db4data;
+//DROP DATABASE encrypt_db4data;
 
 USE encrypt_db4data;
 
@@ -85,7 +85,7 @@ SELECT emp.encrypt_name, emp.encrypt_salary FROM encrypt_db4data.encrypt_employe
 ) unioninput
 INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*;
 
-dfs -cat /tmp/union.out/* ;
+dfs -cat /tmp/union.out/*;
 dfs -rm -r /tmp/union.out ;
 
 DROP TABLE encrypt_db4data.encrypt_tgt_employees;
@@ -101,3 +101,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
 spark.sql(test_sql).collect().foreach(println);
 
+System.exit(0);

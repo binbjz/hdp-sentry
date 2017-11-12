@@ -1,6 +1,6 @@
---encrypt_db4alter.tbl4addcolumn=encrypt_col2
---CREATE DATABASE encrypt_db4alter;
---DROP DATABASE encrypt_db4alter;
+//encrypt_db4alter.tbl4addcolumn=encrypt_col2
+//CREATE DATABASE encrypt_db4alter;
+//DROP DATABASE encrypt_db4alter;
 
 val test_sql="USE encrypt_db4alter";
 spark.sql(test_sql).collect().foreach(println);

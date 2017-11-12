@@ -1,11 +1,12 @@
 USE mart_waimai;
 
--- 创建两个分区目录
+//创建两个分区目录
 dfs -mkdir /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20180102;
 dfs -mkdir /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20180103;
--- 使用MSCK修复分区
+
+//使用MSCK修复分区
 MSCK REPAIR TABLE mart_waimai.dim_ad_cpc_activity_poi;
--- 再次查看，发现已经成功更新元信息
+//再次查看，发现已经成功更新元信息
 SHOW PARTITIONS mart_waimai.dim_ad_cpc_activity_poi;
 dfs -ls -R /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20180102;
 dfs -ls -R /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20180103;

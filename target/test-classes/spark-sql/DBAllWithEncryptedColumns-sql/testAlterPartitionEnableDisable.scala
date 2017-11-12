@@ -1,6 +1,6 @@
---encrypt_db4alter.test_enable_disable_partition=encrypt_message
---CREATE DATABASE encrypt_db4alter;
---DROP DATABASE encrypt_db4alter;
+//encrypt_db4alter.test_enable_disable_partition=encrypt_message
+//CREATE DATABASE encrypt_db4alter;
+//DROP DATABASE encrypt_db4alter;
 
 val test_sql="USE encrypt_db4alter";
 spark.sql(test_sql).collect().foreach(println);

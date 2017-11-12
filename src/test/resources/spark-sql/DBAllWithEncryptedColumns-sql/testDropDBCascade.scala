@@ -1,6 +1,6 @@
---CREATE DATABASE encrypt_db4drop_cascade;
---DROP DATABASE encrypt_db4drop_cascade;
---encrypt_db4drop_cascade.encrypt_tbl4drop=encrypt_val
+//CREATE DATABASE encrypt_db4drop_cascade;
+//DROP DATABASE encrypt_db4drop_cascade;
+//encrypt_db4drop_cascade.encrypt_tbl4drop=encrypt_val
 
 val test_sql="USE encrypt_db4drop_cascade";
 spark.sql(test_sql).collect().foreach(println);

@@ -1,6 +1,6 @@
---encrypt_db4tbl.tbl4view=encrypt_c1,encrypt_c2
---CREATE DATABASE encrypt_db4tbl;
---DROP DATABASE encrypt_db4tbl;
+//encrypt_db4tbl.tbl4view=encrypt_c1,encrypt_c2
+//CREATE DATABASE encrypt_db4tbl;
+//DROP DATABASE encrypt_db4tbl;
 
 val test_sql="USE encrypt_db4tbl";
 spark.sql(test_sql).collect().foreach(println);

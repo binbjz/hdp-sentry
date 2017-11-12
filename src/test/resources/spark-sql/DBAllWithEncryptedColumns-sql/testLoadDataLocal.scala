@@ -1,6 +1,6 @@
---encrypt_db4data.collecttest=str
---CREATE DATABASE encrypt_db4data;
---DROP DATABASE encrypt_db4data;
+//encrypt_db4data.collecttest=str
+//CREATE DATABASE encrypt_db4data;
+//DROP DATABASE encrypt_db4data;
 
 USE encrypt_db4data;
 
@@ -32,3 +32,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
 spark.sql(test_sql).collect().foreach(println);
 
+System.exit(0);

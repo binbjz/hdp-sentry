@@ -1,6 +1,6 @@
---encrypt_db4props.employees_props=encrypt_name,encrypt_salary
---CREATE DATABASE encrypt_db4props;
---DROP DATABASE encrypt_db4props;
+//encrypt_db4props.employees_props=encrypt_name,encrypt_salary
+//CREATE DATABASE encrypt_db4props;
+//DROP DATABASE encrypt_db4props;
 
 val test_sql="USE encrypt_db4props";
 spark.sql(test_sql).collect().foreach(println);

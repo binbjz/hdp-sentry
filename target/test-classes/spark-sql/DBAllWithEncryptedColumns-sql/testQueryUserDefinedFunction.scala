@@ -1,6 +1,6 @@
---encrypt_db4func.teacher=name
---CREATE DATABASE encrypt_db4func;
---DROP DATABASE encrypt_db4func;
+//encrypt_db4func.teacher=name
+//CREATE DATABASE encrypt_db4func;
+//DROP DATABASE encrypt_db4func;
 
 val test_sql="USE encrypt_db4func";
 spark.sql(test_sql).collect().foreach(println);

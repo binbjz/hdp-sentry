@@ -1,5 +1,4 @@
 #!/bin/bash
-while read LINE
-do
-    echo "Hello,  $LINE"
-done
+#
+
+while read LINE; do echo "Hello,  $LINE"; done

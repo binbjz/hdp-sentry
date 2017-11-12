@@ -1,6 +1,6 @@
---encrypt_db4msck.test_msck=encrypt_val
---CREATE DATABASE encrypt_db4msck;
---DROP DATABASE encrypt_db4msck;
+//encrypt_db4msck.test_msck=encrypt_val
+//CREATE DATABASE encrypt_db4msck;
+//DROP DATABASE encrypt_db4msck;
 
 USE encrypt_db4msck;
 CREATE TABLE encrypt_db4msck.test_msck (id INT, encrypt_val STRING) PARTITIONED BY(month INT);
@@ -32,3 +32,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
 spark.sql(test_sql).collect().foreach(println);
 
+System.exit(0);

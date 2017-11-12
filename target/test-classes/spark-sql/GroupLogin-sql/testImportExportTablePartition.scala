@@ -1,6 +1,6 @@
 USE mart_waimai;
 
--- 导出分区并且导入到分区表分区
+// 导出分区并且导入到分区表分区
 EXPORT TABLE mart_waimai.src_employees_import_export PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
 dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
 
