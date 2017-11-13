@@ -12,6 +12,9 @@ privil_type_ug=proxy_user_group
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd ${resource_dir}/../../.. && pwd )"
 
+# Temporary env for dependent libraries
+libdir=/opt/meituan/qa_test/data_bin/test-lib/
+
 # Set hive env. If run hive sql please comment spark env statements
 : <<COMMENTBLOCK
 HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
@@ -26,8 +29,6 @@ cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --que
 sql_src=spark-sql
 file_suffix=scala
 
-# Temporary env for dependent libraries
-libdir=/opt/meituan/qa_test/data_bin/test-lib/
 
 common_sql_src=$projectdir/src/test/resources/$sql_src/common-sql
 encryptColumn_sql_src=$projectdir/src/test/resources/$sql_src/DBAllWithEncryptedColumns-sql
