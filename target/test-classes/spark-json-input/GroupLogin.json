@@ -45,6 +45,21 @@
     ]
   },
   {
+    "id": "testAddJarCreateFuncAndTmpFuncWithLocalPath",
+    "tag": "DB",
+    "desc": "The case will test AddJarCreateFuncAndTmpFuncWithLocalPath.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddJarCreateFuncAndTmpFuncWithLocalPath.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddJarCreateFuncAndTmpFuncWithLocalPath.txt"
+      }
+    ]
+  },
+  {
     "id": "testAlterDescribeTableSetFileformat",
     "tag": "DB",
     "desc": "The case will test AlterDescribeTableSetFileformat.",
@@ -315,21 +330,6 @@
     ]
   },
   {
-    "id": "testDfs",
-    "tag": "DB",
-    "desc": "The case will test Dfs.",
-    "cases": [
-      {
-        "type": "file/scala",
-        "name": "testDfs.scala"
-      },
-      {
-        "type": "file/scala",
-        "name": "testDfs.txt"
-      }
-    ]
-  },
-  {
     "id": "testDropDB",
     "tag": "DB",
     "desc": "The case will test DropDB.",
@@ -405,17 +405,17 @@
     ]
   },
   {
-    "id": "testInsertOverwriteDir",
+    "id": "testInsertOverwriteDir_unsupported",
     "tag": "DB",
-    "desc": "The case will test InsertOverwriteDir.",
+    "desc": "The case will test InsertOverwriteDir_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testInsertOverwriteDir.scala"
+        "name": "testInsertOverwriteDir_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testInsertOverwriteDir.txt"
+        "name": "testInsertOverwriteDir_unsupported.txt"
       }
     ]
   },

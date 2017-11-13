@@ -284,6 +284,21 @@
     ]
   },
   {
+    "id": "testSample",
+    "tag": "DB",
+    "desc": "The case will test Sample.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testSample.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testSample.txt"
+      }
+    ]
+  },
+  {
     "id": "testTable2Hdfs2Df2Table",
     "tag": "DB",
     "desc": "The case will test Table2Hdfs2Df2Table.",
@@ -310,21 +325,6 @@
       {
         "type": "file/scala",
         "name": "testUDF.txt"
-      }
-    ]
-  },
-  {
-    "id": "testVacuum",
-    "tag": "DB",
-    "desc": "The case will testVacuum.",
-    "cases": [
-      {
-        "type": "file/scala",
-        "name": "testVacuum.scala"
-      },
-      {
-        "type": "file/scala",
-        "name": "testVacuum.txt"
       }
     ]
   }

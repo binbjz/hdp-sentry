@@ -445,10 +445,10 @@ spark.sql(test_sql).collect().foreach(println);
 
 
 /* testVacuum */
-val test_sql="CREATE TABLE testdb.tbl4vacuum (id int)";
+val test_sql="CREATE TABLE testdb.tbl4sample (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO testdb.tbl4vacuum VALUES (1), (2), (null)";
+val test_sql="INSERT INTO testdb.tbl4sample VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql ="CREATE TABLE testdb.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
