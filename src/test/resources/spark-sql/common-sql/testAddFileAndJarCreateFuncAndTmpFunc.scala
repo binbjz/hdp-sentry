@@ -6,11 +6,13 @@ spark.sql(test_sql).collect().foreach(println);
 
 /* test AddJarCreateFuncAndTmpFunc */
 
+
 val test_sql="ADD JAR hive_qa_udf.jar";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="LIST JARS";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="CREATE TEMPORARY FUNCTION tmp_qa_lower AS 'com.example.hive.udf.LowerCase'";
 spark.sql(test_sql).collect().foreach(println);
 

@@ -23,7 +23,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="CREATE TABLE testdb.tbl4create (col1 TINYINT, col2 SMALLINT)";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="CREATE EXTERNAL TABLE testdb.tbl4create_external (col1 TINYINT, col2 SMALLINT)";
+val test_sql="CREATE EXTERNAL TABLE testdb.tbl4create_external (col1 TINYINT, col2 SMALLINT)  'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4create_external'";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="CREATE TABLE testdb.tbl4create_no_privilege (col1 TINYINT, col2 SMALLINT)";
 spark.sql(test_sql).collect().foreach(println);

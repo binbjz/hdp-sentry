@@ -1,5 +1,7 @@
 // sqlContext from the previous example is used in this example.
 // This is used to implicitly convert an RDD to a DataFrame.
+
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
 import sqlContext.implicits._
 import org.apache.spark.sql.SaveMode
 
