@@ -437,10 +437,10 @@ INTO TABLE testdb.src_test_insert_overwrite_tbl_partition PARTITION (country = '
 spark.sql(test_sql).collect().foreach(println);
 
 /*testUDF*/
-val test_sql="CREATE TABLE testdb.tbl4udf (id int)";
+val test_sql="CREATE TABLE testdb.spark_tbl4udf (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO testdb.tbl4udf VALUES (1), (2), (null)";
+val test_sql="INSERT INTO testdb.spark_tbl4udf VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 

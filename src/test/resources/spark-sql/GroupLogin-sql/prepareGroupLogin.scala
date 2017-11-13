@@ -818,10 +818,10 @@ val test_sql="INSERT INTO mart_waimai.tbl4udf VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 /* testVacuum */
-val test_sql="CREATE TABLE mart_waimai.tbl4vacuum (id int)";
+val test_sql="CREATE TABLE mart_waimai.tbl4sample (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO mart_waimai.tbl4vacuum VALUES (1), (2), (null)";
+val test_sql="INSERT INTO mart_waimai.tbl4sample VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql ="CREATE TABLE mart_waimai.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";

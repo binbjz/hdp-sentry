@@ -73,9 +73,8 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE mart_waimai.tbl4udf";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="DROP TABLE mart_waimai.tbl4vacuum";
+val test_sql="DROP TABLE mart_waimai.tbl4sample";
 spark.sql(test_sql).collect().foreach(println);
-
 
 val test_sql="DROP TABLE mart_waimai.spark_case_employee";
 spark.sql(test_sql).collect().foreach(println);
