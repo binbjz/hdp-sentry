@@ -1,3 +1,5 @@
+import org.apache.spark.sql.SaveMode
+
 val test_sql="USE mart_waimai";
 spark.sql(test_sql).collect().foreach(println);
 
@@ -42,6 +44,7 @@ if(fs.exists(new Path(parquetPath)))
   fs.delete(new Path(parquetPath),true)
 
 
+
 /* query data and write to HDFS dir */
 val jsonPath="/user/hive/warehouse/mart_waimai.db/spark_ca_employees_json"
 if(fs.exists(new Path(jsonPath)))
@@ -73,6 +76,7 @@ spark.sql(test_sql).collect().foreach(println);
 /* remove HDFS folder */
 if(fs.exists(new Path(jsonPath)))
   fs.delete(new Path(jsonPath),true)
+
 
 
 /* query data and write to HDFS dir */

@@ -76,6 +76,30 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE mart_waimai.tbl4vacuum";
 spark.sql(test_sql).collect().foreach(println);
 
+
+val test_sql="DROP TABLE mart_waimai.spark_case_employee";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE mart_waimai.spark_case_employee_partition";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE mart_waimai.spark_query_employee";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE mart_waimai.spark_query_employee_partition";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE mart_waimai.spark_insert_employee";
+spark.sql(test_sql).collect().foreach(println);
+
+var test_sql="DROP TABLE mart_waimai.spark_df_parquet";
+spark.sql(test_sql).collect().foreach(println);
+var test_sql="DROP TABLE mart_waimai.spark_df_json";
+spark.sql(test_sql).collect().foreach(println);
+var test_sql="DROP TABLE mart_waimai.spark_df_orc";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP TABLE mart_waimai.spark_merge_schema_true";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE mart_waimai.spark_merge_schema_false";
+spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP DATABASE mart_waimai CASCADE";
 spark.sql(test_sql).collect().foreach(println);
 

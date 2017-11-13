@@ -1,5 +1,6 @@
 val sqlContext = new org.apache.spark.sql.SQLContext(sc)
 import sqlContext.implicits._
+import org.apache.spark.sql.SaveMode
 
 
 /* case to DF saveAsTable and insertInto table */
