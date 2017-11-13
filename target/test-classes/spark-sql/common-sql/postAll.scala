@@ -83,9 +83,9 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE testdb.test_enable_disable2";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="DROP TABLE testdb.tbl4udf";
+val test_sql="DROP TABLE testdb.spark_tbl4udf";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="DROP TABLE testdb.tbl4vacuum";
+val test_sql="DROP TABLE testdb.tbl4sample";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="DROP TABLE testdb.spark_case_employee";

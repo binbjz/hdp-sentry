@@ -1,5 +1,6 @@
 val sqlContext = new org.apache.spark.sql.SQLContext(sc)
 import sqlContext.implicits._
+import org.apache.spark.sql.SaveMode
 
 
 /* case to DF saveAsTable and insertInto table */
@@ -16,8 +17,9 @@ val test_sql="SELECT * FROM mart_waimai.spark_case_employee ORDER BY name, age, 
 spark.sql(test_sql).collect().foreach(println);
 
 /* case to DF with partition saveAsTable and insertInto table */
-employee.write.mode(SaveMode.Overwrite).partitionBy("province").saveAsTable("mart_waimai.spark_case_employee_partition")
-employee.write.insertInto("mart_waimai.spark_case_employee_partition")
+employee.write.mode(SaveMode.Overwrite).partitionBy("province").saveAsTable("mart_waimai.spark_case_employee_partition");
+employee.write.insertInto("mart_waimai.spark_case_employee_partition");
+employee.write.mode(SaveMode.Append).partitionBy("province").bucketBy(42, "name").sortBy("age").saveAsTable("mart_waimai.spark_case_employee_partition");
 
 val test_sql="SELECT * FROM mart_waimai.spark_case_employee_partition ORDER BY name, age, province";
 spark.sql(test_sql).collect().foreach(println);

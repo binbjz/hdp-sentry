@@ -15,8 +15,8 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM mart_waimai.employees_insert_overwrite";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT OVERWRITE TABLE mart_waimai.employees_insert_overwrite PARTITION (country = 'US', state = 'CA')
-SELECT name, salary, subordinates, deductions, address FROM mart_waimai.src_employees_insert_overwrite se WHERE se.country = 'US' AND se.state = 'CA'";
+val test_sql="""INSERT OVERWRITE TABLE mart_waimai.employees_insert_overwrite PARTITION (country = 'US', state = 'CA')
+SELECT name, salary, subordinates, deductions, address FROM mart_waimai.src_employees_insert_overwrite se WHERE se.country = 'US' AND se.state = 'CA'""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="TRUNCATE TABLE mart_waimai.employees_insert_overwrite";
@@ -28,8 +28,8 @@ val test_sql="SET hive.vectorized.execution.enabled = true";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="SET hive.vectorized.execution.reduce.enabled = true";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="INSERT OVERWRITE TABLE mart_waimai.employees_insert_overwrite PARTITION (country = 'US', state)
-SELECT se.name, se.salary, se.subordinates, se.deductions, se.address, se.state FROM mart_waimai.src_employees_insert_overwrite se WHERE se.country = 'US'";
+val test_sql="""INSERT OVERWRITE TABLE mart_waimai.employees_insert_overwrite PARTITION (country = 'US', state)
+SELECT se.name, se.salary, se.subordinates, se.deductions, se.address, se.state FROM mart_waimai.src_employees_insert_overwrite se WHERE se.country = 'US'""";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM mart_waimai.employees_insert_overwrite";
 spark.sql(test_sql).collect().foreach(println);

@@ -1,6 +1,3 @@
-// sqlContext from the previous example is used in this example.
-// This is used to implicitly convert an RDD to a DataFrame.
-import sqlContext.implicits._
 import org.apache.spark.sql.SaveMode
 
 val hdfsPath="/user/hive/warehouse/mart_waimai.db/test_schema"

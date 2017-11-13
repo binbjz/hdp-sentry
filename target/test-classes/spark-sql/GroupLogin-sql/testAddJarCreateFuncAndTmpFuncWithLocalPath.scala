@@ -3,7 +3,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="ADD JAR hive_qa_udf.jar";
+val test_sql="ADD JAR ${hiveconf:FILEPATH}/hive_qa_udf.jar";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="LIST JARS";
 spark.sql(test_sql).collect().foreach(println);

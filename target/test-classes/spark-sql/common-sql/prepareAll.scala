@@ -391,7 +391,6 @@ val test_sql =
  ,address  STRUCT<street:STRING,city:STRING, state:STRING, zip:INT> COMMENT 'Home address')
 COMMENT 'Description of the table'
 PARTITIONED BY (country STRING, state STRING)
-LOCATION '/user/hive/warehouse/testdb.db/employees_props'
 TBLPROPERTIES ('creator'='HADOOP-QA','created_at'='2017-9-10 10:00:00', 'notes'='test show tblproperties')""";
 spark.sql(test_sql).collect().foreach(println);
 
@@ -433,29 +432,26 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql = "ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL')";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql =
-  """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE testdb.src_test_insert_overwrite_tbl_partition
-PARTITION (country = 'US', state = 'CA')""";
+val test_sql = """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+INTO TABLE testdb.src_test_insert_overwrite_tbl_partition PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
 /*testUDF*/
-val test_sql="CREATE TABLE testdb.tbl4udf (id int)";
+val test_sql="CREATE TABLE testdb.spark_tbl4udf (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO testdb.tbl4udf VALUES (1), (2), (null)";
+val test_sql="INSERT INTO testdb.spark_tbl4udf VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 
 /* testVacuum */
-val test_sql="CREATE TABLE testdb.tbl4vacuum (id int)";
+val test_sql="CREATE TABLE testdb.tbl4sample (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO testdb.tbl4vacuum VALUES (1), (2), (null)";
+val test_sql="INSERT INTO testdb.tbl4sample VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql ="""CREATE TABLE testdb.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/spark_insert_employee'""";
+val test_sql ="CREATE TABLE testdb.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);
