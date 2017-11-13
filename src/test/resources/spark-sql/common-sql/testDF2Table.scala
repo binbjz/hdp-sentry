@@ -16,8 +16,9 @@ val test_sql="SELECT * FROM testdb.spark_case_employee ORDER BY name, age, provi
 spark.sql(test_sql).collect().foreach(println);
 
 /* case to DF with partition saveAsTable and insertInto table */
-employee.write.mode(SaveMode.Overwrite).partitionBy("province").saveAsTable("testdb.spark_case_employee_partition")
-employee.write.insertInto("testdb.spark_case_employee_partition")
+employee.write.mode(SaveMode.Overwrite).partitionBy("province").saveAsTable("testdb.spark_case_employee_partition");
+employee.write.insertInto("testdb.spark_case_employee_partition");
+employee.write.mode(SaveMode.Append).partitionBy("province").bucketBy(42, "name").sortBy("age").saveAsTable("testdb.spark_case_employee_partition");
 
 val test_sql="SELECT * FROM testdb.spark_case_employee_partition ORDER BY name, age, province";
 spark.sql(test_sql).collect().foreach(println);
