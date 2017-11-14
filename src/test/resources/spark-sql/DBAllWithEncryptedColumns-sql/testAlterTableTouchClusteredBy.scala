@@ -46,5 +46,3 @@ spark.sql(test_sql).collect().foreach(println);
 System.exit(0);
 
 
-
-
