@@ -46,15 +46,15 @@
   {
     "id": "testAlterSerDePartition",
     "tag": "Server",
-    "desc": "The case will test testAlterSerDePartition.",
+    "desc": "The case will test AlterSerDePartition.",
     "cases": [
       {
         "type": "file/scala",
         "name": "testAlterSerDePartition.scala"
       },
       {
-        "type": "file/scala"testAlterSerDePartition
-        "name": "testAlterSerDeTouchEnableDisablePartition.txt"
+        "type": "file/scala",
+        "name": "testAlterSerDePartition.txt"
       }
     ]
   },
@@ -74,17 +74,32 @@
     ]
   },
   {
-    "id": "testAlterTableChangeRenameTouchSerDeSetFileformatClusteredBySortedBy_unsupported",
+    "id": "testAlterTableChangeTouchSerDeSetFileformatClusteredBySortedBy_unsupported",
     "tag": "Server",
-    "desc": "The case will test AlterTableChangeRenameTouchSerDeSetFileformatClusteredBySortedBy_unsupported.",
+    "desc": "The case will test AlterTableChangeTouchSerDeSetFileformatClusteredBySortedBy_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableChangeRenameTouchSerDeSetFileformatClusteredBySortedBy_unsupported.scala"
+        "name": "testAlterTableChangeTouchSerDeSetFileformatClusteredBySortedBy_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableChangeRenameTouchSerDeSetFileformatClusteredBySortedBy_unsupported.txt"
+        "name": "testAlterTableChangeTouchSerDeSetFileformatClusteredBySortedBy_unsupported.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableRename",
+    "tag": "Table",
+    "desc": "The case will test AlterTableRename.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableRename.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableRename.txt"
       }
     ]
   },
