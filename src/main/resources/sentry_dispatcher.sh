@@ -16,18 +16,18 @@ projectdir="$( cd ${resource_dir}/../../.. && pwd )"
 libdir=/opt/meituan/qa_test/data_bin/test-lib/
 
 # Set hive env. If run hive sql please comment spark env statements
-: <<COMMENTBLOCK
 HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 cmd_exec="${HIVE_HOME}/bin/hive --hiveconf hive.cli.errors.ignore=true -f"
 sql_src=hive-sql
 file_suffix=sql
-COMMENTBLOCK
 
 # Set spark env. If run spark sql please comment hive env statements.
+: <<COMMENTBLOCK
 SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
 cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $projectdir/src/test/resources/hive-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
+COMMENTBLOCK
 
 
 common_sql_src=$projectdir/src/test/resources/$sql_src/common-sql
