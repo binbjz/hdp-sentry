@@ -51,7 +51,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 
 /* DATABASE : mart_wmorg */
-val test_sql="""CREATE TABLE mart_wmorg.employ_encrypted (
+val test_sql="""CREATE  TABLE mart_wmorg.employ_encrypted (
  `uid` bigint COMMENT '',
  `mis_id` string COMMENT '',
  `name` string COMMENT '',
@@ -78,6 +78,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_wmorg.db/employ_encrypted'
 TBLPROPERTIES (
  'numFiles'='1',
  'COLUMN_STATS_ACCURATE'='false',
@@ -88,7 +90,7 @@ TBLPROPERTIES (
 spark.sql(test_sql).collect().foreach(println);
 
 /* DATABASE : origindb */
-val test_sql="""CREATE TABLE origindb.gis__admin_division (
+val test_sql="""CREATE  TABLE origindb.gis__admin_division (
  `id` bigint COMMENT '自增主键',
  `chinese_name` string COMMENT '中文简称',
  `chinese_full_name` string COMMENT '原语种简称',
@@ -126,6 +128,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/origindb.db/gis__admin_division'
 TBLPROPERTIES (
  'numFiles'='1',
  'COLUMN_STATS_ACCURATE'='false',
@@ -135,7 +139,7 @@ TBLPROPERTIES (
  'rawDataSize'='-1')""";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="""CREATE TABLE origindb.waimai_order_shard__wm (
+val test_sql="""CREATE  TABLE origindb.waimai_order_shard__wm (
  `id` bigint COMMENT 'ID',
  `wm_order_id_hash` string COMMENT 'orderid的hash值',
  `wm_order_id_view` bigint COMMENT '订单的展示id',
@@ -228,6 +232,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/origindb.db/waimai_order_shard__wm'
 TBLPROPERTIES (
  'numFiles'='999',
  'last_modified_by'='hadoop-ods',
@@ -346,7 +352,7 @@ from `origindb`.`waimai_order_shard__wm`""";
 spark.sql(test_sql).collect().foreach(println);
 
 /* DATABASE : origindb_delta */
-val test_sql="""CREATE TABLE origindb_delta.waimai_money_exchange__wm_exchange_flow (
+val test_sql="""CREATE  TABLE  origindb_delta.waimai_money_exchange__wm_exchange_flow (
  `id` bigint COMMENT '自增主键',
  `parent_id` bigint COMMENT 'wm_exchange表id',
  `partner_id` bigint COMMENT '商家id',
@@ -378,12 +384,14 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/origindb_delta.db/waimai_money_exchange__wm_exchange_flow'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1507688631')""";
 spark.sql(test_sql).collect().foreach(println);
 
 /* DATABASE : origin_dianping */
-val test_sql="""CREATE TABLE origin_dianping.dpmid_ugcreview_basereview (
+val test_sql="""CREATE  TABLE origin_dianping.dpmid_ugcreview_basereview (
  `reviewid` string COMMENT 'from deserializer',
  `userid` string COMMENT 'from deserializer',
  `shopid` bigint COMMENT 'from deserializer',
@@ -418,6 +426,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/origin_dianping.db/dpmid_ugcreview_basereview'
 TBLPROPERTIES (
  'numPartitions'='0',
  'numFiles'='32',
@@ -430,7 +440,7 @@ TBLPROPERTIES (
 spark.sql(test_sql).collect().foreach(println);
 
 /* DATABASE : ba_ups */
-val test_sql="""CREATE TABLE ba_ups.mt_dp_uid_mapping_new (
+val test_sql="""CREATE  TABLE ba_ups.mt_dp_uid_mapping_new (
  `mt_uid` bigint COMMENT '美团userid',
  `dp_uid` bigint COMMENT '点评userid',
  `mobile` bigint COMMENT '对应手机号')
@@ -445,6 +455,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/ba_ups.db/mt_dp_uid_mapping_new'
 TBLPROPERTIES (
  'numFiles'='100',
  'last_modified_by'='hadoop-proj-ups',
@@ -457,7 +469,7 @@ TBLPROPERTIES (
 spark.sql(test_sql).collect().foreach(println);
 
 /* DATABASE : dim */
-val test_sql="""CREATE TABLE dim.ndm_user (
+val test_sql="""CREATE  TABLE dim.ndm_user (
  `userid` int COMMENT '用户ID',
  `cityid` smallint COMMENT '城市ID',
  `username` string COMMENT '用户昵称',
@@ -480,6 +492,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/dim.db/ndm_user'
 TBLPROPERTIES (
  'numFiles'='163',
  'last_modified_by'='hadoop-data',
@@ -497,14 +511,15 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="CREATE TABLE dim.collecttest (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'";
+val test_sql="""CREATE TABLE dim.collecttest (str STRING, countVal INT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest";
 spark.sql(test_sql).collect().foreach(println);
 
 /* DATABASE : dw */
-val test_sql="""CREATE TABLE dw.dim_employee(
+val test_sql="""CREATE  TABLE dw.dim_employee(
  `employee_id` bigint COMMENT '员工第一次入职时给员工分配的ID，离职后再次入职保持不变',
  `employee_name` string COMMENT '员工的中文名',
  `mis_name` string COMMENT '员工的mis账号名',
@@ -539,6 +554,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/dw.db/dim_employee'
 TBLPROPERTIES (
  'numFiles'='4',
  'last_modified_by'='hadoop-data',
@@ -577,6 +594,8 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1482166667')""";
 spark.sql(test_sql).collect().foreach(println);
@@ -594,7 +613,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="ALTER TABLE mart_waimai.dim_ad_cpc_activity_poi ADD PARTITION (dt=20190104)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="""CREATE TABLE mart_waimai.dim_ad_cpc_activity(
+val test_sql="""CREATE  TABLE mart_waimai.dim_ad_cpc_activity(
  ad_activity_key string COMMENT '维度代理键',
  ad_activity_id bigint COMMENT '活动id',
  ad_activity_name string COMMENT '活动名称',
@@ -622,13 +641,15 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity'
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimai',
  'last_modified_time'='1484568134',
  'transient_lastDdlTime'='1484568134')""";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="""CREATE TABLE mart_waimai.cis_mappoi_in_aor (
+val test_sql="""CREATE  TABLE mart_waimai.cis_mappoi_in_aor (
  `poi_id` string,
  `aor_id` int,
  `city_id` int)
@@ -640,18 +661,22 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/cis_mappoi_in_aor'
 TBLPROPERTIES (
  'transient_lastDdlTime'='1437472165')""";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="CREATE TABLE mart_waimai.table001 (name STRING, ip STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
+val test_sql="""CREATE TABLE mart_waimai.table001 (name STRING, ip STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="CREATE TABLE IF NOT EXISTS mart_waimai.table002 LIKE mart_waimai.table001";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="""CREATE TABLE mart_waimai.partition_table001 (name STRING, ip STRING)
-PARTITIONED BY (dt STRING, ht STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
+PARTITIONED BY (dt STRING, ht STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="CREATE TABLE mart_waimai.partition_table002 LIKE mart_waimai.partition_table001";
@@ -719,7 +744,8 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
 val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE mart_waimai.src_employees_import_export PARTITION (country='US', state='CA')""";
+INTO TABLE mart_waimai.src_employees_import_export
+PARTITION (country='US', state='CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="""CREATE TABLE mart_waimai.src_employees_insert_overwrite (
@@ -745,7 +771,8 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE mart_waimai.src_employees_insert_overwrite PARTITION (country='US', state='CA')""";
+INTO TABLE mart_waimai.src_employees_insert_overwrite
+PARTITION (country='US', state='CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="""CREATE TABLE mart_waimai.employees_insert_overwrite (
@@ -762,7 +789,7 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
 
 /* DATABASE : mart_waimai_crm */
-val test_sql="""CREATE TABLE mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit (
+val test_sql="""CREATE  TABLE mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit (
  aor_id int COMMENT '蜂窝id',
  aor_type int COMMENT '蜂窝类型',
  food_check_num int COMMENT '菜品覆盖考核总商家数',
@@ -779,11 +806,14 @@ STORED AS INPUTFORMAT
  'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT
  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+ 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai_crm.db/topic_dt_check_list__poiaor_aortype_audit'
 TBLPROPERTIES (
  'last_modified_by'='hadoop-waimaiaudit',
  'last_modified_time'='1505294937',
  'transient_lastDdlTime'='1505294944')""";
 spark.sql(test_sql).collect().foreach(println);
+
 
 val test_sql =
   """CREATE TABLE mart_waimai.src_test_insert_overwrite_tbl_partition (
@@ -807,7 +837,8 @@ val test_sql = "ALTER TABLE mart_waimai.src_test_insert_overwrite_tbl_partition 
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql = """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE mart_waimai.src_test_insert_overwrite_tbl_partition PARTITION (country = 'US', state = 'CA')""";
+INTO TABLE mart_waimai.src_test_insert_overwrite_tbl_partition
+PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
 /*testUDF*/
@@ -818,13 +849,14 @@ val test_sql="INSERT INTO mart_waimai.tbl4udf VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 /* testVacuum */
-val test_sql="CREATE TABLE mart_waimai.tbl4sample (id int)";
+val test_sql="CREATE TABLE mart_waimai.tbl4vacuum (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO mart_waimai.tbl4sample VALUES (1), (2), (null)";
+val test_sql="INSERT INTO mart_waimai.tbl4vacuum VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql ="CREATE TABLE mart_waimai.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
+val test_sql ="""CREATE TABLE mart_waimai.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/spark_insert_employee'""";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);

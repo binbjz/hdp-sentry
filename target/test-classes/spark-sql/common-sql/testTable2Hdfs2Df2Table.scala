@@ -1,3 +1,5 @@
+import org.apache.spark.sql.SaveMode
+
 val test_sql="USE testdb";
 spark.sql(test_sql).collect().foreach(println);
 

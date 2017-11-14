@@ -65,4 +65,3 @@ val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);
-

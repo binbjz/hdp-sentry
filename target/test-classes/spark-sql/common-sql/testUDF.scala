@@ -8,7 +8,7 @@ val squared = (s: Int) => {
 }
 spark.udf.register("square", squared);
 
-val test_sql="SELECT id, square(id) as id_squared FROM testdb.tbl4udf";
+val test_sql="SELECT id, square(id) as id_squared FROM testdb.spark_tbl4udf";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);

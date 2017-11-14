@@ -40,8 +40,8 @@ val test_sql="DESC FORMATTED testdb.tbl4setlocation partition (year=2011, month=
 spark.sql(test_sql).collect().foreach(println);
 
 val partitionPath="/user/hive/warehouse/testdb.db/tbl4setlocation_new"
-if(fs.exists(new Path(outPutPath)))
-  fs.delete(new Path(outPutPath),true)
+if(fs.exists(new Path(partitionPath)))
+  fs.delete(new Path(partitionPath),true)
 
 
 /* test Alter Table Add Partition Location */
