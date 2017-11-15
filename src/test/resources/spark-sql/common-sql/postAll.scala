@@ -111,6 +111,16 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE testdb.spark_merge_schema_false";
 spark.sql(test_sql).collect().foreach(println);
 
+
+val test_sql="DROP TABLE testdb.spark_case_employee2";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_case_employee_partition2";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_query_employee2";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP TABLE testdb.spark_query_employee_partition2";
+spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP DATABASE testdb CASCADE";
 spark.sql(test_sql).collect().foreach(println);
 

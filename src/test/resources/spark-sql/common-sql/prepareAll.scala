@@ -454,4 +454,35 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql ="CREATE TABLE testdb.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
 spark.sql(test_sql).collect().foreach(println);
 
+
+
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+import sqlContext.implicits._
+import org.apache.spark.sql.SaveMode
+
+/* case to DF saveAsTable and insertInto table */
+case class Employee(name: String, age: Int, province: String)
+val employee = sc.parallelize(Employee("zhangsan", 31, "beijing")::Employee("wangwu" , 28, "hubei")::Employee("lisi", 44, "tianjin")::Employee("liping", 23, "guangdong")::Nil).toDF()
+employee.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_case_employee2")
+val test_sql="TRUNCATE TABLE testdb.spark_case_employee2";
+spark.sql(test_sql).collect().foreach(println);
+
+/* case to DF with partition saveAsTable FOR insertInto table test */
+employee.write.mode(SaveMode.Overwrite).partitionBy("province").saveAsTable("testdb.spark_case_employee_partition2");
+val test_sql="TRUNCATE TABLE testdb.spark_case_employee_partition2";
+spark.sql(test_sql).collect().foreach(println);
+
+/* temp table saveAsTable For insertInto table test */
+employee.registerTempTable("employee")
+val query = sqlContext.sql("select name, age from (select * from employee where province = 'beijing') a where a.age >= 20 and a.age < 40")
+query.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_query_employee2")
+val test_sql="TRUNCATE TABLE testdb.spark_query_employee2";
+spark.sql(test_sql).collect().foreach(println);
+
+
+/* temp table with partition saveAsTable FOR insertInto table test */
+query.write.mode(SaveMode.Overwrite).partitionBy("age").saveAsTable("testdb.spark_query_employee_partition2")
+val test_sql="TRUNCATE TABLE testdb.spark_query_employee_partition2";
+spark.sql(test_sql).collect().foreach(println);
+
 System.exit(0);
