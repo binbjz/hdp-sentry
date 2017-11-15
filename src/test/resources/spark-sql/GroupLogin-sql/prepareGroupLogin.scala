@@ -811,10 +811,10 @@ INTO TABLE mart_waimai.src_test_insert_overwrite_tbl_partition PARTITION (countr
 spark.sql(test_sql).collect().foreach(println);
 
 /*testUDF*/
-val test_sql="CREATE TABLE mart_waimai.tbl4udf (id int)";
+val test_sql="CREATE TABLE mart_waimai.spark_tbl4udf (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO mart_waimai.tbl4udf VALUES (1), (2), (null)";
+val test_sql="INSERT INTO mart_waimai.spark_tbl4udf VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 /* testVacuum */

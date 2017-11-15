@@ -297,7 +297,7 @@ val test_sql = "ALTER TABLE testdb.test_insert_overwrite_dir ADD PARTITION (coun
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql =
-  """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+  """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees2.csv'
 INTO TABLE testdb.test_insert_overwrite_dir
 PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
