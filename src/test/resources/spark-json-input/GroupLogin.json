@@ -390,17 +390,17 @@
     ]
   },
   {
-    "id": "testImportExportTablePartition",
+    "id": "testImportExportTablePartition_unsupported",
     "tag": "DB",
-    "desc": "The case will test ImportExportTablePartition.",
+    "desc": "The case will test ImportExportTablePartition_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testImportExportTablePartition.scala"
+        "name": "testImportExportTablePartition_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testImportExportTablePartition.txt"
+        "name": "testImportExportTablePartition_unsupported.txt"
       }
     ]
   },
