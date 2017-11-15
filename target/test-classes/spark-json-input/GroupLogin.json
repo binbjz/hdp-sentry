@@ -120,32 +120,32 @@
     ]
   },
   {
-    "id": "testAlterTableAddColumn",
+    "id": "testAlterTableAddColumn_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableAddColumn.",
+    "desc": "The case will test AlterTableAddColumn_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableAddColumn.scala"
+        "name": "testAlterTableAddColumn_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableAddColumn.txt"
+        "name": "testAlterTableAddColumn_unsupported.txt"
       }
     ]
   },
   {
-    "id": "testAlterTableChange",
+    "id": "testAlterTableChange_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableChange.",
+    "desc": "The case will test AlterTableChange_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableChange.scala"
+        "name": "testAlterTableChange_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableChange.txt"
+        "name": "testAlterTableChange_unsupported.txt"
       }
     ]
   },
@@ -165,32 +165,32 @@
     ]
   },
   {
-    "id": "testAlterTableEnableDisable",
+    "id": "testAlterTableEnableDisable_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableEnableDisable.",
+    "desc": "The case will test AlterTableEnableDisable_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableEnableDisable.scala"
+        "name": "testAlterTableEnableDisable_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableEnableDisable.txt"
+        "name": "testAlterTableEnableDisable_unsupported.txt"
       }
     ]
   },
   {
-    "id": "testAlterTableEnableDisablePartition",
+    "id": "testAlterTableEnableDisablePartition_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableEnableDisablePartition.",
+    "desc": "The case will test AlterTableEnableDisablePartition_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableEnableDisablePartition.scala"
+        "name": "testAlterTableEnableDisablePartition_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableEnableDisablePartition.txt"
+        "name": "testAlterTableEnableDisablePartition_unsupported.txt"
       }
     ]
   },
@@ -225,17 +225,17 @@
     ]
   },
   {
-    "id": "testAlterTableReplaceColumns",
+    "id": "testAlterTableReplaceColumns_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableReplaceColumns.",
+    "desc": "The case will test AlterTableReplaceColumns unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableReplaceColumns.scala"
+        "name": "testAlterTableReplaceColumns_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableReplaceColumns.txt"
+        "name": "testAlterTableReplaceColumns_unsupported.txt"
       }
     ]
   },
@@ -255,17 +255,17 @@
     ]
   },
   {
-    "id": "testAlterTableTouch",
+    "id": "testAlterTableTouch_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableTouch.",
+    "desc": "The case will test AlterTableTouch_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableTouch.scala"
+        "name": "testAlterTableTouch_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableTouch.txt"
+        "name": "testAlterTableTouch_unsupported.txt"
       }
     ]
   },
@@ -390,17 +390,17 @@
     ]
   },
   {
-    "id": "testImportExportTablePartition",
+    "id": "testImportExportTablePartition_unsupported",
     "tag": "DB",
-    "desc": "The case will test ImportExportTablePartition.",
+    "desc": "The case will test ImportExportTablePartition_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testImportExportTablePartition.scala"
+        "name": "testImportExportTablePartition_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testImportExportTablePartition.txt"
+        "name": "testImportExportTablePartition_unsupported.txt"
       }
     ]
   },
