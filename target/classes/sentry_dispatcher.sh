@@ -10,7 +10,8 @@ E_BADDIR=65
 privil_type=keytab_auth  # proxy_user|keytab_auth
 privil_type_ug=proxy_user_group
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-projectdir="$( cd ${resource_dir}/../../.. && pwd )"
+project_dir="$( cd ${resource_dir}/../../.. && pwd )"
+log_base=${project_dir}/src/test/log
 
 # Temporary env for dependent libraries
 libdir=/opt/meituan/qa_test/data_bin/test-lib/
@@ -24,15 +25,15 @@ file_suffix=sql
 # Set spark env. If run spark sql please comment hive env statements.
 : <<COMMENTBLOCK
 SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
-cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $projectdir/src/test/resources/hive-data/hive_qa_udf.jar -i"
+cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $project_dir/src/test/resources/hive-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
 COMMENTBLOCK
 
 
-common_sql_src=$projectdir/src/test/resources/$sql_src/common-sql
-encryptColumn_sql_src=$projectdir/src/test/resources/$sql_src/DBAllWithEncryptedColumns-sql
-groupLogin_sql_src=$projectdir/src/test/resources/$sql_src/GroupLogin-sql
+common_sql_src=$project_dir/src/test/resources/$sql_src/common-sql
+encryptColumn_sql_src=$project_dir/src/test/resources/$sql_src/DBAllWithEncryptedColumns-sql
+groupLogin_sql_src=$project_dir/src/test/resources/$sql_src/GroupLogin-sql
 
 include_patt="DBAllWithEncryptedColumns|DBAllWithEncryptedColumns_2|DBAllWithEncryptedColumns_3|GroupLogin|GroupLogin_2|GroupLogin_3"
 include_patt2="DBAllWithEncryptedColumns"
@@ -40,22 +41,21 @@ include_patt3="GroupLogin"
 
 
 # Check project directory
-if [ ! -d "$projectdir" ]; then
-    echo "$projectdir does not exist."
+if [ ! -d "$project_dir" ]; then
+    echo "$project_dir does not exist."
     exit $E_BADDIR
 fi
 
 # Grant role with super privilege
-cd $projectdir
-source $projectdir/src/main/resources/sentry_env.sh setup SuperPrivil
+cd $project_dir
+source $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
 
 # Check sentry flag
-source $projectdir/src/main/resources/sentry_flag.sh
+source $project_dir/src/main/resources/sentry_flag.sh
 
 
 # Run sentry test for standard authorization approach
-#sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
-sentry_tcs="ServerAll"
+sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
 
 for tc in $sentry_tcs; do
     # It will be used to set multiple permissions for the same test case
@@ -69,10 +69,10 @@ for tc in $sentry_tcs; do
     fi
     
     # Grant role normal privilege
-    source $projectdir/src/main/resources/$sentry_sh setup ${tc}
+    source $project_dir/src/main/resources/$sentry_sh setup ${tc}
 
     # Grant user with super privilege
-    source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    source $project_dir/src/main/resources/hive_env.sh $privil_type super
 
     # Execute preppare sql
     if echo "$tc" | egrep -qi "$include_patt2"; then
@@ -87,20 +87,20 @@ for tc in $sentry_tcs; do
 
     # Grant user with group privilege while running in group test
     if echo "$tc" | egrep -qi "'$include_patt3'"; then
-        source $projectdir/src/main/resources/hive_env.sh $privil_type_ug normal
+        source $project_dir/src/main/resources/hive_env.sh $privil_type_ug normal
     else
-        source $projectdir/src/main/resources/hive_env.sh $privil_type normal
+        source $project_dir/src/main/resources/hive_env.sh $privil_type normal
     fi
 
     # Use the same test case to run multiple permissions 
     if echo "$tc" | egrep -qi "'$include_patt'"; then
-        java -Djava.ext.dirs=${libdir} -cp ${projectdir}/target/classes:${projectdir}/target/test-classes org.junit.runner.JUnitCore ${tc_tmp}
+        java -Djava.ext.dirs=${libdir} -Dlog.base=${log_base} -cp ${project_dir}/target/classes:${project_dir}/target/test-classes org.junit.runner.JUnitCore ${tc_tmp}
     else
-        java -Djava.ext.dirs=${libdir} -cp ${projectdir}/target/classes:${projectdir}/target/test-classes org.junit.runner.JUnitCore ${tc}
+        java -Djava.ext.dirs=${libdir} -Dlog.base=${log_base} -cp ${project_dir}/target/classes:${project_dir}/target/test-classes org.junit.runner.JUnitCore ${tc}
     fi
 
     # Grant user with super privilege
-    source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    source $project_dir/src/main/resources/hive_env.sh $privil_type super
     # Execute post sql
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
@@ -115,10 +115,10 @@ for tc in $sentry_tcs; do
 
     if [[ $privil_type = "proxy_user" ]]; then
         # In proxy env, we need to revoke privileges otherwise it will throw exception
-        source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
+        source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
-    source $projectdir/src/main/resources/$sentry_sh clean ${tc}
+    source $project_dir/src/main/resources/$sentry_sh clean ${tc}
 done
 
 # Revoke role with super privilege
-source $projectdir/src/main/resources/sentry_env.sh clean SuperPrivil
+source $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil
