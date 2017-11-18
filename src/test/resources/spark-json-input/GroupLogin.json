@@ -495,17 +495,17 @@
     ]
   },
   {
-    "id": "testSample",
+    "id": "testSampleTruncate",
     "tag": "DB",
-    "desc": "The case will test Sample.",
+    "desc": "The case will test Sample and Truncate.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testSample.scala"
+        "name": "testSampleTruncate.scala"
       },
       {
         "type": "file/scala",
-        "name": "testSample.txt"
+        "name": "testSampleTruncate.txt"
       }
     ]
   },
