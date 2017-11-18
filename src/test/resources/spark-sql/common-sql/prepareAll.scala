@@ -52,19 +52,15 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql = "ALTER TABLE testdb.tbl4setlocation ADD PARTITION (year = 2011, month = 1, day = 2)";
 spark.sql(test_sql).collect().foreach(println);
 
-/*testAlterSerDePartition.scala*/
+/*testAlterSerDePartitionAndTable.scala*/
 
 val test_sql =
   """CREATE TABLE testdb.test_serde_partition (c0 string, c1 string, c2 string) PARTITIONED BY (col10 STRING, col20 STRING)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
-WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE""";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql = "ALTER TABLE testdb.test_serde_partition ADD PARTITION (col10='abc', col20='123')";
+WITH SERDEPROPERTIES ('input.regex' = 'input_regex', 'output.format.string' = 'output_format_string') STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql =
-  """CREATE TABLE testdb.test_serde_partition (c0 string, c1 string, c2 string) PARTITIONED BY (col10 STRING, col20 STRING)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe' WITH SERDEPROPERTIES ('input.regex' = 'input_regex', 'output.format.string' = 'output_format_string') STORED AS TEXTFILE""";
+val test_sql = "ALTER TABLE testdb.test_serde_partition ADD PARTITION (col10='abc', col20='123')";
 spark.sql(test_sql).collect().foreach(println);
 
 /*testAlterSerDeTable.scala*/
