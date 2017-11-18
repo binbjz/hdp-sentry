@@ -45,6 +45,8 @@ for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
     PRIVILEGES=`awk -F'="' '{gsub(/"/,"", $2); print $2}' <<< $i`
     PRIVIL_SPLIT=`awk -F',' '{for(i=1;i<=NF;i++) print $i}' <<< "$PRIVILEGES"`
 
+#sentry_privileges[GroupLogin_User]='server=server1->db=test_user_db->action=all|server=server1->db=test_user_db2->table=test_user_table->action=all"
+
     case "$1" in
         "setup")
             # Add role, group and privilege
@@ -54,6 +56,26 @@ for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
             for PRIVIL in $PRIVIL_SPLIT; do
                 $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege $PRIVIL
             done
+
+
+            #######################################################################
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --add_role_group -r $ROLE_NAME -g $ROLE_GROUP
+            #
+            #for PRIVIL in $PRIVIL_SPLIT; do
+            #    $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege $PRIVIL
+            #done
+            #
+            #
+            #Add the following user related privilege
+            #USER_ROLE_NAME=hdp_qa_role
+            #USER=hdp_qa
+            #privil=server=server1->db=test_user_db->action=all
+            #privil=server=server1->db=test_user_db2->table=test_user_table->action=all
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $USER_ROLE_NAME
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_user -r $USER_ROLE_NAME -u $USER
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $USER_ROLE_NAME --privilege "$privil"
+
             ;;
         "clean")
             # Remove role, group and privilege
@@ -63,6 +85,18 @@ for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
 
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --delete_role_group -r $ROLE_NAME -g $ROLE_GROUP
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --drop_role -r $ROLE_NAME
+
+
+            #######################################################################
+            #Remove the following user related privilege
+            #USER_ROLE_NAME=hdp_qa_role
+            #USER=hdp_qa
+            #privil=server=server1->db=test_user_db->action=all
+            #privil=server=server1->db=test_user_db2->table=test_user_table->action=all
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -revoke_privilege_role --rolename $USER_ROLE_NAME --privilege "$privil"
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -delete_role_user -r $USER_ROLE_NAME -u $USER
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -drop_role -r $USER_ROLE_NAME
+
             ;;
         "check")
             # Check role, group and privilege
@@ -70,6 +104,15 @@ for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
             #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $ROLE_NAME
+
+            #######################################################################
+            #USER_ROLE_NAME=hdp_qa_role
+            #USER=hdp_qa
+            #privil=server=server1->db=test_user_db->action=all
+            #privil=server=server1->db=test_user_db2->table=test_user_table->action=all
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $USER_ROLE_NAME
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -u $USER
+
             ;;
         * )
         echo "Please specify valid action"

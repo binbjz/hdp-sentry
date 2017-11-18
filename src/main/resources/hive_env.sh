@@ -40,7 +40,10 @@ case "$1" in
     export HADOOP_JAR_AUTHENTICATION=KERBEROS
     export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
     export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+    # CASE 1
     export HADOOP_PROXY_USER=$PROXY_USER
+    # CASE 2 & 3
+    #export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ALL
     ;;
 "clean_proxy_user")
     #proxy user
