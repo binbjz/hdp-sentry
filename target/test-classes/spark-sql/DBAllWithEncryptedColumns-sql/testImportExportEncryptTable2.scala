@@ -29,7 +29,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE encrypt_db4data2.encrypt_import_export

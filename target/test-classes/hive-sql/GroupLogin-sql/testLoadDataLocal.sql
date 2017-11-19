@@ -1,6 +1,6 @@
 USE mart_waimai;
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE collecttest;
 

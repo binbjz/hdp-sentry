@@ -7,4 +7,10 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM testdb.tbl4sample TABLESAMPLE(2 ROWS) s";
 spark.sql(test_sql).collect().foreach(println);
 
+val test_sql="TRUNCATE TABLE testdb.tbl4sample";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SELECT * FROM testdb.tbl4sample";
+spark.sql(test_sql).collect().foreach(println);
+
 System.exit(0);

@@ -494,7 +494,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="INSERT INTO dim.ndm_user VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="CREATE TABLE dim.collecttest (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'";
@@ -717,7 +717,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="ALTER TABLE mart_waimai.employees_import_export ADD PARTITION (country='US', state='CA')";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_import_export PARTITION (country='US', state='CA')""";
 spark.sql(test_sql).collect().foreach(println);
@@ -742,7 +742,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='IL')";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_insert_overwrite PARTITION (country='US', state='CA')""";

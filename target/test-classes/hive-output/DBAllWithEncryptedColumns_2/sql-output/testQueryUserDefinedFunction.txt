@@ -1,7 +1,7 @@
 OK
-Added [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] to class path
-Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar]
-/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar
+Added [/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/hive_qa_udf.jar] to class path
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/hive_qa_udf.jar]
+/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/hive_qa_udf.jar
 OK
 OK
 OK
@@ -18,4 +18,4 @@ OK
 encrypt_db4func.qa_lower
 tmp_qa_lower
 OK
-Deleted [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/hive_qa_udf.jar] from class path
+Deleted [/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/hive_qa_udf.jar] from class path

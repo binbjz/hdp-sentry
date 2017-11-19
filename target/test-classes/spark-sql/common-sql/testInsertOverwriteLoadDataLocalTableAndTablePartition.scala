@@ -42,7 +42,7 @@ val test_sql="SELECT * FROM testdb.insert_overwrite_tbl_partition";
 spark.sql(test_sql).collect().foreach(println);
 
 
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 
 /* testLoadDataLocalTable */

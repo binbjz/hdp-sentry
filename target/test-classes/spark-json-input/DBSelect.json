@@ -44,17 +44,17 @@
     ]
   },
   {
-    "id": "testAlterSerDePartition",
+    "id": "testAlterSerDePartitionAndTable",
     "tag": "DB",
-    "desc": "The case will test AlterSerDePartition.",
+    "desc": "The case will test AlterSerDePartitionAndTable.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterSerDePartition.scala"
+        "name": "testAlterSerDePartitionAndTable.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterSerDePartition.txt"
+        "name": "testAlterSerDePartitionAndTable.txt"
       }
     ]
   },
@@ -299,17 +299,17 @@
     ]
   },
   {
-    "id": "testSample",
+    "id": "testSampleTruncate",
     "tag": "DB",
-    "desc": "The case will test Sample.",
+    "desc": "The case will test Sample and Truncate.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testSample.scala"
+        "name": "testSampleTruncate.scala"
       },
       {
         "type": "file/scala",
-        "name": "testSample.txt"
+        "name": "testSampleTruncate.txt"
       }
     ]
   },

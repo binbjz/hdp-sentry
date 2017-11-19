@@ -1,7 +1,7 @@
 OK
 OK
 filepath
-/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data
+/opt/meituan/qa_test/sentry-test/src/test/resources/source-data
 OK
 printheader
 true

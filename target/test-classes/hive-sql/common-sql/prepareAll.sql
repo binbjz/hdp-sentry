@@ -1,4 +1,4 @@
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
 DROP DATABASE IF EXISTS testdb CASCADE;
 CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');

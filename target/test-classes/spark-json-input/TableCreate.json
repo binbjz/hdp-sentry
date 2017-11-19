@@ -72,5 +72,20 @@
         "name": "testQueryConstantSET.txt"
       }
     ]
+  },
+  {
+    "id": "testUDFWithoutTable",
+    "tag": "Table",
+    "desc": "The case will test UDFWithoutTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testUDFWithoutTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testUDFWithoutTable.txt"
+      }
+    ]
   }
 ]

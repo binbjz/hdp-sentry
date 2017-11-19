@@ -19,7 +19,7 @@ ALTER TABLE encrypt_db4data.encrypt_test_analyze ADD PARTITION (country = 'US', 
 ALTER TABLE encrypt_db4data.encrypt_test_analyze ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE encrypt_db4data.encrypt_test_analyze ADD PARTITION (country = 'US', state = 'IL');
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE encrypt_db4data.encrypt_test_analyze
 PARTITION (country = 'US', state = 'CA');

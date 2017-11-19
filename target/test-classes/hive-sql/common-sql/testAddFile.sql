@@ -1,6 +1,6 @@
 USE testdb;
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 SET hive.cli.print.header=true;
 SELECT * FROM testdb.tbl4addfile;
 ADD FILE ${hiveconf:FILEPATH}/test_who.sh;

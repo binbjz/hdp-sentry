@@ -32,6 +32,7 @@ case "$1" in
 "keytab_auth")
     #keytab authentication
     source /opt/meituan/hadoop/bin/hadoop_user_login.sh $PROXY_USER
+    export auth_flag=keytab_auth
     ;;
 "proxy_user")
     #proxy user
@@ -40,7 +41,11 @@ case "$1" in
     export HADOOP_JAR_AUTHENTICATION=KERBEROS
     export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
     export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+    # CASE 1
     export HADOOP_PROXY_USER=$PROXY_USER
+    export auth_flag=proxy_user
+    # CASE 2 & 3
+    #export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ALL
     ;;
 "clean_proxy_user")
     #proxy user
@@ -57,8 +62,8 @@ case "$1" in
     export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
     export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
     export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group
-    :
-;;
+    export auth_flag=proxy_user_group
+    ;;
 * )
     echo "Please specify valid authentication type"
     exit $NOMATCH;;

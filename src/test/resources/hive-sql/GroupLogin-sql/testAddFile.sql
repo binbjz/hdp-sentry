@@ -1,6 +1,6 @@
 USE dim;
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
 SET hive.cli.print.header=true;
 SELECT username FROM dim.ndm_user;

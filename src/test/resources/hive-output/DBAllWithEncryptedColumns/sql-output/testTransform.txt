@@ -4,8 +4,8 @@ Loading data to table encrypt_db4data.whoyouare
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/whoyouare' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<whoyouare>
-Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
-/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh
 FAILED: SemanticException [Error 10004]: Line 2:18 Invalid table alias or column reference 'who': (possible column names are: encrypted_name_69335_who) or Column insufficient privileges to access: who
-/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh
 OK

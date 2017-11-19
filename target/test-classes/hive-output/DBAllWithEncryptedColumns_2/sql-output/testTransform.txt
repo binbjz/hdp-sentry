@@ -8,8 +8,8 @@ whoyouare.who
 Mr.A
 Miss.B
 Dr.C
-Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh]
-/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh]
+/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh
 Task with the most failures(4): 
 -----
 Task ID:
@@ -34,5 +34,5 @@ Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20003]: An e
 	at org.apache.hadoop.hive.ql.exec.mr.ExecMapper.close(ExecMapper.java:192)
 	... 8 more
 FAILED: Execution Error, return code 20003 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask. An error occurred when trying to close the Operator running your custom script.
-/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data/test_who.sh
+/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh
 OK

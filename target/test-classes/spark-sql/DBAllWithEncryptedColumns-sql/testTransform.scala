@@ -6,7 +6,7 @@ val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="CREATE TABLE encrypt_db4data.whoyouare(who string)";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE encrypt_db4data.whoyouare";

@@ -1,7 +1,7 @@
 val test_sql="USE default";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 
 

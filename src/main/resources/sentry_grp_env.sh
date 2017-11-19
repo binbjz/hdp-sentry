@@ -36,6 +36,7 @@ else
     exit $NOPRI
 fi
 
+#sentry_privileges[GroupLogin_User]='server=server1->db=test_user_db->action=all|server=server1->db=test_user_db2->table=test_user_table->action=all"
 # Split and grant privilege to multiple users and the corresponding groups
 groups_login=${sentry_privileges[$2]} # Mark -- Need to modify GroupLogin to $2 after debugging
 
@@ -45,7 +46,6 @@ for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
     PRIVILEGES=`awk -F'="' '{gsub(/"/,"", $2); print $2}' <<< $i`
     PRIVIL_SPLIT=`awk -F',' '{for(i=1;i<=NF;i++) print $i}' <<< "$PRIVILEGES"`
 
-#sentry_privileges[GroupLogin_User]='server=server1->db=test_user_db->action=all|server=server1->db=test_user_db2->table=test_user_table->action=all"
 
     case "$1" in
         "setup")
