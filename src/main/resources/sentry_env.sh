@@ -10,7 +10,6 @@ BAD_PARAMS=65
 NOMATCH=126
 NOPRI=61
 LOGIN_USER=hive
-DB_NAME=testdb
 
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
@@ -116,14 +115,65 @@ fi
 # Exec Privilege
 case "$1" in
     "setup")
-        # Add role, group and privilege
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --add_role_group -r $ROLE_NAME -g $ROLE_GROUP
+        if [[ $privil_type = "proxy_user_t1" ]]; then
+            # Add role, group and privilege for proxy user with specify group
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --add_role_group -r $ROLE_NAME -g $ROLE_GROUP
 
-        for privil in $privileges; do
-            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege "$privil"
-        done
+            for privil in $privileges; do
+                $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege "$privil"
+            done
+        elif [[ $privil_type = "proxy_user_t2_1" ]]; then
+            # Grant privilege on a group related role
+            GROUP_ROLE_NAME1=dim_group_role
+            ROLE_GROUP1=dim_group
+            #privil= "server=server1->action=all" #ALL PRIVILEGES in sentry_privil_tmpl.sh
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $GROUP_ROLE_NAME1
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_group -r $GROUP_ROLE_NAME1 -g $ROLE_GROUP1
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $GROUP_ROLE_NAME1 --privilege "$privil"
 
+            GROUP_ROLE_NAME2=dw_group_role
+            ROLE_GROUP2=dw_group
+            #privil=server=server1->db=test_group_db2->action=all
+            #sentry_privileges[ROLE_GROUP2]='server=server1->db=test_group_db2->action=all"
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $GROUP_ROLE_NAME2
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_group -r $GROUP_ROLE_NAME2 -g $ROLE_GROUP2
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $GROUP_ROLE_NAME2 --privilege "$privil"
+
+
+            USER_ROLE_NAME=hdp_qa_role
+            USER=hdp_qa
+            #privil=server=server1->db=test_user_db->action=all
+            #sentry_privileges[ROLE_USER]='server=server1->db=test_user_db->action=all"
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $USER_ROLE_NAME
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_user -r $USER_ROLE_NAME -u $USER
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $USER_ROLE_NAME --privilege "$privil"
+        elif [[ $privil_type = "proxy_user_t2_2" ]]; then
+            # Grant privilege on a role related user
+            GROUP_ROLE_NAME1=dim_group_role
+            ROLE_GROUP1=dim_group
+            #privil=server=server1->db=test_group_db1->action=all
+            #sentry_privileges[ROLE_GROUP1]='server=server1->db=test_group_db1->action=all"
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $GROUP_ROLE_NAME1
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_group -r $GROUP_ROLE_NAME1 -g $ROLE_GROUP1
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $GROUP_ROLE_NAME1 --privilege "$privil"
+
+
+            GROUP_ROLE_NAME2=dw_group_role
+            ROLE_GROUP2=dw_group
+            #privil=server=server1->db=test_group_db2->action=all
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $GROUP_ROLE_NAME2
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_group -r $GROUP_ROLE_NAME2 -g $ROLE_GROUP2
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $GROUP_ROLE_NAME2 --privilege "$privil"
+
+            #GRANT PRIVILEGE ON A USER RELATED ROLE
+            USER_ROLE_NAME=hdp_qa_role
+            USER=hdp_qa
+            #privil= ALL PRIVILEGES in sentry_privil_tmpl.sh
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $USER_ROLE_NAME
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_user -r $USER_ROLE_NAME -u $USER
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $USER_ROLE_NAME --privilege "$privil"
+        fi
         #######################################################################
         # hive_env.sh
         #
@@ -136,7 +186,7 @@ case "$1" in
         #GRANT PRIVILEGE ON A GROUP RELATED ROLE
         #GROUP_ROLE_NAME1=dim_group_role
         #ROLE_GROUP1=dim_group
-        #privil= ALL PRIVILEGES in sentry_privil_tmpl.sh
+        #privil= "server=server1->action=all" #ALL PRIVILEGES in sentry_privil_tmpl.sh
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $GROUP_ROLE_NAME1
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_group -r $GROUP_ROLE_NAME1 -g $ROLE_GROUP1
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $GROUP_ROLE_NAME1 --privilege "$privil"
@@ -186,17 +236,21 @@ case "$1" in
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $USER_ROLE_NAME
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_user -r $USER_ROLE_NAME -u $USER
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $USER_ROLE_NAME --privilege "$privil"
-
         ;;
     "clean")
-        # Remove role, group and privilege
-        for privil in $privileges; do
-            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p "$privil"
-        done
+        if [[ $privil_type = "proxy_user_t1" ]]; then
+            # Remove role, group and privilege
+            for privil in $privileges; do
+                $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p "$privil"
+            done
 
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --delete_role_group -r $ROLE_NAME -g $ROLE_GROUP
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --drop_role -r $ROLE_NAME
-
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --delete_role_group -r $ROLE_NAME -g $ROLE_GROUP
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --drop_role -r $ROLE_NAME
+        elif [[ $privil_type = "proxy_user_t2_1" ]]; then
+            :
+        elif [[ $privil_type = "proxy_user_t2_2" ]]; then
+            :
+        fi
 
         #######################################################################
         #CASE 1 & 2
@@ -245,15 +299,19 @@ case "$1" in
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $USER_ROLE_NAME --privilege "$privil"
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -delete_role_user -r $USER_ROLE_NAME -u $USER
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -drop_role -r $USER_ROLE_NAME
-
         ;;
     "check")
-        # Check role, group and privilege
-        # Too many roles, so temporary comment the line.
-        #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP
-        $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $ROLE_NAME
-
+        if [[ $privil_type = "proxy_user_t1" ]]; then
+            # Check role, group and privilege
+            # Too many roles, so temporary comment the line.
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $ROLE_NAME
+        elif [[ $privil_type = "proxy_user_t2_1" ]]; then
+            :
+        elif [[ $privil_type = "proxy_user_t2_2" ]]; then
+            :
+        fi
 
         #######################################################################
         # hive_env.sh
@@ -302,7 +360,6 @@ case "$1" in
         #privil= ALL PRIVILEGES
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $USER_ROLE_NAME
         #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -u $USER
-
         ;;
     * )
     echo "Please specify valid action"

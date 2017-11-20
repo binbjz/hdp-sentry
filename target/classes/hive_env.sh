@@ -13,7 +13,8 @@ HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 
 
 # Check CLI parameter
-[ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` (keytab_auth|proxy_user|proxy_user_group|clean_proxy_user) (super|normal|hive)" && exit $BAD_PARAMS
+[ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` \
+(keytab_auth|proxy_user_t1|proxy_user_t2|proxy_user_group|clean_proxy_user) (super|normal|hive)" && exit $BAD_PARAMS
 
 # set proxy user for specify privilege
 if [[ "$2" == "super" ]]; then
@@ -32,30 +33,34 @@ case "$1" in
 "keytab_auth")
     #keytab authentication
     source /opt/meituan/hadoop/bin/hadoop_user_login.sh $PROXY_USER
-    export auth_flag=keytab_auth
     ;;
-"proxy_user")
-    #proxy user
+"proxy_user_t1")
+    #proxy user with specify group
     export HADOOP_HOME=/opt/meituan/hadoop
     export HIVE_HOME=$HIVE_HOME
     export HADOOP_JAR_AUTHENTICATION=KERBEROS
     export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
     export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
-    # CASE 1
     export HADOOP_PROXY_USER=$PROXY_USER
-    export auth_flag=proxy_user
-    # CASE 2 & 3
-    #export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ALL
+    ;;
+"proxy_user_t2_1|proxy_user_t2_2")
+    #proxy user, misid with all groups
+    export HADOOP_HOME=/opt/meituan/hadoop
+    export HIVE_HOME=$HIVE_HOME
+    export HADOOP_JAR_AUTHENTICATION=KERBEROS
+    export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
+    export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+    export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ALL
     ;;
 "clean_proxy_user")
-    #proxy user
+    #clean proxy user
     unset HADOOP_JAR_AUTHENTICATION
     unset HADOOP_JAR_KERBEROS_KEYTAB_FILE
     unset HADOOP_JAR_KERBEROS_PRINCIPAL
     unset HADOOP_PROXY_USER
     ;;
 "proxy_user_group")
-    #role, group and privilege
+    #proxy user, midis with multiple groups
     export HADOOP_HOME=/opt/meituan/hadoop
     export HIVE_HOME=$HIVE_HOME
     export HADOOP_JAR_AUTHENTICATION=KERBEROS
@@ -66,5 +71,6 @@ case "$1" in
     ;;
 * )
     echo "Please specify valid authentication type"
-    exit $NOMATCH;;
+    exit $NOMATCH
+    ;;
 esac

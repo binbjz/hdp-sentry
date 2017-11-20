@@ -4,7 +4,8 @@
 #The script will check sentry flag status (true|false)
 #
 
-privil_type=keytab_auth # proxy_user|keytab_auth
+privil_type=keytab_auth # keytab_auth|proxy_user_t(1|2)
+proxy_regex="proxy_user(1|2)"
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd $resource_dir/../../.. && pwd )"
 
@@ -60,10 +61,9 @@ check_sentry_flag_status(){
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${2}.sql
 
     # In proxy env, if we need to revoke privileges otherwise it will throw exception
-    if [[ $privil_type = "proxy_user" ]]; then
+    if [[ "$privil_type" =~ $proxy_regex ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
-
 
     source $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
     result=`grep "${sentry_privileges[$1]}" $$_${2}.txt`
@@ -76,7 +76,7 @@ check_sentry_flag_status(){
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_clean_db_env.sql
 
     # In proxy env, we need to revoke privileges otherwise it will throw exception
-    if [[ $privil_type = "proxy_user" ]]; then
+    if [[ "$privil_type" =~ $proxy_regex ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 

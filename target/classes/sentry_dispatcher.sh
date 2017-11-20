@@ -9,6 +9,7 @@
 E_BADDIR=65
 privil_type=keytab_auth  # proxy_user|keytab_auth
 privil_type_ug=proxy_user_group
+proxy_regex="proxy_user(1|2)"
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 project_dir="$( cd ${resource_dir}/../../.. && pwd )"
 log_base=${project_dir}/src/test/log
@@ -113,7 +114,7 @@ for tc in $sentry_tcs; do
     fi
 
 
-    if [[ $privil_type = "proxy_user" ]]; then
+    if [[ "$privil_type" =~ $proxy_regex ]]; then
         # In proxy env, we need to revoke privileges otherwise it will throw exception
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
