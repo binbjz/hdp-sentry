@@ -58,3 +58,8 @@ DROP DATABASE origin_dianping CASCADE;
 
 DROP TABLE mart_waimai_crm.topic_dt_check_list__poiaor_aortype_audit;
 DROP DATABASE mart_waimai_crm CASCADE;
+
+DROP DATABASE test_login_db CASCADE;
+
+DROP TABLE test_login_db_tbl.test_tbl;
+DROP DATABASE test_login_db_tbl CASCADE;
