@@ -269,6 +269,21 @@
     ]
   },
   {
+    "id": "testLoginMethod",
+    "tag": "Server",
+    "desc": "The case will test LoginMethod.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.txt"
+      }
+    ]
+  },
+  {
     "id": "testMSCKRepairAnalyzeTableAddRenameDropShowPartition",
     "tag": "Server",
     "desc": "The case will test MSCKRepairAnalyzeTableAddRenameDropShowPartition.",
