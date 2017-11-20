@@ -4,6 +4,7 @@
 
 val test_sql="USE encrypt_db4alter";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="CREATE TABLE tbl4rename (col1 TINYINT, col2 SMALLINT, encrypt_col3 INT)";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM tbl4rename";

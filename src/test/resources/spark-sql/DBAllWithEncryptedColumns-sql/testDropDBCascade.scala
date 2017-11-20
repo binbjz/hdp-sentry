@@ -4,6 +4,7 @@
 
 val test_sql="USE encrypt_db4drop_cascade";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="CREATE TABLE encrypt_tbl4drop (id INT, encrypt_val STRING)";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="CREATE VIEW encrypt_view4drop AS SELECT * FROM encrypt_db4drop_cascade.encrypt_tbl4drop";

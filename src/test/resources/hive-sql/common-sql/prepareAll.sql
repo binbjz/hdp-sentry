@@ -1,5 +1,16 @@
 SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
+DROP DATABASE IF EXISTS test_login_db CASCADE;
+CREATE DATABASE test_login_db;
+
+DROP DATABASE IF EXISTS test_login_db_tbl CASCADE;
+CREATE DATABASE test_login_db_tbl;
+CREATE TABLE test_login_db_tbl.test_tbl (
+ name STRING
+,salary FLOAT
+);
+INSERT INTO test_login_db_tbl.test_tbl VALUES ('test login', 10);
+
 DROP DATABASE IF EXISTS testdb CASCADE;
 CREATE DATABASE testdb WITH DBPROPERTIES ('creator' = 'hadoop-QA', 'date' = '2017-10-02');
 

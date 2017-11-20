@@ -4,6 +4,7 @@
 
 val test_sql="USE encrypt_db4alter";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="CREATE TABLE tbl4addcolumn (col1 TINYINT, encrypt_col2 BIGINT, col3 STRING)";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="INSERT INTO tbl4addcolumn VALUES (1, 2, 3), (2, 4, 6)";

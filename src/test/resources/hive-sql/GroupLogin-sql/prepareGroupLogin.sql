@@ -1,4 +1,15 @@
 -- CREATE DATABASE -----------------------------------
+DROP DATABASE IF EXISTS test_login_db CASCADE;
+CREATE DATABASE test_login_db;
+
+DROP DATABASE IF EXISTS test_login_db_tbl CASCADE;
+CREATE DATABASE test_login_db_tbl;
+CREATE TABLE test_login_db_tbl.test_tbl (
+ name STRING
+,salary FLOAT
+);
+INSERT INTO test_login_db_tbl.test_tbl VALUES ('test login', 10);
+
 CREATE DATABASE ba_ups;
 CREATE DATABASE dim;
 CREATE DATABASE dw;

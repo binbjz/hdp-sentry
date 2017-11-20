@@ -5,9 +5,9 @@
 val test_sql="USE encrypt_db4tbl";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="CREATE TABLE encrypt_db4tbl.tbl4view(c0 string, encrypt_c1 string, encrypt_c2 string) PARTITIONED BY (col10 STRING, col20 STRING)
+val test_sql="""CREATE TABLE encrypt_db4tbl.tbl4view(c0 string, encrypt_c1 string, encrypt_c2 string) PARTITIONED BY (col10 STRING, col20 STRING)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
-WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE";
+WITH SERDEPROPERTIES ('input.regex' = 'bduid\\[(.*)\\]uid\\[(\\d+)\\]uname\\[(.*)\\]', 'output.format.string' = '%1$s\t%2$s') STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="ALTER TABLE encrypt_db4tbl.tbl4view ADD PARTITION (col10='abc', col20='123')";
