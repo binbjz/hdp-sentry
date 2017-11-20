@@ -115,6 +115,7 @@ fi
 # Additional role, user and group privilege
 rug_priv_db=${sentry_privileges[ROLE_GROUP_USER_DB]}
 rug_priv_tbl=${sentry_privileges[ROLE_GROUP_USER_TABLE]}
+
 GROUP_ROLE_NAME1=dim_group_role
 ROLE_GROUP1=dim_group
 GROUP_ROLE_NAME2=dw_group_role
