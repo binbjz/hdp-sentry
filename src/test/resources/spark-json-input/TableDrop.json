@@ -1,18 +1,18 @@
 [ {
-  "id": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable",
-  "tag": "Table",
-  "desc": "The case will test AddFileAddJarCreateFuncAndTmpFuncWithoutTable.",
-  "cases": [
-    {
-      "type": "file/scala",
-      "name": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable.scala"
-    },
-    {
-      "type": "file/scala",
-      "name": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable.txt"
-    }
-  ]
-},
+    "id": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable",
+    "tag": "Table",
+    "desc": "The case will test AddFileAddJarCreateFuncAndTmpFuncWithoutTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable.txt"
+      }
+    ]
+  },
   {
     "id": "testCreateAlterDropTableViewUnderDefaultDB",
     "tag": "Table",
@@ -55,6 +55,21 @@
       {
         "type": "file/scala",
         "name": "testHdfsSchema.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoginMethod",
+    "tag": "Table",
+    "desc": "The case will test LoginMethod.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.txt"
       }
     ]
   },

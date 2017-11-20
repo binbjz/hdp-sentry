@@ -1,18 +1,18 @@
 [ {
-  "id": "testAddFileAndJarCreateFuncAndTmpFunc",
-  "tag": "Table",
-  "desc": "The case will test AddFileAndJarCreateFuncAndTmpFunc.",
-  "cases": [
-    {
-      "type": "file/scala",
-      "name": "testAddFileAndJarCreateFuncAndTmpFunc.scala"
-    },
-    {
-      "type": "file/scala",
-      "name": "testAddFileAndJarCreateFuncAndTmpFunc.txt"
-    }
-  ]
-},
+    "id": "testAddFileAndJarCreateFuncAndTmpFunc",
+    "tag": "Table",
+    "desc": "The case will test AddFileAndJarCreateFuncAndTmpFunc.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddFileAndJarCreateFuncAndTmpFunc.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddFileAndJarCreateFuncAndTmpFunc.txt"
+      }
+    ]
+  },
   {
     "id": "testAddFileAndJarCreateFuncAndTmpFuncWithLocalPath",
     "tag": "Table",
@@ -265,6 +265,21 @@
       {
         "type": "file/scala",
         "name": "testInsertOverwriteTablePartition02.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoginMethod",
+    "tag": "Table",
+    "desc": "The case will test LoginMethod.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.txt"
       }
     ]
   },

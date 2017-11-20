@@ -59,6 +59,21 @@
     ]
   },
   {
+    "id": "testLoginMethod",
+    "tag": "DB",
+    "desc": "The case will test LoginMethod.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.txt"
+      }
+    ]
+  },
+  {
     "id": "testQueryConstantSET",
     "tag": "DB",
     "desc": "The case will test QueryConstant and test SET.",

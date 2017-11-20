@@ -1,4 +1,3 @@
---testLoginMethod.sql
 USE test_login_db;
 
 CREATE TABLE test_login_db.tbl4login (name STRING);
