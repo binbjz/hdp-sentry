@@ -54,7 +54,7 @@ EOF
 # Check sentry flag status
 check_sentry_flag_status(){
     # Grant privilege to role
-    source $projectdir/src/main/resources/sentry_env.sh setup ${1}
+    bash $projectdir/src/main/resources/sentry_env.sh setup ${1}
 
     # Grant user with super privilege
     source $projectdir/src/main/resources/hive_env.sh $privil_type super
@@ -65,7 +65,7 @@ check_sentry_flag_status(){
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
-    source $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
+    bash $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
     result=`grep "${sentry_privileges[$1]}" $$_${2}.txt`
 
     [[ "$result" = "" ]] && sentry_flag=true || sentry_flag=false
@@ -81,7 +81,7 @@ check_sentry_flag_status(){
     fi
 
     # Revoke privileges for role
-    source $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
+    bash $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
 
     # Remove temp files
     cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt

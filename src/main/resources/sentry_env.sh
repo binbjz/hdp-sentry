@@ -123,6 +123,8 @@ USER_ROLE_NAME=hdp_qa_role
 USER=hdp_qa
 
 # Exec sentry privilege related actions
+: ${privil_type:="proxy_user_t1"}
+
 case "$1" in
     "setup")
         # Add role, group and privilege for proxy user with specify group

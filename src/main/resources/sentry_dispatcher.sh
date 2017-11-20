@@ -50,10 +50,10 @@ fi
 
 # Grant role with super privilege
 cd $project_dir
-source $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
+bash $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
 
 # Check sentry flag
-source $project_dir/src/main/resources/sentry_flag.sh
+bash $project_dir/src/main/resources/sentry_flag.sh
 
 
 # Run sentry test for standard authorization approach
@@ -71,7 +71,7 @@ for tc in $sentry_tcs; do
     fi
     
     # Grant role with normal privilege
-    source $project_dir/src/main/resources/$sentry_sh setup ${tc}
+    bash $project_dir/src/main/resources/$sentry_sh setup ${tc}
 
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
@@ -119,8 +119,8 @@ for tc in $sentry_tcs; do
         # In proxy env, we need to revoke privileges otherwise it will throw exception
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
-    source $project_dir/src/main/resources/$sentry_sh clean ${tc}
+    bash $project_dir/src/main/resources/$sentry_sh clean ${tc}
 done
 
 # Revoke role with super privilege
-source $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil
+bash $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil

@@ -81,6 +81,7 @@ done
 
 
 # Additional user related privilege action for role, user and group
+: ${privil_type_ug:="proxy_user_group1"}
 rug_priv_all=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ROLE_GROUP_USER_ALL]}"`
 
 if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
