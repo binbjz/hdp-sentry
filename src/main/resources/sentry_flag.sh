@@ -5,7 +5,7 @@
 #
 
 privil_type=keytab_auth # keytab_auth|proxy_user_t(1|2)
-proxy_regex="proxy_user(1|2)"
+proxy_regex="proxy_user(1|2)|proxy_user_group(1|2)"
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd $resource_dir/../../.. && pwd )"
 

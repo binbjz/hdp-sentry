@@ -14,7 +14,7 @@ HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 
 # Check CLI parameter
 [ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` \
-(keytab_auth|proxy_user_t1|proxy_user_t2_1|proxy_user_t2_2|proxy_user_group|clean_proxy_user) (super|normal|hive)" \
+(keytab_auth|proxy_user_t1|proxy_user_t2_1|proxy_user_t2_2|proxy_user_group1|proxy_user_group2|clean_proxy_user) (super|normal|hive)" \
 && exit $BAD_PARAMS
 
 # set proxy user for specify privilege
@@ -44,7 +44,7 @@ case "$1" in
     export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
     export HADOOP_PROXY_USER=$PROXY_USER
     ;;
-"proxy_user_t2_1|proxy_user_t2_2")
+"proxy_user_t2_1"|"proxy_user_t2_2")
     #proxy user, misid with all groups
     export HADOOP_HOME=/opt/meituan/hadoop
     export HIVE_HOME=$HIVE_HOME
@@ -60,7 +60,7 @@ case "$1" in
     unset HADOOP_JAR_KERBEROS_PRINCIPAL
     unset HADOOP_PROXY_USER
     ;;
-"proxy_user_group")
+"proxy_user_group1"|"proxy_user_group2")
     #proxy user, midis with multiple groups
     export HADOOP_HOME=/opt/meituan/hadoop
     export HIVE_HOME=$HIVE_HOME

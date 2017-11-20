@@ -54,3 +54,8 @@ DROP DATABASE db4create_no_privilege CASCADE;
 
 DROP DATABASE db4drop CASCADE;
 DROP DATABASE db4drop_cascade CASCADE;
+
+DROP DATABASE test_login_db CASCADE;
+
+DROP TABLE test_login_db_tbl.test_tbl;
+DROP DATABASE test_login_db_tbl CASCADE;

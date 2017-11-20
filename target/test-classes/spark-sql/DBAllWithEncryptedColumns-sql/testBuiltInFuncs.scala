@@ -4,6 +4,7 @@
 
 val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="CREATE TABLE IF NOT EXISTS tbl4builtinfuncs (col1 STRING, encrypt_col2 STRING, encrypt_col3 STRING)";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="INSERT INTO tbl4builtinfuncs VALUES ('lower', 'ab', 'cd,ab,ef'), ('Mixed', 'ab,ef', 'cd,ab,ef'), ('UPPER', 'abc', 'cd,ab,ef')";
@@ -18,6 +19,7 @@ val test_sql="SELECT split(encrypt_col3, ',') split FROM tbl4builtinfuncs";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT find_in_set(encrypt_col2, encrypt_col3) find_in_set FROM tbl4builtinfuncs";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP TABLE tbl4builtinfuncs";
 spark.sql(test_sql).collect().foreach(println);
 
