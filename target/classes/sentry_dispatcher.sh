@@ -8,7 +8,7 @@
 # Set env parm
 E_BADDIR=65
 privil_type=keytab_auth  # proxy_user|keytab_auth
-privil_type_ug=proxy_user_group
+privil_type_ug=proxy_user_group1 # proxy_user_group1|proxy_user_group2
 proxy_regex="proxy_user(1|2)"
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 project_dir="$( cd ${resource_dir}/../../.. && pwd )"
