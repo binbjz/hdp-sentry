@@ -36,7 +36,6 @@ else
     exit $NOPRI
 fi
 
-#sentry_privileges[GroupLogin_User]='server=server1->db=test_user_db->action=all|server=server1->db=test_user_db2->table=test_user_table->action=all"
 # Split and grant privilege to multiple users and the corresponding groups
 groups_login=${sentry_privileges[$2]} # Mark -- Need to modify GroupLogin to $2 after debugging
 
@@ -47,6 +46,42 @@ for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
     PRIVIL_SPLIT=`awk -F',' '{for(i=1;i<=NF;i++) print $i}' <<< "$PRIVILEGES"`
 
 
+    case "$1" in
+        "setup")
+            # Add role, group and privilege
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --add_role_group -r $ROLE_NAME -g $ROLE_GROUP
+
+            for PRIVIL in $PRIVIL_SPLIT; do
+                $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --grant_privilege_role --rolename $ROLE_NAME --privilege $PRIVIL
+            done
+            ;;
+        "clean")
+            # Remove role, group and privilege
+            for PRIVIL in $PRIVIL_SPLIT; do
+                $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p $PRIVIL
+            done
+
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --delete_role_group -r $ROLE_NAME -g $ROLE_GROUP
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --drop_role -r $ROLE_NAME
+            ;;
+        "check")
+            # Check role, group and privilege
+            # Too many roles and temporary comment the line.
+            #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP
+            $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $ROLE_NAME
+            ;;
+        * )
+        echo "Please specify valid action"
+        exit $NOMATCH;;
+    esac
+done
+
+
+#sentry_privileges[GroupLogin_User]="server=server1->db=test_login_db->action=all,server=server1->db=test_login_db->table=test_login_db_tbl->action=all"
+# Additional user related privilege action for user, group
+if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
     case "$1" in
         "setup")
             # Add role, group and privilege
@@ -118,4 +153,4 @@ for i in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login`;do
         echo "Please specify valid action"
         exit $NOMATCH;;
     esac
-done
+fi

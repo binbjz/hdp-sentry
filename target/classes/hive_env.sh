@@ -14,7 +14,8 @@ HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 
 # Check CLI parameter
 [ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` \
-(keytab_auth|proxy_user_t1|proxy_user_t2|proxy_user_group|clean_proxy_user) (super|normal|hive)" && exit $BAD_PARAMS
+(keytab_auth|proxy_user_t1|proxy_user_t2_1|proxy_user_t2_2|proxy_user_group|clean_proxy_user) (super|normal|hive)" \
+&& exit $BAD_PARAMS
 
 # set proxy user for specify privilege
 if [[ "$2" == "super" ]]; then
