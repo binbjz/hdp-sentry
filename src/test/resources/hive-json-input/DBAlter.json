@@ -119,6 +119,21 @@
     ]
   },
   {
+    "id": "testLoginMethod",
+    "tag": "DB",
+    "desc": "The case will test LoginMethod.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testLoginMethod.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testLoginMethod.txt"
+      }
+    ]
+  },
+  {
     "id": "testQueryConstant",
     "tag": "DB",
     "desc": "The case will test QueryConstant.",
