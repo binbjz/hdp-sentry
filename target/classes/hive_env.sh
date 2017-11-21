@@ -22,6 +22,7 @@ if [[ "$2" == "super" ]]; then
     PROXY_USER=mt_qa
 elif [[ "$2" == "normal" ]]; then
     PROXY_USER=hdp_qa
+# just for clean_proxy_user
 elif [[ "$2" == "hive" ]]; then
     :
 else
