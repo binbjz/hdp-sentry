@@ -1,7 +1,7 @@
 #!/bin/bash
 #filename: sentry_env.sh
 #
-#The script will grant sentry role and group privilege for proxy user and keytab login way
+#The script will grant sentry user, role and group privilege for proxy user and keytab login way
 #
 
 # Define param and env
@@ -111,8 +111,9 @@ else
     ROLE_GROUP=hdp_qa
 fi
 
-
+##============
 # Additional role, user and group privilege
+
 rug_priv_db=${sentry_privileges[ROLE_GROUP_USER_DB]}
 rug_priv_tbl=${sentry_privileges[ROLE_GROUP_USER_TABLE]}
 
@@ -122,6 +123,7 @@ GROUP_ROLE_NAME2=dw_group_role
 ROLE_GROUP2=dw_group
 USER_ROLE_NAME=hdp_qa_role
 USER=hdp_qa
+##============
 
 # Exec sentry privilege related actions
 : ${privil_type:="proxy_user_t1"}
@@ -129,7 +131,7 @@ USER=hdp_qa
 case "$1" in
     "setup")
         # Add role, group and privilege for proxy user with specify group
-        if [[ $privil_type = "proxy_user_t1" ]]; then
+        if [[ $privil_type = "proxy_user_t1" ]] || [[ $privil_type = "keytab_auth" ]]; then
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --add_role_group -r $ROLE_NAME -g $ROLE_GROUP
 
@@ -180,7 +182,7 @@ case "$1" in
         ;;
     "clean")
         # Remove role, group and privilege
-        if [[ $privil_type = "proxy_user_t1" ]]; then
+        if [[ $privil_type = "proxy_user_t1" ]] || [[ $privil_type = "keytab_auth" ]]; then
             for privil in $privileges; do
                 $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p "$privil"
             done
@@ -231,7 +233,7 @@ case "$1" in
         ;;
     "check")
         # Check role, group and privilege
-        if [[ $privil_type = "proxy_user_t1" ]]; then
+        if [[ $privil_type = "proxy_user_t1" ]] || [[ $privil_type = "keytab_auth" ]]; then
             # Too many roles, so temporary comment the line.
             #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP

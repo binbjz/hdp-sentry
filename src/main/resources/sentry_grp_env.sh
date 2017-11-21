@@ -87,7 +87,7 @@ rug_priv_all=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_priv
 if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
     case "$1" in
         "setup")
-            #Add the following user related privilege
+            # Add user related privilege
             USER_ROLE_NAME=hdp_qa_role
             USER=hdp_qa
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $USER_ROLE_NAME
@@ -98,7 +98,7 @@ if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
             done
             ;;
         "clean")
-            #Remove the following user related privilege
+            # Remove user related privilege
             USER_ROLE_NAME=hdp_qa_role
             USER=hdp_qa
             for privil in $rug_priv_all; do

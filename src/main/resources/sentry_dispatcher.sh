@@ -33,11 +33,12 @@ sql_src=spark-sql
 file_suffix=scala
 COMMENTBLOCK
 
-
+# Set sql source path
 common_sql_src=$project_dir/src/test/resources/$sql_src/common-sql
 encryptColumn_sql_src=$project_dir/src/test/resources/$sql_src/DBAllWithEncryptedColumns-sql
 groupLogin_sql_src=$project_dir/src/test/resources/$sql_src/GroupLogin-sql
 
+# Set regex for multiple permissions
 include_patt="DBAllWithEncryptedColumns|DBAllWithEncryptedColumns_2|DBAllWithEncryptedColumns_3|GroupLogin|GroupLogin_2|GroupLogin_3"
 include_patt2="DBAllWithEncryptedColumns"
 include_patt3="GroupLogin"
@@ -49,13 +50,12 @@ if [ ! -d "$project_dir" ]; then
     exit $E_BADDIR
 fi
 
+# Check sentry flag
+source $project_dir/src/main/resources/sentry_flag.sh
+
 # Grant role with super privilege
 cd $project_dir
-bash $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
-
-# Check sentry flag
-bash $project_dir/src/main/resources/sentry_flag.sh
-
+source $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
 
 # Run sentry test for standard authorization approach
 sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
@@ -72,7 +72,7 @@ for tc in $sentry_tcs; do
     fi
     
     # Grant role with normal privilege
-    bash $project_dir/src/main/resources/$sentry_sh setup ${tc}
+    source $project_dir/src/main/resources/$sentry_sh setup ${tc}
 
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
@@ -120,8 +120,8 @@ for tc in $sentry_tcs; do
         # In proxy env, we need to revoke privileges otherwise it will throw exception
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
-    bash $project_dir/src/main/resources/$sentry_sh clean ${tc}
+    source $project_dir/src/main/resources/$sentry_sh clean ${tc}
 done
 
 # Revoke role with super privilege
-bash $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil
+source $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil

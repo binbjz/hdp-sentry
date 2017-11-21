@@ -4,8 +4,8 @@
 #The script will check sentry flag status (true|false)
 #
 
-privil_type=keytab_auth # keytab_auth|proxy_user_t(1|2)
-proxy_regex="proxy_user(1|2)|proxy_user_group(1|2)"
+privil_type=keytab_auth # keytab_auth|proxy_user_t1
+proxy_regex="proxy_user_t1"
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd $resource_dir/../../.. && pwd )"
 
@@ -54,18 +54,18 @@ EOF
 # Check sentry flag status
 check_sentry_flag_status(){
     # Grant privilege to role
-    bash $projectdir/src/main/resources/sentry_env.sh setup ${1}
+    source $projectdir/src/main/resources/sentry_env.sh setup ${1}
 
     # Grant user with super privilege
     source $projectdir/src/main/resources/hive_env.sh $privil_type super
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${2}.sql
 
     # In proxy env, if we need to revoke privileges otherwise it will throw exception
-    if [[ "$privil_type" =~ $proxy_regex ]]; then
+    if [[ "$privil_type" = $proxy_regex ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
-    bash $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
+    source $projectdir/src/main/resources/sentry_env.sh check ${1} > $$_${2}.txt 2>&1
     result=`grep "${sentry_privileges[$1]}" $$_${2}.txt`
 
     [[ "$result" = "" ]] && sentry_flag=true || sentry_flag=false
@@ -76,16 +76,20 @@ check_sentry_flag_status(){
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_clean_db_env.sql
 
     # In proxy env, we need to revoke privileges otherwise it will throw exception
-    if [[ "$privil_type" =~ $proxy_regex ]]; then
+    if [[ "$privil_type" = $proxy_regex ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
     # Revoke privileges for role
-    bash $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
+    source $projectdir/src/main/resources/sentry_env.sh clean ${1} > /dev/null 2>&1
 
     # Remove temp files
     cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt
 }
+
+# Grant role with super privilege
+cd $project_dir
+source $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
 
 check_sentry_flag_status ${sentry_priv[drop_table]} ${sentry_f[drop_table]}
 check_sentry_flag_status ${sentry_priv[drop_db]} ${sentry_f[drop_db]}
@@ -93,3 +97,6 @@ check_sentry_flag_status ${sentry_priv[alter_table]} ${sentry_f[alter_table]}
 
 # Remove temp file
 cd $projectdir && rm $$_clean_db_env.sql
+
+# Revoke role with super privilege
+source $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil
