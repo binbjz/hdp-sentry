@@ -53,4 +53,14 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SHOW TABLES";
 spark.sql(test_sql).collect().foreach(println);
 
+val test_sql="USE test_login_db";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TABLES";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="USE test_login_db_tbl";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="SHOW TABLES";
+spark.sql(test_sql).collect().foreach(println);
+
 System.exit(0);

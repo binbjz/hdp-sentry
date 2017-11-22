@@ -1,3 +1,18 @@
+val test_sql = "DROP DATABASE IF EXISTS test_login_db CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE test_login_db LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_login_db.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS test_login_db_tbl CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE test_login_db_tbl LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_login_db_tbl.db'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE TABLE test_login_db_tbl.test_tbl (name STRING ,salary FLOAT)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "INSERT INTO test_login_db_tbl.test_tbl VALUES ('test login', 10)";
+spark.sql(test_sql).collect().foreach(println);
+
+
 val test_sql = "DROP DATABASE IF EXISTS testdb CASCADE";
 spark.sql(test_sql).collect().foreach(println);
 
