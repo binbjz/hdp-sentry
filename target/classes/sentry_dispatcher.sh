@@ -33,8 +33,7 @@ file_suffix=sql
 # Set spark env. If run spark sql please comment hive env statements.
 : <<COMMENTBLOCK
 SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
-cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest \
---jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
+cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
 COMMENTBLOCK
@@ -67,9 +66,7 @@ source $project_dir/src/main/resources/sentry_super_env.sh setup SuperPrivil
 source $project_dir/src/main/resources/sentry_flag.sh
 
 # Run sentry test for standard authorization approach
-sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter \
-DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite \
-DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
+sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
 
 for tc in $sentry_tcs; do
     # It will be used to set multiple permissions for the same test case
