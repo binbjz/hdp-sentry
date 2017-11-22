@@ -1,7 +1,7 @@
 #!/bin/bash
 #filename: sentry_dispatcher.sh
 #
-#The script will run sentry test, include standard and user+group authorization approach
+#The script will run sentry, hive and spark test. including keytab, proxy user and group authorization approach
 #/usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
 #
 
@@ -9,39 +9,37 @@
 E_BADDIR=65
 proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)|proxy_user_group(1|2)"
 
-<<<<<<< HEAD
 # Set priv type
 privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
 privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
 
-# set priv flag for role, group, user
-export priv_flag=proxy_user_t2_2
-export priv_ug_flag=proxy_user_group2
-=======
-export privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
-export privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
->>>>>>> 14af0cc6e7221e051ad8cc2727adb0e86658bea9
 
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 project_dir="$( cd ${resource_dir}/../../.. && pwd )"
 log_base=${project_dir}/src/test/log
 
+
 # Temporary env for dependent libraries
 libdir=/opt/meituan/qa_test/data_bin/test-lib/
 
+
+##============
 # Set hive env. If run hive sql please comment spark env statements
-: <<COMMENTBLOCK
 HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 cmd_exec="${HIVE_HOME}/bin/hive --hiveconf hive.cli.errors.ignore=true -f"
 sql_src=hive-sql
 file_suffix=sql
-COMMENTBLOCK
 
 # Set spark env. If run spark sql please comment hive env statements.
+: <<COMMENTBLOCK
 SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
-cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
+cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest \
+--jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
+COMMENTBLOCK
+##============
+
 
 # Set sql source path
 common_sql_src=$project_dir/src/test/resources/$sql_src/common-sql
@@ -60,15 +58,18 @@ if [ ! -d "$project_dir" ]; then
     exit $E_BADDIR
 fi
 
-# Check sentry flag
-source $project_dir/src/main/resources/sentry_flag.sh
 
 # Grant role with super privilege
 cd $project_dir
-source $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
+source $project_dir/src/main/resources/sentry_super_env.sh setup SuperPrivil
+
+# Check sentry flag
+source $project_dir/src/main/resources/sentry_flag.sh
 
 # Run sentry test for standard authorization approach
-sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
+sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter \
+DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite \
+DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
 
 for tc in $sentry_tcs; do
     # It will be used to set multiple permissions for the same test case
@@ -88,6 +89,7 @@ for tc in $sentry_tcs; do
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
 
     # Execute preppare sql
+    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running prepare sql"
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
         $cmd_exec ${encryptColumn_sql_src}/prepare${tc_tmp}.${file_suffix}
@@ -115,6 +117,7 @@ for tc in $sentry_tcs; do
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
     # Execute post sql
+    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running post sql"
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
         $cmd_exec ${encryptColumn_sql_src}/post${tc_tmp}.${file_suffix}
@@ -134,4 +137,4 @@ for tc in $sentry_tcs; do
 done
 
 # Revoke role with super privilege
-source $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil
+source $project_dir/src/main/resources/sentry_super_env.sh clean SuperPrivil

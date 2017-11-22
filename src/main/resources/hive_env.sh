@@ -17,6 +17,7 @@ HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 (keytab_auth|proxy_user_t1|proxy_user_t2_1|proxy_user_t2_2|proxy_user_group1|proxy_user_group2|clean_proxy_user) (super|normal|hive)" \
 && exit $BAD_PARAMS
 
+
 # set proxy user for specify privilege
 if [[ "$2" == "super" ]]; then
     PROXY_USER=mt_qa
@@ -29,6 +30,7 @@ else
     echo "Please specify valid sentry privilege"
     exit $NOPRI
 fi
+
 
 # Select the corresponding authentication type
 case "$1" in

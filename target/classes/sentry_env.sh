@@ -20,33 +20,13 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 # Check CLI parameter
 [ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` (setup|clean|check) (privilege)" && exit $BAD_PARAMS
 
+
 # Load sentry privileges template
 DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${DIR}/sentry_privil_tmpl.sh
 
-# Formatting output for privilege
-priv_formatter(){
-    case "$1" in
-        g)  opt=Granting; shift ;;
-        r)  opt=Revoking; shift ;;
-        c)  opt=Checking; shift ;;
-        *)  echo "Please specify valid info \"g\", \"r\" or \"c\""
-            exit $BAD_PARAMS ;;
-    esac
-
-    echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO $opt $@ privileges"
-}
 
 ##============
-# set role name and role group for specify privilege
-if [[ "$2" == "SuperPrivil" ]]; then
-    ROLE_NAME=mt_qa
-    ROLE_GROUP=mt_qa
-else
-    ROLE_NAME=hdp_qa
-    ROLE_GROUP=hdp_qa
-fi
-
 # Sentry Flag Privilege
 if [[ "$2" == "SentryFlagDropTable" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagDropTable]}"`
@@ -54,11 +34,6 @@ elif [[ "$2" == "SentryFlagDropDB" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagDropDB]}"`
 elif [[ "$2" == "SentryFlagAlterTable" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SentryFlagAlterTable]}"`
-
-
-# Super Privilege
-elif [[ "$2" == "SuperPrivil" ]]; then
-    privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SuperPrivil]}"`
 
 # Server Privilege
 elif [[ "$2" == "ServerAll" ]]; then
@@ -116,9 +91,6 @@ elif [[ "$2" == "DBAllWithEncryptedColumns_2" ]]; then
 elif [[ "$2" == "DBAllWithEncryptedColumns_3" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[DBAllWithEncryptedColumns_3]}"`
 
-# For show privilege to specify $2 with List
-elif [[ "$2" == "List" ]]; then
-    : ${privilege:="placeholder"}
 else
     echo "Please specify valid sentry privilege"
     exit $NOPRI
@@ -126,8 +98,26 @@ fi
 ##============
 
 
+# Formatting privilege info
+priv_formatter(){
+    case "$1" in
+        g)  opt=Granting; shift ;;
+        r)  opt=Revoking; shift ;;
+        c)  opt=Checking; shift ;;
+        *)  echo "Please specify valid info \"g\", \"r\" or \"c\""
+            exit $BAD_PARAMS ;;
+    esac
+
+    echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO $opt $@ privileges"
+}
+
+
 ##============
-# Additional user, role and group privilege
+# set role name and group for specify privilege
+ROLE_NAME=hdp_qa
+ROLE_GROUP=hdp_qa
+
+# Additional user, role, group for specify privilege
 rug_priv_db=`awk 'BEGIN{FS=","}{print $1}' <<< "${sentry_privileges[ROLE_GROUP_USER_ALL]}"`
 rug_priv_tbl=`awk 'BEGIN{FS=","}{print $2}' <<< "${sentry_privileges[ROLE_GROUP_USER_ALL]}"`
 
@@ -140,13 +130,13 @@ USER=hdp_qa
 ##============
 
 
-# Exec sentry privilege related actions
-: ${priv_flag:="proxy_user_t1"}
+# Simply verify that the permission type is valid
+: ${privil_type:="proxy_user_t1"}
 
 case "$1" in
     "setup")
         # Add role, group and privilege for proxy user with specify group
-        if [[ $priv_flag = "proxy_user_t1" ]] || [[ $priv_flag = "keytab_auth" ]]; then
+        if [[ $privil_type = "proxy_user_t1" ]] || [[ $privil_type = "keytab_auth" ]]; then
             priv_formatter g $ROLE_NAME, $ROLE_GROUP
 
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
@@ -158,7 +148,7 @@ case "$1" in
 
 
         # Grant privilege on a group related role
-        elif [[ $priv_flag = "proxy_user_t2_1" ]]; then
+        elif [[ $privil_type = "proxy_user_t2_1" ]]; then
             priv_formatter g $GROUP_ROLE_NAME1, $ROLE_GROUP1, $GROUP_ROLE_NAME1, $ROLE_GROUP2, $USER_ROLE_NAME, $USER
 
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $GROUP_ROLE_NAME1
@@ -178,7 +168,7 @@ case "$1" in
 
 
         # Grant privilege on a role related user
-        elif [[ $priv_flag = "proxy_user_t2_2" ]]; then
+        elif [[ $privil_type = "proxy_user_t2_2" ]]; then
             priv_formatter g $GROUP_ROLE_NAME1, $ROLE_GROUP1, $GROUP_ROLE_NAME1, $ROLE_GROUP2, $USER_ROLE_NAME, $USER
 
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $GROUP_ROLE_NAME1
@@ -201,8 +191,8 @@ case "$1" in
         fi
         ;;
     "clean")
-        # Remove role, group and privilege
-        if [[ $priv_flag = "proxy_user_t1" ]] || [[ $priv_flag = "keytab_auth" ]]; then
+        # Remove privilege on role and group
+        if [[ $privil_type = "proxy_user_t1" ]] || [[ $privil_type = "keytab_auth" ]]; then
             priv_formatter r $ROLE_NAME, $ROLE_GROUP
 
             for privil in $privileges; do
@@ -214,7 +204,7 @@ case "$1" in
 
 
         # Revoke privilege on a group related role
-        elif [[ $priv_flag = "proxy_user_t2_1" ]]; then
+        elif [[ $privil_type = "proxy_user_t2_1" ]]; then
             priv_formatter r $GROUP_ROLE_NAME1, $ROLE_GROUP1, $GROUP_ROLE_NAME1, $ROLE_GROUP2, $USER_ROLE_NAME, $USER
 
             for privil in $privileges; do
@@ -236,7 +226,7 @@ case "$1" in
 
 
         # Revoke privilege on a user related role
-        elif [[ $priv_flag = "proxy_user_t2_2" ]]; then
+        elif [[ $privil_type = "proxy_user_t2_2" ]]; then
             priv_formatter r $GROUP_ROLE_NAME1, $ROLE_GROUP1, $GROUP_ROLE_NAME1, $ROLE_GROUP2, $USER_ROLE_NAME, $USER
 
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -revoke_privilege_role --rolename $GROUP_ROLE_NAME1 --privilege "$rug_priv_db"
@@ -258,8 +248,8 @@ case "$1" in
         fi
         ;;
     "check")
-        # Check role, group and privilege
-        if [[ $priv_flag = "proxy_user_t1" ]] || [[ $priv_flag = "keytab_auth" ]]; then
+        # Check privilege on role and group
+        if [[ $privil_type = "proxy_user_t1" ]] || [[ $privil_type = "keytab_auth" ]]; then
             priv_formatter c $ROLE_NAME, $ROLE_GROUP
 
             # Too many roles, so temporary comment the line.
@@ -269,7 +259,7 @@ case "$1" in
 
 
         #Check privilege on a group related role
-        elif [[ $priv_flag = "proxy_user_t2_1" ]]; then
+        elif [[ $privil_type = "proxy_user_t2_1" ]]; then
             priv_formatter c $GROUP_ROLE_NAME1, $ROLE_GROUP1, $GROUP_ROLE_NAME1, $ROLE_GROUP2, $USER_ROLE_NAME, $USER
 
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $GROUP_ROLE_NAME1
@@ -285,7 +275,7 @@ case "$1" in
 
 
         # Check privilege on a user related role
-        elif [[ $priv_flag = "proxy_user_t2_2" ]]; then
+        elif [[ $privil_type = "proxy_user_t2_2" ]]; then
             priv_formatter c $GROUP_ROLE_NAME1, $ROLE_GROUP1, $GROUP_ROLE_NAME1, $ROLE_GROUP2, $USER_ROLE_NAME, $USER
 
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $GROUP_ROLE_NAME1

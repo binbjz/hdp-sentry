@@ -9,6 +9,7 @@ flag_proxy_regex="proxy_user_t1"
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd $resource_dir/../../.. && pwd )"
 
+
 declare -A sentry_priv sentry_f
 sentry_priv[drop_table]="SentryFlagDropTable"
 sentry_priv[drop_db]="SentryFlagDropDB"
@@ -17,6 +18,7 @@ sentry_priv[alter_table]="SentryFlagAlterTable"
 sentry_f[drop_table]="drop_table"
 sentry_f[drop_db]="drop_db"
 sentry_f[alter_table]="alter_table"
+
 
 # 1. Check server all with drop table
 # Check sentry flag with temp sql
@@ -50,6 +52,7 @@ DROP DATABASE IF EXISTS testdroptbl CASCADE;
 DROP DATABASE IF EXISTS testdropdb CASCADE;
 DROP DATABASE IF EXISTS testaltertbl CASCADE;
 EOF
+
 
 # Check sentry flag status
 check_sentry_flag_status(){
@@ -87,16 +90,12 @@ check_sentry_flag_status(){
     cd $projectdir && rm -rf $$_${2}.sql $$_${2}.txt
 }
 
-# Grant role with super privilege
-cd $project_dir
-source $project_dir/src/main/resources/sentry_env.sh setup SuperPrivil
 
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Checking sentry flag status"
 check_sentry_flag_status ${sentry_priv[drop_table]} ${sentry_f[drop_table]}
 check_sentry_flag_status ${sentry_priv[drop_db]} ${sentry_f[drop_db]}
 check_sentry_flag_status ${sentry_priv[alter_table]} ${sentry_f[alter_table]}
 
+
 # Remove temp file
 cd $projectdir && rm $$_clean_db_env.sql
-
-# Revoke role with super privilege
-source $project_dir/src/main/resources/sentry_env.sh clean SuperPrivil

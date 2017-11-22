@@ -39,6 +39,10 @@ public class UtilTool {
 
         System.out.println(SentryConstant.cmdExec);
 
+        String regx = "\tat org.apache.hadoop.hdfs.server";
+        System.out.println(filterResults(regx));
+
+
 
         /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
         String fileName = filterTmpPath + "filterTmp.txt";
@@ -204,14 +208,15 @@ public class UtilTool {
      * example: "17/09/13 14:39:55 INFO xxxxxx" will be replaced with an empty string
      */
     public static String filterResults(String str) {
-        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?)";
-        String REGEX2 = ".*(Time|CliDriver|Logging).*";
-//        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
-//        String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
+//        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?)";
+//        String REGEX2 = ".*(Time|CliDriver|Logging).*";
+        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
+        String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
+        String REGEX3 = "^\\s+at\\s+(org|sun|java|com|javax).*";
         String REPLACE = "";
         // String REGEX2 = "([a-zA-Z]+(:?)\\s+(!?))+";
         //String REPLACE = "<******>";
-        String prefixes = REGEX + "|" + REGEX2;
+        String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3;
         String REGEXS = "(" + prefixes + ")";
         Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(str);

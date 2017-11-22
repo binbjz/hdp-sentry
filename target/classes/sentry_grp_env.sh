@@ -10,7 +10,6 @@ BAD_PARAMS=66
 NOMATCH=127
 NOPRI=62
 LOGIN_USER=hive
-DB_NAME=testdb
 
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
@@ -20,9 +19,11 @@ source /opt/meituan/hadoop/bin/hadoop_user_login.sh $LOGIN_USER
 # Check CLI parameter
 [ $# -ne $ARGS ] && echo "Usage: `basename $BASH_SOURCE` (setup|clean|check) (privilege)" && exit $BAD_PARAMS
 
+
 # Load sentry privileges template
 DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${DIR}/sentry_privil_tmpl.sh
+
 
 # Just verify if this is correct
 if [[ "$2" = "GroupLogin" ]]; then
@@ -35,6 +36,7 @@ else
     echo "Please specify valid sentry user group privilege"
     exit $NOPRI
 fi
+
 
 # Split and grant privilege to multiple users and the corresponding groups
 groups_login=${sentry_privileges[$2]} # Mark -- Need to modify GroupLogin to $2 after debugging
@@ -81,10 +83,12 @@ done
 
 
 # Additional user related privilege action for role, user and group
-: ${priv_ug_flag:="proxy_user_group1"}
 rug_priv_all=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ROLE_GROUP_USER_ALL]}"`
 
-if [[ "$priv_ug_flag" == "proxy_user_group2" ]]; then
+# Simply verify that the permission type is valid
+: ${priv_ug_flag:="proxy_user_group1"}
+
+if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
     case "$1" in
         "setup")
             # Add user related privilege
