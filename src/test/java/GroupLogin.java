@@ -37,7 +37,7 @@ public class GroupLogin {
     public void testGroupLogin(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
-        logger.info("GroupLogin--> running testcase: " + id);
+        logger.info(caseName + "--> running testcase: " + id);
         logger.info("===============================================");
         String hiveSql = SentryConstant.cmdExec + SentryConstant.groupLoginSqlSrc + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};

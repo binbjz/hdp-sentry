@@ -92,10 +92,6 @@ sentry_privileges[GroupLogin_2]='mart_waimai_group="server=server1->db=mart_waim
 
 sentry_privileges[GroupLogin_3]='ba_ups_group="server=server1->db=ba_ups->action=select"|dim_group="server=server1->db=dim->action=select"|dw_group="server=server1->db=dw->action=select"|mart_waimai_group="server=server1->db=mart_waimai->action=select,server=server1->db=mart_waimai->action=create,server=server1->db=mart_waimai->action=alter,server=server1->db=mart_waimai->action=insert"|mart_waimai_crm_group="server=server1->db=mart_waimai_crm->action=select"|mart_wmorg_group="server=server1->db=mart_wmorg->action=select"|origin_waimai_group="server=server1->db=origin_waimai->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=binded_phone->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=common_ext->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_address->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_name->action=select,server=server1->db=origin_waimai->table=waimai_safe_order->column=recipient_phone->action=select"|origindb_group="server=server1->db=origindb->action=select"|origin_dianping_group="server=server1->db=origin_dianping->action=select"'
 
-#sentry_privileges[GroupLogin_User]='server=server1->db=test_user_db->action=all|server=server1->db=test_user_db2->table=test_user_table->action=all"
-
 
 # Additional role, user and group privilege
-sentry_privileges[ROLE_GROUP_USER_DB]="server=server1->db=test_login_db->action=all"
-sentry_privileges[ROLE_GROUP_USER_TABLE]="server=server1->db=test_login_db->table=test_login_db_tbl->action=all"
-sentry_privileges[ROLE_GROUP_USER_ALL]="server=server1->db=test_login_db->action=all,server=server1->db=test_login_db->table=test_login_db_tbl->action=all"
+sentry_privileges[ROLE_GROUP_USER_ALL]="server=server1->db=test_login_db->action=all,server=server1->db=test_login_db_tbl->table=test_tbl->action=all"

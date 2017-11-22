@@ -81,10 +81,10 @@ done
 
 
 # Additional user related privilege action for role, user and group
-: ${privil_type_ug:="proxy_user_group1"}
+: ${priv_ug_flag:="proxy_user_group1"}
 rug_priv_all=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ROLE_GROUP_USER_ALL]}"`
 
-if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
+if [[ "$priv_ug_flag" == "proxy_user_group2" ]]; then
     case "$1" in
         "setup")
             # Add user related privilege
@@ -118,7 +118,7 @@ if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -u $USER
             ;;
         * )
-        echo "Please specify valid action"
-        exit $NOMATCH;;
+            echo "Please specify valid action"
+            exit $NOMATCH;;
     esac
 fi

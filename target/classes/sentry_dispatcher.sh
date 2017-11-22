@@ -9,8 +9,13 @@
 E_BADDIR=65
 proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)|proxy_user_group(1|2)"
 
-export privil_type=keytab_auth  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
-export privil_type_ug=proxy_user_group1 # proxy_user_group1|proxy_user_group2
+# Set priv type
+privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
+privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
+
+# set priv flag for role, group, user
+export priv_flag=proxy_user_t2_2
+export priv_ug_flag=proxy_user_group2
 
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 project_dir="$( cd ${resource_dir}/../../.. && pwd )"
@@ -20,18 +25,18 @@ log_base=${project_dir}/src/test/log
 libdir=/opt/meituan/qa_test/data_bin/test-lib/
 
 # Set hive env. If run hive sql please comment spark env statements
+: <<COMMENTBLOCK
 HIVE_HOME=`readlink -f /opt/meituan/hive-1.2`
 cmd_exec="${HIVE_HOME}/bin/hive --hiveconf hive.cli.errors.ignore=true -f"
 sql_src=hive-sql
 file_suffix=sql
+COMMENTBLOCK
 
 # Set spark env. If run spark sql please comment hive env statements.
-: <<COMMENTBLOCK
 SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
 cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
-COMMENTBLOCK
 
 # Set sql source path
 common_sql_src=$project_dir/src/test/resources/$sql_src/common-sql
@@ -70,7 +75,7 @@ for tc in $sentry_tcs; do
     else
         sentry_sh=sentry_env.sh
     fi
-    
+
     # Grant role with normal privilege
     source $project_dir/src/main/resources/$sentry_sh setup ${tc}
 
@@ -95,7 +100,7 @@ for tc in $sentry_tcs; do
         source $project_dir/src/main/resources/hive_env.sh $privil_type normal
     fi
 
-    # Use the same test case to run multiple permissions 
+    # Use the same test case to run multiple permissions
     if echo "$tc" | egrep -qi "'$include_patt'"; then
         java -Djava.ext.dirs=${libdir} -Dlog.base=${log_base} -cp ${project_dir}/target/classes:${project_dir}/target/test-classes org.junit.runner.JUnitCore ${tc_tmp}
     else

@@ -4,8 +4,8 @@
 #The script will check sentry flag status (true|false)
 #
 
-privil_type=keytab_auth # keytab_auth|proxy_user_t1
-proxy_regex="proxy_user_t1"
+flag_priv_type=keytab_auth # keytab_auth|proxy_user_t1
+flag_proxy_regex="proxy_user_t1"
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 projectdir="$( cd $resource_dir/../../.. && pwd )"
 
@@ -57,11 +57,11 @@ check_sentry_flag_status(){
     source $projectdir/src/main/resources/sentry_env.sh setup ${1}
 
     # Grant user with super privilege
-    source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    source $projectdir/src/main/resources/hive_env.sh $flag_priv_type super
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_${2}.sql
 
-    # In proxy env, if we need to revoke privileges otherwise it will throw exception
-    if [[ "$privil_type" = $proxy_regex ]]; then
+    # In proxy env, we need to revoke privileges otherwise it will throw exception
+    if [[ "$flag_priv_type" = $flag_proxy_regex ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
@@ -72,11 +72,11 @@ check_sentry_flag_status(){
     echo -e "`date +%Y-%m-%d_%H:%M:%S` INFO sentry flag: $sentry_flag\n"
 
     # Grant user with super privilege and clean db env
-    source $projectdir/src/main/resources/hive_env.sh $privil_type super
+    source $projectdir/src/main/resources/hive_env.sh $flag_priv_type super
     $HIVE_HOME/bin/hive --hiveconf hive.cli.errors.ignore=true -f $$_clean_db_env.sql
 
     # In proxy env, we need to revoke privileges otherwise it will throw exception
-    if [[ "$privil_type" = $proxy_regex ]]; then
+    if [[ "$flag_priv_type" = $flag_proxy_regex ]]; then
         source $projectdir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 

@@ -38,7 +38,7 @@ public class DBAllWithEncryptedColumns {
     public void testDBInsert(String id, String tag, String desc, String sqlType, String sqlFile, String
             resultType, String resultFile) {
         logger.info("===============================================");
-        logger.info("DBAllWithEncryptedColumns--> running testcase: " + id);
+        logger.info(caseName + "--> running testcase: " + id);
         logger.info("===============================================");
         String hiveSql = SentryConstant.cmdExec + SentryConstant.encryptColumnSqlSrc + File.separator + sqlFile;
         String[] sqlCmd = {"/bin/bash", "-c", hiveSql};
