@@ -443,6 +443,14 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql = "ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL')";
 spark.sql(test_sql).collect().foreach(println);
 
+val test_sql = "ALTER TABLE testdb.test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'CA')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "ALTER TABLE testdb.test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'OR')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "ALTER TABLE testdb.test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL')";
+spark.sql(test_sql).collect().foreach(println);
+
+
 val test_sql = """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_test_insert_overwrite_tbl_partition PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
