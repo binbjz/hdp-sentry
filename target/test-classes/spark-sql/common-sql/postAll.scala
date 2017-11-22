@@ -1,3 +1,11 @@
+val test_sql="DROP DATABASE test_login_db CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="DROP TABLE test_login_db_tbl.test_tbl";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql="DROP DATABASE test_login_db_tbl CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP TABLE testdb.tbl4rename";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE testdb.tbl4rename_new";

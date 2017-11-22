@@ -97,5 +97,5 @@ sentry_privileges[GroupLogin_3]='ba_ups_group="server=server1->db=ba_ups->action
 
 # Additional role, user and group privilege
 sentry_privileges[ROLE_GROUP_USER_DB]="server=server1->db=test_login_db->action=all"
-sentry_privileges[ROLE_GROUP_USER_TABLE]="server=server1->db=test_login_db->table=test_login_db_tbl->action=all"
-sentry_privileges[ROLE_GROUP_USER_ALL]="server=server1->db=test_login_db->action=all,server=server1->db=test_login_db->table=test_login_db_tbl->action=all"
+sentry_privileges[ROLE_GROUP_USER_TABLE]="server=server1->db=test_login_db_tbl->table=test_tbl->action=all"
+sentry_privileges[ROLE_GROUP_USER_ALL]="server=server1->db=test_login_db->action=all,server=server1->db=test_login_db_tbl->table=test_tbl->action=all"
