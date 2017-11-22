@@ -1,3 +1,18 @@
+val test_sql = "DROP DATABASE IF EXISTS test_login_db CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE test_login_db LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_login_db.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "DROP DATABASE IF EXISTS test_login_db_tbl CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE test_login_db_tbl LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/test_login_db_tbl.db'";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE TABLE test_login_db_tbl.test_tbl (name STRING ,salary FLOAT)";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "INSERT INTO test_login_db_tbl.test_tbl VALUES ('test login', 10)";
+spark.sql(test_sql).collect().foreach(println);
+
+
 val test_sql = "DROP DATABASE IF EXISTS testdb CASCADE";
 spark.sql(test_sql).collect().foreach(println);
 
@@ -427,6 +442,14 @@ val test_sql = "ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD P
 spark.sql(test_sql).collect().foreach(println);
 val test_sql = "ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL')";
 spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "ALTER TABLE testdb.test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'CA')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "ALTER TABLE testdb.test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'OR')";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "ALTER TABLE testdb.test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL')";
+spark.sql(test_sql).collect().foreach(println);
+
 
 val test_sql = """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_test_insert_overwrite_tbl_partition PARTITION (country = 'US', state = 'CA')""";

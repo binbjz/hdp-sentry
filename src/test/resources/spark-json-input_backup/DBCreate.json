@@ -1,0 +1,106 @@
+[ {
+    "id": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable",
+    "tag": "DB",
+    "desc": "The case will test AddFileAddJarCreateFuncAndTmpFuncWithoutTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddFileAddJarCreateFuncAndTmpFuncWithoutTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateAlterDropTableViewUnderDefaultDB",
+    "tag": "DB",
+    "desc": "The case will test CreateAlterDropTableViewUnderDefaultDB.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateAlterDropTableViewUnderDefaultDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropDBAccessNoPrivilegeDBAlterDescribeDefaultDB",
+    "tag": "DB",
+    "desc": "The case will test CreateDropDBAccessNoPrivilegeDBAlterDescribeDefaultDB.scala.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateDropDBAccessNoPrivilegeDBAlterDescribeDefaultDB.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateDropDBAccessNoPrivilegeDBAlterDescribeDefaultDB.txt"
+      }
+    ]
+  },
+  {
+    "id": "testHdfsSchema",
+    "tag": "DB",
+    "desc": "The case will test QueryConstant and test HdfsSchema.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchema.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testHdfsSchema.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoginMethod",
+    "tag": "DB",
+    "desc": "The case will test LoginMethod.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoginMethod.txt"
+      }
+    ]
+  },
+  {
+    "id": "testQueryConstantSET",
+    "tag": "DB",
+    "desc": "The case will test QueryConstant and test SET.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testQueryConstantSET.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testQueryConstantSET.txt"
+      }
+    ]
+  },
+  {
+    "id": "testUDFWithoutTable",
+    "tag": "DB",
+    "desc": "The case will test UDFWithoutTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testUDFWithoutTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testUDFWithoutTable.txt"
+      }
+    ]
+  }
+]

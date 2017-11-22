@@ -9,6 +9,7 @@
 E_BADDIR=65
 proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)|proxy_user_group(1|2)"
 
+<<<<<<< HEAD
 # Set priv type
 privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
 privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
@@ -16,6 +17,10 @@ privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
 # set priv flag for role, group, user
 export priv_flag=proxy_user_t2_2
 export priv_ug_flag=proxy_user_group2
+=======
+export privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
+export privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
+>>>>>>> 14af0cc6e7221e051ad8cc2727adb0e86658bea9
 
 resource_dir="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 project_dir="$( cd ${resource_dir}/../../.. && pwd )"

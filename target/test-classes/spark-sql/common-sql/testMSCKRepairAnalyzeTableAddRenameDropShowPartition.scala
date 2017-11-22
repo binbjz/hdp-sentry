@@ -38,12 +38,12 @@ val test_sql="SHOW PARTITIONS testdb.test_msck";
 spark.sql(test_sql).collect().foreach(println);
 
 val partitionPath="/user/hive/warehouse/testdb.db/test_msck/month=201603"
-if(fs.exists(new Path(outPutPath)))
-  fs.delete(new Path(outPutPath),true)
+if(fs.exists(new Path(partitionPath)))
+  fs.delete(new Path(partitionPath),true)
 
 val partitionPath="/user/hive/warehouse/testdb.db/test_msck/month=201604"
-if(fs.exists(new Path(outPutPath)))
-  fs.delete(new Path(outPutPath),true)
+if(fs.exists(new Path(partitionPath)))
+  fs.delete(new Path(partitionPath),true)
 
 
 /* testTableAnalyze */

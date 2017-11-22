@@ -30,3 +30,9 @@ SHOW TABLES;
 
 USE origin_dianping;
 SHOW TABLES;
+
+USE test_login_db;
+SHOW TABLES;
+
+USE test_login_db_tbl;
+SHOW TABLES;
