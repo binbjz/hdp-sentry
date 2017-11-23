@@ -32,7 +32,7 @@ file_suffix=sql
 
 # Set spark env. If run spark sql please comment hive env statements.
 : <<COMMENTBLOCK
-SPARK_HOME=`readlink -f /opt/meituan/spark-2.1-sentry`
+SPARK_HOME=`readlink -f /opt/meituan/spark-2.2`
 cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
