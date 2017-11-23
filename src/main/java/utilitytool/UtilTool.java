@@ -39,9 +39,9 @@ public class UtilTool {
 
         System.out.println(SentryConstant.cmdExec);
 
-        String regx = "         ... 20 more\n";
-        String regx2 = "      )'";
-        System.out.println(filterResults(regx2));
+        String regx = "... 20 more\n";
+        String regx2 = ")'";
+        System.out.println(filterResults(regx));
 
 
         /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
@@ -213,8 +213,8 @@ public class UtilTool {
         // String REGEX2 = ".*(Time|CliDriver|Logging).*";
         String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
         String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
-        String REGEX3 = "^\\s+at\\s+(org|sun|java|com|javax).*";
-        String REGEX4 = "^\\s+(\\.+\\s+\\d+\\smore|\\)').*";
+        String REGEX3 = "^\\s*at\\s+(org|sun|java|com|javax).*";
+        String REGEX4 = "^\\s*(\\.+\\s+\\d+\\smore|\\)').*";
         String REPLACE = "";
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4;
         String REGEXS = "(" + prefixes + ")";
