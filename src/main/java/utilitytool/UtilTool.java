@@ -41,7 +41,7 @@ public class UtilTool {
 
         String regx = " ...  20 more\n";
         String regx2 = "  )'";
-        String regx3 = "  ... 71 elided ddasd";
+        String regx3 = "... 71 elided ddasd";
         String regx4 = "w 2.6";
         System.out.println(filterResults(regx3));
 
