@@ -216,7 +216,7 @@ public class UtilTool {
         String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
         String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
         String REGEX3 = "^\\s*at\\s+(org|sun|java|com|javax).*";
-        String REGEX4 = "^\\s*(\\.+\\s*\\d+\\s*.*|\\)').*";
+        String REGEX4 = "^\\s*(\\.+\\s+\\d+\\s+.*|\\)').*";
         String REPLACE = "";
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4;
         String REGEXS = "(" + prefixes + ")";
