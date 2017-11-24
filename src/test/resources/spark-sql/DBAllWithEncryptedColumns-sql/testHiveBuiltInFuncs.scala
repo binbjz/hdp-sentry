@@ -5,7 +5,7 @@
 val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="CREATE TABLE IF NOT EXISTS tbl4builtinfuncs (col1 STRING, encrypt_col2 STRING, encrypt_col3 STRING, encrypt_id int)";
+val test_sql="CREATE TABLE IF NOT EXISTS tbl4builtinfuncs (col1 STRING, encrypt_col2 STRING, encrypt_col3 STRING)";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="INSERT INTO tbl4builtinfuncs VALUES ('lower', 'ab', 'cd,ab,ef'), ('Mixed', 'ab,ef', 'cd,ab,ef'), ('UPPER', 'abc', 'cd,ab,ef')";
 spark.sql(test_sql).collect().foreach(println);
