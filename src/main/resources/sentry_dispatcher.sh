@@ -70,6 +70,7 @@ sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSel
 
 for tc in $sentry_tcs; do
     # It will be used to set multiple permissions for the same test case
+    # e.g. DBAllWithEncryptedColumns, GroupLogin
     export case_name=$tc
 
     # Define privilege type for proxy user, keytab or proxy user+group
@@ -86,7 +87,7 @@ for tc in $sentry_tcs; do
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
 
     # Execute preppare sql
-    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running prepare sql"
+    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Prepare SQL"
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
         $cmd_exec ${encryptColumn_sql_src}/prepare${tc_tmp}.${file_suffix}
@@ -114,7 +115,7 @@ for tc in $sentry_tcs; do
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
     # Execute post sql
-    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running post sql"
+    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Post SQL"
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
         $cmd_exec ${encryptColumn_sql_src}/post${tc_tmp}.${file_suffix}
