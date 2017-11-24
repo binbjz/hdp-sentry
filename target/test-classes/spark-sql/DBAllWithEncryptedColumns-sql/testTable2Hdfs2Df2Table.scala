@@ -1,17 +1,15 @@
 /*
-* encrypt_spark_testdb
-* spark_df_parquet
-* spark_df_parquet_query
-* spark_df_json
-* spark_df_json_query
-* spark_df_orc
-* spark_df_orc_query
+* encrypt_spark_testdb.spark_df_parquet=salary
+* encrypt_spark_testdb.spark_df_parquet_query=salary
+* encrypt_spark_testdb.spark_df_json=salary
+* encrypt_spark_testdb.spark_df_json_query=salary
+* encrypt_spark_testdb.spark_df_orc=salary
+* encrypt_spark_testdb.spark_df_orc_query=salary
 *
 * */
 
 val test_sql="USE encrypt_spark_testdb";
 spark.sql(test_sql).collect().foreach(println);
-
 
 val test_sql =
   """CREATE TABLE encrypt_spark_testdb.test_insert_overwrite_dir (
@@ -28,6 +26,9 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql = "ALTER TABLE encrypt_spark_testdb.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'CA')";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql = "SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql =

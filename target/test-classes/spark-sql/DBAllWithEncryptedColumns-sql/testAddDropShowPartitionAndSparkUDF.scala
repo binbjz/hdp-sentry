@@ -22,6 +22,16 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM encrypt_db4alter.test_partition";
 spark.sql(test_sql).collect().foreach(println);
 
+/* spark udf */
+val squared = (s: Int) => {
+  s * s
+}
+spark.udf.register("square", squared);
+
+val test_sql="SELECT encrypt_quantity, square(encrypt_quantity) as quantity_squared FROM encrypt_db4alter.test_partition";
+spark.sql(test_sql).collect().foreach(println);
+
+
 val test_sql="ALTER TABLE encrypt_db4alter.test_partition DROP PARTITION (day=20110102)";
 spark.sql(test_sql).collect().foreach(println);
 
@@ -29,6 +39,5 @@ val test_sql="SHOW PARTITIONS encrypt_db4alter.test_partition";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4alter.test_partition";
 spark.sql(test_sql).collect().foreach(println);
-
 
 System.exit(0);

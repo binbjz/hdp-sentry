@@ -4,6 +4,7 @@
 
 val test_sql="USE encrypt_db4props";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="""CREATE TABLE IF NOT EXISTS employees_props (
   encrypt_name  STRING COMMENT 'Employee name'
  ,encrypt_salary  FLOAT  COMMENT'Employee salary'

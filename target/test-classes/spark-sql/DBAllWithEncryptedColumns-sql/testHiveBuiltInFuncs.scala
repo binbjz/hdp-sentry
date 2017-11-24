@@ -24,3 +24,4 @@ val test_sql="DROP TABLE tbl4builtinfuncs";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);
+

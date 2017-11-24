@@ -463,7 +463,7 @@ val test_sql="INSERT INTO testdb.spark_tbl4udf VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 
-/* testVacuum */
+/* testSampleTruncate */
 val test_sql="CREATE TABLE testdb.tbl4sample (id int)";
 spark.sql(test_sql).collect().foreach(println);
 

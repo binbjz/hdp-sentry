@@ -4,6 +4,7 @@
 
 val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="""CREATE TABLE encrypt_db4data.session_src_encrypted (
   user_id STRING
  ,pageview_id STRING
@@ -17,9 +18,8 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SET hive.cli.print.header=true";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="""CREATE TABLE encrypt_db4data.sessionization_step_one_origins
-AS SELECT * FROM encrypt_db4data.session_src_encrypted""";
-
+val test_sql="CREATE TABLE encrypt_db4data.sessionization_step_one_origins AS SELECT * FROM encrypt_db4data.session_src_encrypted";
+spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4data.session_src_encrypted";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4data.sessionization_step_one_origins";
