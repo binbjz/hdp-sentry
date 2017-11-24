@@ -30,5 +30,4 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4alter.test_partition";
 spark.sql(test_sql).collect().foreach(println);
 
-
 System.exit(0);

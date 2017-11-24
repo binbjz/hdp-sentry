@@ -3,10 +3,10 @@
 //CREATE DATABASE encrypt_db4data;
 //DROP DATABASE encrypt_db4data;
 
-USE encrypt_db4data;
+val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE encrypt_db4data.encrypt_import_export (
+val test_sql="""CREATE TABLE encrypt_db4data.encrypt_import_export (
  encrypt_name STRING
  ,encrypt_salary FLOAT
  ,subordinates ARRAY<STRING>
@@ -16,11 +16,11 @@ CREATE TABLE encrypt_db4data.encrypt_import_export (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
 
-CREATE TABLE encrypt_db4data.encrypt_tgt_import_export (
- encrypt_name STRING
+val test_sql="""CREATE TABLE encrypt_db4data.encrypt_tgt_import_export (
+encrypt_name STRING
  ,encrypt_salary FLOAT
  ,subordinates ARRAY<STRING>
  ,deductions MAP<STRING, FLOAT>
@@ -29,49 +29,41 @@ CREATE TABLE encrypt_db4data.encrypt_tgt_import_export (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data;
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
 spark.sql(test_sql).collect().foreach(println);
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE encrypt_db4data.encrypt_import_export
-PARTITION (country = 'US', state = 'CA');
+PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
+/*
 dfs -cat /user/hive/warehouse/encrypt_db4data.db/encrypt_import_export/country=US/state=CA/california-employees.csv;
 dfs -count /user/hive/warehouse/encrypt_db4data.db/encrypt_import_export/country=US/state=CA/california-employees.csv;
 
 dfs -copyToLocal /user/hive/warehouse/encrypt_db4data.db/encrypt_import_export/country=US/state=CA/california-employees.csv /tmp/california-employees.csv;
 !ls -l /tmp/california-employees.csv;
 !rm -r /tmp/california-employees.csv;
+*/
 
--- 导出分区并且导入到分区表分区
-  EXPORT TABLE encrypt_db4data.encrypt_import_export PARTITION (country = 'US', state = 'CA') TO '/tmp/employee';
+//导出分区并且导入到分区表分区
+val test_sql="EXPORT TABLE encrypt_db4data.encrypt_import_export PARTITION (country = 'US', state = 'CA') TO '/tmp/employee'";
 spark.sql(test_sql).collect().foreach(println);
 dfs -cat /tmp/employee/country=US/state=CA/california-employees.csv;
 
-IMPORT TABLE encrypt_db4data.encrypt_tgt_import_export PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee';
+val test_sql="IMPORT TABLE encrypt_db4data.encrypt_tgt_import_export PARTITION (country = 'US', state = 'CA') FROM '/tmp/employee'";
 spark.sql(test_sql).collect().foreach(println);
-SHOW PARTITIONS encrypt_db4data.encrypt_tgt_import_export;
+val test_sql="SHOW PARTITIONS encrypt_db4data.encrypt_tgt_import_export";
 spark.sql(test_sql).collect().foreach(println);
 
 dfs -rm -r /tmp/employee;
 
-DROP TABLE encrypt_db4data.encrypt_import_export;
+val test_sql="DROP TABLE encrypt_db4data.encrypt_import_export";
 spark.sql(test_sql).collect().foreach(println);
-DROP TABLE encrypt_db4data.encrypt_tgt_import_export;
-spark.sql(test_sql).collect().foreach(println);
-
-
-val test_sql="USE mart_waimai";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW TBLPROPERTIES mart_waimai.dim_ad_cpc_activity";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW COLUMNS IN mart_waimai.dim_ad_cpc_activity";
-spark.sql(test_sql).collect().foreach(println);
-val test_sql="SHOW COLUMNS FROM mart_waimai.dim_ad_cpc_activity";
+val test_sql="DROP TABLE encrypt_db4data.encrypt_tgt_import_export";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);

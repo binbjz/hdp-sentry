@@ -7,6 +7,7 @@
 * spark_insert_employee name
 *
 * */
+
 val sqlContext = new org.apache.spark.sql.SQLContext(sc)
 import sqlContext.implicits._
 import org.apache.spark.sql.SaveMode
@@ -29,7 +30,7 @@ spark.sql(test_sql).collect().foreach(println);
 employee.write.mode(SaveMode.Overwrite).partitionBy("province").saveAsTable("encrypt_spark_testdb.spark_case_employee_partition")
 employee.write.insertInto("encrypt_spark_testdb.spark_case_employee_partition")
 employee.write.mode(SaveMode.Append).partitionBy("province").bucketBy(42, "name").sortBy("age").saveAsTable("encrypt_spark_testdb.spark_case_employee_partition");
-å
+
 val test_sql="SELECT * FROM encrypt_spark_testdb.spark_case_employee_partition ORDER BY name, age, province";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="TRUNCATE TABLE encrypt_spark_testdb.spark_case_employee_partition";

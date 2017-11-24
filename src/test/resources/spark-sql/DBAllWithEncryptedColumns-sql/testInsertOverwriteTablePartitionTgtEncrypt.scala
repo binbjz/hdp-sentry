@@ -4,8 +4,7 @@
 
 val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql='''CREATE TABLE encrypt_db4data.partition_table001 (name STRING, ip STRING)
-PARTITIONED BY (dt STRING, ht STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t"''';
+val test_sql="""CREATE TABLE encrypt_db4data.partition_table001 (name STRING, ip STRING) PARTITIONED BY (dt STRING, ht STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="INSERT INTO encrypt_db4data.partition_table001 PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2'), ('alibaba', '10.0.0.3')";

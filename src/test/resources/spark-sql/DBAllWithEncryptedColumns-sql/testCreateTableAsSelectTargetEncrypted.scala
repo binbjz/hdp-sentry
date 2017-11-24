@@ -45,6 +45,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="DESCRIBE encrypt_db4data.sessionization_step_one_origins_tgt_encrypted";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP TABLE encrypt_db4data.session_test";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4data.sessionization_step_one_origins_tgt_encrypted";
