@@ -15,29 +15,6 @@ public class UtilTool {
         System.out.println();
         System.out.println("command result:\n" + execCommand(callCmd).get(1).toString());
 
-        System.out.println(SentryConstant.sqlSrc);
-        String sqlOutputPath = SentryConstant.tSrc + File.separator + SentryConstant.stdOutput + File.separator + "DBAll" + File.separator + SentryConstant.sqlOutput;
-        System.out.println(sqlOutputPath);
-
-        String hiveSql = SentryConstant.commonSqlSrc + File.separator + "testCreateDB.sql";
-        System.out.println(hiveSql);
-
-        String output = sqlOutputPath + File.separator + "testCreateDB.txt";
-        System.out.println(output);
-
-        String hiveSql2 = SentryConstant.encryptColumnSqlSrc + File.separator;
-        System.out.println(hiveSql2);
-
-        String hiveSql3 = SentryConstant.groupLoginSqlSrc + File.separator;
-        System.out.println(hiveSql3);
-
-        String sparkT = SentryConstant.cmdExec;
-        System.out.println(sparkT);
-
-        System.out.println(SentryConstant.sqlSrc);
-        System.out.println(SentryConstant.commonSqlSrc);
-
-        System.out.println(SentryConstant.cmdExec);
 
         String regx = " ...  20 more\n";
         String regx2 = "  )'";
@@ -66,24 +43,6 @@ public class UtilTool {
 
 //        String str = "Loading data to table encrypt_db4alter.supply partition (day=2011-01-02)";
 //        System.out.println(filterResults(str));
-
-        /** //execute script
-         //String[] callScript = {"/bin/bash", scripts};
-         String scripts = "/opt/meituan/qa_test/sentry_role.sh check";
-         String[] callScript = {"/bin/bash", "-c", "source" + " " + scripts};
-         ("exit code:\n" + execCommand(callScript).get(0));
-         System.out.println("command result:\n" + execCommand(callScript).get(1));
-
-         System.out.println("======>>");
-         String scripts2 = "/Users/zhaobin/Downloads/test.sh";
-         String[] callScript2 = {"/bin/bash", "-c", "source" + " " + scripts2};
-         System.out.println(utilitytool.SentryConstant.wsPath);
-         String input = execCommand(callScript2).get(1).toString();
-         System.out.println(utilitytool.SentryConstant.jSrc);
-         String filePath2 = utilitytool.SentryConstant.tSrc + File.separator + "results.txt";
-         writeAllBytes(filePath2, input);
-         System.out.println("======>>");
-         System.out.println(readFileByLine(filePath2)); */
     }
 
     /**
@@ -218,7 +177,6 @@ public class UtilTool {
         String REGEX3 = "^\\s*at\\s+(org|sun|java|com|javax).*";
         String REGEX4 = "^\\s*(\\.+\\s+\\d+\\s+.*|(\\)'|\\))).*";
         String REPLACE = "";
-//        String prefixes = REGEX + "|" + REGEX2;
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4;
         String REGEXS = "(" + prefixes + ")";
         Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
