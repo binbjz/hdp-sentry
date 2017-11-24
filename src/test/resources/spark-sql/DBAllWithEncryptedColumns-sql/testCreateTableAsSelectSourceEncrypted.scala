@@ -4,6 +4,7 @@
 
 val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="""CREATE TABLE encrypt_db4data.session_src_encrypted (
   user_id STRING
  ,pageview_id STRING

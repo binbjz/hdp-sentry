@@ -1,16 +1,16 @@
  [
   {
-    "id": "testAddDropShowPartition",
+    "id": "testAddDropShowPartitionAndSparkUDF",
     "tag": "DB",
-    "desc": "The case will test AddDropShowPartition.",
+    "desc": "The case will test AddDropShowPartitionAndSparkUDF.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAddDropShowPartition.scala"
+        "name": "testAddDropShowPartitionAndSparkUDF.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAddDropShowPartition.txt"
+        "name": "testAddDropShowPartitionAndSparkUDF.txt"
       }
     ]
   },
@@ -86,21 +86,6 @@
       {
         "type": "file/scala",
         "name": "testAnalyzeTable.txt"
-      }
-    ]
-  },
-  {
-    "id": "testBuiltInFuncs",
-    "tag": "DB",
-    "desc": "The case will test BuiltInFuncs.",
-    "cases": [
-      {
-        "type": "file/scala",
-        "name": "testBuiltInFuncs.scala"
-      },
-      {
-        "type": "file/scala",
-        "name": "testBuiltInFuncs.txt"
       }
     ]
   },
@@ -209,6 +194,21 @@
        }
      ]
    },
+   {
+     "id": "testHiveBuiltInFuncs",
+     "tag": "DB",
+     "desc": "The case will test HiveBuiltInFuncs.",
+     "cases": [
+       {
+         "type": "file/scala",
+         "name": "testHiveBuiltInFuncs.scala"
+       },
+       {
+         "type": "file/scala",
+         "name": "testHiveBuiltInFuncs.txt"
+       }
+     ]
+   },
   {
     "id": "testInsertOverwriteTablePartitionSrcEncrypt",
     "tag": "DB",
@@ -270,17 +270,17 @@
     ]
   },
   {
-    "id": "testLoadDataLocal",
+    "id": "testLoadDataLocalQuerySample",
     "tag": "DB",
-    "desc": "The case will test LoadDataLocal.",
+    "desc": "The case will test LoadDataLocalQuerySample.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testLoadDataLocal.scala"
+        "name": "testLoadDataLocalQuerySample.scala"
       },
       {
         "type": "file/scala",
-        "name": "testLoadDataLocal.txt"
+        "name": "testLoadDataLocalQuerySample.txt"
       }
     ]
   },
@@ -299,22 +299,6 @@
       }
     ]
   },
-
-   {
-     "id": "testSample",
-     "tag": "DB",
-     "desc": "The case will test Sample.",
-     "cases": [
-       {
-         "type": "file/scala",
-         "name": "testSample.scala"
-       },
-       {
-         "type": "file/scala",
-         "name": "testSample.txt"
-       }
-     ]
-   },
   {
     "id": "testShowColumnsAndTblProperties",
     "tag": "DB",
@@ -344,23 +328,5 @@
         "name": "testTable2Hdfs2Df2Table.txt"
       }
     ]
-  },
-   {
-     "id": "testUDF",
-     "tag": "DB",
-     "desc": "The case will test UDF.",
-     "cases": [
-       {
-         "type": "file/scala",
-         "name": "testUDF.scala"
-       },
-       {
-         "type": "file/scala",
-         "name": "testUDF.txt"
-       }
-     ]
-   },
-
-
-
+  }
 ]

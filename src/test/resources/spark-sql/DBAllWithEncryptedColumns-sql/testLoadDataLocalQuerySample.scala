@@ -25,6 +25,12 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT count(*) FROM encrypt_db4data.collecttest";
 spark.sql(test_sql).collect().foreach(println);
 
+val test_sql="SELECT * FROM encrypt_db4data.collecttest TABLESAMPLE(100.0 PERCENT) s";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SELECT * FROM encrypt_db4data.collecttest TABLESAMPLE(2 ROWS) s";
+spark.sql(test_sql).collect().foreach(println);
+
 val test_sql="DROP TABLE encrypt_db4data.collecttest";
 spark.sql(test_sql).collect().foreach(println);
 

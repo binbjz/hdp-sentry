@@ -1,4 +1,4 @@
-//encrypt_db4data.sessionization_step_one_origins_tgt_encrypted=ssoo_user_id,ssoo_pageview_id
+//encrypt_db4data.sessionization_step_one_origins_tgt_encrypted=encrypt_ssoo_user_id,encrypt_ssoo_pageview_id
 //CREATE DATABASE encrypt_db4data;
 //DROP DATABASE encrypt_db4data;
 
