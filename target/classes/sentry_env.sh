@@ -98,20 +98,6 @@ fi
 ##============
 
 
-# Formatting privilege info
-priv_formatter(){
-    case "$1" in
-        g)  opt=Granting; shift ;;
-        r)  opt=Revoking; shift ;;
-        c)  opt=Checking; shift ;;
-        *)  echo "Please specify valid info \"g\", \"r\" or \"c\""
-            exit $BAD_PARAMS ;;
-    esac
-
-    echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO $opt $@ privileges"
-}
-
-
 ##============
 # set role name and group for specify privilege
 ROLE_NAME=hdp_qa

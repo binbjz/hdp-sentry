@@ -31,20 +31,6 @@ ROLE_NAME=mt_qa
 ROLE_GROUP=mt_qa
 
 
-# Formatting privilege info
-priv_formatter(){
-    case "$1" in
-        g)  opt=Granting; shift ;;
-        r)  opt=Revoking; shift ;;
-        c)  opt=Checking; shift ;;
-        *)  echo "Please specify valid info \"g\", \"r\" or \"c\""
-            exit $BAD_PARAMS ;;
-    esac
-
-    echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO $opt $@ privileges"
-}
-
-
 if [[ "$2" == "SuperPrivil" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[SuperPrivil]}"`
 else

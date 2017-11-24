@@ -52,6 +52,8 @@ for priv_groups in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login
     case "$1" in
         "setup")
             # Add role, group and privilege
+            priv_formatter g $ROLE_NAME, $ROLE_GROUP
+
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --create_role -r $ROLE_NAME
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --add_role_group -r $ROLE_NAME -g $ROLE_GROUP
 
@@ -61,6 +63,8 @@ for priv_groups in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login
             ;;
         "clean")
             # Remove role, group and privilege
+            priv_formatter r $ROLE_NAME, $ROLE_GROUP
+
             for PRIVIL in $PRIVIL_LSTS; do
                 $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --revoke_privilege_role -r $ROLE_NAME -p $PRIVIL
             done
@@ -70,6 +74,8 @@ for priv_groups in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login
             ;;
         "check")
             # Check role, group and privilege
+            priv_formatter c $ROLE_NAME, $ROLE_GROUP
+
             # Too many roles and temporary comment the line.
             #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP
@@ -82,8 +88,15 @@ for priv_groups in  `awk -F'|' '{for(i=1;i<=NF;i++) print $i}' <<< $groups_login
 done
 
 
+##============
+# set role name and group for specify privilege
+USER_ROLE_NAME=hdp_qa_role
+USER=hdp_qa
+
 # Additional user related privilege action for role, user and group
 rug_priv_all=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[ROLE_GROUP_USER_ALL]}"`
+##============
+
 
 # Simply verify that the permission type is valid
 : ${priv_ug_flag:="proxy_user_group1"}
@@ -92,8 +105,8 @@ if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
     case "$1" in
         "setup")
             # Add user related privilege
-            USER_ROLE_NAME=hdp_qa_role
-            USER=hdp_qa
+            priv_formatter g $USER_ROLE_NAME, $USER
+
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $USER_ROLE_NAME
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_user -r $USER_ROLE_NAME -u $USER
 
@@ -103,8 +116,8 @@ if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
             ;;
         "clean")
             # Remove user related privilege
-            USER_ROLE_NAME=hdp_qa_role
-            USER=hdp_qa
+            priv_formatter r $USER_ROLE_NAME, $USER
+
             for privil in $rug_priv_all; do
                 $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -revoke_privilege_role --rolename $USER_ROLE_NAME --privilege "$privil"
             done
@@ -114,8 +127,8 @@ if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
             ;;
         "check")
             # Check role, group and privilege
-            USER_ROLE_NAME=hdp_qa_role
-            USER=hdp_qa
+            priv_formatter c $USER_ROLE_NAME, $USER
+
             # Too many roles and temporary comment the line.
             #$SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $USER_ROLE_NAME
