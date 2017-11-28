@@ -99,7 +99,7 @@ rug_priv_all=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_priv
 
 
 # Simply verify that the permission type is valid
-: ${priv_ug_flag:="proxy_user_group1"}
+: ${privil_type_ug:="proxy_user_group1"}
 
 if [[ "$privil_type_ug" == "proxy_user_group2" ]]; then
     case "$1" in
