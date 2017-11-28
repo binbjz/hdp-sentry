@@ -28,7 +28,7 @@ public class TableWrite {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp TableWrite......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class TableWrite {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp TableWrite......");
+        logger.info("cleanUp " + className + "......");
     }
 }

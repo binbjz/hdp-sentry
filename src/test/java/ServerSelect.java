@@ -28,7 +28,7 @@ public class ServerSelect {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp ServerSelect......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class ServerSelect {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp ServerSelect......");
+        logger.info("cleanUp " + className + "......");
     }
 }

@@ -30,7 +30,7 @@ public class DBInsert {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBInsert......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -70,6 +70,6 @@ public class DBInsert {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBInsert......");
+        logger.info("cleanUp " + className + "......");
     }
 }

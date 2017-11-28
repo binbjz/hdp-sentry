@@ -30,7 +30,7 @@ public class DBSelect {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBSelect......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -70,6 +70,6 @@ public class DBSelect {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBSelect......");
+        logger.info("cleanUp " + className + "......");
     }
 }

@@ -28,7 +28,7 @@ public class GroupLogin {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp GroupLogin......");
+        logger.info("setUp " + caseName + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class GroupLogin {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp GroupLogin......");
+        logger.info("cleanUp " + caseName + "......");
     }
 }

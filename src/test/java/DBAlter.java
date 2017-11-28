@@ -27,7 +27,7 @@ public class DBAlter {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBAlter......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -67,6 +67,6 @@ public class DBAlter {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBAlter......");
+        logger.info("cleanUp " + className + "......");
     }
 }

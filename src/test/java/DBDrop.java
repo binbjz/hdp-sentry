@@ -28,7 +28,7 @@ public class DBDrop {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBDrop......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class DBDrop {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBDrop......");
+        logger.info("cleanUp " + className + "......");
     }
 }

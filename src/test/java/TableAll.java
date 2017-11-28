@@ -30,7 +30,7 @@ public class TableAll {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp TableAll......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -70,6 +70,6 @@ public class TableAll {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp TableAll......");
+        logger.info("cleanUp " + className + "......");
     }
 }

@@ -28,7 +28,7 @@ public class ServerInsert {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp ServerInsert......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class ServerInsert {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp ServerInsert......");
+        logger.info("cleanUp " + className + "......");
     }
 }

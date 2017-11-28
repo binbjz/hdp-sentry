@@ -28,7 +28,7 @@ public class DBAll {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBAll......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class DBAll {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBAll......");
+        logger.info("cleanUp " + className + "......");
     }
 }

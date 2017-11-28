@@ -27,7 +27,7 @@ public class DBWrite {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBWrite......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -67,6 +67,6 @@ public class DBWrite {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBWrite......");
+        logger.info("cleanUp " + className + "......");
     }
 }

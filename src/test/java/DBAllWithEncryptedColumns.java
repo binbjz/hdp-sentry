@@ -29,7 +29,7 @@ public class DBAllWithEncryptedColumns {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBAllWithEncryptedColumns......");
+        logger.info("setUp " + caseName + "......");
     }
 
 
@@ -69,6 +69,6 @@ public class DBAllWithEncryptedColumns {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBAllWithEncryptedColumns......");
+        logger.info("cleanUp " + caseName + "......");
     }
 }

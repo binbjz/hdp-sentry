@@ -28,7 +28,7 @@ public class TableDrop {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp TableDrop......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class TableDrop {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp TableDrop......");
+        logger.info("cleanUp " + className + "......");
     }
 }

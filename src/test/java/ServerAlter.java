@@ -27,7 +27,7 @@ public class ServerAlter {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp ServerAlter......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -67,6 +67,6 @@ public class ServerAlter {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp ServerAlter......");
+        logger.info("cleanUp " + className + "......");
     }
 }

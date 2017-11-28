@@ -28,7 +28,7 @@ public class DBCreate {
 
     @BeforeClass
     public static void setUp() {
-        logger.info("setUp DBCreate......");
+        logger.info("setUp " + className + "......");
     }
 
 
@@ -68,6 +68,6 @@ public class DBCreate {
 
     @AfterClass
     public static void cleanUp() {
-        logger.info("cleanUp DBCreate......");
+        logger.info("cleanUp " + className + "......");
     }
 }
