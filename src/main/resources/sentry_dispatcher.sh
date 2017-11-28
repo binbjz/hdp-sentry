@@ -145,6 +145,8 @@ for tc in $sentry_tcs; do
         # In proxy env, we need to revoke privileges otherwise it will throw exception
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
+
+    # Revoke role with normal privilege
     source $project_dir/src/main/resources/$sentry_sh clean ${tc}
 done
 
