@@ -22,7 +22,7 @@ public class DataProviderObj {
 
         Object[][] obj = new Object[testCount][columnNum];
 
-        for (int i = 0; i < tcBeans.size(); i++) {
+        for (int i = 0; i < testCount; i++) {
             obj[i][0] = tcBeans.get(i).getId();
             obj[i][1] = tcBeans.get(i).getTag();
             obj[i][2] = tcBeans.get(i).getDesc();
