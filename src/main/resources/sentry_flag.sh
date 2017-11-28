@@ -98,4 +98,4 @@ check_sentry_flag_status ${sentry_priv[alter_table]} ${sentry_f[alter_table]}
 
 
 # Remove temp file
-cd $projectdir && rm $$_clean_db_env.sql
+cd $projectdir && rm -rf $$_clean_db_env.sql
