@@ -21,7 +21,7 @@ This project was written in **bash shell** and **java**.
 
 * **[How It Works](#how-it-works)**
 * **[How To Run It](#how-to-run-it)**
-* **[How To Run It Step By Step](#How-to-run-it-step-by-step)**
+* **[How To Run It Step By Step](#how-to-run-it-step-by-step)**
 * **[How To Check Running Log](#how-to-check-running-log)**
 
 
