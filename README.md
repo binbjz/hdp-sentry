@@ -1,7 +1,7 @@
 # Sentry Hive, Spark Framework of Automation Test: sentry-test
 
 
-It's simple architecture of automation test for sentry hive, spark.
+It's simple framework of automation test for sentry hive, spark.
 
 This project was written in **bash shell** and **java**.
 
