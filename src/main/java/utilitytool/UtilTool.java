@@ -21,28 +21,6 @@ public class UtilTool {
         String regx3 = "... 71 elided ddasd";
         String regx4 = "  )";
         System.out.println(filterResults(regx2));
-
-
-        /*String filterTmpPath = SentryConstant.wsPath + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "utilitytool" + File.separator;
-        String fileName = filterTmpPath + "filterTmp.txt";
-        System.out.println(fileName);
-
-        StringBuilder stringBuilder2 = new StringBuilder();
-        try (BufferedReader br2 = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = br2.readLine()) != null) {
-                line = filterResults(line);
-                if (line == null || line.length() == 0) {
-                    continue;
-                }
-                stringBuilder2.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
-//        String str = "Loading data to table encrypt_db4alter.supply partition (day=2011-01-02)";
-//        System.out.println(filterResults(str));
     }
 
     /**
