@@ -24,9 +24,9 @@ libdir=/opt/meituan/qa_test/data_bin/test-lib/
 
 
 ##============
+# Set hive env. If run hive sql please comment spark env statements
 hive_12=hive-1.2
 
-# Set hive env. If run hive sql please comment spark env statements
 : <<COMMENTBLOCK
 HIVE_HOME=`readlink -f /opt/meituan/${hive_12}`
 cmd_exec="${HIVE_HOME}/bin/hive --hiveconf hive.cli.errors.ignore=true -f"
