@@ -356,12 +356,6 @@ LINES TERMINATED BY '\n'""";
 spark.sql(test_sql).collect().foreach(println);
 
 
-val test_sql =
-  """CREATE TABLE testdb.load_data_local_into_table (str STRING, countVal INT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '&'""";
-spark.sql(test_sql).collect().foreach(println);
-
-
 /*testLoadDataLocalTablePartition.scala*/
 
 val test_sql =
@@ -410,20 +404,6 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql =
   """CREATE TABLE testdb.test_insert_overwrite_tbl_partition (
- name STRING
-,salary FLOAT
-,subordinates ARRAY<STRING>
-,deductions MAP<STRING, FLOAT>
-,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql =
-  """CREATE TABLE testdb.src_test_insert_overwrite_tbl_partition (
  name STRING
 ,salary FLOAT
 ,subordinates ARRAY<STRING>
