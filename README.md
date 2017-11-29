@@ -94,13 +94,20 @@ You can also run it by manually.
    **NOTE:** login hive with ```proxy``` approach, we need to revoke privileges otherwise it will throw exception.
    **NOTE:** login hive with ```keytab``` approach, this step is not needed. 
    
-7. **revoke privilege for super user and normal user.**
-   You need to revoke sentry privilege after run specify test case.
+
+7. **revoke user with super privilege.**
+   super privilege will be granted to user mt_qa .
     ```sh
-    $ source /opt/meituan/qa_test/sentry-test/src/main/resources/hive_env.sh clean_proxy_user hive
+    $ source ./sentry-test/src/main/resources/sentry_super_env.sh clean SuperPrivil
     ```
 
-
+8. **revoke user with normal privilege.**
+    You should specify the test name which need to be granted, if you need to run test case with ServerAll privilege.
+    ```sh
+    $ source ./sentry-test/src/main/resources/sentry_env.sh clean ServerAll
+    ```
+    
+    
 ----
 
 
