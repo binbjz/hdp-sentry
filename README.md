@@ -59,7 +59,7 @@ You can also run it by manually.
     ```
 
    **NOTE:** Usage: sentry_super_env.sh (setup|clean|check) SuperPrivil
-   
+
 2. **grant user with normal privilege.**
     You should specify the test name which need to be granted, if you need to run test case with ServerAll privilege.
     ```sh
@@ -74,7 +74,7 @@ You can also run it by manually.
     $ source ./sentry-test/src/main/resources/hive_env.sh proxy_user_t1 super
     $ /opt/meituan/hive-1.2/bin/hive --hiveconf hive.cli.errors.ignore=true -f ./sentry-test/src/test/resources/hive-sql/common-sql/prepareAll.sql
     ```
-    
+
    **NOTE:** Usage: hive_env.sh (keytab_auth|proxy_user_t1|proxy_user_t2_1|proxy_user_t2_2|proxy_user_group1|proxy_user_group2|clean_proxy_user) (super|normal|hive)"
 
 4. **login hive shell with normal user and run single test case.**
@@ -90,7 +90,7 @@ You can also run it by manually.
     $ source ./sentry-test/src/main/resources/hive_env.sh proxy_user_t1 super
     $ /opt/meituan/hive-1.2/bin/hive --hiveconf hive.cli.errors.ignore=true -f ./sentry-test/src/test/resources/hive-sql/common-sql/post.sql
     ```
-    
+
 6. **clean proxy env.**
      You need to clean proxy env, if you login hive with proxy approach.
       ```sh
@@ -99,7 +99,7 @@ You can also run it by manually.
 
    **NOTE:** login hive with ```proxy``` approach, we need to revoke privileges otherwise it will throw exception.
    **NOTE:** login hive with ```keytab``` approach, this step is not needed. 
-   
+
 7. **revoke user with super privilege.**
    super privilege will be granted to user mt_qa .
     ```sh
@@ -111,8 +111,8 @@ You can also run it by manually.
     ```sh
     $ source ./sentry-test/src/main/resources/sentry_env.sh clean ServerAll
     ```
-    
-    
+
+
 ----
 
 
