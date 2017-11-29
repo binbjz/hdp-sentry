@@ -1,4 +1,4 @@
-# Sentry Hive, Spark Architecture of Automation Test: sentry-test
+# Sentry Hive, Spark Framework of Automation Test: sentry-test
 
 
 It's simple architecture of automation test for sentry hive, spark.
