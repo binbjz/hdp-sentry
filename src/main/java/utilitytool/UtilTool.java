@@ -67,8 +67,9 @@ public class UtilTool {
         if (process != null) {
             reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         }
-        StringBuilder stringBuilder = new StringBuilder();
+
         String line;
+        StringBuilder stringBuilder = new StringBuilder();
         try {
             if (reader != null) {
                 while ((line = reader.readLine()) != null) {
@@ -82,6 +83,7 @@ public class UtilTool {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         try {
             if (process != null) {
                 process.waitFor();
@@ -97,7 +99,7 @@ public class UtilTool {
         try {
             map.put(1, stringBuilder.toString());
         } catch (StringIndexOutOfBoundsException e) {
-            if ((stringBuilder.toString() == null) || (stringBuilder.toString().length() == 0)) {
+            if (stringBuilder.toString().length() == 0) {
                 return map;
             }
         }
