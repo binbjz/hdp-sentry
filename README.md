@@ -94,7 +94,7 @@ You can also run it by manually.
 6. **clean proxy env.**
      You need to clean proxy env, if you login hive with proxy approach.
       ```sh
-      $ source /opt/meituan/qa_test/sentry-test/src/main/resources/hive_env.sh clean_proxy_user hive
+      $ source ./sentry-test/src/main/resources/hive_env.sh clean_proxy_user hive
       ```     
 
    **NOTE:** login hive with ```proxy``` approach, we need to revoke privileges otherwise it will throw exception.
