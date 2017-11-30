@@ -31,7 +31,7 @@ This project was written in **bash shell** and **java**.
 ## How It Works
 
 * sentry will grant user, role and group privileges
-* hive or spark will execute sql with authorized End-use
+* hive or spark will execute sql with authorized End-user
 
 
 ----
