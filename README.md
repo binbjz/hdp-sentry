@@ -49,9 +49,7 @@ $ /usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
 ----
 
 
-## How To Run It Step By Step
-
-You can also run it by manually.
+## How To Run It Step By Step - You can also run it by manually.
 
 1. **grant user with super privilege.**
    super privilege will be granted to user mt_qa .
