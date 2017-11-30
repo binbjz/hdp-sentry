@@ -213,41 +213,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 /*testImportExportPartition.scala*/
 
-val test_sql =
-  """CREATE TABLE testdb.import_export (
- name STRING
-,salary FLOAT
-,subordinates ARRAY<STRING>
-,deductions MAP<STRING, FLOAT>
-,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
-spark.sql(test_sql).collect().foreach(println);
 
-val test_sql =
-  """CREATE TABLE testdb.src_import_export (
- name STRING
-,salary FLOAT
-,subordinates ARRAY<STRING>
-,deductions MAP<STRING, FLOAT>
-,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql = "ALTER TABLE testdb.src_import_export ADD PARTITION (country = 'US', state = 'CA')";
-spark.sql(test_sql).collect().foreach(println);
-
-val test_sql =
-  """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
-INTO TABLE testdb.src_import_export PARTITION (country = 'US', state = 'CA')""";
-spark.sql(test_sql).collect().foreach(println);
 
 
 /*testInsertIntoFromQuery.scala*/
@@ -333,32 +299,12 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql = "INSERT INTO testdb.src_insert_overwrite_tbl_partition PARTITION (dt='20150617', ht='00') VALUES ('meituan', '10.0.0.1'), ('baidu', '10.0.0.2')";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql =
-  """CREATE TABLE testdb.test_insert_overwrite_tbl_partition (
- name STRING
-,salary FLOAT
-,subordinates ARRAY<STRING>
-,deductions MAP<STRING, FLOAT>
-,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
-) PARTITIONED BY (country STRING, state STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '|'
-MAP KEYS TERMINATED BY '='
-LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
-spark.sql(test_sql).collect().foreach(println);
-
 
 /*testLoadDataLocalTable.scala*/
 val test_sql =
   """CREATE TABLE testdb.load_data_local_into_table (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&'
 LINES TERMINATED BY '\n'""";
-spark.sql(test_sql).collect().foreach(println);
-
-
-val test_sql =
-  """CREATE TABLE testdb.load_data_local_into_table (str STRING, countVal INT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '&'""";
 spark.sql(test_sql).collect().foreach(println);
 
 
@@ -435,6 +381,7 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
 spark.sql(test_sql).collect().foreach(println);
+
 
 val test_sql = "ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'CA')";
 spark.sql(test_sql).collect().foreach(println);
