@@ -31,7 +31,7 @@ This project was written in **bash shell** and **java**.
 ## How It Works
 
 * sentry will grant user, role and group privileges
-* hive or spark will execute sql with authorized End-user
+* hive or spark will execute sql with authorized End-use
 
 
 ----
@@ -42,8 +42,9 @@ This project was written in **bash shell** and **java**.
 The command will run sentry hive, spark test cases. All test cases will be defined in the script.
 You can specify single test case or multiple test cases to run.
 
-* /usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
-
+```sh
+$ /usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
+```
 
 ----
 
