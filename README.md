@@ -85,7 +85,7 @@ You can also run it by manually.
     $ /usr/bin/time -f "Time: %U" java -Djava.ext.dirs=./data_bin/test-lib/ -cp ./sentry-test/target/classes:./sentry-test/target/test-classes/ org.junit.runner.JUnitCore ServerAll
     ```
 
-5. **login hive shell with super user to execute post sql..**    
+5. **login hive shell with super user to execute post sql.**    
     To execute post sql, you need to login hive shell with super user (mt_qa).
     ```sh
     $ source ./sentry-test/src/main/resources/hive_env.sh proxy_user_t1 super
