@@ -98,7 +98,7 @@ You can also run it by manually.
     $ source ./sentry-test/src/main/resources/hive_env.sh clean_proxy_user hive
     ```     
 
-   **NOTE:** login hive with ```proxy``` approach, we need to revoke privileges otherwise it will throw exception.
+   **NOTE:** login hive with ```proxy``` approach, we need to revoke privileges otherwise it will throw exception.    
    **NOTE:** login hive with ```keytab``` approach, this step is not needed. 
 
 7. **revoke user with super privilege.**    
