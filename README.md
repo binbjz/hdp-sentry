@@ -53,15 +53,15 @@ $ /usr/bin/time -f "Time: %U" bash sentry_dispatcher.sh
 
 You can also run it by manually.
 
-1. **grant user with super privilege.**
-   super privilege will be granted to user mt_qa .
+1. **grant user with super privilege.**    
+    super privilege will be granted to user mt_qa .
     ```sh
     $ source ./sentry-test/src/main/resources/sentry_super_env.sh setup SuperPrivil
     ```
 
    **NOTE:** Usage: sentry_super_env.sh (setup|clean|check) SuperPrivil
 
-2.  **grant user with normal privilege.**
+2.  **grant user with normal privilege.**    
     You should specify the test name which need to be granted, if you need to run test case with ServerAll privilege.
     ```sh
     $ source ./sentry-test/src/main/resources/sentry_env.sh setup ServerAll
