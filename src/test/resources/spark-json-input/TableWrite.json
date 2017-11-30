@@ -45,7 +45,7 @@
   },
   {
     "id": "testAlterSerDePartitionAndTable",
-    "tag": "Server",
+    "tag": "Table",
     "desc": "The case will test AlterSerDePartitionAndTable.",
     "cases": [
       {
@@ -59,23 +59,23 @@
     ]
   },
   {
-    "id": "testAlterTableAddColumnsReplaceColumnsEnableDisable_unsupported",
-    "tag": "Server",
-    "desc": "The case will test AlterTableAddColumnsReplaceColumnsEnableDisable_unsupported.",
+    "id": "testAlterTableAddColumns",
+    "tag": "Table",
+    "desc": "The case will test AlterTableAddColumns.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableAddColumnsReplaceColumnsEnableDisable_unsupported.scala"
+        "name": "testAlterTableAddColumns.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableAddColumnsReplaceColumnsEnableDisable_unsupported.txt"
+        "name": "testAlterTableAddColumns.txt"
       }
     ]
   },
   {
     "id": "testAlterTableChangeTouchSerDeSetFileformatClusteredBySortedBy_unsupported",
-    "tag": "Server",
+    "tag": "Table",
     "desc": "The case will test AlterTableChangeTouchSerDeSetFileformatClusteredBySortedBy_unsupported.",
     "cases": [
       {
@@ -104,8 +104,23 @@
     ]
   },
   {
+    "id": "testAlterTableReplaceColumnsEnableDisable_unsupported",
+    "tag": "Table",
+    "desc": "The case will test AlterTableReplaceColumnsEnableDisable_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplaceColumnsEnableDisable_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplaceColumnsEnableDisable_unsupported.txt"
+      }
+    ]
+  },
+  {
     "id": "testAlterTouchEnableDisablePartition_unsupported",
-    "tag": "Server",
+    "tag": "Table",
     "desc": "The case will test AlterTouchEnableDisablePartition_unsupported.",
     "cases": [
       {
@@ -180,7 +195,7 @@
   },
   {
     "id": "testImportExportTablePartition_unsupported",
-    "tag": "Server",
+    "tag": "Table",
     "desc": "The case will test ImportExportTablePartition_unsupported.",
     "cases": [
       {
@@ -210,7 +225,7 @@
   },
   {
     "id": "testInsertIntoTablePartition",
-    "tag": "Server",
+    "tag": "Table",
     "desc": "The case will test InsertIntoTablePartition.",
     "cases": [
       {
