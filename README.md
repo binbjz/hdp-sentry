@@ -108,7 +108,7 @@ You can also run it by manually.
     ```
 
 8. **revoke user with normal privilege.**    
-    You should specify the test name which need to be granted, if you need to run test case with ServerAll privilege.
+    You should specify the test name which need to be revoked, if you need to revoke test case with ServerAll privilege.
     ```sh
     $ source ./sentry-test/src/main/resources/sentry_env.sh clean ServerAll
     ```
