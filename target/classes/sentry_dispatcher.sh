@@ -147,7 +147,7 @@ for tc in $sentry_tcs; do
 
 
     if [[ "$privil_type" =~ $proxy_regex ]]; then
-        # In proxy env, we need to revoke privileges otherwise it will throw exception
+        # In proxy env, we need to unset proxy env otherwise it will throw exception
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
