@@ -59,8 +59,8 @@ You can also run it by manually.
     $ source ./sentry-test/src/main/resources/sentry_super_env.sh setup SuperPrivil
     ```
 
-   **NOTE:** Usage: sentry_super_env.sh (setup|clean|check) SuperPrivil
-
+   **NOTE:** Usage: sentry_super_env.sh (setup|clean|check) SuperPrivil   
+   
 2.  **grant user with normal privilege.**    
     You should specify the test name which need to be granted, if you need to run test case with ServerAll privilege.
     ```sh
