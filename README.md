@@ -102,7 +102,7 @@ You can also run it by manually.
    **NOTE:** login hive with ```keytab``` approach, this step is not needed. 
 
 7. **revoke user with super privilege.**    
-    super privilege will be granted to user mt_qa .
+    super privilege will be revoked to user mt_qa.
     ```sh
     $ source ./sentry-test/src/main/resources/sentry_super_env.sh clean SuperPrivil
     ```
