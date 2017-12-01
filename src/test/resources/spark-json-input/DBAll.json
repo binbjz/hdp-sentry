@@ -1,4 +1,5 @@
-[ {
+[
+  {
     "id": "testAddFileAndJarCreateFuncAndTmpFunc",
     "tag": "DB",
     "desc": "The case will test AddFileAndJarCreateFuncAndTmpFunc.",

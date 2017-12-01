@@ -35,11 +35,11 @@ fi
 # Select the corresponding authentication type
 case "$1" in
 "keytab_auth")
-    #keytab authentication
+    # keytab authentication
     source /opt/meituan/hadoop/bin/hadoop_user_login.sh $PROXY_USER
     ;;
 "proxy_user_t1")
-    #proxy user with specify group
+    # proxy user with specify group
     export HADOOP_HOME=/opt/meituan/hadoop
     export HIVE_HOME=$HIVE_HOME
     export HADOOP_JAR_AUTHENTICATION=KERBEROS
@@ -48,7 +48,7 @@ case "$1" in
     export HADOOP_PROXY_USER=$PROXY_USER
     ;;
 "proxy_user_t2_1"|"proxy_user_t2_2")
-    #proxy user, misid with all groups
+    # proxy user, misid with all groups
     export HADOOP_HOME=/opt/meituan/hadoop
     export HIVE_HOME=$HIVE_HOME
     export HADOOP_JAR_AUTHENTICATION=KERBEROS
@@ -57,14 +57,14 @@ case "$1" in
     export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ALL
     ;;
 "clean_proxy_user")
-    #clean proxy user
+    # clean proxy user
     unset HADOOP_JAR_AUTHENTICATION
     unset HADOOP_JAR_KERBEROS_KEYTAB_FILE
     unset HADOOP_JAR_KERBEROS_PRINCIPAL
     unset HADOOP_PROXY_USER
     ;;
 "proxy_user_group1"|"proxy_user_group2")
-    #proxy user, midis with multiple groups
+    # proxy user, midis with multiple groups
     export HADOOP_HOME=/opt/meituan/hadoop
     export HIVE_HOME=$HIVE_HOME
     export HADOOP_JAR_AUTHENTICATION=KERBEROS

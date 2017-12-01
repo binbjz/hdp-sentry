@@ -167,7 +167,7 @@ case "$1" in
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -grant_privilege_role --rolename $GROUP_ROLE_NAME2 --privilege "$rug_priv_tbl"
 
 
-            #GRANT PRIVILEGE ON A USER RELATED ROLE
+            # GRANT PRIVILEGE ON A USER RELATED ROLE
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -create_role -r $USER_ROLE_NAME
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml -add_role_user -r $USER_ROLE_NAME -u $USER
 
@@ -244,7 +244,7 @@ case "$1" in
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $ROLE_NAME
 
 
-        #Check privilege on a group related role
+        # Check privilege on a group related role
         elif [[ $privil_type = "proxy_user_t2_1" ]]; then
             priv_formatter c $GROUP_ROLE_NAME1, $ROLE_GROUP1, $GROUP_ROLE_NAME1, $ROLE_GROUP2, $USER_ROLE_NAME, $USER
 
@@ -272,7 +272,7 @@ case "$1" in
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -g $ROLE_GROUP2
 
 
-            #CHECK PRIVILEGE ON A USER RELATED ROLE
+            # CHECK PRIVILEGE ON A USER RELATED ROLE
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_privilege -r $USER_ROLE_NAME
             $SENTRY_HOME/bin/sentryShell -conf $SENTRY_HOME/conf/sentry-site.xml --list_role -u $USER
         fi
