@@ -9,7 +9,7 @@
 E_BADDIR=65
 proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)|proxy_user_group(1|2)"
 
-# Set priv type
+# Set privilege type
 privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
 privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
 
@@ -105,7 +105,7 @@ for tc in $sentry_tcs; do
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
 
-    # Execute preppare sql
+    # Execute prepare sql
     echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Prepare SQL"
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
@@ -133,6 +133,7 @@ for tc in $sentry_tcs; do
 
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
+
     # Execute post sql
     echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Post SQL"
     if echo "$tc" | egrep -qi "$include_patt2"; then
@@ -146,8 +147,8 @@ for tc in $sentry_tcs; do
     fi
 
 
-    if [[ "$privil_type" =~ $proxy_regex ]]; then
-        # In proxy env, we need to unset proxy env otherwise it will throw exception
+    # In proxy env, we need to unset proxy env otherwise it will throw exception
+    if [[ "$privil_type" =~ $proxy_regex ]] && [[ "$privil_type_ug" =~ $proxy_regex ]]; then
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
