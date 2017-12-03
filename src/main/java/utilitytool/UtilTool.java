@@ -9,7 +9,7 @@ import java.util.regex.*;
 public class UtilTool {
     public static void main(String[] args) {
         //Just for debug
-        String cmds = "ifconfig";
+        String cmds = "ifconfig en0";
         String[] callCmd = {"/bin/bash", "-c", cmds};
         System.out.println("exit code:\n" + execCommand(callCmd).get(0).toString());
         System.out.println();
@@ -20,7 +20,8 @@ public class UtilTool {
         String regx2 = "  )'";
         String regx3 = "... 71 elided ddasd";
         String regx4 = "  )";
-        System.out.println(filterResults(regx2));
+        String regx5 = "spark://10.20.94.3:39128/files/test_who.sh]";
+        System.out.println(filterResults(regx5));
     }
 
     /**
@@ -152,12 +153,14 @@ public class UtilTool {
         // String REGEX = "([a-zA-Z]+(:?)\\s+(!?))+";
 //        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?)";
 //        String REGEX2 = ".*(Time|CliDriver|Logging).*";
+
         String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
         String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
         String REGEX3 = "^\\s*at\\s+(org|sun|java|com|javax|scala).*";
         String REGEX4 = "^\\s*(\\.+\\s+\\d+\\s+.*|(\\)'|\\))).*";
+        String REGEX5 = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?):\\d+";
         String REPLACE = "";
-        String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4;
+        String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5;
         String REGEXS = "(" + prefixes + ")";
         Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(str);
