@@ -7,7 +7,7 @@
 
 # Set env parm
 E_BADDIR=65
-proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)|proxy_user_group(1|2)"
+proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)"
 
 # Set privilege type
 privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
@@ -148,7 +148,7 @@ for tc in $sentry_tcs; do
 
 
     # In proxy env, we need to unset proxy env otherwise it will throw exception
-    if [[ "$privil_type" =~ $proxy_regex ]] && [[ "$privil_type_ug" =~ $proxy_regex ]]; then
+    if [[ "$privil_type" =~ $proxy_regex ]] || [[ ${tc/${include_patt3}/} != ${tc} ]]; then
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
