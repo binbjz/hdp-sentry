@@ -162,6 +162,7 @@ public class UtilTool {
         String REPLACE = "";
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5;
         String REGEXS = "(" + prefixes + ")";
+
         Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(str);
         if (m.find()) {
