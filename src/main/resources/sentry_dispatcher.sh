@@ -7,9 +7,9 @@
 
 # Set env parm
 E_BADDIR=65
-proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)|proxy_user_group(1|2)"
+proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)"
 
-# Set priv type
+# Set privilege type
 privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth
 privil_type_ug=proxy_user_group2 # proxy_user_group1|proxy_user_group2
 
@@ -38,7 +38,7 @@ COMMENTBLOCK
 spark_21=spark-2.1
 spark_22=spark-2.2
 
-SPARK_HOME=`readlink -f /opt/meituan/${spark_22}`
+SPARK_HOME=`readlink -f /opt/meituan/${spark_21}`
 cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
@@ -105,7 +105,7 @@ for tc in $sentry_tcs; do
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
 
-    # Execute preppare sql
+    # Execute prepare sql
     echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Prepare SQL"
     if echo "$tc" | egrep -qi "$include_patt2"; then
         tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
@@ -133,6 +133,7 @@ for tc in $sentry_tcs; do
 
     # Grant user with super privilege
     source $project_dir/src/main/resources/hive_env.sh $privil_type super
+
     # Execute post sql
     echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Post SQL"
     if echo "$tc" | egrep -qi "$include_patt2"; then
@@ -146,8 +147,8 @@ for tc in $sentry_tcs; do
     fi
 
 
-    if [[ "$privil_type" =~ $proxy_regex ]]; then
-        # In proxy env, we need to unset proxy env otherwise it will throw exception
+    # In proxy env, we need to unset proxy env otherwise it will throw exception
+    if [[ "$privil_type" =~ $proxy_regex ]] || [[ ${tc/${include_patt3}/} != ${tc} ]]; then
         source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
     fi
 
