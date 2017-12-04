@@ -59,17 +59,17 @@
     ]
   },
   {
-    "id": "testAlterTableAddColumnsReplaceColumnsEnableDisable_unsupported",
+    "id": "testAlterTableAddColumns",
     "tag": "DB",
-    "desc": "The case will test AlterTableAddColumnsReplaceColumnsEnableDisable_unsupported.",
+    "desc": "The case will test AlterTableAddColumns.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableAddColumnsReplaceColumnsEnableDisable_unsupported.scala"
+        "name": "testAlterTableAddColumns.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableAddColumnsReplaceColumnsEnableDisable_unsupported.txt"
+        "name": "testAlterTableAddColumns.txt"
       }
     ]
   },
@@ -100,6 +100,21 @@
       {
         "type": "file/scala",
         "name": "testAlterTableRename.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableReplaceColumnsEnableDisable_unsupported",
+    "tag": "DB",
+    "desc": "The case will test AlterTableReplaceColumnsEnableDisable_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplaceColumnsEnableDisable_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplaceColumnsEnableDisable_unsupported.txt"
       }
     ]
   },
