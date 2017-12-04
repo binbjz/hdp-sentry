@@ -23,6 +23,7 @@ This project was written in **bash shell** and **java**.
 * **[How To Run It](#how-to-run-it)**
 * **[How To Run It Step By Step](#how-to-run-it-step-by-step)**
 * **[How To Check Running Log](#how-to-check-running-log)**
+* **[Framework And Architecture](#Framework-and-architecture)**
 
 
 ----
@@ -120,3 +121,31 @@ You can also run it by manually.
 ## How To Check Running Log
 
 * check sentry-test/src/test/log directory, all running logs will be generated in the directory dynamically.
+
+
+----
+
+
+## Framework And Architecture
+
+sentry-test
+<br>├── src
+<br>│   ├── main
+<br>│   │   ├── java (source code)
+<br>│   │   │   ├── eventhandling
+<br>│   │   │   └── utilitytool
+<br>│   │   └── resources <shell script, log4j config file, external.ini>
+<br>│   └── test
+<br>│       ├── java (test code)
+<br>│       └── resources
+<br>│           ├── hive-json-input (hive test case template with json)
+<br>│           ├── hive-output (hive output files)
+<br>│           │   ├── (Test Case Name)
+<br>│           │   │   └── sql-output
+<br>│           ├── hive-sql (source sql)
+<br>│           ├── source-data (data files that testing require)
+<br>│           ├── spark-json-input (hive test case template with json)
+<br>│           ├── spark-output (spark output files)
+<br>│           │   ├── (Test Case Name)
+<br>│           │   │   └── sql-output
+<br>│           └── spark-sql (source sql)
