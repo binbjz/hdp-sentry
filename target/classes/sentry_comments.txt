@@ -328,6 +328,8 @@ drop_role -r sentry_qa
 
 /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -create_role -r hdp_qa_role
 /opt/meituan/sentry/bin/sentryShell -conf /opt/meituan/sentry/conf/sentry-site.xml -add_role_user -r hdp_qa_role -u hdp_qa
+/opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename hdp_qa_role --privilege "server=server1->action=insert"
+
 /opt/meituan/sentry/bin/sentryShell --conf /opt/meituan/sentry/conf/sentry-site.xml --grant_privilege_role --rolename hdp_qa_role --privilege "server=server1->db=test_db->action=all"
 
 
@@ -466,5 +468,3 @@ COMMENTBLOCK
 方式与proxy user基本相同，只是proxy user指定了具体的激活组
 具体写法为export HADOOP_PROXY_USER=hadoop-qa/misid@group1,group2
 其中group名称可以有多个，以逗号分隔；如果指定的激活组不是user对应的有效组，会直接抛出异常
-
-
