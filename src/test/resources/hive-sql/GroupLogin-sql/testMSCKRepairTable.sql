@@ -1,6 +1,7 @@
 USE mart_waimai;
 
 -- 创建两个分区目录
+
 dfs -mkdir /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20180102;
 dfs -mkdir /user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi/dt=20180103;
 -- 使用MSCK修复分区
