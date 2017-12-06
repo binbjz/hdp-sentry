@@ -20,7 +20,7 @@ spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="INSERT INTO test_login_db_tbl.test_tbl VALUES ('test login2', 20)";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql="SELECT * FROM test_login_db_tbl.test_tbl";
+val test_sql="SELECT * FROM test_login_db_tbl.test_tbl ORDER BY name, salary";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE test_login_db_tbl.test_tbl";
 spark.sql(test_sql).collect().foreach(println);
