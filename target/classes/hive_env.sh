@@ -57,7 +57,7 @@ case "$1" in
     export HADOOP_PROXY_USER=$PROXY_USER/$PROXY_USER@ALL
     ;;
 "clean_proxy_user")
-    # clean proxy user
+    # clean proxy user - e.g. clean_proxy_user hive
     unset HADOOP_JAR_AUTHENTICATION
     unset HADOOP_JAR_KERBEROS_KEYTAB_FILE
     unset HADOOP_JAR_KERBEROS_PRINCIPAL
