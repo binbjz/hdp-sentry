@@ -26,7 +26,7 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${DIR}/sentry_privil_tmpl.sh
 
 
-# Set and check sentry privilege validity
+# Check sentry privilege key validity and set sentry privileges
 if [[ -n "${sentry_privileges[$2]}" ]]; then
     privileges=`awk 'BEGIN{FS=","}{for(i=1;i<=NF;i++)print $i}' <<< "${sentry_privileges[$2]}"`
 else

@@ -7,7 +7,7 @@
 
 # Set env parm
 E_BADDIR=65
-proxy_regex="proxy_user_t1|proxy_user_t2_(1|2)"
+proxy_regex="^proxy_user_t1$|^proxy_user_t2_(1|2)$"
 
 # Set privilege type
 privil_type=proxy_user_t2_2  # proxy_user_t1|proxy_user_t2_(1|2)|keytab_auth

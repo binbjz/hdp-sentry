@@ -10,6 +10,7 @@ BAD_PARAMS=66
 NOMATCH=127
 NOPRI=62
 LOGIN_USER=hive
+group_login_regex="^GroupLogin$|^GroupLogin(2|3)$"
 
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
@@ -25,12 +26,8 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${DIR}/sentry_privil_tmpl.sh
 
 
-# Just verify if this is correct
-if [[ "$2" = "GroupLogin" ]]; then
-    :
-elif [[ "$2" = "GroupLogin_2" ]]; then
-    :
-elif [[ "$2" = "GroupLogin_3" ]]; then
+# Just verify sentry group login privilege key validity
+if [[ "$2" =~ $group_login_regex ]]; then
     :
 else
     echo "Please specify valid sentry user group privilege"
