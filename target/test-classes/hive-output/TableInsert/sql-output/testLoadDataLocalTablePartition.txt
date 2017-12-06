@@ -1,5 +1,5 @@
 OK
 Loading data to table testdb.load_data_local_into_partition partition (country=US, state=CA)
-Failed with exception MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDPARTS)
+Failed with exception MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDPARTS)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
 OK

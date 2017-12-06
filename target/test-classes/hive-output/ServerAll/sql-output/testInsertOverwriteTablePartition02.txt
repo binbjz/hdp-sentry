@@ -1,1 +1,30 @@
-Could not open input file for reading. (File file:/opt/meituan/qa_test/sentry-test/src/test/resources/hive-sql/common-sql/testInsertOverwriteTablePartition02.sql does not exist)
+OK
+Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=OR)
+Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=IL)
+Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=CA)
+4 Rows loaded to testdb.test_insert_overwrite_tbl_partition
+OK
+OK
+test_insert_overwrite_tbl_partition.name	test_insert_overwrite_tbl_partition.salary	test_insert_overwrite_tbl_partition.subordinates	test_insert_overwrite_tbl_partition.deductions	test_insert_overwrite_tbl_partition.address	test_insert_overwrite_tbl_partition.country	test_insert_overwrite_tbl_partition.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA
+Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=CA)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_insert_overwrite_tbl_partition/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+4 Rows loaded to testdb.test_insert_overwrite_tbl_partition
+OK
+name	salary	subordinates	deductions	address
+OK
+Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=null)
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/test_insert_overwrite_tbl_partition/country=US/state=CA' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+	Loading partition {country=US, state=CA}
+4 Rows loaded to testdb.test_insert_overwrite_tbl_partition
+OK
+se.name	se.salary	se.subordinates	se.deductions	se.address	se.state
+OK
+test_insert_overwrite_tbl_partition.name	test_insert_overwrite_tbl_partition.salary	test_insert_overwrite_tbl_partition.subordinates	test_insert_overwrite_tbl_partition.deductions	test_insert_overwrite_tbl_partition.address	test_insert_overwrite_tbl_partition.country	test_insert_overwrite_tbl_partition.state
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA

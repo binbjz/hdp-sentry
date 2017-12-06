@@ -1,18 +1,8 @@
 OK
 OK
-Partition testdb.tbl4analyze{country=US, state=CA} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-[Warning] could not update stats.
-OK
-Partition testdb.tbl4analyze{country=US, state=CA} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition testdb.tbl4analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition testdb.tbl4analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-[Warning] could not update stats.
-OK
-Partition testdb.tbl4analyze{country=US, state=CA} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition testdb.tbl4analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition testdb.tbl4analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-[Warning] could not update stats.
-OK
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
 OK
 name                	string              	                    
 salary              	float               	                    

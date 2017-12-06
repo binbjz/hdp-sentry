@@ -3,7 +3,7 @@ OK
 OK
 OK
 CREATE TABLE `encrypt_db4data.test_serde`(
-  `encrypted_name_82476_encrypt_c0` string COMMENT 'from deserializer', 
+  `encrypted_name_30306_encrypt_c0` string COMMENT 'from deserializer', 
   `c1` string COMMENT 'from deserializer', 
   `c2` string COMMENT 'from deserializer')
 ROW FORMAT SERDE 
@@ -25,5 +25,5 @@ TBLPROPERTIES (
   'numRows'='-1', 
   'rawDataSize'='-1', 
   'totalSize'='0', 
-FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<test_serde>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<test_serde>.<encrypt_c0>
 OK

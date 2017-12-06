@@ -1,5 +1,5 @@
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -17,7 +17,7 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDCOLS
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -35,7 +35,7 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
 OK
 hms                 	int                 	                    
 severity            	string              	                    
@@ -53,7 +53,7 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDCOLS
 OK
 hms                 	int                 	                    
 severity            	string              	                    

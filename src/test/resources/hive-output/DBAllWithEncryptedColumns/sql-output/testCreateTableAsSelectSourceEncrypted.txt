@@ -3,6 +3,6 @@ OK
 Loading data to table encrypt_db4data.session_src_encrypted
 2 Rows loaded to encrypt_db4data.session_src_encrypted
 OK
-FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<session_src_encrypted>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<session_src_encrypted>.<encrypt_page_url>, <encrypt_db4data>.<session_src_encrypted>.<encrypt_referrer_url>
 OK
 OK

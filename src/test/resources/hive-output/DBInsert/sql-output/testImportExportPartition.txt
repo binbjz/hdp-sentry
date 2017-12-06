@@ -8,6 +8,6 @@ Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Av
 Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
 Copying data from hdfs://hadoop-meituan-test/tmp/employee/country=US/state=CA
 Copying file: hdfs://hadoop-meituan-test/tmp/employee/country=US/state=CA/california-employees.csv
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDPARTS)
 OK
 Moved: 'viewfs://hadoop-meituan-test/tmp/employee' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

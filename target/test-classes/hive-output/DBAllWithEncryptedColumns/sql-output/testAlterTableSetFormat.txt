@@ -4,9 +4,9 @@ OK
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-encrypted_name_88307_encrypt_server	string              	ENCRYPTED_COMMENT_1651
+encrypted_name_65211_encrypt_server	string              	ENCRYPTED_COMMENT_34395
 process_id          	int                 	                    
-encrypted_name_61470_encrypt_message	string              	ENCRYPTED_COMMENT_75509
+encrypted_name_18484_encrypt_message	string              	ENCRYPTED_COMMENT_52292
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -24,9 +24,9 @@ year=2011/month=1/day=1
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-encrypted_name_88307_encrypt_server	string              	ENCRYPTED_COMMENT_1651
+encrypted_name_65211_encrypt_server	string              	ENCRYPTED_COMMENT_34395
 process_id          	int                 	                    
-encrypted_name_61470_encrypt_message	string              	ENCRYPTED_COMMENT_75509
+encrypted_name_18484_encrypt_message	string              	ENCRYPTED_COMMENT_52292
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -39,15 +39,15 @@ month               	int
 day                 	int                 	                    
 	 	 
 OK
-FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat>.<encrypt_server>, <encrypt_db4alter>.<tbl4fileformat>.<encrypt_message>
 OK
 OK
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-encrypted_name_56573_encrypt_server	string              	ENCRYPTED_COMMENT_77086
+encrypted_name_87768_encrypt_server	string              	ENCRYPTED_COMMENT_66496
 process_id          	int                 	                    
-encrypted_name_41862_encrypt_message	string              	ENCRYPTED_COMMENT_66551
+encrypted_name_96537_encrypt_message	string              	ENCRYPTED_COMMENT_39728
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -65,9 +65,9 @@ year=2011/month=1/day=2
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-encrypted_name_56573_encrypt_server	string              	ENCRYPTED_COMMENT_77086
+encrypted_name_87768_encrypt_server	string              	ENCRYPTED_COMMENT_66496
 process_id          	int                 	                    
-encrypted_name_41862_encrypt_message	string              	ENCRYPTED_COMMENT_66551
+encrypted_name_96537_encrypt_message	string              	ENCRYPTED_COMMENT_39728
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -80,7 +80,7 @@ month               	int
 day                 	int                 	                    
 	 	 
 OK
-FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat_external>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat_external>.<encrypt_server>, <encrypt_db4alter>.<tbl4fileformat_external>.<encrypt_message>
 OK
 OK
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

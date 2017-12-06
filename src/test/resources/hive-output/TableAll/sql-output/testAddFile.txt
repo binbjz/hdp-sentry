@@ -1,7 +1,13 @@
 OK
 OK
 tbl4addfile.who
+Mr.A
+Miss.B
+Dr.C
 Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh]
 /opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh
 OK
 who
+Hello,  Mr.A
+Hello,  Miss.B
+Hello,  Dr.C

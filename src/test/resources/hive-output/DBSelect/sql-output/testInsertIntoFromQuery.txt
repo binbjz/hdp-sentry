@@ -1,9 +1,3 @@
 OK
-Execution log at: /var/sankuai/logs/hive1.2/sankuai/hive.log
-Execution completed successfully
-MapredLocal task succeeded
-Loading data to table testdb.sessionization_step_one_origins
-1 Rows loaded to testdb.sessionization_step_one_origins
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
 OK
-OK
-100	101	10000.0
