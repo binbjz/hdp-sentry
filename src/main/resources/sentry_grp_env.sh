@@ -30,7 +30,7 @@ source ${DIR}/sentry_privil_tmpl.sh
 if [[ "$2" =~ $group_login_regex ]]; then
     :
 else
-    echo "Please specify valid sentry user group privilege"
+    echo "Please specify valid sentry group login privilege key"
     exit $NOPRI
 fi
 
