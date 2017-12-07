@@ -1,19 +1,4 @@
- [
-  {
-    "id": "testAddDropShowPartition",
-    "tag": "DB",
-    "desc": "The case will test AddDropShowPartition.",
-    "cases": [
-      {
-        "type": "file/scala",
-        "name": "testAddDropShowPartition.scala"
-      },
-      {
-        "type": "file/scala",
-        "name": "testAddDropShowPartition.txt"
-      }
-    ]
-  },
+[
   {
     "id": "testAlterPartitionEnableDisable",
     "tag": "DB",
