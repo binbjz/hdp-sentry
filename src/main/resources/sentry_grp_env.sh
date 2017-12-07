@@ -10,7 +10,7 @@ BAD_PARAMS=66
 NOMATCH=127
 NOPRI=62
 LOGIN_USER=hive
-group_login_regex="^GroupLogin$|^GroupLogin(2|3)$"
+group_login_regex="^GroupLogin$|^GroupLogin_(2|3)$"
 
 export HADOOP_HOME=/opt/meituan/hadoop
 export SENTRY_HOME=/opt/meituan/sentry
