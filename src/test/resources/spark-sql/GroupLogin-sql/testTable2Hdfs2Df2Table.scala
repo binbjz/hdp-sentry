@@ -33,11 +33,11 @@ df_parquet_query.write.insertInto("mart_waimai.spark_df_parquet_query")
 /* query and verify data */
 var test_sql="SELECT count(*) FROM mart_waimai.spark_df_parquet";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM mart_waimai.test_insert_overwrite_dir UNION SELECT * FROM mart_waimai.spark_df_parquet";
+var test_sql="SELECT * FROM mart_waimai.spark_df_parquet";
 spark.sql(test_sql).collect().foreach(println);
 var test_sql="SELECT count(*) FROM mart_waimai.spark_df_parquet_query";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM mart_waimai.test_insert_overwrite_dir UNION SELECT * FROM mart_waimai.spark_df_parquet_query";
+var test_sql="SELECT * FROM mart_waimai.spark_df_parquet_query";
 spark.sql(test_sql).collect().foreach(println);
 /* remove HDFS folder */
 if(fs.exists(new Path(parquetPath)))
@@ -67,11 +67,11 @@ df_json_query.write.insertInto("mart_waimai.spark_df_json_query");
 /* query and verify data */
 var test_sql="SELECT count(*) FROM mart_waimai.spark_df_json";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM mart_waimai.test_insert_overwrite_dir UNION SELECT * FROM mart_waimai.spark_df_json";
+var test_sql="SELECT * FROM mart_waimai.spark_df_json";
 spark.sql(test_sql).collect().foreach(println);
 var test_sql="SELECT count(*) FROM mart_waimai.spark_df_json_query";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM mart_waimai.test_insert_overwrite_dir UNION SELECT * FROM mart_waimai.spark_df_json_query";
+var test_sql="SELECT * FROM mart_waimai.spark_df_json_query";
 spark.sql(test_sql).collect().foreach(println);
 /* remove HDFS folder */
 if(fs.exists(new Path(jsonPath)))
@@ -101,11 +101,11 @@ df_orc_query.write.insertInto("mart_waimai.spark_df_orc_query")
 /* query and verify data */
 var test_sql="SELECT count(*) FROM mart_waimai.spark_df_orc";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM mart_waimai.test_insert_overwrite_dir UNION SELECT * FROM mart_waimai.spark_df_orc";
+var test_sql="SELECT * FROM mart_waimai.spark_df_orc";
 spark.sql(test_sql).collect().foreach(println);
 var test_sql="SELECT count(*) FROM mart_waimai.spark_df_orc_query";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM mart_waimai.test_insert_overwrite_dir UNION SELECT * FROM mart_waimai.spark_df_orc_query";
+var test_sql="SELECT * FROM mart_waimai.spark_df_orc_query";
 spark.sql(test_sql).collect().foreach(println);
 /* remove HDFS folder */
 if(fs.exists(new Path(orcPath)))

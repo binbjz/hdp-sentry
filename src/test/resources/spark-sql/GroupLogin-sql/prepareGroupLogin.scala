@@ -673,7 +673,7 @@ val test_sql="CREATE TABLE mart_waimai.partition_table002 LIKE mart_waimai.parti
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="""CREATE TABLE mart_waimai.collecttest (str STRING, countVal INT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'""";
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '\n'""";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="CREATE TABLE mart_waimai.test_replace_columns (col1 TINYINT, col2 SMALLINT, col3 INT, col4 BIGINT, col5 BOOLEAN, col6 FLOAT, col7 DOUBLE, col8 STRING, col9 TIMESTAMP)";
@@ -840,6 +840,29 @@ val test_sql="INSERT INTO mart_waimai.tbl4sample VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql ="CREATE TABLE mart_waimai.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="""CREATE TABLE mart_waimai.test_insert_overwrite_dir (
+ name STRING
+,salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="ALTER TABLE mart_waimai.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'CA')";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees2.csv'
+INTO TABLE mart_waimai.test_insert_overwrite_dir PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);
