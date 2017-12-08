@@ -19,8 +19,9 @@ project_dir="$( cd ${resource_dir}/../../.. && pwd )"
 log_base=${project_dir}/src/test/log
 
 
-# Temporary env for dependent libraries
-libdir=/opt/meituan/qa_test/data_bin/test-lib/
+# dependent libraries
+#libdir=/opt/meituan/qa_test/data_bin/test-lib/
+libdir=${project_dir}/test_lib
 
 
 ##============
