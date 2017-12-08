@@ -1,16 +1,16 @@
 [
   {
-    "id": "testAlterPartitionEnableDisable",
+    "id": "testAlterPartitionEnableDisable_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterPartitionEnableDisable.",
+    "desc": "The case will test AlterPartitionEnableDisable_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterPartitionEnableDisable.scala"
+        "name": "testAlterPartitionEnableDisable_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterPartitionEnableDisable.txt"
+        "name": "testAlterPartitionEnableDisable_unsupported.txt"
       }
     ]
   },
