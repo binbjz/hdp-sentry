@@ -60,32 +60,17 @@
     ]
   },
   {
-    "id": "testAlterTableChange",
+    "id": "testAlterTableChange_unsupported",
     "tag": "DB",
     "desc": "The case will test AlterTableChange.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableChange.scala"
+        "name": "testAlterTableChange_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableChange.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAlterTableChange",
-    "tag": "DB",
-    "desc": "The case will test AlterTableChange.",
-    "cases": [
-      {
-        "type": "file/scala",
-        "name": "testAlterTableChange.scala"
-      },
-      {
-        "type": "file/scala",
-        "name": "testAlterTableChange.txt"
+        "name": "testAlterTableChange_unsupported.txt"
       }
     ]
   },
