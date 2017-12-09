@@ -75,17 +75,17 @@
     ]
   },
   {
-    "id": "testAlterTableEnableDisable",
+    "id": "testAlterTableEnableDisable_unsupported",
     "tag": "DB",
     "desc": "The case will test AlterTableEnableDisable.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableEnableDisable.scala"
+        "name": "testAlterTableEnableDisable_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableEnableDisable.txt"
+        "name": "testAlterTableEnableDisable_unsupported.txt"
       }
     ]
   },
