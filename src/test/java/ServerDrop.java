@@ -44,12 +44,9 @@ public class ServerDrop {
         logger.info(UtilTool.arrToStr(sqlCmd));
 
         Map map = UtilTool.execCommand(sqlCmd);
-        logger.info("exit code:\n" + map.get(0).toString());
-        logger.info("command result:\n" + map.get(1).toString());
 
         //debug stage: write test results into output file.
         String output = sqlOutputPath + File.separator + resultFile;
-        logger.info(output);
         UtilTool.writeAllBytes(output, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(output);

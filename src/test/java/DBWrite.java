@@ -43,17 +43,14 @@ public class DBWrite {
         logger.info(UtilTool.arrToStr(sqlCmd));
 
         Map map = UtilTool.execCommand(sqlCmd);
-        logger.info("exit code:\n" + map.get(0).toString());
-        logger.info("command result:\n" + map.get(1).toString());
 
         //debug stage: write test results into output file.
         String output = sqlOutputPath + File.separator + resultFile;
-        logger.info(output);
         UtilTool.writeAllBytes(output, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(output);
         String actualResults = map.get(1).toString();
-        logger.info("expectedResults: " + expectedResults);
+//        logger.info("expectedResults: " + expectedResults);
         logger.info("actualResults: " + actualResults);
         Assert.assertEquals(desc, expectedResults, actualResults);
     }
