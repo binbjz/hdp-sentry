@@ -62,7 +62,7 @@
   {
     "id": "testAlterTableChange_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableChange.",
+    "desc": "The case will test AlterTableChange_unsupported.",
     "cases": [
       {
         "type": "file/scala",
@@ -77,7 +77,7 @@
   {
     "id": "testAlterTableEnableDisable_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableEnableDisable.",
+    "desc": "The case will test AlterTableEnableDisable_unsupported.",
     "cases": [
       {
         "type": "file/scala",
@@ -105,47 +105,47 @@
     ]
   },
   {
-    "id": "testAlterTableReplace",
+    "id": "testAlterTableReplace_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableReplace.",
+    "desc": "The case will test AlterTableReplace_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableReplace.scala"
+        "name": "testAlterTableReplace_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableReplace.txt"
+        "name": "testAlterTableReplace_unsupported.txt"
       }
     ]
   },
   {
-    "id": "testAlterTableSetFormat",
+    "id": "testAlterTableSetFormat_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableSetFormat.",
+    "desc": "The case will test AlterTableSetFormat_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableSetFormat.scala"
+        "name": "testAlterTableSetFormat_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableSetFormat.txt"
+        "name": "testAlterTableSetFormat_unsupported.txt"
       }
     ]
   },
   {
-    "id": "testAlterTableTouchClusteredBy",
+    "id": "testAlterTableTouchClusteredBy_unsupported",
     "tag": "DB",
     "desc": "The case will test AlterTableTouchClusteredBy.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableTouchClusteredBy.scala"
+        "name": "testAlterTableTouchClusteredBy_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableTouchClusteredBy.txt"
+        "name": "testAlterTableTouchClusteredBy_unsupported.txt"
       }
     ]
   },
@@ -165,17 +165,17 @@
     ]
   },
   {
-    "id": "testBuiltInFuncs",
+    "id": "testHiveBuiltInFuncs",
     "tag": "DB",
-    "desc": "The case will test BuiltInFuncs.",
+    "desc": "The case will test HiveBuiltInFuncs.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testBuiltInFuncs.scala"
+        "name": "testHiveBuiltInFuncs.scala"
       },
       {
         "type": "file/scala",
-        "name": "testBuiltInFuncs.txt"
+        "name": "testHiveBuiltInFuncs.txt"
       }
     ]
   },
@@ -255,32 +255,32 @@
     ]
   },
   {
-    "id": "testImportExportEncryptTable",
+    "id": "testImportExportEncryptTable_unsupported",
     "tag": "DB",
-    "desc": "The case will test ImportExportEncryptTable.",
+    "desc": "The case will test ImportExportEncryptTable_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testImportExportEncryptTable.scala"
+        "name": "testImportExportEncryptTable_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testImportExportEncryptTable.txt"
+        "name": "testImportExportEncryptTable_unsupported.txt"
       }
     ]
   },
   {
-    "id": "testInsertOverwriteTableDir",
+    "id": "testInsertOverwriteTableDir_unsupported",
     "tag": "DB",
-    "desc": "The case will test InsertOverwriteTableDir.",
+    "desc": "The case will test InsertOverwriteTableDir_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testInsertOverwriteTableDir.scala"
+        "name": "testInsertOverwriteTableDir_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testInsertOverwriteTableDir.txt"
+        "name": "testInsertOverwriteTableDir_unsupported.txt"
       }
     ]
   },
@@ -345,17 +345,17 @@
     ]
   },
   {
-    "id": "testLoadDataLocal",
+    "id": "testLoadDataLocalQuerySample",
     "tag": "DB",
-    "desc": "The case will test LoadDataLocal.",
+    "desc": "The case will test LoadDataLocalQuerySample.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testLoadDataLocal.scala"
+        "name": "testLoadDataLocalQuerySample.scala"
       },
       {
         "type": "file/scala",
-        "name": "testLoadDataLocal.txt"
+        "name": "testLoadDataLocalQuerySample.txt"
       }
     ]
   },
@@ -375,21 +375,6 @@
     ]
   },
   {
-    "id": "testQueryUserDefinedFunction",
-    "tag": "DB",
-    "desc": "The case will test QueryUserDefinedFunction.",
-    "cases": [
-      {
-        "type": "file/scala",
-        "name": "testQueryUserDefinedFunction.scala"
-      },
-      {
-        "type": "file/scala",
-        "name": "testQueryUserDefinedFunction.txt"
-      }
-    ]
-  },
-  {
     "id": "testShowColumnsAndTblProperties",
     "tag": "DB",
     "desc": "The case will test ShowColumnsAndTblProperties.",
@@ -405,17 +390,17 @@
     ]
   },
   {
-    "id": "testTransform",
+    "id": "testTable2Hdfs2Df2Table",
     "tag": "DB",
-    "desc": "The case will test Transform.",
+    "desc": "The case will test Table2Hdfs2Df2Table.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testTransform.scala"
+        "name": "testTable2Hdfs2Df2Table.scala"
       },
       {
         "type": "file/scala",
-        "name": "testTransform.txt"
+        "name": "testTable2Hdfs2Df2Table.txt"
       }
     ]
   }
