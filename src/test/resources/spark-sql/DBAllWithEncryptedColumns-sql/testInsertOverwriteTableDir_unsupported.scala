@@ -85,12 +85,19 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SELECT * FROM encrypt_db4data.encrypt_employees";
 spark.sql(test_sql).collect().foreach(println);
 
+import org.apache.hadoop.fs.FileSystem
+import org.apache.hadoop.fs.Path
+val fs=FileSystem.get(sc.hadoopConfiguration)
+
+if(fs.exists(new Path("/tmp/ca_employees")))
+  fs.delete(new Path("/tmp/ca_employees"),true)
+
 val test_sql="""INSERT OVERWRITE LOCAL DIRECTORY '/tmp/ca_employees'
 SELECT * FROM encrypt_db4data.encrypt_employees se WHERE se.country = 'US' and se.state = 'CA'""";
 spark.sql(test_sql).collect().foreach(println);
 
-!ls -l /tmp/ca_employees;
-!ls -rm -r /tmp/ca_employees;
+if(fs.exists(new Path("/tmp/ca_employees")))
+  fs.delete(new Path("/tmp/ca_employees"),true)
 
 val test_sql="""FROM (
 SELECT emp.encrypt_name, emp.encrypt_salary FROM encrypt_db4data.encrypt_employees emp WHERE emp.encrypt_salary < 6000
@@ -100,8 +107,8 @@ SELECT emp.encrypt_name, emp.encrypt_salary FROM encrypt_db4data.encrypt_employe
 INSERT OVERWRITE DIRECTORY '/tmp/union.out' SELECT unioninput.*""";
 spark.sql(test_sql).collect().foreach(println);
 
-dfs -cat /tmp/union.out/*;
-dfs -rm -r /tmp/union.out ;
+if(fs.exists(new Path("/tmp/union.out")))
+  fs.delete(new Path("/tmp/union.out"),true)
 
 val test_sql="DROP TABLE encrypt_db4data.encrypt_tgt_employees";
 spark.sql(test_sql).collect().foreach(println);

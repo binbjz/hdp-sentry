@@ -6,10 +6,10 @@ val test_sql="USE encrypt_db4data";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="""CREATE TABLE encrypt_db4data.collecttest (str STRING, countval INT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'""";
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '\n'""";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE encrypt_db4data.collecttest";
 spark.sql(test_sql).collect().foreach(println);

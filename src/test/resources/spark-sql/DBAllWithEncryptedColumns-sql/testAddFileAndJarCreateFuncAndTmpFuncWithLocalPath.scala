@@ -13,7 +13,6 @@
 
 val test_sql="SET hive.cli.print.header=true";
 spark.sql(test_sql).collect().foreach(println);
-GRE
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 

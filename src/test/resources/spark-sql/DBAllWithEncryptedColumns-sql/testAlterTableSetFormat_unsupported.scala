@@ -51,7 +51,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="DROP TABLE encrypt_db4alter.tbl4fileformat_external";
 spark.sql(test_sql).collect().foreach(println);
 
-dfs -rm -r /user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat_external;
+//dfs -rm -r /user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat_external;
 
 val test_sql="USE mart_waimai";
 spark.sql(test_sql).collect().foreach(println);
