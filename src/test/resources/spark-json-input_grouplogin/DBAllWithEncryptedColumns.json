@@ -1,0 +1,332 @@
+ [
+  {
+    "id": "testAddDropShowPartitionAndSparkUDF",
+    "tag": "DB",
+    "desc": "The case will test AddDropShowPartitionAndSparkUDF.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddDropShowPartitionAndSparkUDF.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddDropShowPartitionAndSparkUDF.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAddFileAndJarCreateFuncAndTmpFuncWithLocalPath",
+    "tag": "DB",
+    "desc": "The case will test AddFileAndJarCreateFuncAndTmpFuncWithLocalPath.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAddFileAndJarCreateFuncAndTmpFuncWithLocalPath.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAddFileAndJarCreateFuncAndTmpFuncWithLocalPath.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterSerDePartition",
+    "tag": "DB",
+    "desc": "The case will test AlterSerDePartition.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDePartition.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterSerDeTable",
+    "tag": "DB",
+    "desc": "The case will test AlterSerDeTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDeTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterSerDeTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableRename",
+    "tag": "DB",
+    "desc": "The case will test AlterTableRename.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableRename.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableRename.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAnalyzeTable",
+    "tag": "DB",
+    "desc": "The case will test AnalyzeTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAnalyzeTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAnalyzeTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropAlterTableView",
+    "tag": "DB",
+    "desc": "The case will test CreateDropAlterTableView.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateDropAlterTableView.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateDropAlterTableView.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateTableAsSelectSourceEncrypted",
+    "tag": "DB",
+    "desc": "The case will test CreateTableAsSelectSourceEncrypted.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateTableAsSelectSourceEncrypted.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateTableAsSelectSourceEncrypted.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateTableAsSelectTargetEncrypted",
+    "tag": "DB",
+    "desc": "The case will test CreateTableAsSelectTargetEncrypted.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testCreateTableAsSelectTargetEncrypted.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testCreateTableAsSelectTargetEncrypted.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDescribeFormattedTable",
+    "tag": "DB",
+    "desc": "The case will test DescribeFormattedTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDescribeFormattedTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDescribeFormattedTable.txt"
+      }
+    ]
+  },
+   {
+     "id": "testDF2Table",
+     "tag": "DB",
+     "desc": "The case will test DF2Table.",
+     "cases": [
+       {
+         "type": "file/scala",
+         "name": "testDF2Table.scala"
+       },
+       {
+         "type": "file/scala",
+         "name": "testDF2Table.txt"
+       }
+     ]
+   },
+  {
+    "id": "testDropDBCascade",
+    "tag": "DB",
+    "desc": "The case will test DropDBCascade.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testDropDBCascade.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testDropDBCascade.txt"
+      }
+    ]
+  },
+   {
+     "id": "testHdfsSchemaWithTable",
+     "tag": "DB",
+     "desc": "The case will test HdfsSchemaWithTable.",
+     "cases": [
+       {
+         "type": "file/scala",
+         "name": "testHdfsSchemaWithTable.scala"
+       },
+       {
+         "type": "file/scala",
+         "name": "testHdfsSchemaWithTable.txt"
+       }
+     ]
+   },
+   {
+     "id": "testHiveBuiltInFuncs",
+     "tag": "DB",
+     "desc": "The case will test HiveBuiltInFuncs.",
+     "cases": [
+       {
+         "type": "file/scala",
+         "name": "testHiveBuiltInFuncs.scala"
+       },
+       {
+         "type": "file/scala",
+         "name": "testHiveBuiltInFuncs.txt"
+       }
+     ]
+   },
+  {
+    "id": "testInsertOverwriteTablePartitionSrcEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTablePartitionSrcEncrypt.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartitionSrcEncrypt.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartitionSrcEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTablePartitionTgtEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTablePartitionTgtEncrypt.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartitionTgtEncrypt.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTablePartitionTgtEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableSrcEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTableSrcEncrypt.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTableSrcEncrypt.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTableSrcEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableTgtEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTableTgtEncrypt.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTableTgtEncrypt.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTableTgtEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoadDataLocalQuerySample",
+    "tag": "DB",
+    "desc": "The case will test LoadDataLocalQuerySample.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testLoadDataLocalQuerySample.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testLoadDataLocalQuerySample.txt"
+      }
+    ]
+  },
+  {
+    "id": "testMSCKRepairTable",
+    "tag": "DB",
+    "desc": "The case will test MSCKRepairTable.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testMSCKRepairTable.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testMSCKRepairTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testShowColumnsAndTblProperties",
+    "tag": "DB",
+    "desc": "The case will test ShowColumnsAndTblProperties.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testShowColumnsAndTblProperties.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testShowColumnsAndTblProperties.txt"
+      }
+    ]
+  },
+  {
+    "id": "testTable2Hdfs2Df2Table",
+    "tag": "DB",
+    "desc": "The case will test Table2Hdfs2Df2Table.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testTable2Hdfs2Df2Table.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testTable2Hdfs2Df2Table.txt"
+      }
+    ]
+  }
+]

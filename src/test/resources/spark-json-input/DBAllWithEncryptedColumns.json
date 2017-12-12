@@ -1,31 +1,16 @@
- [
+[
   {
-    "id": "testAddDropShowPartitionAndSparkUDF",
+    "id": "testAlterPartitionEnableDisable_unsupported",
     "tag": "DB",
-    "desc": "The case will test AddDropShowPartitionAndSparkUDF.",
+    "desc": "The case will test AlterPartitionEnableDisable_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAddDropShowPartitionAndSparkUDF.scala"
+        "name": "testAlterPartitionEnableDisable_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAddDropShowPartitionAndSparkUDF.txt"
-      }
-    ]
-  },
-  {
-    "id": "testAddFileAndJarCreateFuncAndTmpFuncWithLocalPath",
-    "tag": "DB",
-    "desc": "The case will test AddFileAndJarCreateFuncAndTmpFuncWithLocalPath.",
-    "cases": [
-      {
-        "type": "file/scala",
-        "name": "testAddFileAndJarCreateFuncAndTmpFuncWithLocalPath.scala"
-      },
-      {
-        "type": "file/scala",
-        "name": "testAddFileAndJarCreateFuncAndTmpFuncWithLocalPath.txt"
+        "name": "testAlterPartitionEnableDisable_unsupported.txt"
       }
     ]
   },
@@ -60,6 +45,51 @@
     ]
   },
   {
+    "id": "testAlterTableAddColumns",
+    "tag": "DB",
+    "desc": "The case will test AlterTableAddColumns.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableAddColumns.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableAddColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableChange_unsupported",
+    "tag": "DB",
+    "desc": "The case will test AlterTableChange_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableChange_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableChange_unsupported.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableEnableDisable_unsupported",
+    "tag": "DB",
+    "desc": "The case will test AlterTableEnableDisable_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableEnableDisable_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableEnableDisable_unsupported.txt"
+      }
+    ]
+  },
+  {
     "id": "testAlterTableRename",
     "tag": "DB",
     "desc": "The case will test AlterTableRename.",
@@ -75,6 +105,51 @@
     ]
   },
   {
+    "id": "testAlterTableReplace_unsupported",
+    "tag": "DB",
+    "desc": "The case will test AlterTableReplace_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplace_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableReplace_unsupported.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableSetFormat_unsupported",
+    "tag": "DB",
+    "desc": "The case will test AlterTableSetFormat_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableSetFormat_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableSetFormat_unsupported.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableTouchClusteredBy_unsupported",
+    "tag": "DB",
+    "desc": "The case will test AlterTableTouchClusteredBy.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testAlterTableTouchClusteredBy_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testAlterTableTouchClusteredBy_unsupported.txt"
+      }
+    ]
+  },
+  {
     "id": "testAnalyzeTable",
     "tag": "DB",
     "desc": "The case will test AnalyzeTable.",
@@ -86,6 +161,21 @@
       {
         "type": "file/scala",
         "name": "testAnalyzeTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testHiveBuiltInFuncs",
+    "tag": "DB",
+    "desc": "The case will test HiveBuiltInFuncs.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testHiveBuiltInFuncs.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testHiveBuiltInFuncs.txt"
       }
     ]
   },
@@ -149,21 +239,6 @@
       }
     ]
   },
-   {
-     "id": "testDF2Table",
-     "tag": "DB",
-     "desc": "The case will test DF2Table.",
-     "cases": [
-       {
-         "type": "file/scala",
-         "name": "testDF2Table.scala"
-       },
-       {
-         "type": "file/scala",
-         "name": "testDF2Table.txt"
-       }
-     ]
-   },
   {
     "id": "testDropDBCascade",
     "tag": "DB",
@@ -179,36 +254,36 @@
       }
     ]
   },
-   {
-     "id": "testHdfsSchemaWithTable",
-     "tag": "DB",
-     "desc": "The case will test HdfsSchemaWithTable.",
-     "cases": [
-       {
-         "type": "file/scala",
-         "name": "testHdfsSchemaWithTable.scala"
-       },
-       {
-         "type": "file/scala",
-         "name": "testHdfsSchemaWithTable.txt"
-       }
-     ]
-   },
-   {
-     "id": "testHiveBuiltInFuncs",
-     "tag": "DB",
-     "desc": "The case will test HiveBuiltInFuncs.",
-     "cases": [
-       {
-         "type": "file/scala",
-         "name": "testHiveBuiltInFuncs.scala"
-       },
-       {
-         "type": "file/scala",
-         "name": "testHiveBuiltInFuncs.txt"
-       }
-     ]
-   },
+  {
+    "id": "testImportExportEncryptTable_unsupported",
+    "tag": "DB",
+    "desc": "The case will test ImportExportEncryptTable_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testImportExportEncryptTable_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testImportExportEncryptTable_unsupported.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableDir_unsupported",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTableDir_unsupported.",
+    "cases": [
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTableDir_unsupported.scala"
+      },
+      {
+        "type": "file/scala",
+        "name": "testInsertOverwriteTableDir_unsupported.txt"
+      }
+    ]
+  },
   {
     "id": "testInsertOverwriteTablePartitionSrcEncrypt",
     "tag": "DB",
