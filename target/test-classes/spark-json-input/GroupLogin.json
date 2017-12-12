@@ -60,17 +60,17 @@
     ]
   },
   {
-    "id": "testAlterDescribeTableSetFileformat",
+    "id": "testAlterDescribeTableSetFileformat_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterDescribeTableSetFileformat.",
+    "desc": "The case will test AlterDescribeTableSetFileformat_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterDescribeTableSetFileformat.scala"
+        "name": "testAlterDescribeTableSetFileformat_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterDescribeTableSetFileformat.txt"
+        "name": "testAlterDescribeTableSetFileformat_unsupported.txt"
       }
     ]
   },
@@ -150,17 +150,17 @@
     ]
   },
   {
-    "id": "testAlterTableClusteredBySortedBy",
+    "id": "testAlterTableClusteredBySortedBy_unsupported",
     "tag": "DB",
-    "desc": "The case will test AlterTableClusteredBySortedBy.",
+    "desc": "The case will test AlterTableClusteredBySortedBy_unsupported.",
     "cases": [
       {
         "type": "file/scala",
-        "name": "testAlterTableClusteredBySortedBy.scala"
+        "name": "testAlterTableClusteredBySortedBy_unsupported.scala"
       },
       {
         "type": "file/scala",
-        "name": "testAlterTableClusteredBySortedBy.txt"
+        "name": "testAlterTableClusteredBySortedBy_unsupported.txt"
       }
     ]
   },

@@ -348,7 +348,7 @@ val test_sql="""CREATE VIEW origin_waimai.waimai_safe_order AS SELECT
    `waimai_order_shard__wm`.`order_user_type`,
    `waimai_order_shard__wm`.`logistics_code`,
    `waimai_order_shard__wm`.`logistics_status`,
-   regexp_replace(`waimai_order_shard__wm`.`common_ext`,'(?<="address":\\{"f1").*(?="f3")',':"","f2":"",') as `common_ext`,
+   regexp_replace(`common_ext`,'(?<="address":\\{"f1").*(?="f3")',':"","f2":"",') as `common_ext`,
    '' as `binded_phone`,
    `waimai_order_shard__wm`.`user_visible`,
    `waimai_order_shard__wm`.`day`,
@@ -359,6 +359,8 @@ val test_sql="""CREATE VIEW origin_waimai.waimai_safe_order AS SELECT
    `waimai_order_shard__wm`.`apply_part_refund`
 from `origindb`.`waimai_order_shard__wm`""";
 spark.sql(test_sql).collect().foreach(println);
+
+/*regexp_replace(`waimai_order_shard__wm`.`common_ext`,'(?<="address":\\{"f1").*(?="f3")',':"","f2":"",') as `common_ext`,*/
 
 /* DATABASE : origindb_delta */
 val test_sql="""CREATE TABLE origindb_delta.waimai_money_exchange__wm_exchange_flow (
@@ -512,7 +514,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="CREATE TABLE dim.collecttest (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10'";
+val test_sql="CREATE TABLE dim.collecttest (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '\n'";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest";
@@ -692,7 +694,7 @@ val test_sql="""CREATE TABLE mart_waimai.log_messages (hms INT, severity STRING,
 PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'""";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="CREATE EXTERNAL TABLE IF NOT EXISTS mart_waimai.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
+val test_sql="CREATE EXTERNAL TABLE IF NOT EXISTS mart_waimai.log_messages_external (hms INT, severity STRING, server STRING, process_id INT, message STRING) PARTITIONED BY (year INT, month INT, day INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages_external'";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="ALTER TABLE mart_waimai.log_messages ADD PARTITION(year=2011, month=1, day=1) LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/log_messages/2011/01/01'";
@@ -733,6 +735,7 @@ val test_sql="ALTER TABLE mart_waimai.employees_import_export ADD PARTITION (cou
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
+spark.sql(test_sql).collect().foreach(println);
 val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_import_export PARTITION (country='US', state='CA')""";
 spark.sql(test_sql).collect().foreach(println);

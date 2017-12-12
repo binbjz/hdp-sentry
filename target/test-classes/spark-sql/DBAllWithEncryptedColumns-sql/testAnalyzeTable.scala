@@ -25,7 +25,7 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql="ALTER TABLE encrypt_db4data.encrypt_test_analyze ADD PARTITION (country = 'US', state = 'IL')";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/hive-data";
+val test_sql="SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
 spark.sql(test_sql).collect().foreach(println);
 val test_sql="""LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv' INTO TABLE encrypt_db4data.encrypt_test_analyze PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
