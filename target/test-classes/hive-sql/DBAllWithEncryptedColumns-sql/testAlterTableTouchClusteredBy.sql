@@ -16,8 +16,9 @@ COLLECTION ITEMS TERMINATED BY '|'
 MAP KEYS TERMINATED BY '='
 LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE encrypt_db4data.test_clusteredby
 PARTITION (country = 'US', state = 'CA');
 
@@ -31,7 +32,4 @@ ALTER TABLE encrypt_db4data.test_clusteredby TOUCH PARTITION (country = 'US', st
 ALTER TABLE encrypt_db4data.test_clusteredby CLUSTERED BY (name, encrypt_address) SORTED BY (encrypt_salary) INTO 48 BUCKETS;
 
 DROP TABLE encrypt_db4data.test_clusteredby;
-
-
-
 

@@ -1,8 +1,10 @@
 USE default;
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
-!cp ${hiveconf:FILEPATH}/california-employees.csv ${hiveconf:FILEPATH}/california-employees.csv_new;
-dfs -moveFromLocal ${hiveconf:FILEPATH}/california-employees.csv_new  /tmp;
+--SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
+--!cp ${hiveconf:FILEPATH}/california-employees.csv ${hiveconf:FILEPATH}/california-employees.csv_new;
+--dfs -moveFromLocal ${hiveconf:FILEPATH}/california-employees.csv_new  /tmp;
+!cp ${env:FILEPATH}/california-employees.csv ${hiveconf:FILEPATH}/california-employees.csv_new;
+dfs -moveFromLocal ${env:FILEPATH}/california-employees.csv_new  /tmp;
 dfs -count /tmp/california-employees.csv_new;
 dfs -cat /tmp/california-employees.csv_new;
 dfs -copyToLocal /tmp/california-employees.csv_new /tmp;

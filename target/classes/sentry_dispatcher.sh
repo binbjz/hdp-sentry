@@ -23,7 +23,8 @@ log_base=${project_dir}/src/test/log
 #libdir=/opt/meituan/qa_test/data_bin/test-lib/
 libdir=${project_dir}/test_lib
 
-
+# dependent data files
+export FILEPATH=${project_dir}/src/test/resources/source-data
 ##============
 : <<COMMENTBLOCK
 # Set hive env. If run hive sql please comment spark env statements

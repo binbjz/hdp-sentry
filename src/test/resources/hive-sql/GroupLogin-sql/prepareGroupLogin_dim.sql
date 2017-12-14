@@ -49,9 +49,10 @@ TBLPROPERTIES (
 INSERT INTO dim.ndm_user( userid, cityid, username, email, mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr)
 VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1);
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
+--SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
 CREATE TABLE dim.collecttest (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
