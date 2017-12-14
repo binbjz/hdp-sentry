@@ -3,7 +3,7 @@
 
 It's simple framework of automation test for sentry hive, spark.
 
-This project was written in **bash shell** and **java**.
+This project was written in **bash** and **java**.
 
 
 
