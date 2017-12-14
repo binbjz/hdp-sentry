@@ -8,7 +8,7 @@
 *
 * */
 
-val test_sql="USE encrypt_spark_testdb";
+val test_sql = "USE encrypt_spark_testdb";
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql =
@@ -28,26 +28,27 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql = "ALTER TABLE encrypt_spark_testdb.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'CA')";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql = "SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
-spark.sql(test_sql).collect().foreach(println);
+//val test_sql = "SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
+//spark.sql(test_sql).collect().foreach(println);
 
 val test_sql =
-  """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+  """LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE encrypt_spark_testdb.test_insert_overwrite_dir
 PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
-var data_source_sql="SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir se WHERE se.country = 'US' and se.state = 'CA'";
+var data_source_sql = "SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir se WHERE se.country = 'US' and se.state = 'CA'";
 
 import org.apache.hadoop.fs.FileSystem
 import org.apache.hadoop.fs.Path
-val fs=FileSystem.get(sc.hadoopConfiguration)
+
+val fs = FileSystem.get(sc.hadoopConfiguration)
 
 
 /* query data and write to HDFS dir */
-val parquetPath="/user/hive/warehouse/encrypt_spark_testdb.db/spark_ca_employees_parquet"
-if(fs.exists(new Path(parquetPath)))
-  fs.delete(new Path(parquetPath),true)
+val parquetPath = "/user/hive/warehouse/encrypt_spark_testdb.db/spark_ca_employees_parquet"
+if (fs.exists(new Path(parquetPath)))
+  fs.delete(new Path(parquetPath), true)
 spark.sql(data_source_sql).write.format("parquet").save(parquetPath);
 /* load HDFS data to df */
 val df_parquet = spark.read.load(parquetPath);
@@ -65,23 +66,23 @@ df_parquet_query.write.insertInto("encrypt_spark_testdb.spark_df_parquet_query")
 
 
 /* query and verify data */
-var test_sql="SELECT count(*) FROM encrypt_spark_testdb.spark_df_parquet";
+var test_sql = "SELECT count(*) FROM encrypt_spark_testdb.spark_df_parquet";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_parquet";
+var test_sql = "SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_parquet";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT count(*) FROM encrypt_spark_testdb.spark_df_parquet_query";
+var test_sql = "SELECT count(*) FROM encrypt_spark_testdb.spark_df_parquet_query";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_parquet_query";
+var test_sql = "SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_parquet_query";
 spark.sql(test_sql).collect().foreach(println);
 /* remove HDFS folder */
-if(fs.exists(new Path(parquetPath)))
-  fs.delete(new Path(parquetPath),true)
+if (fs.exists(new Path(parquetPath)))
+  fs.delete(new Path(parquetPath), true)
 
 
 /* query data and write to HDFS dir */
-val jsonPath="/user/hive/warehouse/encrypt_spark_testdb.db/spark_ca_employees_json"
-if(fs.exists(new Path(jsonPath)))
-  fs.delete(new Path(jsonPath),true)
+val jsonPath = "/user/hive/warehouse/encrypt_spark_testdb.db/spark_ca_employees_json"
+if (fs.exists(new Path(jsonPath)))
+  fs.delete(new Path(jsonPath), true)
 spark.sql(data_source_sql).write.format("json").save(jsonPath);
 /* load HDFS data to df */
 val df_json = spark.read.format("json").load(jsonPath);
@@ -98,23 +99,23 @@ df_json_query.write.mode(SaveMode.Overwrite).saveAsTable("encrypt_spark_testdb.s
 df_json_query.write.insertInto("encrypt_spark_testdb.spark_df_json_query");
 
 /* query and verify data */
-var test_sql="SELECT count(*) FROM encrypt_spark_testdb.spark_df_json";
+var test_sql = "SELECT count(*) FROM encrypt_spark_testdb.spark_df_json";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_json";
+var test_sql = "SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_json";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT count(*) FROM encrypt_spark_testdb.spark_df_json_query";
+var test_sql = "SELECT count(*) FROM encrypt_spark_testdb.spark_df_json_query";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_json_query";
+var test_sql = "SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_json_query";
 spark.sql(test_sql).collect().foreach(println);
 /* remove HDFS folder */
-if(fs.exists(new Path(jsonPath)))
-  fs.delete(new Path(jsonPath),true)
+if (fs.exists(new Path(jsonPath)))
+  fs.delete(new Path(jsonPath), true)
 
 
 /* query data and write to HDFS dir */
-val orcPath="/user/hive/warehouse/encrypt_spark_testdb.db/spark_ca_employees_orc"
-if(fs.exists(new Path(orcPath)))
-  fs.delete(new Path(orcPath),true)
+val orcPath = "/user/hive/warehouse/encrypt_spark_testdb.db/spark_ca_employees_orc"
+if (fs.exists(new Path(orcPath)))
+  fs.delete(new Path(orcPath), true)
 spark.sql(data_source_sql).write.format("orc").save(orcPath);
 /* load HDFS data to df */
 val df_orc = spark.read.format("orc").load(orcPath);
@@ -131,16 +132,16 @@ df_orc_query.write.mode(SaveMode.Overwrite).saveAsTable("encrypt_spark_testdb.sp
 df_orc_query.write.insertInto("encrypt_spark_testdb.spark_df_orc_query")
 
 /* query and verify data */
-var test_sql="SELECT count(*) FROM encrypt_spark_testdb.spark_df_orc";
+var test_sql = "SELECT count(*) FROM encrypt_spark_testdb.spark_df_orc";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_orc";
+var test_sql = "SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_orc";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT count(*) FROM encrypt_spark_testdb.spark_df_orc_query";
+var test_sql = "SELECT count(*) FROM encrypt_spark_testdb.spark_df_orc_query";
 spark.sql(test_sql).collect().foreach(println);
-var test_sql="SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_orc_query";
+var test_sql = "SELECT * FROM encrypt_spark_testdb.test_insert_overwrite_dir UNION SELECT * FROM encrypt_spark_testdb.spark_df_orc_query";
 spark.sql(test_sql).collect().foreach(println);
 /* remove HDFS folder */
-if(fs.exists(new Path(orcPath)))
-  fs.delete(new Path(orcPath),true)
+if (fs.exists(new Path(orcPath)))
+  fs.delete(new Path(orcPath), true)
 
 System.exit(0);

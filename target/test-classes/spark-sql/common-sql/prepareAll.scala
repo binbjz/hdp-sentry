@@ -29,14 +29,14 @@ spark.sql(test_sql).collect().foreach(println);
 val test_sql = "USE testdb";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql = "SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
-spark.sql(test_sql).collect().foreach(println);
+//val test_sql = "SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data";
+//spark.sql(test_sql).collect().foreach(println);
 
 /*testAddFile.scala*/
 
 val test_sql = "CREATE TABLE testdb.tbl4addfile(who string)";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql = "LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile";
+val test_sql = "LOAD DATA LOCAL INPATH '${env:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile";
 spark.sql(test_sql).collect().foreach(println);
 
 /*testAddJarCreateFuncAndTmpFunc.scala*/
@@ -214,8 +214,6 @@ spark.sql(test_sql).collect().foreach(println);
 /*testImportExportPartition.scala*/
 
 
-
-
 /*testInsertIntoFromQuery.scala*/
 
 val test_sql =
@@ -274,7 +272,7 @@ val test_sql = "ALTER TABLE testdb.test_insert_overwrite_dir ADD PARTITION (coun
 spark.sql(test_sql).collect().foreach(println);
 
 val test_sql =
-  """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees2.csv'
+  """LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees2.csv'
 INTO TABLE testdb.test_insert_overwrite_dir
 PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
@@ -333,7 +331,7 @@ spark.sql(test_sql).collect().foreach(println);
 /*testQuery.scala*/
 val test_sql = "CREATE TABLE testdb.tbl4query (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '\n'";
 spark.sql(test_sql).collect().foreach(println);
-val test_sql = "LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query";
+val test_sql = "LOAD DATA LOCAL INPATH '${env:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query";
 spark.sql(test_sql).collect().foreach(println);
 
 
@@ -398,57 +396,60 @@ val test_sql = "ALTER TABLE testdb.test_insert_overwrite_tbl_partition ADD PARTI
 spark.sql(test_sql).collect().foreach(println);
 
 
-val test_sql = """LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+val test_sql =
+  """LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_test_insert_overwrite_tbl_partition PARTITION (country = 'US', state = 'CA')""";
 spark.sql(test_sql).collect().foreach(println);
 
 /*testUDF*/
-val test_sql="CREATE TABLE testdb.spark_tbl4udf (id int)";
+val test_sql = "CREATE TABLE testdb.spark_tbl4udf (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO testdb.spark_tbl4udf VALUES (1), (2), (null)";
+val test_sql = "INSERT INTO testdb.spark_tbl4udf VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
 
 /* testSampleTruncate */
-val test_sql="CREATE TABLE testdb.tbl4sample (id int)";
+val test_sql = "CREATE TABLE testdb.tbl4sample (id int)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql="INSERT INTO testdb.tbl4sample VALUES (1), (2), (null)";
+val test_sql = "INSERT INTO testdb.tbl4sample VALUES (1), (2), (null)";
 spark.sql(test_sql).collect().foreach(println);
 
-val test_sql ="CREATE TABLE testdb.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
+val test_sql = "CREATE TABLE testdb.spark_insert_employee (name STRING, age INT, province STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'";
 spark.sql(test_sql).collect().foreach(println);
 
 
 
 val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+
 import sqlContext.implicits._
 import org.apache.spark.sql.SaveMode
 
 /* case to DF saveAsTable and insertInto table */
 case class Employee(name: String, age: Int, province: String)
-val employee = sc.parallelize(Employee("zhangsan", 31, "beijing")::Employee("wangwu" , 28, "hubei")::Employee("lisi", 44, "tianjin")::Employee("liping", 23, "guangdong")::Nil).toDF()
+
+val employee = sc.parallelize(Employee("zhangsan", 31, "beijing") :: Employee("wangwu", 28, "hubei") :: Employee("lisi", 44, "tianjin") :: Employee("liping", 23, "guangdong") :: Nil).toDF()
 employee.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_case_employee2")
-val test_sql="TRUNCATE TABLE testdb.spark_case_employee2";
+val test_sql = "TRUNCATE TABLE testdb.spark_case_employee2";
 spark.sql(test_sql).collect().foreach(println);
 
 /* case to DF with partition saveAsTable FOR insertInto table test */
 employee.write.mode(SaveMode.Overwrite).partitionBy("province").saveAsTable("testdb.spark_case_employee_partition2");
-val test_sql="TRUNCATE TABLE testdb.spark_case_employee_partition2";
+val test_sql = "TRUNCATE TABLE testdb.spark_case_employee_partition2";
 spark.sql(test_sql).collect().foreach(println);
 
 /* temp table saveAsTable For insertInto table test */
 employee.registerTempTable("employee")
 val query = sqlContext.sql("select name, age from (select * from employee where province = 'beijing') a where a.age >= 20 and a.age < 40")
 query.write.mode(SaveMode.Overwrite).saveAsTable("testdb.spark_query_employee2")
-val test_sql="TRUNCATE TABLE testdb.spark_query_employee2";
+val test_sql = "TRUNCATE TABLE testdb.spark_query_employee2";
 spark.sql(test_sql).collect().foreach(println);
 
 
 /* temp table with partition saveAsTable FOR insertInto table test */
 query.write.mode(SaveMode.Overwrite).partitionBy("age").saveAsTable("testdb.spark_query_employee_partition2")
-val test_sql="TRUNCATE TABLE testdb.spark_query_employee_partition2";
+val test_sql = "TRUNCATE TABLE testdb.spark_query_employee_partition2";
 spark.sql(test_sql).collect().foreach(println);
 
 System.exit(0);
