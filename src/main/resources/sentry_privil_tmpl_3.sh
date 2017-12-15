@@ -16,8 +16,7 @@ sentry_privileges[SentryFlagAlterTable]="server=server1->db=testaltertbl->table=
 
 
 # Super privilege
-sentry_privileges[SuperPrivil]="server=server1->action=all,server=server1->db=encrypt_db4tbl->table=tbl4show->column=encrypt_column->action=all,server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_address->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_name->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=recipient_phone->action=select,server=server1->db=origindb->table=waimai_order_shard__wm->column=binded_phone->action=select"
-
+sentry_privileges[SuperPrivil]="server=server1->action=all,server=server1->db=encrypt_db4tbl->table=tbl4show->column=encrypt_column->action=all,server=server1->db=origindb->table=waimai_order_shard__wm->column=common_ext->action=select"
 
 
 # Server Privilege
