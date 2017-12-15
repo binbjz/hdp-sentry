@@ -1,4 +1,4 @@
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
+--SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
 DROP DATABASE IF EXISTS test_login_db CASCADE;
 CREATE DATABASE test_login_db;
@@ -21,7 +21,8 @@ CREATE DATABASE unaccessibledb;
 USE testdb;
 --testAddFile.sql
 CREATE TABLE testdb.tbl4addfile(who string);
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/who.txt' OVERWRITE INTO TABLE testdb.tbl4addfile;
 
 --testAddJarCreateFuncAndTmpFunc.sql
 CREATE TABLE testdb.tbl4jarfile (name STRING);
@@ -106,7 +107,8 @@ ALTER TABLE testdb.tbl4analyze ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.tbl4analyze ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE testdb.tbl4analyze ADD PARTITION (country = 'US', state = 'IL');
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.tbl4analyze
 PARTITION (country = 'US', state = 'CA');
 
@@ -156,11 +158,13 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 ALTER TABLE testdb.src_import_export ADD PARTITION (country = 'US', state = 'CA');
 ALTER TABLE testdb.src_import_export ADD PARTITION (country = 'US', state = 'CA2');
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_import_export
 PARTITION (country = 'US', state = 'CA');
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_import_export
 PARTITION (country = 'US', state = 'CA2');
 
@@ -208,7 +212,8 @@ LINES TERMINATED BY '\n' STORED AS TEXTFILE;
 
 ALTER TABLE testdb.test_insert_overwrite_dir ADD PARTITION (country = 'US', state = 'CA');
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.test_insert_overwrite_dir
 PARTITION (country = 'US', state = 'CA');
 
@@ -247,7 +252,8 @@ CREATE TABLE testdb.test_msck (id INT, val STRING) PARTITIONED BY(month INT);
 
 --testQuery.sql
 CREATE TABLE testdb.tbl4query (str STRING, countVal INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query;
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query;
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/test_file.txt' INTO TABLE testdb.tbl4query;
 
 --testShowColumnsAndTblProperties.sql
 CREATE TABLE testdb.employees_props (
@@ -290,6 +296,7 @@ ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (countr
 ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'OR');
 ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (country = 'US', state = 'IL');
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_test_insert_overwrite_tbl_partition
 PARTITION (country = 'US', state = 'CA');

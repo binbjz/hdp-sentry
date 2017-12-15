@@ -469,12 +469,13 @@ TBLPROPERTIES (
 
 INSERT INTO dim.ndm_user VALUES (1001, 1001, 'user_nick_name', 'super_star@mt.com', 17323477766,'2016-06-06', 1, 1, 1, 1, 1);
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
+--SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
 
 CREATE TABLE dim.collecttest (str STRING, countVal INT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '&' LINES TERMINATED BY '10';
 
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/test_file.txt' INTO TABLE dim.collecttest;
 
 -- DATABASE : dw -----------------------------------
 CREATE  TABLE dw.dim_employee(
@@ -672,8 +673,9 @@ ALTER TABLE mart_waimai.src_employees_import_export ADD PARTITION (country='US',
 
 ALTER TABLE mart_waimai.employees_import_export ADD PARTITION (country='US', state='CA') ;
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_import_export
 PARTITION (country='US', state='CA');
 
@@ -693,8 +695,9 @@ ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='U
 ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='OR');
 ALTER TABLE mart_waimai.src_employees_insert_overwrite ADD PARTITION (country='US', state='IL');
 
-SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
-LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+--SET FILEPATH=/opt/meituan/qa_test/sentry-test/src/test/resources/source-data;
+--LOAD DATA LOCAL INPATH '${hiveconf:FILEPATH}/california-employees.csv'
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE mart_waimai.src_employees_insert_overwrite
 PARTITION (country='US', state='CA');
 
