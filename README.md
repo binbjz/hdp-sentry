@@ -82,7 +82,7 @@ You can also run it by manually.
     You can now login hive shell with normal user and run specify test case. For example: ServerAll
     ```sh
     $ source sentry-test/src/main/resources/hive_env.sh proxy_user_t1 normal
-    $ /usr/bin/time -f "Time: %U" java -Djava.ext.dirs=./sentry-test/test-lib/ -cp ./sentry-test/target/classes:./sentry-test/target/test-classes/ org.junit.runner.JUnitCore ServerAll
+    $ java -Djava.ext.dirs=./sentry-test/test-lib/ -cp ./sentry-test/target/classes:./sentry-test/target/test-classes/ org.junit.runner.JUnitCore ServerAll
     ```
 
 5. **login hive shell with super user to execute post sql.**    
