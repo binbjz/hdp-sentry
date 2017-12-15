@@ -84,10 +84,11 @@ cd $project_dir
 source $project_dir/src/main/resources/sentry_super_env.sh setup SuperPrivil
 
 # Check sentry flag
-source $project_dir/src/main/resources/sentry_flag.sh
+# source $project_dir/src/main/resources/sentry_flag.sh
 
 # Run sentry test for standard authorization approach
-sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
+#sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
+sentry_tcs="DBAllWithEncryptedColumns"
 
 for tc in $sentry_tcs; do
     # It will be used to set multiple permissions for the same test case
@@ -126,37 +127,37 @@ for tc in $sentry_tcs; do
         source $project_dir/src/main/resources/hive_env.sh $privil_type normal
     fi
 
-    # Use the same test case to run multiple permissions
-    if echo "$tc" | egrep -qi "'$include_patt'"; then
-        java -Djava.ext.dirs=${libdir} -Dlog.base=${log_base} -cp ${project_dir}/target/classes:${project_dir}/target/test-classes org.junit.runner.JUnitCore ${tc_tmp}
-    else
-        java -Djava.ext.dirs=${libdir} -Dlog.base=${log_base} -cp ${project_dir}/target/classes:${project_dir}/target/test-classes org.junit.runner.JUnitCore ${tc}
-    fi
-
-    # Grant user with super privilege
-    source $project_dir/src/main/resources/hive_env.sh $privil_type super
-
-    # Execute post sql
-    echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Post SQL"
-    if echo "$tc" | egrep -qi "$include_patt2"; then
-        tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $cmd_exec ${encryptColumn_sql_src}/post${tc_tmp}.${file_suffix}
-    elif echo "$tc" | egrep -qi "$include_patt3"; then
-        tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
-        $cmd_exec ${groupLogin_sql_src}/post${tc_tmp}.${file_suffix}
-    else
-        $cmd_exec ${common_sql_src}/postAll.${file_suffix}
-    fi
-
-
-    # In proxy env, we need to unset proxy env otherwise it will throw exception
-    if [[ "$privil_type" =~ $proxy_regex ]] || [[ ${tc/${include_patt3}/} != ${tc} ]]; then
-        source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
-    fi
-
-    # Revoke role with normal privilege
-    source $project_dir/src/main/resources/$sentry_sh clean ${tc}
+    ## Use the same test case to run multiple permissions
+    #if echo "$tc" | egrep -qi "'$include_patt'"; then
+    #    java -Djava.ext.dirs=${libdir} -Dlog.base=${log_base} -cp ${project_dir}/target/classes:${project_dir}/target/test-classes org.junit.runner.JUnitCore ${tc_tmp}
+    #else
+    #    java -Djava.ext.dirs=${libdir} -Dlog.base=${log_base} -cp ${project_dir}/target/classes:${project_dir}/target/test-classes org.junit.runner.JUnitCore ${tc}
+    #fi
+    #
+    ## Grant user with super privilege
+    #source $project_dir/src/main/resources/hive_env.sh $privil_type super
+    #
+    ## Execute post sql
+    #echo -e "\n`date +%Y-%m-%d_%H:%M:%S` INFO Running Post SQL"
+    #if echo "$tc" | egrep -qi "$include_patt2"; then
+    #    tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
+    #    $cmd_exec ${encryptColumn_sql_src}/post${tc_tmp}.${file_suffix}
+    #elif echo "$tc" | egrep -qi "$include_patt3"; then
+    #    tc_tmp=`awk -F'_' '{print $1}' <<< $tc`
+    #    $cmd_exec ${groupLogin_sql_src}/post${tc_tmp}.${file_suffix}
+    #else
+    #    $cmd_exec ${common_sql_src}/postAll.${file_suffix}
+    #fi
+    #
+    #
+    ## In proxy env, we need to unset proxy env otherwise it will throw exception
+    #if [[ "$privil_type" =~ $proxy_regex ]] || [[ ${tc/${include_patt3}/} != ${tc} ]]; then
+    #    source $project_dir/src/main/resources/hive_env.sh clean_proxy_user hive
+    #fi
+    #
+    ## Revoke role with normal privilege
+    #source $project_dir/src/main/resources/$sentry_sh clean ${tc}
 done
 
 # Revoke role with super privilege
-source $project_dir/src/main/resources/sentry_super_env.sh clean SuperPrivil
+#source $project_dir/src/main/resources/sentry_super_env.sh clean SuperPrivil
