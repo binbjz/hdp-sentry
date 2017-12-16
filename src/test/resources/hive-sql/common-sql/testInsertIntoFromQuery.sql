@@ -21,3 +21,15 @@ FROM (SELECT a.a_user_id as c_user_id
               ,a.a_timestamp) c;
 
 SELECT * FROM testdb.sessionization_step_one_origins;
+
+
+
+
+INSERT INTO testdb.insert_overwrite_tbl SELECT name, ip FROM testdb.src_insert_overwrite_tbl WHERE name='meituan';
+SELECT * FROM testdb.insert_overwrite_tbl;
+
+INSERT INTO testdb.insert_overwrite_tbl SELECT * FROM testdb.src_insert_overwrite_tbl;
+SELECT * FROM testdb.insert_overwrite_tbl;
+
+SELECT ROW_NUMBER() OVER(PARTITION BY ip ORDER BY ip DESC) ID, name, ip FROM testdb.src_insert_overwrite_tbl;
+
