@@ -40,7 +40,7 @@ COMMENTBLOCK
 spark_21=spark-2.1
 spark_22=spark-2.2
 
-SPARK_HOME=`readlink -f /opt/meituan/${spark_21}`
+SPARK_HOME=`readlink -f /opt/meituan/${spark_22}`
 cmd_exec="${SPARK_HOME}/bin/spark-shell --master yarn --deploy-mode client --queue root.hadoop-hdp.etltest --jars $project_dir/src/test/resources/source-data/hive_qa_udf.jar -i"
 sql_src=spark-sql
 file_suffix=scala
