@@ -59,3 +59,7 @@ DROP DATABASE test_login_db CASCADE;
 
 DROP TABLE test_login_db_tbl.test_tbl;
 DROP DATABASE test_login_db_tbl CASCADE;
+
+DROP TABLE encrypt_db4data.encrypt_import_export;
+DROP TABLE encrypt_db4data.encrypt_tgt_import_export;
+DROP DATABASE encrypt_db4data CASCADE;
