@@ -300,3 +300,36 @@ ALTER TABLE testdb.src_test_insert_overwrite_tbl_partition ADD PARTITION (countr
 LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
 INTO TABLE testdb.src_test_insert_overwrite_tbl_partition
 PARTITION (country = 'US', state = 'CA');
+
+CREATE DATABASE encrypt_db4data;
+CREATE TABLE encrypt_db4data.encrypt_import_export (
+ encrypt_name STRING
+,encrypt_salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+CREATE TABLE encrypt_db4data.encrypt_tgt_import_export (
+ encrypt_name STRING
+,encrypt_salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
+INTO TABLE encrypt_db4data.encrypt_import_export
+PARTITION (country = 'US', state = 'CA');
+
+LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
+INTO TABLE encrypt_db4data.encrypt_tgt_import_export
+PARTITION (country = 'US', state = 'CA');

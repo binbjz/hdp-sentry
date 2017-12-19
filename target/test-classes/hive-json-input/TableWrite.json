@@ -360,6 +360,21 @@
     ]
   },
   {
+    "id": "testEncryptedColumn",
+    "tag": "Table",
+    "desc": "The case will test EncryptedColumn.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testEncryptedColumn.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testEncryptedColumn.txt"
+      }
+    ]
+  },
+  {
     "id": "testImportExportPartition",
     "tag": "Table",
     "desc": "The case will test ImportExportPartition.",
