@@ -452,4 +452,56 @@ query.write.mode(SaveMode.Overwrite).partitionBy("age").saveAsTable("testdb.spar
 val test_sql = "TRUNCATE TABLE testdb.spark_query_employee_partition2";
 spark.sql(test_sql).collect().foreach(println);
 
+
+/* testEncryptedColumn.scala */
+val test_sql = "DROP DATABASE IF EXISTS encrypt_db4data CASCADE";
+spark.sql(test_sql).collect().foreach(println);
+val test_sql = "CREATE DATABASE encrypt_db4data LOCATION 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db'";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql =
+  """CREATE TABLE encrypt_db4data.encrypt_import_export (
+ encrypt_name STRING
+,encrypt_salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql =
+  """CREATE TABLE encrypt_db4data.encrypt_tgt_import_export (
+ encrypt_name STRING
+,encrypt_salary FLOAT
+,subordinates ARRAY<STRING>
+,deductions MAP<STRING, FLOAT>
+,address STRUCT<street:STRING, city:STRING, state:STRING, zip:INT>
+) PARTITIONED BY (country STRING, state STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '|'
+MAP KEYS TERMINATED BY '='
+LINES TERMINATED BY '\n' STORED AS TEXTFILE""";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql =
+  """LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
+INTO TABLE encrypt_db4data.encrypt_import_export PARTITION (country = 'US', state = 'CA')""";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql =
+  """LOAD DATA LOCAL INPATH '${env:FILEPATH}/california-employees.csv'
+INTO TABLE encrypt_db4data.encrypt_tgt_import_export PARTITION (country = 'US', state = 'CA')""";
+spark.sql(test_sql).collect().foreach(println);
+
+val test_sql =
+  """LOAD DATA LOCAL INPATH '/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/california-employees.csv'
+INTO TABLE encrypt_db4data.encrypt_tgt_import_export PARTITION (country = 'US', state = 'CA')""";
+spark.sql(test_sql).collect().foreach(println);
+
+
+
 System.exit(0);
