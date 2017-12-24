@@ -25,6 +25,8 @@ libdir=${project_dir}/test_lib
 
 # data files
 export FILEPATH=${project_dir}/src/test/resources/source-data
+
+
 ##============
 # Set hive env. If run hive sql please comment spark env statements
 hive_12=hive-1.2
