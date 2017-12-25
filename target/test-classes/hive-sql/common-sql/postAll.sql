@@ -63,3 +63,7 @@ DROP DATABASE test_login_db_tbl CASCADE;
 DROP TABLE encrypt_db4data.encrypt_import_export;
 DROP TABLE encrypt_db4data.encrypt_tgt_import_export;
 DROP DATABASE encrypt_db4data CASCADE;
+
+DROP TABLE IF EXISTS tbl4create;
+DROP TABLE IF EXISTS tbl4create_no_privilege;
+DROP TABLE IF EXISTS tbl4create_external;

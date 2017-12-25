@@ -4,11 +4,11 @@
 USE encrypt_db4data;
 
 --without rights
-SELECT * FROM encrypt_db4data.encrypt_import_export;
-SELECT subordinates, deductions, address, country, state FROM encrypt_db4data.encrypt_import_export WHERE country='US';
-SELECT encrypt_name, encrypt_salary FROM encrypt_db4data.encrypt_import_export;
+SELECT * FROM encrypt_db4data.encrypt_import_export ORDER BY encrypt_name, encrypt_salary;
+SELECT subordinates, deductions, address, country, state FROM encrypt_db4data.encrypt_import_export WHERE country='US' ORDER BY encrypt_name, encrypt_salary;
+SELECT encrypt_name, encrypt_salary FROM encrypt_db4data.encrypt_import_export ORDER BY encrypt_name, encrypt_salary;
 
 --with rights
-SELECT * FROM encrypt_db4data.encrypt_tgt_import_export;
-SELECT subordinates, deductions, address, country, state FROM encrypt_db4data.encrypt_tgt_import_export WHERE country='US';
-SELECT encrypt_name, encrypt_salary FROM encrypt_db4data.encrypt_tgt_import_export;
+SELECT * FROM encrypt_db4data.encrypt_tgt_import_export ORDER BY encrypt_name, encrypt_salary;
+SELECT subordinates, deductions, address, country, state FROM encrypt_db4data.encrypt_tgt_import_export WHERE country='US' ORDER BY encrypt_name, encrypt_salary;
+SELECT encrypt_name, encrypt_salary FROM encrypt_db4data.encrypt_tgt_import_export ORDER BY encrypt_name, encrypt_salary;
