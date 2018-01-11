@@ -10,6 +10,7 @@ SELECT encrypt_name, encrypt_salary FROM encrypt_db4data.encrypt_import_export O
 
 SET hive.support.quoted.identifiers=None;
 SELECT `(subordinates|deductions|address|country|state|encrypt_name|encrypt_salary)` from encrypt_db4data.encrypt_import_export;
+SELECT `(subordinates|deductions|address|country)?+.+` from encrypt_db4data.encrypt_import_export;
 
 --with rights
 SELECT * FROM encrypt_db4data.encrypt_tgt_import_export ORDER BY encrypt_name, encrypt_salary;
@@ -17,3 +18,4 @@ SELECT subordinates, deductions, address, country, state FROM encrypt_db4data.en
 SELECT encrypt_name, encrypt_salary FROM encrypt_db4data.encrypt_tgt_import_export ORDER BY encrypt_name, encrypt_salary;
 
 SELECT `(subordinates|deductions|address|country|state|encrypt_name|encrypt_salary)` from encrypt_db4data.encrypt_tgt_import_export;
+SELECT `(subordinates|deductions|address|country)?+.+` from encrypt_db4data.encrypt_tgt_import_export;
