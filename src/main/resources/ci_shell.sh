@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # If you run the project in jenkins, please add the following code in "Execute shell"
 #
 
