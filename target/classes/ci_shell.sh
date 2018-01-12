@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
 # If you run the project in jenkins, please add the following code in "Execute shell"
+#
 
 # Define env
-export JAVA_HOME=/usr/local/java/
+export JAVA_HOME=/usr/local/java18
 export MAVEN_HOME=/usr/local/apache-maven-3.5.2
 export PATH=$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH
 #export MAVEN_OPTS="-Xmx10g -Xms10g -Xmn2g -XX:PermSize=512m -XX:MaxPermSize=512m -XX:ReservedCodeCacheSize=512m -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70"
@@ -22,11 +24,12 @@ COVERAGE_OPTIONS="org.jacoco:jacoco-maven-plugin:0.7.9:prepare-agent"
 
 echo "========================================================="
 echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Build..\n"
-mvn -Dmaven.repo.local=$MVN_REPO clean test-compile || exit $BUILD_ERR
+cd $WORKSPACE && mvn -Dmaven.repo.local=$MVN_REPO clean test-compile || exit $BUILD_ERR
 echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Build..\n"
 echo "========================================================="
 
 # Check dependent libarary directory
+cd $WORKSPACE
 if [ -d "$LIB_DIR" ]; then
     echo "$LIB_DIR already exists. Re-creating $LIB_DIR"
     rm -rf $LIB_DIR && mkdir $LIB_DIR
@@ -45,7 +48,7 @@ cp -rp $MVN_REPO/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar $LIB_DIR
 cp -rp $MVN_REPO/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar $LIB_DIR
 
 echo "========================================================="
-echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Run Sentry hive1.2 Test..\n"
-/usr/bin/time -f "Time: %U" bash ./src/main/resources/sentry_presto_dispatcher.sh
-echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Run hive1.2 Test..\n"
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Run entry hive1.2 Test..\n"
+/usr/bin/time -f "Time: %U" bash ./src/main/resources/sentry_dispatcher.sh
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Run sentry hive1.2 Test..\n"
 echo "========================================================="
