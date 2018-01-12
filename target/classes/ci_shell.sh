@@ -1,4 +1,6 @@
+#!/bin/bash
 # If you run the project in jenkins, please add the following code in "Execute shell"
+#
 
 # Define env
 export JAVA_HOME=/usr/local/java/
@@ -45,7 +47,7 @@ cp -rp $MVN_REPO/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar $LIB_DIR
 cp -rp $MVN_REPO/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar $LIB_DIR
 
 echo "========================================================="
-echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Run Sentry hive1.2 Test..\n"
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Run Sentry Hive1.2 Test..\n"
 /usr/bin/time -f "Time: %U" bash ./src/main/resources/sentry_presto_dispatcher.sh
-echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Run hive1.2 Test..\n"
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Run Sentry Hive1.2 Test..\n"
 echo "========================================================="
