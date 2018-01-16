@@ -1,0 +1,2 @@
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDCOLS

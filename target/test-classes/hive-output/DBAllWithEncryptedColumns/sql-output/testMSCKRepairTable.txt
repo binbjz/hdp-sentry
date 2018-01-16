@@ -1,0 +1,18 @@
+OK
+OK
+OK
+Loading data to table encrypt_db4msck.test_msck partition (month=201602)
+2 Rows loaded to encrypt_db4msck.test_msck
+OK
+OK
+Partitions not in metastore:	test_msck:month=201603	test_msck:month=201604
+Repair: Added partition to metastore encrypt_db4msck.test_msck:month=201603
+Repair: Added partition to metastore encrypt_db4msck.test_msck:month=201604
+FAILED: SemanticException [Error 10004]: Line 3:11 Invalid table alias or column reference 'encrypt_val': (possible column names are: id, encrypted_name_11486_encrypt_val, month) or Column insufficient privileges to access: encrypt_val
+OK
+2
+OK
+month=201602
+month=201603
+month=201604
+OK

@@ -1,0 +1,19 @@
+OK
+Loading data to table mart_waimai.table001
+3 Rows loaded to mart_waimai.table001
+OK
+Loading data to table mart_waimai.table002
+1 Rows loaded to mart_waimai.table002
+OK
+name	ip
+OK
+table002.name	table002.ip
+meituan	10.0.0.1
+Loading data to table mart_waimai.table002
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK
+table002.name	table002.ip
+meituan	10.0.0.1
+OK
+id	name	ip
+1	meituan	10.0.0.1

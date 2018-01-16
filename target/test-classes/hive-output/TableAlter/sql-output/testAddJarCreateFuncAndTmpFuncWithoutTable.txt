@@ -1,0 +1,13 @@
+OK
+Added [/opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/sentry-hive1.2/src/test/resources/source-data/hive_qa_udf.jar] to class path
+Added resources: [/opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/sentry-hive1.2/src/test/resources/source-data/hive_qa_udf.jar]
+/opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/sentry-hive1.2/src/test/resources/source-data/hive_qa_udf.jar
+OK
+OK
+Deleted [/opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/sentry-hive1.2/src/test/resources/source-data/hive_qa_udf.jar] from class path
+OK
+default.qa_lower
+tmp_qa_lower
+OK
+OK
+tmp_qa_lower

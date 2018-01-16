@@ -1,0 +1,9 @@
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_DROPPARTS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_DROPPARTS

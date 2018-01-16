@@ -1,0 +1,17 @@
+OK
+OK
+Loading data to table encrypt_db4data.partition_table_src partition (dt=20150617, ht=00)
+3 Rows loaded to encrypt_db4data.partition_table_src
+OK
+meituan	10.0.0.1
+baidu	10.0.0.2
+alibaba	10.0.0.3
+OK
+FAILED: SemanticException [Error 10004]: Line 3:106 Invalid table alias or column reference 'ip': (possible column names are: name, encrypted_name_62688_ip, dt, ht) or Column insufficient privileges to access: ip
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table002>.<ip>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table_src>.<ip>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table002>.<ip>
+FAILED: SemanticException [Error 10004]: Line 3:101 Invalid table alias or column reference 'ip': (possible column names are: name, encrypted_name_70651_ip, dt, ht) or Column insufficient privileges to access: ip
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<partition_table002>.<ip>
+OK
+OK

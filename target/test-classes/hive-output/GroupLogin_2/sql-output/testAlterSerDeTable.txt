@@ -1,0 +1,28 @@
+OK
+OK
+OK
+CREATE TABLE `mart_waimai.dim_ad_cpc_activity_poi`(
+  `ad_activity_key` string COMMENT '维度代理键', 
+  `ad_activity_id` bigint COMMENT '活动id', 
+  `ad_activity_type` int COMMENT '活动类型代码', 
+  `poi_id` int COMMENT '活动目标门店')
+COMMENT 'CPC广告城市目标商家数'
+PARTITIONED BY ( 
+  `dt` string COMMENT '状态归属时间：etl每日保存上日券状态没有终结的券的信息')
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde' 
+WITH SERDEPROPERTIES ( 
+  'charset'='GBK', 
+  'field.delim'='\t', 
+  'input.regex'='bduid\\[(.*)\\]uid\\[(\\d+)\\]', 
+  'line.delim'='\n', 
+  'output.format.string'='%1$s\t%2$s', 
+  'serialization.format'='\t') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi'
+TBLPROPERTIES (
+  'last_modified_by'='hdp_qa', 

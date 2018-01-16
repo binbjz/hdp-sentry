@@ -1,0 +1,86 @@
+OK
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+encrypted_name_27766_encrypt_server	string              	ENCRYPTED_COMMENT_19688_null
+process_id          	int                 	                    
+encrypted_name_29068_encrypt_message	string              	ENCRYPTED_COMMENT_26592_null
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+year=2011/month=1/day=1
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+ENCRYPTED_NAME_52850_encrypt_server	string              	ENCRYPTED_COMMENT_99658_null
+process_id          	int                 	                    
+ENCRYPTED_NAME_94659_encrypt_message	string              	ENCRYPTED_COMMENT_96367_null
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat>.<encrypt_server>, <encrypt_db4alter>.<tbl4fileformat>.<encrypt_message>
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+encrypted_name_76815_encrypt_server	string              	ENCRYPTED_COMMENT_79616_null
+process_id          	int                 	                    
+encrypted_name_52554_encrypt_message	string              	ENCRYPTED_COMMENT_29289_null
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+year=2011/month=1/day=2
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+ENCRYPTED_NAME_55133_encrypt_server	string              	ENCRYPTED_COMMENT_57877_null
+process_id          	int                 	                    
+ENCRYPTED_NAME_78713_encrypt_message	string              	ENCRYPTED_COMMENT_66806_null
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat_external>.<encrypt_server>, <encrypt_db4alter>.<tbl4fileformat_external>.<encrypt_message>
+OK
+OK
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat_external' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

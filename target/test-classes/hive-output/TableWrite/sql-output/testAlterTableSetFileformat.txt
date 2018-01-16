@@ -1,0 +1,73 @@
+OK
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+OK
+OK
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 

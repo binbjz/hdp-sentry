@@ -1,0 +1,26 @@
+OK
+OK
+Loading data to table encrypt_db4data.tbl4builtinfuncs
+3 Rows loaded to encrypt_db4data.tbl4builtinfuncs
+OK
+OK
+abab
+ab,efab,ef
+abcabc
+OK
+97
+97
+97
+OK
+abababalower
+ab,efabMixed
+abcabcaUPPER
+OK
+["cd","ab","ef"]
+["cd","ab","ef"]
+["cd","ab","ef"]
+OK
+2
+0
+0
+OK

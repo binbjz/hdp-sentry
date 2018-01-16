@@ -1,0 +1,10 @@
+OK
+OK
+OK
+OK
+OK
+OK
+encrypt_tbl4drop
+encrypt_view4drop
+OK
+OK

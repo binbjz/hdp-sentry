@@ -1,0 +1,9 @@
+OK
+OK
+test_insert_overwrite_tbl_partition.name	test_insert_overwrite_tbl_partition.salary	test_insert_overwrite_tbl_partition.subordinates	test_insert_overwrite_tbl_partition.deductions	test_insert_overwrite_tbl_partition.address	test_insert_overwrite_tbl_partition.country	test_insert_overwrite_tbl_partition.state
+OK
+Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=null)
+Failed with exception MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK
+test_insert_overwrite_tbl_partition.name	test_insert_overwrite_tbl_partition.salary	test_insert_overwrite_tbl_partition.subordinates	test_insert_overwrite_tbl_partition.deductions	test_insert_overwrite_tbl_partition.address	test_insert_overwrite_tbl_partition.country	test_insert_overwrite_tbl_partition.state

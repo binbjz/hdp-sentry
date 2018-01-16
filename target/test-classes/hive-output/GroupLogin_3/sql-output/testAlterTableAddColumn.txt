@@ -1,0 +1,12 @@
+OK
+OK
+OK
+col1                	tinyint             	                    
+col2                	smallint            	                    
+col3                	int                 	                    
+col4                	bigint              	                    
+col5                	boolean             	                    
+col6                	float               	                    
+col7                	double              	                    
+col8                	string              	                    
+id                  	string              	                    
