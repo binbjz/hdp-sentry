@@ -6,7 +6,7 @@ OK
 OK
 test login
 OK
-Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sankuai/hdp_qa/8bf5dc83-3e2a-4c02-b7f3-9a1239af392c/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sankuai/hdp_qa/dc6f1c1b-a26b-4ec5-b463-429791fe7ca5/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 OK
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATEDATABASE)
 OK

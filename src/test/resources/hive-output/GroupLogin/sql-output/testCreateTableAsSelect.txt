@@ -1,8 +1,12 @@
 OK
-FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_4788_username, email, encrypted_name_55963_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE_AS_SELECT)
 FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
 OK
-FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_4788_username, email, encrypted_name_55963_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
-FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/ndm_user_ctas
+1 Rows loaded to mart_waimai.ndm_user_ctas
+OK
+userid	cityid	username	email	mobile	regdate	isemailverified	ismobilesignup	ismobileverified	isappuser	acctattr
+OK
+ndm_user_ctas.userid	ndm_user_ctas.cityid	ndm_user_ctas.username	ndm_user_ctas.email	ndm_user_ctas.mobile	ndm_user_ctas.regdate	ndm_user_ctas.isemailverified	ndm_user_ctas.ismobilesignup	ndm_user_ctas.ismobileverified	ndm_user_ctas.isappuser	ndm_user_ctas.acctattr
 OK
 OK

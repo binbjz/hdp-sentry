@@ -1,4 +1,6 @@
 OK
+mkdir: Permission denied: user=hdp_qa, access=WRITE, inode="/user/hive/warehouse/testdb.db/tbl4setlocation_new":mt_qa:hive:drwxrwx--x
+Command failed with exit code = 1
 OK
 # col_name            	data_type           	comment             
 	 	 

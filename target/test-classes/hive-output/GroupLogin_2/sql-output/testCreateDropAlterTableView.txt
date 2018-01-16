@@ -6,6 +6,8 @@ dim_ad_cpc_activity
 dim_ad_cpc_activity_poi
 employees_import_export
 employees_insert_overwrite
+log_messages
+log_messages_external
 partition_table001
 partition_table002
 src_employees_import_export
@@ -15,12 +17,13 @@ table002
 test_add_columns
 test_change
 test_enable_disable1
+test_enable_disable2
 test_rename
 test_replace_columns
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE)
 OK
 cis_mappoi_in_aor
 collecttest
@@ -28,6 +31,8 @@ dim_ad_cpc_activity
 dim_ad_cpc_activity_poi
 employees_import_export
 employees_insert_overwrite
+log_messages
+log_messages_external
 partition_table001
 partition_table002
 src_employees_import_export
@@ -37,6 +42,7 @@ table002
 test_add_columns
 test_change
 test_enable_disable1
+test_enable_disable2
 test_rename
 test_replace_columns
 FAILED: SemanticException [Error 10001]: Table not found mart_waimai.tbl2create
@@ -53,6 +59,8 @@ dim_ad_cpc_activity
 dim_ad_cpc_activity_poi
 employees_import_export
 employees_insert_overwrite
+log_messages
+log_messages_external
 partition_table001
 partition_table002
 src_employees_import_export
@@ -62,6 +70,7 @@ table002
 test_add_columns
 test_change
 test_enable_disable1
+test_enable_disable2
 test_rename
 test_replace_columns
 OK

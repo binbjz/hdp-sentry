@@ -16,12 +16,12 @@ FAILED: SemanticException [Error 10001]: Line 2:63 Table not found 'view4drop'
 FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'tbl4drop_no_r'
 FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'view4drop_no_r'
 OK
-FAILED: SemanticException Unable to fetch table tbl4create. Table insufficient privileges to access: <default>.<tbl4create>
-OK
-FAILED: SemanticException Unable to fetch table tbl4create_no_privilege. Table insufficient privileges to access: <default>.<tbl4create_no_privilege>
 OK
 OK
-FAILED: SemanticException Unable to fetch table tbl4create_external. Table insufficient privileges to access: <default>.<tbl4create_external>
+OK
+OK
+OK
+OK
 OK
 OK
 OK

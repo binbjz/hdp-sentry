@@ -8,5 +8,7 @@ numFiles	0
 numRows	-1
 rawDataSize	-1
 totalSize	0
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Alter Table operation for testdb.tbl4rename failed to move data due to: 'Permission denied: user=hdp_qa, access=WRITE, inode="/user/hive/warehouse/testdb.db/tbl4rename":mt_qa:hive:drwxrwx--x
+' See hive log file for details.
 OK
-OK
+tbl4rename

@@ -14,7 +14,7 @@ c0
 2
 OK
 col_name	data_type	comment
-ENCRYPTED_NAME_10837_encrypt_ssoo_user_id	string              	ENCRYPTED_COMMENT_42814
-ENCRYPTED_NAME_856_encrypt_ssoo_pageview_id	string              	ENCRYPTED_COMMENT_73313
+ENCRYPTED_NAME_42849_encrypt_ssoo_user_id	string              	ENCRYPTED_COMMENT_68253_null
+ENCRYPTED_NAME_61276_encrypt_ssoo_pageview_id	string              	ENCRYPTED_COMMENT_81534_null
 OK
 OK

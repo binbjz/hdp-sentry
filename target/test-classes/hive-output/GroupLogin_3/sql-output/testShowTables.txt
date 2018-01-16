@@ -50,10 +50,15 @@ OK
 OK
 gis__admin_division
 waimai_order_shard__wm
-FAILED: SemanticException [Error 10072]: Database does not exist: origindb_delta
+FAILED: SemanticException Database insufficient privileges to access: <origindb_delta>
 OK
 gis__admin_division
 waimai_order_shard__wm
 OK
 OK
 dpmid_ugcreview_basereview
+OK
+OK
+OK
+OK
+test_tbl

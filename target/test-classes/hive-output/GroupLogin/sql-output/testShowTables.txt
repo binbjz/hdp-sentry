@@ -50,3 +50,8 @@ waimai_money_exchange__wm_exchange_flow
 OK
 OK
 dpmid_ugcreview_basereview
+OK
+OK
+OK
+OK
+test_tbl

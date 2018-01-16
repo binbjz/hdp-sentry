@@ -1,15 +1,8 @@
 OK
 OK
-Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
-OK
-Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
-Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-OK
-Partition mart_waimai.src_employees_insert_overwrite{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
-Partition mart_waimai.src_employees_insert_overwrite{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition mart_waimai.src_employees_insert_overwrite{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-OK
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
 OK
 name                	string              	                    
 salary              	float               	                    

@@ -48,7 +48,7 @@ public class DBAllWithEncryptedColumns {
 
         //debug stage: write test results into output file.
         String output = sqlOutputPath + File.separator + resultFile;
-        UtilTool.writeAllBytes(output, map.get(1).toString());
+        //UtilTool.writeAllBytes(output, map.get(1).toString());
 
         String expectedResults = UtilTool.readAllBytes(output);
         String actualResults = map.get(1).toString();

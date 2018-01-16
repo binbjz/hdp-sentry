@@ -142,4 +142,4 @@ SELECT
 from `origindb`.`waimai_order_shard__wm`
 ] used as waimai_safe_order at Line 8:5
 OK
-FAILED: SemanticException Column insufficient privileges to access: <origindb>.<waimai_order_shard__wm>
+FAILED: SemanticException Column insufficient privileges to access: <origindb>.<waimai_order_shard__wm>.<recipient_name>, <origindb>.<waimai_order_shard__wm>.<recipient_phone>, <origindb>.<waimai_order_shard__wm>.<recipient_address>, <origindb>.<waimai_order_shard__wm>.<common_ext>, <origindb>.<waimai_order_shard__wm>.<binded_phone>

@@ -18,6 +18,8 @@ dim_ad_cpc_activity
 dim_ad_cpc_activity_poi
 employees_import_export
 employees_insert_overwrite
+log_messages
+log_messages_external
 partition_table001
 partition_table002
 src_employees_import_export
@@ -27,9 +29,10 @@ table002
 test_add_columns
 test_change
 test_enable_disable1
+test_enable_disable2
 test_rename
 test_replace_columns
-FAILED: SemanticException [Error 10072]: Database does not exist: mart_waimai_crm
+FAILED: SemanticException Database insufficient privileges to access: <mart_waimai_crm>
 OK
 cis_mappoi_in_aor
 collecttest
@@ -37,6 +40,8 @@ dim_ad_cpc_activity
 dim_ad_cpc_activity_poi
 employees_import_export
 employees_insert_overwrite
+log_messages
+log_messages_external
 partition_table001
 partition_table002
 src_employees_import_export
@@ -46,6 +51,7 @@ table002
 test_add_columns
 test_change
 test_enable_disable1
+test_enable_disable2
 test_rename
 test_replace_columns
 OK
@@ -65,3 +71,8 @@ waimai_money_exchange__wm_exchange_flow
 OK
 OK
 dpmid_ugcreview_basereview
+OK
+OK
+OK
+OK
+test_tbl

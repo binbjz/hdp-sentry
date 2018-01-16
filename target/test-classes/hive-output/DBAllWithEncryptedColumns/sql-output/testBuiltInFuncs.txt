@@ -3,9 +3,9 @@ OK
 Loading data to table encrypt_db4data.tbl4builtinfuncs
 3 Rows loaded to encrypt_db4data.tbl4builtinfuncs
 OK
-FAILED: SemanticException [Error 10004]: Line 2:14 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_98680_encrypt_col2, encrypted_name_25645_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
-FAILED: SemanticException [Error 10004]: Line 2:13 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_98680_encrypt_col2, encrypted_name_25645_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
-FAILED: SemanticException [Error 10004]: Line 2:22 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_98680_encrypt_col2, encrypted_name_25645_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
-FAILED: SemanticException [Error 10004]: Line 2:13 Invalid table alias or column reference 'encrypt_col3': (possible column names are: col1, encrypted_name_98680_encrypt_col2, encrypted_name_25645_encrypt_col3) or Column insufficient privileges to access: encrypt_col3
-FAILED: SemanticException [Error 10004]: Line 2:19 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_98680_encrypt_col2, encrypted_name_25645_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
+FAILED: SemanticException [Error 10004]: Line 2:14 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_50162_encrypt_col2, encrypted_name_83941_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
+FAILED: SemanticException [Error 10004]: Line 2:13 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_44870_encrypt_col2, encrypted_name_52987_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
+FAILED: SemanticException [Error 10004]: Line 2:22 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_94667_encrypt_col2, encrypted_name_91998_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
+FAILED: SemanticException [Error 10004]: Line 2:13 Invalid table alias or column reference 'encrypt_col3': (possible column names are: col1, encrypted_name_56115_encrypt_col2, encrypted_name_55769_encrypt_col3) or Column insufficient privileges to access: encrypt_col3
+FAILED: SemanticException [Error 10004]: Line 2:19 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_31384_encrypt_col2, encrypted_name_64911_encrypt_col3) or Column insufficient privileges to access: encrypt_col2
 OK

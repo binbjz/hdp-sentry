@@ -113,7 +113,7 @@ test_replace_columns
 view2create_encrypt_columns
 view2create_non_encrypt_columns
 view2create_star
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for DROPTABLE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for DROPTABLE)

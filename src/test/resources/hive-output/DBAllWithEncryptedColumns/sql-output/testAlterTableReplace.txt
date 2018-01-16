@@ -3,7 +3,7 @@ OK
 Loading data to table encrypt_db4alter.tbl4replace
 1 Rows loaded to encrypt_db4alter.tbl4replace
 OK
-FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4replace>.<ncrypt_col2>, <encrypt_db4alter>.<tbl4replace>.<encrypt_col3>
+FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4replace>.<encrypt_col2>, <encrypt_db4alter>.<tbl4replace>.<encrypt_col3>
 OK
 OK
 1	2	column 3

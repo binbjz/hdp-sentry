@@ -1,6 +1,7 @@
 OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Alter Table operation for mart_waimai.test_rename failed to move data due to: 'Permission denied: user=hdp_qa, access=WRITE, inode="/user/hive/warehouse/mart_waimai.db/test_rename":mt_qa:hive:drwxrwx--x
+' See hive log file for details.
+FAILED: SemanticException [Error 10001]: Table not found mart_waimai.test_rename_new
 OK
-OK
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDCOLS
 FAILED: SemanticException [Error 10001]: Table not found dim.ndm_user_new

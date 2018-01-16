@@ -1,17 +1,13 @@
 OK
-OK
-OK
-OK
-id	part	quantity
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:Got exception: org.apache.hadoop.security.AccessControlException Permission denied: user=hdp_qa, access=WRITE, inode="/user/hive/warehouse/testdb.db/tbl4partition/day=20110104":mt_qa:hive:drwxrwx--x
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Rename partition: source partition [day=20110104] does not exist.
+FAILED: SemanticException Permission denied: user=hdp_qa, access=READ_EXECUTE, inode="/user/hive/warehouse/testdb.db/tbl4partition/day=20110102":mt_qa:hive:drwxrwx--x
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to rename partition. Got exception: org.apache.hadoop.security.AccessControlException Permission denied: user=hdp_qa, access=WRITE, inode="/user/hive/warehouse/testdb.db/tbl4partition/day=20110102":mt_qa:hive:drwxrwx--x
 OK
 partition
 day=20110103
-day=20110107
 day=20110109
-Dropped the partition day=20110103
-OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Got exception: java.io.IOException Failed to move to trash: hdfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4partition/day=20110103
 OK
 partition
-day=20110107
 day=20110109

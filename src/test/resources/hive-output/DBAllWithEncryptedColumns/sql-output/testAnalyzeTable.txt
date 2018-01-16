@@ -5,24 +5,24 @@ OK
 OK
 Loading data to table encrypt_db4data.encrypt_test_analyze partition (country=US, state=CA)
 OK
-FAILED: SemanticException [Error 10002]: Invalid column reference 'encrypt_salary' (possible columns are [name, ENCRYPTED_NAME_7409_encrypt_salary, subordinates, deductions, address])
+FAILED: SemanticException [Error 10002]: Invalid column reference 'encrypt_salary' (possible columns are [name, ENCRYPTED_NAME_19174_encrypt_salary, subordinates, deductions, address])
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_65993_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
-Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
-Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_73585_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_28554_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_2899_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_95367_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+OK
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_44868_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 OK
 col_name	data_type	comment
 name                	string              	                    
-ENCRYPTED_NAME_74568_encrypt_salary	float               	ENCRYPTED_COMMENT_94101
+ENCRYPTED_NAME_62708_encrypt_salary	float               	ENCRYPTED_COMMENT_47025_null
 subordinates        	array<string>       	                    
 deductions          	map<string,float>   	                    
 address             	struct<street:string,city:string,state:string,zip:int>	                    
@@ -38,7 +38,7 @@ state               	string
 OK
 col_name	data_type	comment
 name                	string              	                    
-encrypted_name_2798_encrypt_salary	float               	ENCRYPTED_COMMENT_91303
+ENCRYPTED_NAME_32413_encrypt_salary	float               	ENCRYPTED_COMMENT_33654_null
 subordinates        	array<string>       	                    
 deductions          	map<string,float>   	                    
 address             	struct<street:string,city:string,state:string,zip:int>	                    

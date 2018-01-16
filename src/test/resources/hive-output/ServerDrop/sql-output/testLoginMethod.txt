@@ -6,15 +6,15 @@ OK
 OK
 test login
 OK
-Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sankuai/hdp_qa/f45320eb-63bc-4624-aeb7-e4d4b9fc7a0c/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sankuai/hdp_qa/96d08ec8-546e-4ce9-a9ed-d00b826434f2/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 OK
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATEDATABASE)
 OK
 Loading data to table test_login_db_tbl.test_tbl
-1 Rows loaded to test_login_db_tbl.test_tbl
-OK
-OK
-test login	10.0
-test login2	20.0
+Failed with exception copyFiles: error while checking/creating destination directory!!!
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+org.apache.hadoop.security.AccessControlException: Permission denied: user=hdp_qa, access=EXECUTE, inode="/user/hive/warehouse/test_login_db_tbl.db/test_tbl":mt_qa:hive:drwxrwx--x
+Caused by: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.security.AccessControlException): Permission denied: user=hdp_qa, access=EXECUTE, inode="/user/hive/warehouse/test_login_db_tbl.db/test_tbl":mt_qa:hive:drwxrwx--x
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
 OK
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE)

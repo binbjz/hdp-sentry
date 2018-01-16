@@ -1,3 +1,3 @@
 OK
-Added resources: [/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh]
-/opt/meituan/qa_test/sentry-test/src/test/resources/source-data/test_who.sh
+Added resources: [/opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/sentry-hive1.2/src/test/resources/source-data/test_who.sh]
+/opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/sentry-hive1.2/src/test/resources/source-data/test_who.sh

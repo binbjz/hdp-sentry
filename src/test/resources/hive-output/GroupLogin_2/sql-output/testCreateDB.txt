@@ -1,12 +1,12 @@
 OK
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database mart_waimai already exists
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATEDATABASE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATEDATABASE)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database mart_wmorg already exists
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database origin_waimai already exists
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database ba_ups already exists
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database dim already exists
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database dw already exists
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/gh-data-hdp-qa03.corp.sankuai.com@SANKUAI.COM does not have privileges for CREATEDATABASE)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATEDATABASE)
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database origindb already exists
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database origindb_delta already exists
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database origin_dianping already exists

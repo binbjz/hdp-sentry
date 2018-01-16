@@ -1,8 +1,8 @@
 OK
-FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_79746_username, email, encrypted_name_9094_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE_AS_SELECT)
 FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
 OK
-FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_79746_username, email, encrypted_name_9094_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE_AS_SELECT)
 FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
 OK
 OK

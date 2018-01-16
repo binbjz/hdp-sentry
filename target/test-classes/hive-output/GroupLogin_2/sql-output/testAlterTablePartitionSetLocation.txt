@@ -1,4 +1,6 @@
 OK
+mkdir: Permission denied: user=hdp_qa, access=WRITE, inode="/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi_new/dt=20210103":mt_qa:hive:drwxrwx--x
+Command failed with exit code = 1
 OK
 OK
 # col_name            	data_type           	comment             
@@ -72,5 +74,7 @@ Storage Desc Params:
 	field.delim         	\t                  
 	line.delim          	\n                  
 	serialization.format	\t                  
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
-Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi_new' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+rm: Failed to move to trash: hdfs://hadoop-meituan-test/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi: Permission denied: user=hdp_qa, access=WRITE, inode="/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi":mt_qa:hive:drwxrwx--x
+Command failed with exit code = 1
+rm: `/user/hive/warehouse/mart_waimai.db/dim_ad_cpc_activity_poi_new': No such file or directory
+Command failed with exit code = 1

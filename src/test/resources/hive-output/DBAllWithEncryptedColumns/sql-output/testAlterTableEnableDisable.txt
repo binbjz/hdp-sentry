@@ -3,7 +3,7 @@ OK
 OK
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Table test_enable_disable is protected from being dropped
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<test_enable_disable>.<encrypt_message>
-FAILED: SemanticException [Error 10004]: Line 2:15 Invalid table alias or column reference 'encrypt_message': (possible column names are: hms, severity, server, process_id, encrypted_name_14018_encrypt_message, year, month, day) or Column insufficient privileges to access: encrypt_message
+FAILED: SemanticException [Error 10004]: Line 2:15 Invalid table alias or column reference 'encrypt_message': (possible column names are: hms, severity, server, process_id, encrypted_name_43085_encrypt_message, year, month, day) or Column insufficient privileges to access: encrypt_message
 OK
 OK
 OK
