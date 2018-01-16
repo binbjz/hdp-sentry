@@ -1,7 +1,0 @@
-OK
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
-OK
-name	ip
-OK
-name	ip

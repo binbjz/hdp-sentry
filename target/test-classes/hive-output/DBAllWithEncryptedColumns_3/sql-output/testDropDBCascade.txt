@@ -1,9 +1,0 @@
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE)
-FAILED: SemanticException [Error 10001]: Line 2:47 Table not found 'encrypt_tbl4drop'
-FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'encrypt_tbl4drop'
-FAILED: SemanticException [Error 10001]: Line 2:14 Table not found 'encrypt_view4drop'
-OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for DROPDATABASE)
-OK
-encrypt_db4drop_cascade

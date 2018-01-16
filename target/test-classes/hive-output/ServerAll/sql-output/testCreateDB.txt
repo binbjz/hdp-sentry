@@ -1,6 +1,0 @@
-OK
-OK
-OK
-OK
-db4create
-db4create_no_privilege

@@ -1,6 +1,6 @@
-#*.class
-#classes/
-#target/
+*.class
+classes/
+target/
 .classpath
 .project
 .settings
