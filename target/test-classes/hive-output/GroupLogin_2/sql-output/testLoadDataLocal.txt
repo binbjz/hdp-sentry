@@ -1,0 +1,16 @@
+OK
+Loading data to table mart_waimai.collecttest
+OK
+FAILED: SemanticException Line 0:-1 Expression not in GROUP BY key 'countVal'
+OK
+eleven	2
+twelve	2
+OK
+4
+OK
+FAILED: SemanticException Line 0:-1 Expression not in GROUP BY key 'countVal'
+OK
+eleven	2
+twelve	2
+OK
+4

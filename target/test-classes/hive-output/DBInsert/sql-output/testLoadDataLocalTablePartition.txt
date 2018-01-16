@@ -1,0 +1,14 @@
+OK
+Loading data to table testdb.load_data_local_into_partition partition (country=US, state=CA2)
+Failed with exception org.apache.hadoop.hive.ql.metadata.HiveException: Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK
+John Doe	100000.0	["Mary Smith","Todd Jones"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA2
+Mary Smith	80000.0	["Bill King"]	{"Federal Taxes":0.2,"State Taxes":0.05,"Insurance":0.1}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA2
+Todd Jones	70000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Chicago Ave.","city":"Oak Park","state":"IL","zip":60700}	US	CA2
+Bill King	60000.0	[]	{"Federal Taxes":0.15,"State Taxes":0.03,"Insurance":0.1}	{"street":"Obscure Dr.","city":"Obscuria","state":"IL","zip":60100}	US	CA2
+OK
+Loading data to table testdb.load_data_local_into_partition partition (country=US, state=CA)
+Failed with exception MetaException(message:User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDPARTS)
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.MoveTask
+OK

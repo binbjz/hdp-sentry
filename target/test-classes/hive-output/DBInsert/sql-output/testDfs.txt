@@ -1,0 +1,7 @@
+OK
+           0            1                427 /tmp/california-employees.csv_new
+John Doe,100000.0,Mary Smith|Todd Jones,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Michigan Ave.|Chicago|IL|60600
+Mary Smith,80000.0,Bill King,Federal Taxes=0.2|State Taxes=0.05|Insurance=0.1,Ontario St.|Chicago|IL|60601
+Todd Jones,70000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Chicago Ave.|Oak Park|IL|60700
+Bill King,60000.0,,Federal Taxes=0.15|State Taxes=0.03|Insurance=0.1,Obscure Dr.|Obscuria|IL|60100
+Moved: 'viewfs://hadoop-meituan-test/tmp/california-employees.csv_new' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

@@ -1,0 +1,7 @@
+OK
+FAILED: SemanticException Database insufficient privileges to access: <db4drop>
+OK
+FAILED: SemanticException Database insufficient privileges to access: <db4drop_cascade>
+OK
+FAILED: SemanticException Database insufficient privileges to access: <db4drop_cascade>
+OK

@@ -1,0 +1,17 @@
+OK
+OK
+OK
+OK
+id	part	quantity
+OK
+OK
+partition
+day=20110103
+day=20110107
+day=20110109
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_DROPPARTS
+OK
+partition
+day=20110103
+day=20110107
+day=20110109

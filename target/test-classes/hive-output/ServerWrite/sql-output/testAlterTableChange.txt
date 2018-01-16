@@ -1,0 +1,12 @@
+OK
+OK
+OK
+OK
+col3to1             	int                 	put last column to position 1st
+col2                	smallint            	                    
+col1to2             	int                 	put column1 to position 2nd
+col4                	bigint              	                    
+col5                	boolean             	                    
+col6                	float               	                    
+col7                	double              	                    
+col8                	string              	                    

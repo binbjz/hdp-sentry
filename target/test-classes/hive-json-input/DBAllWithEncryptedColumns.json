@@ -1,0 +1,452 @@
+[
+  {
+    "id": "testAddDropShowPartition",
+    "tag": "DB",
+    "desc": "The case will test AddDropShowPartition.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAddDropShowPartition.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAddDropShowPartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterPartitionEnableDisable",
+    "tag": "DB",
+    "desc": "The case will test AlterPartitionEnableDisable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterPartitionEnableDisable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterPartitionEnableDisable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterSerDePartition",
+    "tag": "DB",
+    "desc": "The case will test AlterSerDePartition.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterSerDePartition.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterSerDePartition.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterSerDeTable",
+    "tag": "DB",
+    "desc": "The case will test AlterSerDeTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterSerDeTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterSerDeTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableAddColumns",
+    "tag": "DB",
+    "desc": "The case will test AlterTableAddColumns.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableAddColumns.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableAddColumns.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableChange",
+    "tag": "DB",
+    "desc": "The case will test AlterTableChange.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableChange",
+    "tag": "DB",
+    "desc": "The case will test AlterTableChange.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableChange.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableEnableDisable",
+    "tag": "DB",
+    "desc": "The case will test AlterTableEnableDisable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableEnableDisable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableEnableDisable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableRename",
+    "tag": "DB",
+    "desc": "The case will test AlterTableRename.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableRename.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableRename.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableReplace",
+    "tag": "DB",
+    "desc": "The case will test AlterTableReplace.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableReplace.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableReplace.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableSetFormat",
+    "tag": "DB",
+    "desc": "The case will test AlterTableSetFormat.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableSetFormat.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableSetFormat.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAlterTableTouchClusteredBy",
+    "tag": "DB",
+    "desc": "The case will test AlterTableTouchClusteredBy.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAlterTableTouchClusteredBy.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAlterTableTouchClusteredBy.txt"
+      }
+    ]
+  },
+  {
+    "id": "testAnalyzeTable",
+    "tag": "DB",
+    "desc": "The case will test AnalyzeTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAnalyzeTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAnalyzeTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testBuiltInFuncs",
+    "tag": "DB",
+    "desc": "The case will test BuiltInFuncs.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testBuiltInFuncs.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testBuiltInFuncs.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateDropAlterTableView",
+    "tag": "DB",
+    "desc": "The case will test CreateDropAlterTableView.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateDropAlterTableView.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateDropAlterTableView.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateTableAsSelectSourceEncrypted",
+    "tag": "DB",
+    "desc": "The case will test CreateTableAsSelectSourceEncrypted.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectSourceEncrypted.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectSourceEncrypted.txt"
+      }
+    ]
+  },
+  {
+    "id": "testCreateTableAsSelectTargetEncrypted",
+    "tag": "DB",
+    "desc": "The case will test CreateTableAsSelectTargetEncrypted.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectTargetEncrypted.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testCreateTableAsSelectTargetEncrypted.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDescribeFormattedTable",
+    "tag": "DB",
+    "desc": "The case will test DescribeFormattedTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDescribeFormattedTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDescribeFormattedTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testDropDBCascade",
+    "tag": "DB",
+    "desc": "The case will test DropDBCascade.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testDropDBCascade.txt"
+      }
+    ]
+  },
+  {
+    "id": "testImportExportEncryptTable",
+    "tag": "DB",
+    "desc": "The case will test ImportExportEncryptTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testImportExportEncryptTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testImportExportEncryptTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableDir",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTableDir.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableDir.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableDir.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTablePartitionSrcEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTablePartitionSrcEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionSrcEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionSrcEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTablePartitionTgtEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTablePartitionTgtEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionTgtEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTablePartitionTgtEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableSrcEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTableSrcEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableSrcEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableSrcEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testInsertOverwriteTableTgtEncrypt",
+    "tag": "DB",
+    "desc": "The case will test InsertOverwriteTableTgtEncrypt.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableTgtEncrypt.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testInsertOverwriteTableTgtEncrypt.txt"
+      }
+    ]
+  },
+  {
+    "id": "testLoadDataLocal",
+    "tag": "DB",
+    "desc": "The case will test LoadDataLocal.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testLoadDataLocal.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testLoadDataLocal.txt"
+      }
+    ]
+  },
+  {
+    "id": "testMSCKRepairTable",
+    "tag": "DB",
+    "desc": "The case will test MSCKRepairTable.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testMSCKRepairTable.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testMSCKRepairTable.txt"
+      }
+    ]
+  },
+  {
+    "id": "testQueryUserDefinedFunction",
+    "tag": "DB",
+    "desc": "The case will test QueryUserDefinedFunction.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testQueryUserDefinedFunction.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testQueryUserDefinedFunction.txt"
+      }
+    ]
+  },
+  {
+    "id": "testShowColumnsAndTblProperties",
+    "tag": "DB",
+    "desc": "The case will test ShowColumnsAndTblProperties.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testShowColumnsAndTblProperties.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testShowColumnsAndTblProperties.txt"
+      }
+    ]
+  },
+  {
+    "id": "testTransform",
+    "tag": "DB",
+    "desc": "The case will test Transform.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testTransform.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testTransform.txt"
+      }
+    ]
+  }
+]

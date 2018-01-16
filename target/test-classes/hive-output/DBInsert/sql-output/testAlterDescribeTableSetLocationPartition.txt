@@ -1,0 +1,74 @@
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter partition. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERPARTITION_LOCATION
+OK
+# col_name            	data_type           	comment             
+	 	 
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Detailed Partition Information	 	 
+Partition Value:    	[2011, 1, 1]        	 
+Database:           	testdb              	 
+Table:              	tbl4setlocation     	 
+Protect Mode:       	None                	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=1	 
+Partition Parameters:	 	 
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	\t                  
+	serialization.format	\t                  
+OK
+# col_name            	data_type           	comment             
+	 	 
+hms                 	int                 	                    
+severity            	string              	                    
+server              	string              	                    
+process_id          	int                 	                    
+message             	string              	                    
+	 	 
+# Partition Information	 	 
+# col_name            	data_type           	comment             
+	 	 
+year                	int                 	                    
+month               	int                 	                    
+day                 	int                 	                    
+	 	 
+# Detailed Partition Information	 	 
+Partition Value:    	[2011, 1, 2]        	 
+Database:           	testdb              	 
+Table:              	tbl4setlocation     	 
+Protect Mode:       	None                	 
+Location:           	viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation/year=2011/month=1/day=2	 
+Partition Parameters:	 	 
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	\t                  
+	serialization.format	\t                  
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
+Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/testdb.db/tbl4setlocation_new' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current

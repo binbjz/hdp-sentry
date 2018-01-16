@@ -1,0 +1,10 @@
+OK
+OK
+Loading data to table encrypt_db4data.session_src_encrypted
+2 Rows loaded to encrypt_db4data.session_src_encrypted
+OK
+Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/sessionization_step_one_origins
+2 Rows loaded to encrypt_db4data.sessionization_step_one_origins
+OK
+OK
+OK
