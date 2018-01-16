@@ -1,8 +1,0 @@
-OK
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE_AS_SELECT)
-FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
-OK
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE_AS_SELECT)
-FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
-OK
-OK

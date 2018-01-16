@@ -1,8 +1,0 @@
-OK
-FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_74146_username, email, encrypted_name_94150_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
-FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
-OK
-FAILED: SemanticException [Error 10004]: Line 7:2 Invalid table alias or column reference 'username': (possible column names are: userid, cityid, encrypted_name_46501_username, email, encrypted_name_71374_mobile, regdate, isemailverified, ismobilesignup, ismobileverified, isappuser, acctattr) or Column insufficient privileges to access: username
-FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
-OK
-OK
