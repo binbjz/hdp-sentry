@@ -21,7 +21,11 @@ public class UtilTool {
         String regx3 = "... 71 elided ddasd";
         String regx4 = "  )";
         String regx5 = "spark://10.20.94.3:39128/files/test_who.sh]";
-        System.out.println(filterResults(regx5));
+//        System.out.println(filterResults(regx5));
+
+
+        String regx6 = "Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sankuai/hdp_qa/07f381a2-2100-42a8-b141-d6a416532db5/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current";
+        System.out.println(filterResults(regx6));
     }
 
     /**
@@ -159,15 +163,35 @@ public class UtilTool {
         String REGEX3 = "^\\s*at\\s+(org|sun|java|com|javax|scala).*";
         String REGEX4 = "^\\s*(\\.+\\s+\\d+\\s+.*|(\\)'|\\))).*";
         String REGEX5 = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?):\\d+";
+//        String REGEX6 = "^Moved:.*/([A-Za-z0-9]+-){4,}[A-Za-z0-9]+/.*";
+
+        String REGEX_ = "^Moved:.*/([A-Za-z0-9]+-){4,}[A-Za-z0-9]+/.*";
+        String REGEX_2 = "([A-Za-z0-9]+-){4,}[A-Za-z0-9]+";
+
         String REPLACE = "";
+//        String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5 + "|" + REGEX6;
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5;
         String REGEXS = "(" + prefixes + ")";
 
+        /*
         Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(str);
         if (m.find()) {
             str = REPLACE;
         }
         return str;
+        */
+
+        if (str.matches(REGEX_)) {
+            str = str.replaceAll(REGEX_2, "xxxxxx");
+            return str;
+        } else {
+            Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
+            Matcher m = p.matcher(str);
+            if (m.find()) {
+                str = REPLACE;
+            }
+            return str;
+        }
     }
 }
