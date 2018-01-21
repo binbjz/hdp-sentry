@@ -86,7 +86,7 @@ cd $project_dir
 source $project_dir/src/main/resources/sentry_super_env.sh setup SuperPrivil
 
 # Check sentry flag
-# source $project_dir/src/main/resources/sentry_flag.sh
+source $project_dir/src/main/resources/sentry_flag.sh
 
 # Run sentry test for standard authorization approach
 sentry_tcs="ServerAll ServerAlter ServerCreate ServerDrop ServerInsert ServerSelect ServerWrite DBAll DBAlter DBCreate DBDrop DBInsert DBSelect DBWrite TableAll TableAlter TableCreate TableDrop TableInsert TableSelect TableWrite DBAllWithEncryptedColumns DBAllWithEncryptedColumns_2 DBAllWithEncryptedColumns_3 GroupLogin GroupLogin_2 GroupLogin_3"
