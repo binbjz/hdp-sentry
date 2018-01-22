@@ -6,12 +6,12 @@ OK
 OK
 OK
 col1                	tinyint             	                    
-ENCRYPTED_NAME_89759_encrypt_col2	bigint              	ENCRYPTED_COMMENT_52447_null
+ENCRYPTED_NAME_30618_encrypt_col2	bigint              	ENCRYPTED_COMMENT_66364_null
 col3                	string              	                    
 id                  	string              	                    
 OK
 NULL
 NULL
-FAILED: SemanticException [Error 10004]: Line 2:13 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_34620_encrypt_col2, col3, id) or Column insufficient privileges to access: encrypt_col2
+FAILED: SemanticException [Error 10004]: Line 2:13 Invalid table alias or column reference 'encrypt_col2': (possible column names are: col1, encrypted_name_70151_encrypt_col2, col3, id) or Column insufficient privileges to access: encrypt_col2
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4addcolumn>.<encrypt_col2>
 OK

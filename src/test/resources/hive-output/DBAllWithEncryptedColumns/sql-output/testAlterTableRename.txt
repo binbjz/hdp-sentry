@@ -1,7 +1,7 @@
 OK
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4rename>.<encrypt_col3>
-FAILED: SemanticException [Error 10004]: Line 2:19 Invalid table alias or column reference 'encrypt_col3': (possible column names are: col1, col2, encrypted_name_60296_encrypt_col3) or Column insufficient privileges to access: encrypt_col3
+FAILED: SemanticException [Error 10004]: Line 2:19 Invalid table alias or column reference 'encrypt_col3': (possible column names are: col1, col2, encrypted_name_52896_encrypt_col3) or Column insufficient privileges to access: encrypt_col3
 OK
 OK
 OK

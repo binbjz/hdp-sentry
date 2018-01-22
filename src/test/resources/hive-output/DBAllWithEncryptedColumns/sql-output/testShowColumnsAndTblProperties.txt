@@ -5,21 +5,21 @@ comment	Description of the table
 creator	HADOOP-QA
 notes	test show tblproperties
 OK
-ENCRYPTED_NAME_93297_encrypt_name
-ENCRYPTED_NAME_71012_encrypt_salary
+ENCRYPTED_NAME_88399_encrypt_name
+ENCRYPTED_NAME_99066_encrypt_salary
 subordinates        
 deductions          
 address             
 country             
 state               
 OK
-ENCRYPTED_NAME_54687_encrypt_name
-ENCRYPTED_NAME_68952_encrypt_salary
+ENCRYPTED_NAME_79197_encrypt_name
+ENCRYPTED_NAME_89654_encrypt_salary
 subordinates        
 deductions          
 address             
 country             
 state               
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4props>.<employees_props>.<encrypt_name>, <encrypt_db4props>.<employees_props>.<encrypt_salary>
-FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_58281_encrypt_name, encrypted_name_45659_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
+FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_37811_encrypt_name, encrypted_name_40850_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
 OK

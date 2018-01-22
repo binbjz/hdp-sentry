@@ -1,6 +1,6 @@
 OK
-Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=IL)
 Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=OR)
+Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=IL)
 Loading data to table testdb.test_insert_overwrite_tbl_partition partition (country=US, state=CA)
 4 Rows loaded to testdb.test_insert_overwrite_tbl_partition
 OK

@@ -9,8 +9,8 @@ Loading data to table encrypt_db4func.teacher
 1 Rows loaded to encrypt_db4func.teacher
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4func>.<teacher>.<name>
-FAILED: SemanticException [Error 10004]: Line 2:16 Invalid table alias or column reference 'name': (possible column names are: encrypted_name_29006_name) or Column insufficient privileges to access: name
-FAILED: SemanticException [Error 10004]: Line 2:20 Invalid table alias or column reference 'name': (possible column names are: encrypted_name_82162_name) or Column insufficient privileges to access: name
+FAILED: SemanticException [Error 10004]: Line 2:16 Invalid table alias or column reference 'name': (possible column names are: encrypted_name_92907_name) or Column insufficient privileges to access: name
+FAILED: SemanticException [Error 10004]: Line 2:20 Invalid table alias or column reference 'name': (possible column names are: encrypted_name_61703_name) or Column insufficient privileges to access: name
 OK
 encrypt_db4func.qa_lower
 tmp_qa_lower

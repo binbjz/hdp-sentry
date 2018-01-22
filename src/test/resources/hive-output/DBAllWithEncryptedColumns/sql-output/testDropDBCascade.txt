@@ -2,8 +2,8 @@ OK
 OK
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4drop_cascade>.<encrypt_tbl4drop>.<encrypt_val>
-FAILED: SemanticException Line 1:51 Invalid column reference 'encrypted_name_31944_encrypt_val' in definition of VIEW encrypt_view4drop [
-SELECT `encrypt_tbl4drop`.`id`, `encrypt_tbl4drop`.`encrypted_name_31944_encrypt_val` FROM `encrypt_db4drop_cascade`.`encrypt_tbl4drop`
+FAILED: SemanticException Line 1:51 Invalid column reference 'encrypted_name_62087_encrypt_val' in definition of VIEW encrypt_view4drop [
+SELECT `encrypt_tbl4drop`.`id`, `encrypt_tbl4drop`.`encrypted_name_62087_encrypt_val` FROM `encrypt_db4drop_cascade`.`encrypt_tbl4drop`
 ] used as encrypt_view4drop at Line 2:14
 OK
 encrypt_tbl4drop

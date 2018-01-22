@@ -2,7 +2,7 @@ OK
 OK
 OK
 OK
-encrypted_name_70239_encrypt_c0	string              	from deserializer   
+encrypted_name_80816_encrypt_c0	string              	from deserializer   
 c1                  	string              	from deserializer   
 c2                  	string              	from deserializer   
 col10               	string              	                    
@@ -17,7 +17,7 @@ col20               	string
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<test_serde_partition>.<encrypt_c0>
 OK
 OK
-encrypted_name_85572_encrypt_c0	string              	from deserializer   
+encrypted_name_78889_encrypt_c0	string              	from deserializer   
 c1                  	string              	from deserializer   
 c2                  	string              	from deserializer   
 col10               	string              	                    

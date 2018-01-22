@@ -3,7 +3,7 @@ OK
 OK
 OK
 CREATE TABLE `encrypt_db4data.test_serde`(
-  `encrypted_name_85419_encrypt_c0` string COMMENT 'from deserializer', 
+  `encrypted_name_92832_encrypt_c0` string COMMENT 'from deserializer', 
   `c1` string COMMENT 'from deserializer', 
   `c2` string COMMENT 'from deserializer')
 ROW FORMAT SERDE 

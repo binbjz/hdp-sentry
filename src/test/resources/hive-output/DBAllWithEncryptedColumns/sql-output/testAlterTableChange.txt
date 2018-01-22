@@ -1,7 +1,7 @@
 OK
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4change>.<encrypt_col3>
-FAILED: SemanticException [Error 10004]: Line 2:19 Invalid table alias or column reference 'encrypt_col3': (possible column names are: col1, col2, encrypted_name_78469_encrypt_col3) or Column insufficient privileges to access: encrypt_col3
+FAILED: SemanticException [Error 10004]: Line 2:19 Invalid table alias or column reference 'encrypt_col3': (possible column names are: col1, col2, encrypted_name_84216_encrypt_col3) or Column insufficient privileges to access: encrypt_col3
 Loading data to table encrypt_db4alter.tbl4change
 1 Rows loaded to encrypt_db4alter.tbl4change
 OK
@@ -10,6 +10,6 @@ FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTa
 OK
 col2                	bigint              	                    
 col1to2             	int                 	put column1 to position 2nd
-ENCRYPTED_NAME_10592_encrypt_col3	string              	ENCRYPTED_COMMENT_91223_null
+ENCRYPTED_NAME_82601_encrypt_col3	string              	ENCRYPTED_COMMENT_75837_null
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4change>.<encrypt_col3>
 OK
