@@ -164,17 +164,17 @@ public class UtilTool {
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5;
         String REGEXS = "(" + prefixes + ")";
 
-        String REGEX_ = "^Moved:.*/([A-Za-z0-9]+-){4,}[A-Za-z0-9]+/.*";
+        String REGEX_ = "(?i)^Moved:.*/([A-Za-z0-9]+-){4,}[A-Za-z0-9]+/.*";
         String REGEX_2 = "([A-Za-z0-9]+-){4,}[A-Za-z0-9]+";
-        String REGEX2_ = ".*(encrypted_name|ENCRYPTED_COMMENT)_\\d+_.*";
+        String REGEX2_ = "(?i).*(encrypted_name|ENCRYPTED_COMMENT)_\\d+_.*";
         String REGEX2_2 = "\\d+";
-
+        String REPLACE_ = "xxxxxx";
 
         if (str.matches(REGEX_)) {
-            str = str.replaceAll(REGEX_2, "xxxxxx");
+            str = str.replaceAll(REGEX_2, REPLACE_);
             return str;
         } else if (str.matches(REGEX2_)) {
-            str = str.replaceAll(REGEX2_2, "xxxxxx");
+            str = str.replaceAll(REGEX2_2, REPLACE_);
             return str;
         } else {
             Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
