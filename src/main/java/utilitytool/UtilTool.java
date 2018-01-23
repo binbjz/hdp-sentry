@@ -154,33 +154,19 @@ public class UtilTool {
      * example: "17/09/13 14:39:55 INFO xxxxxx" will be replaced with an empty string
      */
     public static String filterResults(String str) {
-        // String REGEX = "([a-zA-Z]+(:?)\\s+(!?))+";
-//        String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?)";
-//        String REGEX2 = ".*(Time|CliDriver|Logging).*";
-
         String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
         String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
         String REGEX3 = "^\\s*at\\s+(org|sun|java|com|javax|scala).*";
         String REGEX4 = "^\\s*(\\.+\\s+\\d+\\s+.*|(\\)'|\\))).*";
         String REGEX5 = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?):\\d+";
-//        String REGEX6 = "^Moved:.*/([A-Za-z0-9]+-){4,}[A-Za-z0-9]+/.*";
 
         String REGEX_ = "^Moved:.*/([A-Za-z0-9]+-){4,}[A-Za-z0-9]+/.*";
         String REGEX_2 = "([A-Za-z0-9]+-){4,}[A-Za-z0-9]+";
 
         String REPLACE = "";
-//        String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5 + "|" + REGEX6;
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5;
         String REGEXS = "(" + prefixes + ")";
 
-        /*
-        Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
-        Matcher m = p.matcher(str);
-        if (m.find()) {
-            str = REPLACE;
-        }
-        return str;
-        */
 
         if (str.matches(REGEX_)) {
             str = str.replaceAll(REGEX_2, "xxxxxx");
