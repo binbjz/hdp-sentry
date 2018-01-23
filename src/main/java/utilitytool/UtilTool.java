@@ -167,14 +167,14 @@ public class UtilTool {
         String REGEX_ = "(?i)^Moved:.*/([A-Za-z0-9]+-){4,}[A-Za-z0-9]+/.*";
         String REGEX_2 = "([A-Za-z0-9]+-){4,}[A-Za-z0-9]+";
         String REGEX2_ = "(?i).*(encrypted_name|ENCRYPTED_COMMENT)_\\d+_.*";
-        String REGEX2_2 = "\\d+";
+        String REGEX2_2 = "_\\d+";
         String REPLACE_ = "xxxxxx";
 
         if (str.matches(REGEX_)) {
             str = str.replaceAll(REGEX_2, REPLACE_);
             return str;
         } else if (str.matches(REGEX2_)) {
-            str = str.replaceAll(REGEX2_2, REPLACE_);
+            str = str.replaceAll(REGEX2_2, "_" + REPLACE_);
             return str;
         } else {
             Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
