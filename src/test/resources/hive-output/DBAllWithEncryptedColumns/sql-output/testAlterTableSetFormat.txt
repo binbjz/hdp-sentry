@@ -4,9 +4,9 @@ OK
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-encrypted_name_46675_encrypt_server	string              	ENCRYPTED_COMMENT_13334_null
+encrypted_name_xxxxxx_encrypt_server	string              	ENCRYPTED_COMMENT_xxxxxx_null
 process_id          	int                 	                    
-encrypted_name_91504_encrypt_message	string              	ENCRYPTED_COMMENT_89289_null
+encrypted_name_xxxxxx_encrypt_message	string              	ENCRYPTED_COMMENT_xxxxxx_null
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -18,15 +18,16 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
+Detailed Partition Information	Partition(values:[2011, 1, 1], dbName:encrypt_db4alter, tableName:tbl4fileformat, createTime:1516741608, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:encrypted_name_xxxxxx_encrypt_server, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:encrypted_name_xxxxxx_encrypt_message, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat/2011/01/01, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 OK
 year=2011/month=1/day=1
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-ENCRYPTED_NAME_70846_encrypt_server	string              	ENCRYPTED_COMMENT_18658_null
+ENCRYPTED_NAME_xxxxxx_encrypt_server	string              	ENCRYPTED_COMMENT_xxxxxx_null
 process_id          	int                 	                    
-ENCRYPTED_NAME_74754_encrypt_message	string              	ENCRYPTED_COMMENT_63164_null
+ENCRYPTED_NAME_xxxxxx_encrypt_message	string              	ENCRYPTED_COMMENT_xxxxxx_null
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -38,6 +39,7 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
+Detailed Partition Information	Partition(values:[2011, 1, 1], dbName:encrypt_db4alter, tableName:tbl4fileformat, createTime:1516741608, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:ENCRYPTED_NAME_xxxxxx_encrypt_server, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:ENCRYPTED_NAME_xxxxxx_encrypt_message, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat/2011/01/01, inputFormat:org.apache.hadoop.mapred.SequenceFileInputFormat, outputFormat:org.apache.hadoop.mapred.SequenceFileOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat>.<encrypt_server>, <encrypt_db4alter>.<tbl4fileformat>.<encrypt_message>
 OK
@@ -45,9 +47,9 @@ OK
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-encrypted_name_68621_encrypt_server	string              	ENCRYPTED_COMMENT_19639_null
+encrypted_name_xxxxxx_encrypt_server	string              	ENCRYPTED_COMMENT_xxxxxx_null
 process_id          	int                 	                    
-encrypted_name_88496_encrypt_message	string              	ENCRYPTED_COMMENT_67168_null
+encrypted_name_xxxxxx_encrypt_message	string              	ENCRYPTED_COMMENT_xxxxxx_null
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -59,15 +61,16 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
+Detailed Partition Information	Partition(values:[2011, 1, 2], dbName:encrypt_db4alter, tableName:tbl4fileformat_external, createTime:1516741611, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:encrypted_name_xxxxxx_encrypt_server, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:encrypted_name_xxxxxx_encrypt_message, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat_external/2011/01/02, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 OK
 year=2011/month=1/day=2
 OK
 hms                 	int                 	                    
 severity            	string              	                    
-ENCRYPTED_NAME_52007_encrypt_server	string              	ENCRYPTED_COMMENT_65472_null
+ENCRYPTED_NAME_xxxxxx_encrypt_server	string              	ENCRYPTED_COMMENT_xxxxxx_null
 process_id          	int                 	                    
-ENCRYPTED_NAME_53064_encrypt_message	string              	ENCRYPTED_COMMENT_17857_null
+ENCRYPTED_NAME_xxxxxx_encrypt_message	string              	ENCRYPTED_COMMENT_xxxxxx_null
 year                	int                 	                    
 month               	int                 	                    
 day                 	int                 	                    
@@ -79,6 +82,7 @@ year                	int
 month               	int                 	                    
 day                 	int                 	                    
 	 	 
+Detailed Partition Information	Partition(values:[2011, 1, 2], dbName:encrypt_db4alter, tableName:tbl4fileformat_external, createTime:1516741611, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:hms, type:int, comment:null), FieldSchema(name:severity, type:string, comment:null), FieldSchema(name:ENCRYPTED_NAME_xxxxxx_encrypt_server, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:process_id, type:int, comment:null), FieldSchema(name:ENCRYPTED_NAME_xxxxxx_encrypt_message, type:string, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:year, type:int, comment:null), FieldSchema(name:month, type:int, comment:null), FieldSchema(name:day, type:int, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4alter.db/tbl4fileformat_external/2011/01/02, inputFormat:org.apache.hadoop.mapred.SequenceFileInputFormat, outputFormat:org.apache.hadoop.mapred.SequenceFileOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=	, field.delim=
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4alter>.<tbl4fileformat_external>.<encrypt_server>, <encrypt_db4alter>.<tbl4fileformat_external>.<encrypt_message>
 OK

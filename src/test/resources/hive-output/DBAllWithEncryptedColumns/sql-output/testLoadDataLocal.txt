@@ -4,8 +4,8 @@ Loading data to table encrypt_db4data.collecttest
 OK
 OK
 12,1,11,10
-FAILED: SemanticException [Error 10004]: Line 2:51 Invalid table alias or column reference 'str': (possible column names are: encrypted_name_76345_str, countval) or Column insufficient privileges to access: str
-FAILED: SemanticException [Error 10004]: Line 2:70 Invalid table alias or column reference 'str': (possible column names are: encrypted_name_95280_str, countval) or Column insufficient privileges to access: str
+FAILED: SemanticException [Error 10004]: Line 2:51 Invalid table alias or column reference 'str': (possible column names are: encrypted_name_xxxxxx_str, countval) or Column insufficient privileges to access: str
+FAILED: SemanticException [Error 10004]: Line 2:70 Invalid table alias or column reference 'str': (possible column names are: encrypted_name_xxxxxx_str, countval) or Column insufficient privileges to access: str
 OK
 1	1
 10	1
