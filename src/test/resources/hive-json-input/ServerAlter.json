@@ -1,18 +1,19 @@
-[ {
-  "id": "testAccessNoPrivilegeDB",
-  "tag": "Server",
-  "desc": "The case will test AccessNoPrivilegeDB.",
-  "cases": [
-    {
-      "type": "file/sql",
-      "name": "testAccessNoPrivilegeDB.sql"
-    },
-    {
-      "type": "file/sql",
-      "name": "testAccessNoPrivilegeDB.txt"
-    }
-  ]
-},
+[
+  {
+    "id": "testAccessNoPrivilegeDB",
+    "tag": "Server",
+    "desc": "The case will test AccessNoPrivilegeDB.",
+    "cases": [
+      {
+        "type": "file/sql",
+        "name": "testAccessNoPrivilegeDB.sql"
+      },
+      {
+        "type": "file/sql",
+        "name": "testAccessNoPrivilegeDB.txt"
+      }
+    ]
+  },
   {
     "id": "testAddFileWithoutTable",
     "tag": "Server",
