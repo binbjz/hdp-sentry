@@ -1,7 +1,7 @@
 #!/bin/bash
 #filename: hive_env.sh
 #
-#The script will define three different types of authentication
+#The script will define five different types of authentication
 #
 
 # Define param and env for hive
