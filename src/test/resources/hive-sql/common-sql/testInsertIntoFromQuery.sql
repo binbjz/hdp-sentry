@@ -32,4 +32,3 @@ INSERT INTO testdb.insert_overwrite_tbl SELECT * FROM testdb.src_insert_overwrit
 SELECT * FROM testdb.insert_overwrite_tbl;
 
 SELECT ROW_NUMBER() OVER(PARTITION BY ip ORDER BY ip DESC) ID, name, ip FROM testdb.src_insert_overwrite_tbl;
-
