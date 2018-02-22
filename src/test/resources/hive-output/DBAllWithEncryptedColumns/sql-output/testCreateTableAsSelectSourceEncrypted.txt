@@ -3,6 +3,6 @@ OK
 Loading data to table encrypt_db4data.session_src_encrypted
 2 Rows loaded to encrypt_db4data.session_src_encrypted
 OK
-FAILED: SemanticException Line 0:-1 Invalid column reference 'encrypted_name_14728_encrypt_page_url'
+FAILED: SemanticException Line 0:-1 Invalid column reference 'encrypted_name_xxxxxx_encrypt_page_url'
 OK
 OK

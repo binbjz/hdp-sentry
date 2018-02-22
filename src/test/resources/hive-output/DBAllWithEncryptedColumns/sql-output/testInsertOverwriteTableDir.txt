@@ -8,7 +8,7 @@ OK
 OK
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_employees>.<encrypt_name>, <encrypt_db4data>.<encrypt_employees>.<encrypt_salary>
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_tgt_employees>.<encrypt_name>, <encrypt_db4data>.<encrypt_tgt_employees>.<encrypt_salary>
-FAILED: SemanticException [Error 10004]: Line 4:7 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_45795_encrypt_name, encrypted_name_55892_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
+FAILED: SemanticException [Error 10004]: Line 4:7 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_xxxxxx_encrypt_name, encrypted_name_xxxxxx_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<encrypt_tgt_employees>.<encrypt_name>, <encrypt_db4data>.<encrypt_tgt_employees>.<encrypt_salary>
 OK
 c0

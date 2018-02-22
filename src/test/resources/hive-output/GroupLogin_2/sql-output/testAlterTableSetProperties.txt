@@ -9,7 +9,7 @@ numRows	-1
 rawDataSize	-1
 totalSize	0
 OK
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/hdp_qa@ALL does not have privileges for ALTERTABLE_ADDCOLS
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. User hdp_qa/hdp_qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group does not have privileges for ALTERTABLE_ADDCOLS
 OK
 COLUMN_STATS_ACCURATE	true
 comment	用户维度表

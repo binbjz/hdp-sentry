@@ -1,8 +1,8 @@
 OK
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE_AS_SELECT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group does not have privileges for CREATETABLE_AS_SELECT)
 FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
 OK
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for CREATETABLE_AS_SELECT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group does not have privileges for CREATETABLE_AS_SELECT)
 FAILED: SemanticException [Error 10001]: Line 3:14 Table not found 'ndm_user_ctas'
 OK
 OK

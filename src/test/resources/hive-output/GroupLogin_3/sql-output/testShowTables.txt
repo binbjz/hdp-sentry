@@ -57,8 +57,9 @@ waimai_order_shard__wm
 OK
 OK
 dpmid_ugcreview_basereview
+FAILED: SemanticException Database insufficient privileges to access: <test_login_db>
 OK
+dpmid_ugcreview_basereview
+FAILED: SemanticException Database insufficient privileges to access: <test_login_db_tbl>
 OK
-OK
-OK
-test_tbl
+dpmid_ugcreview_basereview
