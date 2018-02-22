@@ -5,24 +5,24 @@ OK
 OK
 Loading data to table encrypt_db4data.encrypt_test_analyze partition (country=US, state=CA)
 OK
-FAILED: SemanticException [Error 10002]: Invalid column reference 'encrypt_salary' (possible columns are [name, ENCRYPTED_NAME_96113_encrypt_salary, subordinates, deductions, address])
+FAILED: SemanticException [Error 10002]: Invalid column reference 'encrypt_salary' (possible columns are [name, ENCRYPTED_NAME_xxxxxx_encrypt_salary, subordinates, deductions, address])
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_38739_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
-Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
-Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
-OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_27571_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_xxxxxx_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
 OK
-encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_59292_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_xxxxxx_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=CA} stats: [numFiles=1, numRows=0, totalSize=427, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=IL} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+Partition encrypt_db4data.encrypt_test_analyze{country=US, state=OR} stats: [numFiles=0, numRows=0, totalSize=0, rawDataSize=0]
+OK
+encrypt_db4data.encrypt_test_analyze.name	encrypt_db4data.encrypt_test_analyze.encrypted_name_xxxxxx_encrypt_salary	encrypt_db4data.encrypt_test_analyze.subordinates	encrypt_db4data.encrypt_test_analyze.deductions	encrypt_db4data.encrypt_test_analyze.address	encrypt_db4data.encrypt_test_analyze.country	encrypt_db4data.encrypt_test_analyze.state
 OK
 col_name	data_type	comment
 name                	string              	                    
-ENCRYPTED_NAME_59119_encrypt_salary	float               	ENCRYPTED_COMMENT_88735_null
+ENCRYPTED_NAME_xxxxxx_encrypt_salary	float               	ENCRYPTED_COMMENT_xxxxxx_null
 subordinates        	array<string>       	                    
 deductions          	map<string,float>   	                    
 address             	struct<street:string,city:string,state:string,zip:int>	                    
@@ -35,10 +35,11 @@ state               	string
 country             	string              	                    
 state               	string              	                    
 	 	 
+Detailed Table Information	Table(tableName:encrypt_test_analyze, dbName:encrypt_db4data, owner:hdp_qa, createTime:1519286035, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:name, type:string, comment:null), FieldSchema(name:ENCRYPTED_NAME_xxxxxx_encrypt_salary, type:float, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:subordinates, type:array<string>, comment:null), FieldSchema(name:deductions, type:map<string,float>, comment:null), FieldSchema(name:address, type:struct<street:string,city:string,state:string,zip:int>, comment:null), FieldSchema(name:country, type:string, comment:null), FieldSchema(name:state, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_test_analyze, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{colelction.delim=|, mapkey.delim==, serialization.format=,, field.delim=,, line.delim=	 
 OK
 col_name	data_type	comment
 name                	string              	                    
-ENCRYPTED_NAME_65914_encrypt_salary	float               	ENCRYPTED_COMMENT_71787_null
+ENCRYPTED_NAME_xxxxxx_encrypt_salary	float               	ENCRYPTED_COMMENT_xxxxxx_null
 subordinates        	array<string>       	                    
 deductions          	map<string,float>   	                    
 address             	struct<street:string,city:string,state:string,zip:int>	                    
@@ -51,5 +52,6 @@ state               	string
 country             	string              	                    
 state               	string              	                    
 	 	 
+Detailed Partition Information	Partition(values:[US, CA], dbName:encrypt_db4data, tableName:encrypt_test_analyze, createTime:1519286035, lastAccessTime:0, sd:StorageDescriptor(cols:[FieldSchema(name:name, type:string, comment:null), FieldSchema(name:ENCRYPTED_NAME_xxxxxx_encrypt_salary, type:float, comment:ENCRYPTED_COMMENT_xxxxxx_null), FieldSchema(name:subordinates, type:array<string>, comment:null), FieldSchema(name:deductions, type:map<string,float>, comment:null), FieldSchema(name:address, type:struct<street:string,city:string,state:string,zip:int>, comment:null), FieldSchema(name:country, type:string, comment:null), FieldSchema(name:state, type:string, comment:null)], location:viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_test_analyze/country=US/state=CA, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{colelction.delim=|, mapkey.delim==, serialization.format=,, field.delim=,, line.delim=	 
 Moved: 'viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/encrypt_test_analyze/country=US/state=CA/california-employees.csv' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current
 OK

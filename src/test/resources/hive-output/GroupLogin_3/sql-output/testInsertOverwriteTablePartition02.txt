@@ -1,6 +1,6 @@
 OK
-Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=OR)
 Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=IL)
+Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=OR)
 Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=CA)
 4 Rows loaded to mart_waimai.employees_insert_overwrite
 OK

@@ -1,8 +1,8 @@
 OK
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group does not have privileges for INSERT)
 OK
 employees_insert_overwrite.name	employees_insert_overwrite.salary	employees_insert_overwrite.subordinates	employees_insert_overwrite.deductions	employees_insert_overwrite.address	employees_insert_overwrite.country	employees_insert_overwrite.state
-FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ALL does not have privileges for INSERT)
+FAILED: SemanticException InvalidOperationException(message:User hdp_qa/hdp_qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group does not have privileges for INSERT)
 OK
 Loading data to table mart_waimai.employees_insert_overwrite partition (country=US, state=null)
 	Loading partition {country=US, state=CA}

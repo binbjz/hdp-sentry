@@ -1,7 +1,7 @@
 OK
-FAILED: SemanticException [Error 10004]: Line 3:61 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_80910_encrypt_name, encrypted_name_42701_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
+FAILED: SemanticException [Error 10004]: Line 3:61 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_xxxxxx_encrypt_name, encrypted_name_xxxxxx_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
 FAILED: SemanticException [Error 10004]: Line 2:128 Invalid table alias or column reference 'encrypt_name': (possible column names are: subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
-FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_31117_encrypt_name, encrypted_name_37593_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
+FAILED: SemanticException [Error 10004]: Line 2:7 Invalid table alias or column reference 'encrypt_name': (possible column names are: encrypted_name_xxxxxx_encrypt_name, encrypted_name_xxxxxx_encrypt_salary, subordinates, deductions, address, country, state) or Column insufficient privileges to access: encrypt_name
 OK
 ["Mary Smith","Todd Jones"]	{"State Taxes":0.05,"Insurance":0.1,"Federal Taxes":0.2}	{"street":"Michigan Ave.","city":"Chicago","state":"IL","zip":60600}	US	CA
 ["Bill King"]	{"State Taxes":0.05,"Insurance":0.1,"Federal Taxes":0.2}	{"street":"Ontario St.","city":"Chicago","state":"IL","zip":60601}	US	CA

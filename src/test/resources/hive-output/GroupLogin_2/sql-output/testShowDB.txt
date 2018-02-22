@@ -10,5 +10,3 @@ origindb
 origindb_delta
 origin_dianping
 origin_waimai
-test_login_db
-test_login_db_tbl

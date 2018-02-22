@@ -22,6 +22,6 @@ OK
 row_count
 3
 FAILED: SemanticException Column insufficient privileges to access: <encrypt_db4data>.<table_tgt>.<name>
-FAILED: SemanticException [Error 10004]: Line 3:63 Invalid table alias or column reference 'name': (possible column names are: table_tgt.encrypted_name_84382_name, table_tgt.ip) or Column insufficient privileges to access: name
+FAILED: SemanticException [Error 10004]: Line 3:63 Invalid table alias or column reference 'name': (possible column names are: table_tgt.encrypted_name_xxxxxx_name, table_tgt.ip) or Column insufficient privileges to access: name
 OK
 OK
