@@ -122,7 +122,7 @@ for tc in $sentry_tcs; do
     fi
 
     # Grant user with group privilege while running in group test
-    if echo "$tc" | egrep -qi "'$include_patt3'"; then
+    if echo "$tc" | egrep -qi "$include_patt3"; then
         source $project_dir/src/main/resources/hive_env.sh $privil_type_ug normal
     else
         source $project_dir/src/main/resources/hive_env.sh $privil_type normal
