@@ -1,4 +1,5 @@
 #!/bin/bash
+# filename:ci_shell.sh
 # If you run the project in jenkins, please add the following code in "Execute shell"
 #
 
@@ -16,11 +17,101 @@ echo "JENKINS_HOME --> ${JENKINS_HOME}"
 echo "JOB_NAME --> ${JOB_NAME##*/}-${BUILD_NUMBER}"
 echo "========================================================="
 
-# Generate coverage data file
 BUILD_ERR=126
 LIB_DIR=test_lib
 MVN_REPO=`git rev-parse --show-toplevel`/.m2/repository
-COVERAGE_OPTIONS="org.jacoco:jacoco-maven-plugin:0.7.9:prepare-agent"
+
+
+echo "========================================================="
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Extract service jars..\n"
+
+# hadoop, sentry job path
+: /opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/sentry-1.8.0_cov
+: /opt/meituan/jenkins/workspace/ep_team/tne_test/data_test/mthadoop-2.7.1-hyzs2.0_cov
+
+# hadoop, sentry class path
+: /opt/meituan/qa_test/data_bin/sentry-1.8.0_hive-1.2.1_coverage-src/hadoop_cov
+: /opt/meituan/qa_test/data_bin/sentry-1.8.0_hive-1.2.1_coverage-src/sentry_cov
+
+
+# dest jars path
+root_dir=/opt/meituan/jenkins/workspace/ep_team/tne_test/data_test
+dest_dir=/opt/meituan/qa_test/data_bin/sentry-1.8.0_hive-1.2.1_coverage-src
+dest_jars_dirs=$dest_dir/hadoop_sentry_jars
+hdp_job_name=mthadoop-2.7.1-hyzs2.0_cov
+sentry_job_name=sentry-1.8.0_cov
+
+# clean older residual files
+rm -rf $dest_dir/hadoop_cov/* $dest_dir/hadoop_sentry_jars/* $dest_dir/hdp_sentry_classes/* $dest_dir/sentry_cov/* 2 > /dev/null
+
+# find hdfs source code jar and copy them to appropriate directory
+hadoop_dir=$root_dir/$hdp_job_name/hadoop-dist/target/hadoop-2.7.1/share/hadoop
+#find $hadoop_dir -maxdepth 2 \( -path '/hdfs' -o -path '/common' \) -o \( -name hadoop-hdfs-2.7.1.jar -o -name hadoop-common-2.7.1.jar \) -exec cp -fp \{\} $dest_jars_dirs \;
+
+# find sentry source code jar and copy them to appropriate directory
+sentry_dir=$root_dir/$sentry_job_name/sentry-dist/target/apache-sentry-1.8.0-mt-SNAPSHOT-bin/apache-sentry-1.8.0-mt-SNAPSHOT-bin/lib
+find $sentry_dir -iregex '.*sentry-service-\(client\|server\)-.*\.jar\|.*sentry-\(provider-db-\|hdfs-service\).*\.jar' -exec cp -fp \{\} $dest_jars_dirs \;
+
+# extract all class from dest jars to appropriate directory
+for f in $dest_jars_dirs/*.jar
+do
+    filename=$(basename $f)
+    if [[ ${filename/hadoop/} != $filename ]]; then
+        echo extracting `basename $f` to appropriate directory..
+        jar_dir=$dest_dir/hadoop_cov/`basename ${f%.*r}`
+        mkdir -p $jar_dir && cp -fp $f $jar_dir && \
+        unzip -o $jar_dir/`basename $f` -d $jar_dir
+        echo
+    elif [[ ${filename/sentry/} != $filename ]]; then
+        echo extracting `basename $f` to appropriate directory..
+        jar_dir=$dest_dir/sentry_cov/`basename ${f%.*r}`
+        mkdir -p $jar_dir && cp -fp $f $jar_dir && \
+        unzip -o $jar_dir/`basename $f` -d $jar_dir
+        echo
+    else
+       echo "Please confirm the correctness of the hadoop and sentry jars.."
+    fi
+done
+
+# copy all class to the class directory
+classes_dir=/opt/meituan/qa_test/data_bin/sentry-1.8.0_hive-1.2.1_coverage-src/hdp_sentry_classes
+
+if [ -d "$classes_dir" ]; then
+    echo "$classes_dir already exists. Re-creating $classes_dir"
+    rm -rf $classes_dir && mkdir -p $classes_dir
+else
+    echo "Creating $classes_dir"
+    mkdir -p $classes_dir
+fi
+
+find $dest_dir \( -path '/hadoop_cov' -o -path '/sentry_cov' \) -o -name '*.class' -exec cp -fp \{\} $classes_dir \;
+
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Extract service jars..\n"
+echo "========================================================="
+
+
+# Launch sentry service with agent patch
+SERV_F=/opt/meituan/versions/sentry-1.8.0-package/scripts/plus/run.sh
+
+sed -ri 's/-Djute.maxbuffer=[0-9]+/& -javaagent:\/opt\/meituan\/qa_test\/jacocoagent.jar=output=tcpserver,port=6300,address=*/' $SERV_F
+kill -9 $(awk '{print $2}' <<< `ps aux | grep [S]entry`) && \
+echo "Service is already started with agent patch successfully." && sleep 6 || exit 127
+echo -n `/usr/sbin/lsof -i:6300 | grep -qi listen` && echo "Port is already opened." || exit 128
+
+
+# Clean code coverage data
+PLUS_NAME=meituan.data.hadoop.sentry
+HOST_IP=10.20.94.3
+BRANCH_NAME=1.8.0
+
+cd $WORKSPACE
+coverage_dir=architect-env-coverage
+[ -d "$coverage_dir" ] && rm -rf "$coverage_dir"
+
+git clone ssh://git@git.sankuai.com/~zhaobin11/architect-env-coverage.git
+cd architect-env-coverage && git checkout --track origin/plus-master
+python lib/CoverageMaster.py -n $PLUS_NAME -t test -a clean -i $HOST_IP -b $BRANCH_NAME
+
 
 echo "========================================================="
 echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Build..\n"
@@ -48,7 +139,17 @@ cp -rp $MVN_REPO/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar $LIB_DIR
 cp -rp $MVN_REPO/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar $LIB_DIR
 
 echo "========================================================="
-echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Run Sentry Hive1.2 Test..\n"
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO Start Run sentry hive1.2 Test..\n"
 /usr/bin/time -f "Time: %U" bash ./src/main/resources/sentry_dispatcher.sh
-echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Run Sentry Hive1.2 Test..\n"
+echo -e "\n`date +%Y-%m-%d_%H:%M:%S.%N` INFO End Run sentry hive1.2 Test..\n"
 echo "========================================================="
+
+
+# Dump code coverage
+CLASS_DIR=/opt/meituan/qa_test/data_bin/sentry-1.8.0_hive-1.2.1_coverage-src/hdp_sentry_classes
+python architect-env-coverage/lib/CoverageMaster.py -n $PLUS_NAME -t test -a dump -c $CLASS_DIR -j ${JOB_NAME##*/} -i $HOST_IP -b $BRANCH_NAME
+
+# Recover sentry service without agent patch
+sed -ri 's/(-Djute.maxbuffer=[0-9]+).*(")/\1\2/' $SERV_F
+kill -9 $(awk '{print $2}' <<< `ps aux | grep [S]entry`) && \
+echo "Service is already started without agent patch successfully." && sleep 6 || exit 129
