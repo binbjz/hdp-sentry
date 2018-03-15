@@ -91,9 +91,9 @@ echo "========================================================="
 
 
 # Launch sentry service with agent patch
-SERV_F=/opt/meituan/versions/sentry-1.8.0-package/scripts/plus/run.sh
+SERVICE_FILE=/opt/meituan/versions/sentry-1.8.0-package/scripts/plus/run.sh
 
-sed -ri 's/-Djute.maxbuffer=[0-9]+/& -javaagent:\/opt\/meituan\/qa_test\/jacocoagent.jar=output=tcpserver,port=6300,address=*/' $SERV_F
+sed -ri 's/-Djute.maxbuffer=[0-9]+/& -javaagent:\/opt\/meituan\/qa_test\/jacocoagent.jar=output=tcpserver,port=6300,address=*/' ${SERVICE_FILE}
 kill -9 $(awk '{print $2}' <<< `ps aux | grep [S]entry`) && \
 echo "Service is already started with agent patch successfully." && sleep 6 || exit 127
 echo -n `/usr/sbin/lsof -i:6300 | grep -qi listen` && echo "Port is already opened." || exit 128
@@ -151,6 +151,6 @@ CLASS_DIR=/opt/meituan/qa_test/data_bin/sentry-1.8.0_hive-1.2.1_coverage-src/hdp
 python architect-env-coverage/lib/CoverageMaster.py -n $PLUS_NAME -t test -a dump -c $CLASS_DIR -j ${JOB_NAME##*/} -i $HOST_IP -b $BRANCH_NAME
 
 # Recover sentry service without agent patch
-sed -ri 's/(-Djute.maxbuffer=[0-9]+).*(")/\1\2/' $SERV_F
+sed -ri 's/(-Djute.maxbuffer=[0-9]+).*(")/\1\2/' ${SERVICE_FILE}
 kill -9 $(awk '{print $2}' <<< `ps aux | grep [S]entry`) && \
 echo "Service is already started without agent patch successfully." && sleep 6 || exit 129
