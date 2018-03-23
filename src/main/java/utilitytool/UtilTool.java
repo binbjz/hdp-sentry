@@ -25,12 +25,11 @@ public class UtilTool {
 
 
         String regx6 = "Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sankuai/hdp_qa/07f381a2-2100-42a8-b141-d6a416532db5/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current";
-//        System.out.println(filterResults(regx6));
-
-//        String regx7 = "encrypted_name_[36212_encrypt_name";
         String regx7 = "encrypted_name_91717_encrypt_salary";
 
-        System.out.println(filterResults(regx7));
+        String regx8 = "createTime:15[19285855";
+        String regx9 = "task_1505297521386_[3739]2_m_000000";
+        System.out.println(filterResults(regx9));
     }
 
     /**
@@ -170,10 +169,11 @@ public class UtilTool {
         String REGEX_2 = "([A-Za-z0-9]+-){4,}[A-Za-z0-9]+";
         String REGEX2_ = "(?i).*(encrypted_name|ENCRYPTED_COMMENT)_(\\[|\\d)+_.*";
         String REGEX2_2 = "_.?\\d+";
+        String REGEX3_ = "(?i).*(createTime:|task_)\\d+(_?\\[)\\d+.*";
+        String REGEX3_3 = "[:_].*";
         String REPLACE_ = "xxxxxx";
 
         String REPLACE = "";
-//        String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5 + "|" + REGEX6;
         String prefixes = REGEX + "|" + REGEX2 + "|" + REGEX3 + "|" + REGEX4 + "|" + REGEX5;
         String REGEXS = "(" + prefixes + ")";
 
@@ -183,6 +183,9 @@ public class UtilTool {
             return str;
         } else if (str.matches(REGEX2_)) {
             str = str.replaceAll(REGEX2_2, "_" + REPLACE_);
+            return str;
+        } else if (str.matches(REGEX3_)) {
+            str = str.replaceAll(REGEX3_3, "_" + REPLACE_);
             return str;
         } else {
             Pattern p = Pattern.compile(REGEXS, Pattern.CASE_INSENSITIVE);
