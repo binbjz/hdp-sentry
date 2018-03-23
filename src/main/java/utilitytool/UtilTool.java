@@ -149,8 +149,7 @@ public class UtilTool {
             sb.append(s).append(" ");
         }
 
-        String str2 = sb.substring(0, sb.length() - 1);
-        return str2;
+        return sb.substring(0, sb.length() - 1);
     }
 
     /**
