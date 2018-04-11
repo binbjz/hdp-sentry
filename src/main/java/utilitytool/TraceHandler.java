@@ -26,14 +26,15 @@ public class TraceHandler {
                 throw new IllegalArgumentException("object is null");
             }
 
-            if (key.equals("className")) {
-                return element.getClassName();
-            } else if (key.equals("methodName")) {
-                return element.getMethodName();
-            } else if (key.equals("lineNum")) {
-                return String.valueOf(element.getLineNumber());
-            } else if (key.equals("fileName")) {
-                return element.getFileName();
+            switch (key) {
+                case "className":
+                    return element.getClassName();
+                case "methodName":
+                    return element.getMethodName();
+                case "lineNum":
+                    return String.valueOf(element.getLineNumber());
+                case "fileName":
+                    return element.getFileName();
             }
         } catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();

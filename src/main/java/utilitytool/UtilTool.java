@@ -156,7 +156,7 @@ public class UtilTool {
      * This method will filter these strings that contain timestamp, ip port, exception stack and redundant information
      * example: "17/09/13 14:39:55 INFO xxxxxx" will be replaced with an empty string
      */
-    public static String filterResults(String str) {
+    private static String filterResults(String str) {
 
         String REGEX = "((\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2}\\s+\\d{2}:\\d{2}(:\\d{2})?|\\d{2}:\\d{2}|(\\d{2}|\\d{4})(/|-)\\d{1,2}(/|-)\\d{1,2})";
         String REGEX2 = ".*(Time|CliDriver|Logging|Stage|reduce|MapReduce|Job|Query).*";
