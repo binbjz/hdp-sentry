@@ -1,0 +1,4 @@
+*.sh linguist-language=java
+*.xml linguist-language=java
+*.html linguist-language=java
+*.json linguist-language=java
