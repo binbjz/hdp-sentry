@@ -116,7 +116,7 @@ rm -rf /opt/meituan/qa_test/sentry-test
 exit
 
 4. clone code to jinxin02 directory
-git clone ssh://git@git/~zhaobin11/sentry-test.git
+git clone ssh://git@git/~zhaobin/sentry-test.git
 
 5. su to root
 sudo -iu sk
@@ -124,7 +124,7 @@ $ sudo less /opt/meituan/log_agent/logs/log_agent.info
 !
 
 6. copy directory to /opt/meituan/qa_test
-\cp -rp /home/zhaobin11/sentry-test /opt/meituan/qa_test/
+\cp -rp /home/zhaobin/sentry-test /opt/meituan/qa_test/
 
 8. change own to sk
 chown sk:sk -R /opt/meituan/qa_test/sentry-test
