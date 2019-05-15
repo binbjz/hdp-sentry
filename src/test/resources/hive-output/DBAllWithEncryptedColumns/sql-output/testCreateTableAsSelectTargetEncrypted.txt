@@ -3,7 +3,7 @@ OK
 Loading data to table encrypt_db4data.session_test
 2 Rows loaded to encrypt_db4data.session_test
 OK
-Execution log at: /var/sankuai/logs/hive1.2/sankuai/hive.log
+Execution log at: /var/sk/logs/hive1.2/sk/hive.log
 Execution completed successfully
 MapredLocal task succeeded
 Moving data to: viewfs://hadoop-meituan-test/user/hive/warehouse/encrypt_db4data.db/sessionization_step_one_origins_tgt_encrypted
