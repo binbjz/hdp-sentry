@@ -24,7 +24,7 @@ public class UtilTool {
 //        System.out.println(filterResults(regx5));
 
 
-        String regx6 = "Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sankuai/hdp_qa/07f381a2-2100-42a8-b141-d6a416532db5/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current";
+        String regx6 = "Moved: 'viewfs://hadoop-meituan-test/tmp/hive-scratch/hive-sk/hdp_qa/07f381a2-2100-42a8-b141-d6a416532db5/_tmp_space.db/Values__Tmp__Table__1' to trash at: hdfs://hadoop-meituan-test/user/hdp_qa/.Trash/Current";
         String regx7 = "encrypted_name_91717_encrypt_salary";
 
         String regx8 = "createTime:15[19285855";

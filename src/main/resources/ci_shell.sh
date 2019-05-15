@@ -100,7 +100,7 @@ echo -n `/usr/sbin/lsof -i:6300 | grep -qi listen` && echo "Port is already open
 
 
 # Clean code coverage data
-GIT_ADDR=ssh://git@git.sankuai.com/~zhaobin11/architect-env-coverage.git
+GIT_ADDR=ssh://git@git.sk.com/~zhaobin/architect-env-coverage.git
 PLUS_NAME=meituan.data.hadoop.sentry
 HOST_IP=10.20.94.3
 BRANCH_NAME=1.8.0
