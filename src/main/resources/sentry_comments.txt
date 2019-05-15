@@ -116,7 +116,7 @@ rm -rf /opt/meituan/qa_test/sentry-test
 exit
 
 4. clone code to jinxin02 directory
-git clone ssh://git@git/~zhaobin11/sentry-test.git
+git clone ssh://git@git/~zhaobin/sentry-test.git
 
 5. su to root
 sudo -iu sk
@@ -124,7 +124,7 @@ $ sudo less /opt/meituan/log_agent/logs/log_agent.info
 !
 
 6. copy directory to /opt/meituan/qa_test
-\cp -rp /home/zhaobin11/sentry-test /opt/meituan/qa_test/
+\cp -rp /home/zhaobin/sentry-test /opt/meituan/qa_test/
 
 8. change own to sk
 chown sk:sk -R /opt/meituan/qa_test/sentry-test
@@ -220,7 +220,7 @@ sentry服务的重启：在dx-data-hive-metastore01切到sk用户，执行sudo s
 sudo -iusk
 export HADOOP_JAR_AUTHENTICATION=KERBEROS
 export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
-export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@sk.COM
 export HADOOP_PROXY_USER=server_all
 /opt/meituan/hive-1.2/bin/hive
 
@@ -228,7 +228,7 @@ export HADOOP_PROXY_USER=server_all
 sudo -iusk
 export HADOOP_JAR_AUTHENTICATION=KERBEROS
 export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
-export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@sk.COM
 export HADOOP_PROXY_USER=hdp_qa/hdp_qa@ba_ups_group,dim_group,dw_group,mart_waimai_group,mart_waimai_crm_group,mart_wmorg_group,origin_waimai_group,origindb_group,origindb_delta_group,origin_dianping_group
 
 
@@ -241,7 +241,7 @@ java -cp .:./junit.jar:./sentry_test.jar:./hamcrest-core-1.3.jar org.junit.runne
 
 hadoop-launcher.keytab
 export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
-export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@sk.COM
 export HADOOP_PROXY_USER=server_all
 
 
@@ -378,7 +378,7 @@ test_db2
 sudo -iusk
 export HADOOP_JAR_AUTHENTICATION=KERBEROS
 export HADOOP_JAR_KERBEROS_KEYTAB_FILE=/etc/hadoop/keytabs/hadoop-launcher.keytab
-export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@SANKUAI.COM
+export HADOOP_JAR_KERBEROS_PRINCIPAL=hadoop-launcher/_HOST@sk.COM
 export HADOOP_PROXY_USER=hadoop-qa/hdp_qa@all
 /opt/meituan/hive-1.2/bin/hive
 
